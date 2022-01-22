@@ -44,6 +44,7 @@ public class Robot extends TimedRobot
         // autonomous chooser on the dashboard.
         robotContainer = new RobotContainer();
         theDrivebase = new Drivebase4Motor();
+        theOi = new Oi();
     }
     
     
