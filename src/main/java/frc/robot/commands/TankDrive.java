@@ -6,27 +6,23 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.services.Oi;
+import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.ExampleSubsystem;
 
 
 
-/** An example command that uses an example subsystem. */
-public class ExampleCommand extends CommandBase
+public class TankDrive extends CommandBase
 {
     @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-    private final ExampleSubsystem subsystem;
-    
-    
-    /**
-     * Creates a new ExampleCommand.
-     *
-     * @param subsystem The subsystem used by this command.
-     */
-    public ExampleCommand(ExampleSubsystem subsystem)
+    private final Drivebase subsystem;
+    private final Oi oi;
+
+    public TankDrive(Drivebase subsystem, Oi oi)
     {
         this.subsystem = subsystem;
-        // Use addRequirements() here to declare subsystem dependencies.
         addRequirements(subsystem);
+        this.oi = oi;
     }
     
     
@@ -37,7 +33,10 @@ public class ExampleCommand extends CommandBase
     
     // Called every time the scheduler runs while the command is scheduled.
     @Override
-    public void execute() {}
+    public void execute()
+    {
+        subsystem.runMotor(oi.getLeftY(), oi.getRightY());
+    }
     
     
     // Called once the command ends or is interrupted.
