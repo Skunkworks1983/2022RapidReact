@@ -45,6 +45,10 @@ public final class Constants
             public static final int rightMotor3DeviceNumber = 12;
         }
 
+        public class collector
+        {
+            public static final int collectorMotorDeviceNumber = 1000;
+        } //todo change this idk
     }
 
 
