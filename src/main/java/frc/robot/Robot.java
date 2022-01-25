@@ -8,7 +8,12 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-
+import frc.robot.commands.TankDrive;
+import frc.robot.services.Oi;
+import frc.robot.subsystems.Drivebase;
+import frc.robot.subsystems.drivebases.Drivebase2Motor;
+import frc.robot.subsystems.drivebases.Drivebase4Motor;
+import frc.robot.subsystems.drivebases.Drivebase6Motor;
 
 
 /**
@@ -22,6 +27,10 @@ public class Robot extends TimedRobot
     private Command autonomousCommand;
     
     private RobotContainer robotContainer;
+
+    private Drivebase theDrivebase;
+
+    private Oi theOi;
     
     
     /**
@@ -34,6 +43,8 @@ public class Robot extends TimedRobot
         // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
         // autonomous chooser on the dashboard.
         robotContainer = new RobotContainer();
+        theDrivebase = new Drivebase4Motor();
+        theOi = new Oi();
     }
     
     
@@ -68,9 +79,9 @@ public class Robot extends TimedRobot
     @Override
     public void autonomousInit()
     {
-        autonomousCommand = robotContainer.getAutonomousCommand();
-        
-        // schedule the autonomous command (example)
+        //autonomousCommand = robotContainer.getAutonomousCommand();
+        //todo build auto
+        //schedule the autonomous command (example)
         if (autonomousCommand != null)
         {
             autonomousCommand.schedule();
@@ -90,10 +101,14 @@ public class Robot extends TimedRobot
         // teleop starts running. If you want the autonomous to
         // continue until interrupted by another command, remove
         // this line or comment it out.
+
+        Command tankDrive = new TankDrive(theDrivebase, theOi);
+
         if (autonomousCommand != null)
         {
             autonomousCommand.cancel();
         }
+        tankDrive.schedule();
     }
     
     
