@@ -22,8 +22,8 @@ public final class Constants
     {
         public class twoMotors
         {
-            public static final int leftMotor1DeviceNumber = 2;
             public static final int rightMotor1DeviceNumber = 1;
+            public static final int leftMotor1DeviceNumber = 2;
 
         }
 

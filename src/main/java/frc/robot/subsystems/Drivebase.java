@@ -7,15 +7,11 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.constants.Constants;
 
 
-public class Drivebase extends SubsystemBase
+public abstract class Drivebase extends SubsystemBase
 {
     public Drivebase()
     {
 
     }
-    public void runMotor(double turnSpeedLeft, double turnSpeedRight)
-    {
-
-    }
-
+    public abstract void runMotor(double turnSpeedLeft, double turnSpeedRight);
 }

@@ -14,6 +14,7 @@ public class Drivebase6Motor extends Drivebase
     CANSparkMax rightMotor1 = new CANSparkMax(Constants.MotorPorts.sixMotors.rightMotor1DeviceNumber, CANSparkMaxLowLevel.MotorType.kBrushless);
     CANSparkMax rightMotor2 = new CANSparkMax(Constants.MotorPorts.sixMotors.rightMotor2DeviceNumber, CANSparkMaxLowLevel.MotorType.kBrushless);
     CANSparkMax rightMotor3 = new CANSparkMax(Constants.MotorPorts.sixMotors.rightMotor3DeviceNumber, CANSparkMaxLowLevel.MotorType.kBrushless);
+
     public void runMotor(double turnSpeedLeft, double turnSpeedRight)
     {
         leftMotor1.set(-turnSpeedLeft);

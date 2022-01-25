@@ -15,6 +15,8 @@ public class Drivebase4Motor extends Drivebase
     TalonSRX rightMotor1 = new TalonSRX(Constants.MotorPorts.fourMotors.rightMotor1DeviceNumber);
     TalonSRX rightMotor2 = new TalonSRX(Constants.MotorPorts.fourMotors.rightMotor2DeviceNumber);
 
+    @Override
+
     public void runMotor(double turnSpeedLeft, double turnSpeedRight)
     {
         leftMotor1.set(TalonSRXControlMode.PercentOutput, -turnSpeedLeft);
