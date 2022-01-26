@@ -47,8 +47,20 @@ public final class Constants
 
         public class collector
         {
-            public static final int collectorMotorDeviceNumber = 1000;
+            public static final int collectorMotorDeviceNumber = 1;
         } //todo change this idk
+
+        public class collectorServo
+        {
+            public static final int collectorServoDeviceNumber = 0;
+            public static final double collectorServoOpenedAngle = 0;
+            public static final double collectorServoClosedAngle = 0;
+        } //todo change to real angles
+
+        public class collectorRelay //probly
+        {
+            public static final
+        }
     }
 
 
