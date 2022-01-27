@@ -14,4 +14,8 @@ public abstract class Drivebase extends SubsystemBase
 
     }
     public abstract void runMotor(double turnSpeedLeft, double turnSpeedRight);
+
+    public abstract double getPosLeft();
+
+    public abstract double getPosRight();
 }

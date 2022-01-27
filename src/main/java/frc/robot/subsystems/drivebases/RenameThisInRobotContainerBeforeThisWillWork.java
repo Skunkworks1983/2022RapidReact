@@ -8,4 +8,14 @@ public class RenameThisInRobotContainerBeforeThisWillWork extends Drivebase
     {
 
     }
+
+    public double getPosLeft()
+    {
+        return 0;
+    }
+
+    public double getPosRight()
+    {
+        return 0;
+    }
 }
