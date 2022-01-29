@@ -30,22 +30,41 @@ public final class Constants
         public class fourMotors
         {
             public static final int leftMotor1DeviceNumber = 4;
-            public static final int rightMotor1DeviceNumber = 1;
             public static final int leftMotor2DeviceNumber = 3;
+            public static final int rightMotor1DeviceNumber = 1;
             public static final int rightMotor2DeviceNumber = 2;
         }
 
         public class sixMotors
         {
             public static final int leftMotor1DeviceNumber = 1;
-            public static final int rightMotor1DeviceNumber = 14;
             public static final int leftMotor2DeviceNumber = 2;
-            public static final int rightMotor2DeviceNumber = 13;
             public static final int leftMotor3DeviceNumber = 3;
+            public static final int rightMotor1DeviceNumber = 14;
+            public static final int rightMotor2DeviceNumber = 13;
             public static final int rightMotor3DeviceNumber = 12;
         }
 
     }
 
+    public class encoderPorts
+    {
+        public class twoMotorTalonSRX
+        {
 
+        }
+
+        public class fourMotorTalonSRX
+        {
+            public static final int leftAPort = 2;
+            public static final int leftBPort = 3;
+            public static final int rightAPort = 0;
+            public static final int rightBPort = 1;
+        }
+
+        public class sixMotorTalonSRX
+        {
+
+        }
+    }
 }
