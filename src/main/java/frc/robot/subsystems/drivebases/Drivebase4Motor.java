@@ -24,10 +24,10 @@ public class Drivebase4Motor extends Drivebase
     @Override
     public void runMotor(double turnSpeedLeft, double turnSpeedRight)
     {
-        leftMotor1.set(TalonSRXControlMode.PercentOutput, turnSpeedLeft);
-        leftMotor2.set(TalonSRXControlMode.PercentOutput, turnSpeedLeft);
-        rightMotor1.set(TalonSRXControlMode.PercentOutput, -turnSpeedRight);
-        rightMotor2.set(TalonSRXControlMode.PercentOutput, -turnSpeedRight);
+        leftMotor1.set(TalonSRXControlMode.PercentOutput, -turnSpeedLeft);
+        leftMotor2.set(TalonSRXControlMode.PercentOutput, -turnSpeedLeft);
+        rightMotor1.set(TalonSRXControlMode.PercentOutput, turnSpeedRight);
+        rightMotor2.set(TalonSRXControlMode.PercentOutput, turnSpeedRight);
     }
 
     public double getPosLeft()

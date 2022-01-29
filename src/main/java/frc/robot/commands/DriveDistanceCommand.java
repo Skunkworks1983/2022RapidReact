@@ -39,7 +39,7 @@ public class DriveDistanceCommand extends CommandBase
     @Override
     public void execute()
     {
-        System.out.println("Current distance Left: "+drivebase.getPosLeft()+" Feat, Current distance Right: "+drivebase.getPosRight()+" Feat");
+        System.out.println("Current distance Left: "+drivebase.getPosLeft()+" Feet, Current distance Right: "+drivebase.getPosRight()+" Feet");
     }
 
     /**
