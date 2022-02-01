@@ -59,7 +59,7 @@ public final class Constants
 
         public class collectorRelay //probly
         {
-            public static final
+            public static final int collectorRelayDeviceNumber = 1;
         }
     }
 

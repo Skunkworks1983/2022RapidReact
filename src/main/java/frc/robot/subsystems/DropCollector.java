@@ -5,10 +5,10 @@ import frc.robot.constants.Constants;
 
 public class DropCollector extends Collector
 {
-    public void dropCollector(boolean opened) //todo change name
+    Servo collectorRelease = new Servo(Constants.MotorPorts.collectorServo.collectorServoDeviceNumber);
+    public void dropCollector(boolean open) //todo change name
     {
-        Servo collectorRelease = new Servo(Constants.MotorPorts.collectorServo.collectorServoDeviceNumber);
-        if (opened)
+        if (open)
         {
             collectorRelease.setAngle(Constants.MotorPorts.collectorServo.collectorServoOpenedAngle);
         }
