@@ -11,9 +11,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.TankDrive;
 import frc.robot.services.Oi;
 import frc.robot.subsystems.Drivebase;
-import frc.robot.subsystems.drivebases.Drivebase2Motor;
 import frc.robot.subsystems.drivebases.Drivebase4Motor;
-import frc.robot.subsystems.drivebases.Drivebase6Motor;
 
 
 /**

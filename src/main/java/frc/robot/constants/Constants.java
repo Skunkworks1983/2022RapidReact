@@ -20,6 +20,13 @@ public final class Constants
 
     public class MotorPorts
     {
+        public class shooter
+        {
+            public static final int flyWheelDeviceNumber = 5;
+            public static final int liftBall1DeviceNumber = 6;
+            public static final int liftBall2DeviceNumber = 7;
+        }
+
         public class twoMotors
         {
             public static final int rightMotor1DeviceNumber = 1;
