@@ -15,6 +15,7 @@ import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.drivebases.Drivebase2Motor;
 import frc.robot.subsystems.drivebases.Drivebase4Motor;
 import frc.robot.subsystems.drivebases.Drivebase6Motor;
+import frc.robot.commands.RotateCommand;
 
 
 /**
@@ -80,7 +81,7 @@ public class Robot extends TimedRobot
     @Override
     public void autonomousInit()
     {
-        autonomousCommand = new DriveDistanceCommand(theDrivebase, -10, -0.2);
+        autonomousCommand = new RotateCommand(theDrivebase, 0.3, 90);
         //todo build auto
         //schedule the autonomous command (example)
         if (autonomousCommand != null)

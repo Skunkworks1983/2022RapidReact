@@ -35,6 +35,7 @@ public class Drivebase4Motor extends Drivebase
         leftMotor2.set(TalonSRXControlMode.PercentOutput, -turnSpeedLeft);
         rightMotor1.set(TalonSRXControlMode.PercentOutput, turnSpeedRight);
         rightMotor2.set(TalonSRXControlMode.PercentOutput, turnSpeedRight);
+        System.out.println("going at: "+turnSpeedLeft+" Left, going at: "+turnSpeedRight+" right, degree: "+getHeading());
     }
 
     public double getPosLeft()
@@ -50,7 +51,14 @@ public class Drivebase4Motor extends Drivebase
 
     public double getHeading()
     {
-        return gyro.getYaw();
+        if (gyro.getYaw() < 0)
+        {
+            return Math.abs(gyro.getYaw())+180;
+        }
+        else
+        {
+            return gyro.getYaw();
+        }
     }
 
     public boolean isCalibrating()
