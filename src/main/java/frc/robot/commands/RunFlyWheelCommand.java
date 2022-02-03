@@ -34,7 +34,14 @@ public class RunFlyWheelCommand extends CommandBase {
     @Override
     public void execute()
     {
-
+        if (button.get())
+        {
+            shooter.setFlyWheel(.5);
+        }
+        else
+        {
+            shooter.setFlyWheel(0);
+        }
     }
 
     /**
