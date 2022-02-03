@@ -9,6 +9,8 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.RunFlyWheelCommand;
+import frc.robot.commands.RunLiftBall1Command;
+import frc.robot.commands.RunLiftBall2Command;
 import frc.robot.commands.TankDrive;
 import frc.robot.services.Oi;
 import frc.robot.subsystems.Drivebase;
@@ -104,7 +106,9 @@ public class Robot extends TimedRobot
         // continue until interrupted by another command, remove
         // this line or comment it out.
 
-        Command runFlyWheelCommand = new RunFlyWheelCommand(theShooter,theOi.getShooterButton());
+        Command runFlyWheelCommand = new RunFlyWheelCommand(theShooter, theOi.getShooterButton());
+        Command runLiftBall1Command = new RunLiftBall1Command(theShooter, theOi.getLiftBall1Button());
+        Command runLiftBall2Command = new RunLiftBall2Command(theShooter, theOi.getLiftBall2Button());
         Command tankDrive = new TankDrive(theDrivebase, theOi);
 
         if (autonomousCommand != null)
