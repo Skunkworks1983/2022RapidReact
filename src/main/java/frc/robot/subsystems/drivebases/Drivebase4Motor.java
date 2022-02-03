@@ -2,9 +2,14 @@ package frc.robot.subsystems.drivebases;
 
 import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.kauailabs.navx.frc.AHRS;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.I2C;
+import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 import frc.robot.constants.Constants;
 import frc.robot.subsystems.Drivebase;
 
@@ -18,6 +23,8 @@ public class Drivebase4Motor extends Drivebase
 
     Encoder leftEncoder = new Encoder(Constants.encoderPorts.fourMotorTalonSRX.leftAPort, Constants.encoderPorts.fourMotorTalonSRX.leftBPort);
     Encoder rightEncoder = new Encoder(Constants.encoderPorts.fourMotorTalonSRX.rightAPort, Constants.encoderPorts.fourMotorTalonSRX.rightBPort);
+
+    AHRS gyro = new AHRS(I2C.Port.kOnboard);
 
     private final double distancePerMotorRotation = 0.006135923151543;
 
@@ -39,7 +46,16 @@ public class Drivebase4Motor extends Drivebase
     public double getPosRight()
     {
         return (-rightEncoder.getDistance());
-        //return (double)rightEncoder.get();
+    }
+
+    public double getHeading()
+    {
+        return gyro.getYaw();
+    }
+
+    public boolean isCalibrating()
+    {
+        return gyro.isCalibrating();
     }
 
     public Drivebase4Motor()

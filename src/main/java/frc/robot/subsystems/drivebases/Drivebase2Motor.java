@@ -33,4 +33,14 @@ public class Drivebase2Motor extends Drivebase
         leftMotor.setSelectedSensorPosition(distancePerMotorRotation);
         rightMotor.setSelectedSensorPosition(distancePerMotorRotation);
     }
+
+    public double getHeading()
+    {
+        return 0;
+    }
+
+    public boolean isCalibrating()
+    {
+        return false;
+    }
 }

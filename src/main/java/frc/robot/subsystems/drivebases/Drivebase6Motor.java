@@ -37,6 +37,16 @@ public class Drivebase6Motor extends Drivebase
         return (rightMotor1.getEncoder().getPosition() + rightMotor2.getEncoder().getPosition() + rightMotor3.getEncoder().getPosition())/3;
     }
 
+    public double getHeading()
+    {
+        return 0;
+    }
+
+    public boolean isCalibrating()
+    {
+        return false;
+    }
+
     public Drivebase6Motor()
     {
         leftMotor1.getEncoder().setPositionConversionFactor(distancePerMotorRotation);

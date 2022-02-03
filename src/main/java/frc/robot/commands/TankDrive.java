@@ -36,7 +36,7 @@ public class TankDrive extends CommandBase
     public void execute()
     {
         subsystem.runMotor(oi.getLeftY(), oi.getRightY());
-        System.out.println("Current distance Left: "+subsystem.getPosLeft()+" Feet, Current distance Right: "+subsystem.getPosRight()+" Feet");
+        System.out.println("CDFt Left: "+subsystem.getPosLeft()+", CDFt Right: "+subsystem.getPosRight()+", Degree: "+subsystem.getHeading()+", Calibrating: "+subsystem.isCalibrating());
     }
     
     
