@@ -115,8 +115,8 @@ public class Robot extends TimedRobot
         {
             autonomousCommand.cancel();
         }
+        runLiftBall2Command.schedule();
         tankDrive.schedule();
-
     }
     
     

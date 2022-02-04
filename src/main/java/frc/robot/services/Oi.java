@@ -16,7 +16,7 @@ public class Oi
     {
         leftStick = new Joystick(Constants.LEFT_JOY_STICK_PORT);
         rightStick = new Joystick(Constants.RIGHT_JOY_STICK_PORT);
-        shooterButton = new JoystickButton(leftStick,0);
+        shooterButton = new JoystickButton(leftStick,1);
         liftBall1Button = new JoystickButton(rightStick, Constants.Shooter_Button);
         liftBall2Button = new JoystickButton(rightStick, Constants.Shooter_Button);
     }
