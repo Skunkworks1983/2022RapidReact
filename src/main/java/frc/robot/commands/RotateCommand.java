@@ -25,14 +25,15 @@ public class RotateCommand extends CommandBase
     {
         startDegree = drivebase.getHeading();
 
+        System.out.println("turning to: "+(degree+startDegree));
         System.out.println("starting speed is: "+speed+", starting degree is: "+startDegree);
         if(degree > 0)
         {
-            drivebase.runMotor(speed, -speed);
+            drivebase.runMotor(-speed, speed);
         }
         else
         {
-            drivebase.runMotor(-speed, speed);
+            drivebase.runMotor(speed, -speed);
         }
     }
 
@@ -45,12 +46,18 @@ public class RotateCommand extends CommandBase
     @Override
     public boolean isFinished()
     {
-        System.out.println("turning to: "+(degree+startDegree));
         if(degree > 0)
         {
             if (startDegree+degree > 360)
             {
-                return startDegree + degree - 360 > drivebase.getHeading();
+                if(drivebase.getHeading() < startDegree)
+                {
+                    return startDegree + degree - 360 < drivebase.getHeading(); //here
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
@@ -61,7 +68,7 @@ public class RotateCommand extends CommandBase
         {
             if(startDegree+degree < 0)
             {
-                return startDegree + degree+360 > drivebase.getHeading();
+                return startDegree + degree + 360 > drivebase.getHeading();
             }
             else
             {

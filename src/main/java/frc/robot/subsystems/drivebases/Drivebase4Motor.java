@@ -51,14 +51,7 @@ public class Drivebase4Motor extends Drivebase
 
     public double getHeading()
     {
-        if (gyro.getYaw() < 0)
-        {
-            return Math.abs(gyro.getYaw())+180;
-        }
-        else
-        {
-            return gyro.getYaw();
-        }
+        return gyro.getYaw()+180;
     }
 
     public boolean isCalibrating()

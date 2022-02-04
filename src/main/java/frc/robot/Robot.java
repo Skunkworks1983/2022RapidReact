@@ -81,7 +81,7 @@ public class Robot extends TimedRobot
     @Override
     public void autonomousInit()
     {
-        autonomousCommand = new RotateCommand(theDrivebase, 0.3, 90);
+        autonomousCommand = new RotateCommand(theDrivebase, 0.6, 10);
         //todo build auto
         //schedule the autonomous command (example)
         if (autonomousCommand != null)
