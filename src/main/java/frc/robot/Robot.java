@@ -103,7 +103,7 @@ public class Robot extends TimedRobot
         // continue until interrupted by another command, remove
         // this line or comment it out.
 
-        Command runFlyWheelCommand = new RunFlyWheelCommand(theShooter, theOi.getShooterButton());
+        Command runFlyWheelCommand = new RunFlyWheelButtonCommand(theShooter, theOi.getShooterButton());
         Command runLiftBall1Command = new RunLiftBall1Command(theShooter, theOi.getLiftBall1Button());
         Command runLiftBall2Command = new RunLiftBall2Command(theShooter, theOi.getLiftBall2Button());
         Command runBothLifts = new RunBothLiftsCommandGroup(theShooter, theOi.getRunBothLifts());
