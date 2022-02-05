@@ -1,16 +1,17 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Collector;
+import frc.robot.services.Oi;
 
-public class Intake extends CommandBase
+public class buttonPressDetect extends CommandBase
 {
-    private final Collector subsystem;
+    private Oi oi;
+    private boolean
 
-     public Intake(Collector subsystem)
-     {
-         this.subsystem = subsystem;
-     }
+    public buttonPressDetect(Oi oi)
+    {
+        this.oi = oi;
+    }
 
     @Override
     public void initialize()
@@ -22,13 +23,13 @@ public class Intake extends CommandBase
     public void execute()
     {
         super.execute();
-    } // wheel stuff yay
+    }
 
     @Override
     public boolean isFinished()
     {
         return super.isFinished();
-    } //replace "super.isFinished()" with real thing
+    }
 
     @Override
     public void end(boolean interrupted)
