@@ -8,10 +8,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.commands.RunFlyWheelCommand;
-import frc.robot.commands.RunLiftBall1Command;
-import frc.robot.commands.RunLiftBall2Command;
-import frc.robot.commands.TankDrive;
+import frc.robot.commands.*;
 import frc.robot.services.Oi;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.drivebases.Drivebase4Motor;
@@ -109,13 +106,15 @@ public class Robot extends TimedRobot
         Command runFlyWheelCommand = new RunFlyWheelCommand(theShooter, theOi.getShooterButton());
         Command runLiftBall1Command = new RunLiftBall1Command(theShooter, theOi.getLiftBall1Button());
         Command runLiftBall2Command = new RunLiftBall2Command(theShooter, theOi.getLiftBall2Button());
+        Command runBothLifts = new RunBothLiftsCommandGroup(theShooter, theOi.getRunBothLifts());
         Command tankDrive = new TankDrive(theDrivebase, theOi);
 
         if (autonomousCommand != null)
         {
             autonomousCommand.cancel();
         }
-        runLiftBall2Command.schedule();
+        runFlyWheelCommand.schedule();
+        runBothLifts.schedule();
         tankDrive.schedule();
     }
     

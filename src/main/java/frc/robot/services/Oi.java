@@ -11,6 +11,7 @@ public class Oi
     JoystickButton shooterButton;
     JoystickButton liftBall1Button;
     JoystickButton liftBall2Button;
+    JoystickButton runBothLifts;
 
     public Oi()
     {
@@ -19,6 +20,7 @@ public class Oi
         shooterButton = new JoystickButton(leftStick,1);
         liftBall1Button = new JoystickButton(rightStick, Constants.Shooter_Button);
         liftBall2Button = new JoystickButton(rightStick, Constants.Shooter_Button);
+        runBothLifts = new JoystickButton(rightStick, Constants.Run_Both_Lifts);
     }
 
     public double getLeftY()
@@ -44,5 +46,7 @@ public class Oi
     {
         return liftBall2Button;
     }
+
+    public JoystickButton getRunBothLifts(){return runBothLifts;}
 }
 
