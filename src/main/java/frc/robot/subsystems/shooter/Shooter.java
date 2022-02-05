@@ -32,6 +32,10 @@ public class Shooter extends SubsystemBase
         liftBall2.set(TalonSRXControlMode.PercentOutput, speed);
     }
 
+    public double getFlywheelSpeed()
+        {
+           return flyWheel.getSelectedSensorVelocity();
+        }
 
     /** Creates a new ExampleSubsystem. */
     public Shooter() {}
