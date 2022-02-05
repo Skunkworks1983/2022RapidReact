@@ -17,9 +17,9 @@ public class RunFlyWheelCommand extends CommandBase {
     }    
     private Shooter shooter;
     private Button button;
-    private double KP = .0005;
+    private double KP = .000005;
     private double KF = .5;
-    private double setpoint;
+    private double setpoint = 9500;
 
     /**
      * The initial subroutine of a command.  Called once when the command is initially scheduled.
@@ -47,6 +47,7 @@ public class RunFlyWheelCommand extends CommandBase {
         {
             shooter.setFlyWheel(0);
         }
+        System.out.println(shooter.getFlywheelSpeed());
     }
 
     /**
