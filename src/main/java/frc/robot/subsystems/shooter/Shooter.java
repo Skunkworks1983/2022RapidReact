@@ -19,7 +19,7 @@ public class Shooter extends SubsystemBase
 
     public void setFlyWheel(double speed)
     {
-        flyWheel.set(TalonSRXControlMode.PercentOutput, speed);
+        flyWheel.set(TalonSRXControlMode.PercentOutput, -speed);
     }
 
     public void setLiftBall1(double speed)
@@ -29,7 +29,7 @@ public class Shooter extends SubsystemBase
 
     public void setLiftBall2(double speed)
     {
-        liftBall2.set(TalonSRXControlMode.PercentOutput, speed);
+        liftBall2.set(TalonSRXControlMode.PercentOutput, -speed);
     }
 
     public double getFlywheelSpeed()

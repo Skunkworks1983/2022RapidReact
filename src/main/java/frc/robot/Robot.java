@@ -103,7 +103,8 @@ public class Robot extends TimedRobot
         // continue until interrupted by another command, remove
         // this line or comment it out.
 
-        Command runFlyWheelCommand = new RunFlyWheelButtonCommand(theShooter, theOi.getShooterButton());
+        Command runHighFlyWheelCommand = new RunFlyWheelButtonCommand(theShooter, theOi.getShooterButton(), 0.9);
+        Command runLowFlyWheelCommand = new RunFlyWheelButtonCommand(theShooter, theOi.getShooterButton(), 0.45);
         Command runLiftBall1Command = new RunLiftBall1Command(theShooter, theOi.getLiftBall1Button());
         Command runLiftBall2Command = new RunLiftBall2Command(theShooter, theOi.getLiftBall2Button());
         Command runBothLifts = new RunBothLiftsCommandGroup(theShooter, theOi.getRunBothLifts());
@@ -113,8 +114,9 @@ public class Robot extends TimedRobot
         {
             autonomousCommand.cancel();
         }
-        runFlyWheelCommand.schedule();
-        runBothLifts.schedule();
+        runHighFlyWheelCommand.schedule();
+        runLiftBall1Command.schedule();
+        runLiftBall2Command.schedule();
         tankDrive.schedule();
     }
     

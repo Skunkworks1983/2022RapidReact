@@ -9,16 +9,17 @@ import frc.robot.subsystems.shooter.Shooter;
 
 public class RunFlyWheelButtonCommand extends CommandBase {
 
-    public RunFlyWheelButtonCommand(Shooter s, Button b) {
+    public RunFlyWheelButtonCommand(Shooter s, Button b, Double speed) {
         // each subsystem used by the command must be passed into the addRequirements() method (which takes a vararg of Subsystem)
         addRequirements();
         shooter = s;
         button = b;
+        KF = speed;
     }    
     private Shooter shooter;
     private Button button;
-    private double KP = .000005;
-    private double KF = .5;
+    private double KP = 0;
+    private double KF; //= .9;
     private double setpoint = 9500;
 
     /**
