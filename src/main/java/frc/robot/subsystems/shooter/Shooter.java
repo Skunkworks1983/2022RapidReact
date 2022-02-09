@@ -14,28 +14,38 @@ import static frc.robot.constants.Constants.MotorPorts.shooter.*;
 public class Shooter extends SubsystemBase
 {
     private TalonSRX flyWheel = new TalonSRX(flyWheelDeviceNumber);
-    private TalonSRX liftBall1 = new TalonSRX(liftBall1DeviceNumber);
-    private TalonSRX liftBall2 = new TalonSRX(liftBall2DeviceNumber);
+    private TalonSRX liftBall = new TalonSRX(liftBall1DeviceNumber);
+    private TalonSRX indexer = new TalonSRX(liftBall2DeviceNumber);
 
     public void setFlyWheel(double speed)
     {
         flyWheel.set(TalonSRXControlMode.PercentOutput, -speed);
     }
 
-    public void setLiftBall1(double speed)
+    public void setLiftBall(double speed)
     {
-        liftBall1.set(TalonSRXControlMode.PercentOutput, speed);
+        liftBall.set(TalonSRXControlMode.PercentOutput, speed);
     }
 
-    public void setLiftBall2(double speed)
+    public void setIndexer(double speed)
     {
-        liftBall2.set(TalonSRXControlMode.PercentOutput, -speed);
+        indexer.set(TalonSRXControlMode.PercentOutput, -speed);
     }
 
-    public double getFlywheelSpeed()
-        {
-           return flyWheel.getSelectedSensorVelocity();
-        }
+    public  double getLiftBallSpeed()
+    {
+        return  liftBall.getSelectedSensorVelocity();
+    }
+
+    public double getIndexerSpeed()
+    {
+        return indexer.getSelectedSensorVelocity();
+    }
+
+    public double getFlyWheelSpeed()
+    {
+        return -flyWheel.getSelectedSensorVelocity();
+    }
 
     /** Creates a new ExampleSubsystem. */
     public Shooter() {}

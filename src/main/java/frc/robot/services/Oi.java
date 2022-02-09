@@ -9,8 +9,8 @@ public class Oi
     Joystick leftStick;
     Joystick rightStick;
     JoystickButton shooterButton;
-    JoystickButton liftBall1Button;
-    JoystickButton liftBall2Button;
+    JoystickButton liftBallButton;
+    JoystickButton indexerButton;
     JoystickButton runBothLifts;
 
     public Oi()
@@ -18,8 +18,8 @@ public class Oi
         leftStick = new Joystick(Constants.LEFT_JOY_STICK_PORT);
         rightStick = new Joystick(Constants.RIGHT_JOY_STICK_PORT);
         shooterButton = new JoystickButton(leftStick, 1);
-        liftBall1Button = new JoystickButton(rightStick, Constants.Shooter_Button);
-        liftBall2Button = new JoystickButton(leftStick, 2);
+        liftBallButton = new JoystickButton(rightStick, Constants.Shooter_Button);
+        indexerButton = new JoystickButton(leftStick, 2);
         runBothLifts = new JoystickButton(rightStick, Constants.Run_Both_Lifts);
     }
 
@@ -37,14 +37,14 @@ public class Oi
         return shooterButton;
     }
 
-    public JoystickButton getLiftBall1Button()
+    public JoystickButton getLiftBallButton()
     {
-        return liftBall1Button;
+        return liftBallButton;
     }
 
-    public JoystickButton getLiftBall2Button()
+    public JoystickButton getIndexerButton()
     {
-        return liftBall2Button;
+        return indexerButton;
     }
 
     public JoystickButton getRunBothLifts(){return runBothLifts;}

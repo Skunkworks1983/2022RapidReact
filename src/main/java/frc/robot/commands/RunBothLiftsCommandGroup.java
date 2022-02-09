@@ -9,6 +9,6 @@ public class RunBothLiftsCommandGroup extends ParallelCommandGroup {
     public RunBothLiftsCommandGroup(Shooter s, Button b) {
         // TODO: Add your sequential commands in the super() call, e.g.
         //           super(new FooCommand(), new BarCommand());
-        super(new RunLiftBall1Command(s, b), new RunLiftBall2Command(s, b));
+        super(new RunLiftBallCommand(s, b), new RunIndexerCommand(s, b));
     }
 }

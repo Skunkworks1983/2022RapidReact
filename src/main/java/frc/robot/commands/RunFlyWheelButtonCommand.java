@@ -1,7 +1,5 @@
 package frc.robot.commands;
 
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.button.Button;
 import frc.robot.subsystems.shooter.Shooter;
@@ -14,13 +12,13 @@ public class RunFlyWheelButtonCommand extends CommandBase {
         addRequirements();
         shooter = s;
         button = b;
-        KF = speed;
+        setpoint = speed;
     }    
     private Shooter shooter;
     private Button button;
-    private double KP = 0;
-    private double KF; //= .9;
-    private double setpoint = 9500;
+    private double KP = .0005;
+    private double KF = .9;
+    private double setpoint;
 
     /**
      * The initial subroutine of a command.  Called once when the command is initially scheduled.
@@ -40,7 +38,7 @@ public class RunFlyWheelButtonCommand extends CommandBase {
     {
         if (button.get())
         {
-            double error = setpoint - shooter.getFlywheelSpeed();
+            double error = setpoint - shooter.getFlyWheelSpeed();
             double throttle = KF + KP * error;
             shooter.setFlyWheel(throttle);
         }
@@ -48,7 +46,7 @@ public class RunFlyWheelButtonCommand extends CommandBase {
         {
             shooter.setFlyWheel(0);
         }
-        System.out.println(shooter.getFlywheelSpeed());
+        System.out.println(shooter.getFlyWheelSpeed());
     }
 
     /**
