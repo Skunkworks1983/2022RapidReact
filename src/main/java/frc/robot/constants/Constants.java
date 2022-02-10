@@ -19,7 +19,9 @@ public final class Constants
 {
     public static final int LEFT_JOY_STICK_PORT = 0;
     public static final int RIGHT_JOY_STICK_PORT = 1;
-    public static final int Shooter_Button = 1;
+    public static final int LIFT_BALL_BUTTON = 2;
+    public static final int FLY_WHEEL_BUTTONS = 1;
+    public static final int INDEXER_BUTTON = 2;
     public static final int Run_Both_Lifts = 1;
 
     public class MotorPorts

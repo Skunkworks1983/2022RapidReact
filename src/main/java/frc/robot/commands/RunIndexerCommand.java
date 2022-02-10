@@ -7,14 +7,12 @@ import frc.robot.subsystems.shooter.Shooter;
 
 public class RunIndexerCommand extends CommandBase {
 
-    public RunIndexerCommand(Shooter s, Button b) {
+    public RunIndexerCommand(Shooter s) {
         // each subsystem used by the command must be passed into the addRequirements() method (which takes a vararg of Subsystem)
         addRequirements();
         shooter = s;
-        button = b;
     }
     private Shooter shooter;
-    private Button button;
 
     /**
      * The initial subroutine of a command.  Called once when the command is initially scheduled.
@@ -32,14 +30,7 @@ public class RunIndexerCommand extends CommandBase {
     @Override
     public void execute()
     {
-        if (button.get())
-        {
-            shooter.setIndexer(0.5);
-        }
-        else
-        {
-            shooter.setIndexer(0);
-        }
+        shooter.setIndexer(0.5);
         System.out.println(shooter.getIndexerSpeed());
     }
 
@@ -75,6 +66,6 @@ public class RunIndexerCommand extends CommandBase {
     @Override
     public void end(boolean interrupted)
     {
-
+        shooter.setIndexer(0);
     }
 }

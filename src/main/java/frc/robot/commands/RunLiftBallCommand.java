@@ -7,14 +7,12 @@ import frc.robot.subsystems.shooter.Shooter;
 
 public class RunLiftBallCommand extends CommandBase {
 
-    public RunLiftBallCommand(Shooter s, Button b) {
+    public RunLiftBallCommand(Shooter s) {
         // each subsystem used by the command must be passed into the addRequirements() method (which takes a vararg of Subsystem)
         addRequirements();
         shooter = s;
-        button = b;
     }
     private Shooter shooter;
-    private Button button;
 
     /**
      * The initial subroutine of a command.  Called once when the command is initially scheduled.
@@ -32,14 +30,7 @@ public class RunLiftBallCommand extends CommandBase {
     @Override
     public void execute()
     {
-        if (button.get())
-        {
-            shooter.setLiftBall(.5);
-        }
-        else
-        {
-            shooter.setLiftBall(0);
-        }
+        shooter.setLiftBall(.5);
         System.out.println(shooter.getLiftBallSpeed());
     }
 
@@ -75,6 +66,6 @@ public class RunLiftBallCommand extends CommandBase {
     @Override
     public void end(boolean interrupted)
     {
-
+        shooter.setLiftBall(0);
     }
 }

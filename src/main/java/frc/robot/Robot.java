@@ -44,8 +44,8 @@ public class Robot extends TimedRobot
         // autonomous chooser on the dashboard.
         robotContainer = new RobotContainer();
         theDrivebase = new Drivebase4Motor();
-        theOi = new Oi();
         theShooter = new Shooter();
+        theOi = new Oi(theDrivebase, theShooter);
     }
     
     
@@ -103,10 +103,6 @@ public class Robot extends TimedRobot
         // continue until interrupted by another command, remove
         // this line or comment it out.
 
-        Command runHighFlyWheelCommand = new RunFlyWheelButtonCommand(theShooter, theOi.getShooterButton(), 19000.0);
-        Command runLowFlyWheelCommand = new RunFlyWheelButtonCommand(theShooter, theOi.getShooterButton(), 0.45);
-        Command runLiftBallCommand = new RunLiftBallCommand(theShooter, theOi.getLiftBallButton());
-        Command runIndexerCommand = new RunIndexerCommand(theShooter, theOi.getIndexerButton());
         Command runBothLifts = new RunBothLiftsCommandGroup(theShooter, theOi.getRunBothLifts());
         Command tankDrive = new TankDrive(theDrivebase, theOi);
 
@@ -114,10 +110,7 @@ public class Robot extends TimedRobot
         {
             autonomousCommand.cancel();
         }
-        runHighFlyWheelCommand.schedule();
-        runLiftBallCommand.schedule();
-        runIndexerCommand.schedule();
-        tankDrive.schedule();
+        //tankDrive.schedule();
     }
     
     
