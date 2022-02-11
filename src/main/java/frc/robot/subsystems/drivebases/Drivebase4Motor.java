@@ -13,7 +13,6 @@ import edu.wpi.first.wpilibj.interfaces.Gyro;
 import frc.robot.constants.Constants;
 import frc.robot.subsystems.Drivebase;
 
-
 public class Drivebase4Motor extends Drivebase
 {
     TalonSRX leftMotor1 = new TalonSRX(Constants.MotorPorts.fourMotors.leftMotor1DeviceNumber);
@@ -31,17 +30,16 @@ public class Drivebase4Motor extends Drivebase
     @Override
     public void runMotor(double turnSpeedLeft, double turnSpeedRight)
     {
-        leftMotor1.set(TalonSRXControlMode.PercentOutput, -turnSpeedLeft);
-        leftMotor2.set(TalonSRXControlMode.PercentOutput, -turnSpeedLeft);
-        rightMotor1.set(TalonSRXControlMode.PercentOutput, turnSpeedRight);
-        rightMotor2.set(TalonSRXControlMode.PercentOutput, turnSpeedRight);
-        System.out.println("going at: "+turnSpeedLeft+" Left, going at: "+turnSpeedRight+" right, degree: "+getHeading());
+        leftMotor1.set(TalonSRXControlMode.PercentOutput, turnSpeedLeft);
+        leftMotor2.set(TalonSRXControlMode.PercentOutput, turnSpeedLeft);
+        rightMotor1.set(TalonSRXControlMode.PercentOutput, -turnSpeedRight);
+        rightMotor2.set(TalonSRXControlMode.PercentOutput, -turnSpeedRight);
+        //System.out.println("going at: "+turnSpeedLeft+" Left, going at: "+turnSpeedRight+" right, degree: "+getHeading());
     }
 
     public double getPosLeft()
     {
         return (leftEncoder.getDistance());
-        //return (double)leftEncoder.getRaw();
     }
 
     public double getPosRight()
@@ -51,7 +49,7 @@ public class Drivebase4Motor extends Drivebase
 
     public double getHeading()
     {
-        return gyro.getYaw()+180;
+        return gyro.getAngle();
     }
 
     public boolean isCalibrating()
@@ -65,7 +63,6 @@ public class Drivebase4Motor extends Drivebase
         leftMotor2.configSelectedFeedbackCoefficient(distancePerMotorRotation);
         rightMotor1.configSelectedFeedbackCoefficient(distancePerMotorRotation);
         rightMotor2.configSelectedFeedbackCoefficient(distancePerMotorRotation); */
-
         leftEncoder.setDistancePerPulse(distancePerMotorRotation);
         rightEncoder.setDistancePerPulse(distancePerMotorRotation);
     }

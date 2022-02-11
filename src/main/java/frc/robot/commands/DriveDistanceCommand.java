@@ -29,7 +29,7 @@ public class DriveDistanceCommand extends CommandBase
     {
         startDistanceFT = drivebase.getPosLeft();
 
-        drivebase.runMotor(-speed, -speed);
+        drivebase.runMotor(speed, speed);
     }
 
     /**
@@ -39,7 +39,7 @@ public class DriveDistanceCommand extends CommandBase
     @Override
     public void execute()
     {
-        System.out.println("Current distance Left: "+drivebase.getPosLeft()+" Feet, Current distance Right: "+drivebase.getPosRight()+" Feet");
+        System.out.println("Current distance Left: " + drivebase.getPosLeft() + " Feet, Current distance Right: " + drivebase.getPosRight() + " Feet");
     }
 
     /**

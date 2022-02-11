@@ -12,6 +12,7 @@ public class Oi
     {
         leftStick = new Joystick(Constants.LEFT_JOY_STICK_PORT);
         rightStick = new Joystick(Constants.RIGHT_JOY_STICK_PORT);
+        //todo make button class
     }
 
     public double getLeftY()
@@ -22,4 +23,6 @@ public class Oi
     {
         return rightStick.getY();
     }
+    public double getLeftX(){return leftStick.getX();}
+    public double getRight(){return rightStick.getX();}
 }

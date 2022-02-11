@@ -8,43 +8,63 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.services.Oi;
 import frc.robot.subsystems.Drivebase;
-import frc.robot.subsystems.ExampleSubsystem;
-
 
 
 public class TankDrive extends CommandBase
 {
     @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-    private final Drivebase subsystem;
+    private final Drivebase drivebase;
     private final Oi oi;
 
-    public TankDrive(Drivebase subsystem, Oi oi)
+    public TankDrive(Drivebase drivebase, Oi oi)
     {
-        this.subsystem = subsystem;
-        addRequirements(subsystem);
+        this.drivebase = drivebase;
+        addRequirements(drivebase);
         this.oi = oi;
     }
-    
-    
+
+
     // Called when the command is initially scheduled.
     @Override
-    public void initialize() {}
-    
-    
+    public void initialize()
+    {
+    }
+
+
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute()
     {
-        subsystem.runMotor(oi.getLeftY(), oi.getRightY());
+        double outputLeft = oi.getLeftY();
+        double outputRight = oi.getRightY();
+        if(outputLeft > 0)
+        {
+            outputLeft = Math.pow(outputLeft, 2);
+        }
+        else
+        {
+            outputLeft = -Math.abs(Math.pow(outputLeft, 2));
+        }
+        if(outputRight > 0)
+        {
+            outputRight = Math.pow(outputRight, 2);
+        }
+        else
+        {
+            outputRight= -Math.abs(Math.pow(outputRight, 2));
+        }
+        drivebase.runMotor(-outputLeft, -outputRight);
         //System.out.println("CDFt Left: "+subsystem.getPosLeft()+", CDFt Right: "+subsystem.getPosRight()+", Degree: "+subsystem.getHeading()+", Calibrating: "+subsystem.isCalibrating());
     }
-    
-    
+
+
     // Called once the command ends or is interrupted.
     @Override
-    public void end(boolean interrupted) {}
-    
-    
+    public void end(boolean interrupted)
+    {
+    }
+
+
     // Returns true when the command should end.
     @Override
     public boolean isFinished()

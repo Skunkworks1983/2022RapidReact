@@ -8,6 +8,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.DriveDistanceCommand;
 import frc.robot.commands.TankDrive;
 import frc.robot.services.Oi;
@@ -81,7 +82,7 @@ public class Robot extends TimedRobot
     @Override
     public void autonomousInit()
     {
-        autonomousCommand = new RotateCommand(theDrivebase, 0.6, 10);
+        autonomousCommand = new RotateCommand(theDrivebase,-90);
         //todo build auto
         //schedule the autonomous command (example)
         if (autonomousCommand != null)
@@ -104,13 +105,13 @@ public class Robot extends TimedRobot
         // continue until interrupted by another command, remove
         // this line or comment it out.
 
-        Command tankDrive = new TankDrive(theDrivebase, theOi);
+        Command drivebaseCommand = new TankDrive(theDrivebase, theOi);
 
         if (autonomousCommand != null)
         {
             autonomousCommand.cancel();
         }
-        tankDrive.schedule();
+        drivebaseCommand.schedule();
     }
     
     

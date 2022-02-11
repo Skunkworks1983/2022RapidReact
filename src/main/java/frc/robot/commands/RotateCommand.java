@@ -2,45 +2,52 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Drivebase;
-import frc.robot.subsystems.drivebases.Drivebase4Motor;
 
 
 public class RotateCommand extends CommandBase
 {
-    private Drivebase drivebase;
-    private double speed;
+    private final Drivebase drivebase;
     private double degree;
     private double startDegree;
+    private double finishDegree;
+    private double KP;
+    private double KF;
 
-    public RotateCommand(Drivebase drivebase, double speed, double degree)
+    public RotateCommand(Drivebase drivebase, double degree)
     {
         addRequirements();
         this.drivebase = drivebase;
         this.degree = degree;
-        this.speed = speed;
     }
 
     @Override
     public void initialize()
     {
+        if(Math.abs(degree) > 180)
+        {
+            if(degree > 0)
+            {
+                degree = degree - 360;
+            }
+            else
+            {
+                degree = degree + 360;
+            }
+        }
         startDegree = drivebase.getHeading();
-
-        System.out.println("turning to: "+(degree+startDegree));
-        System.out.println("starting speed is: "+speed+", starting degree is: "+startDegree);
-        if(degree > 0)
-        {
-            drivebase.runMotor(-speed, speed);
-        }
-        else
-        {
-            drivebase.runMotor(speed, -speed);
-        }
+        finishDegree = startDegree + degree;
+        KP = 0.01;
+        KF = 0.1;
+        System.out.println("turning to: " + (finishDegree));
+        System.out.println("starting speed is: " + (KP * (finishDegree - drivebase.getHeading())) + ", starting degree is: " + startDegree);
     }
 
     @Override
     public void execute()
     {
-
+        double error = finishDegree - drivebase.getHeading();
+        double speed = (KP * error) + Math.copySign(KF, error);
+        drivebase.runMotor(speed, -speed);
     }
 
     @Override
@@ -48,39 +55,18 @@ public class RotateCommand extends CommandBase
     {
         if(degree > 0)
         {
-            if (startDegree+degree > 360)
-            {
-                if(drivebase.getHeading() < startDegree)
-                {
-                    return startDegree + degree - 360 < drivebase.getHeading(); //here
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return startDegree + degree < drivebase.getHeading();
-            }
+            return drivebase.getHeading() > finishDegree;
         }
         else
         {
-            if(startDegree+degree < 0)
-            {
-                return startDegree + degree + 360 > drivebase.getHeading();
-            }
-            else
-            {
-                return startDegree + degree > drivebase.getHeading();
-            }
+            return drivebase.getHeading() < finishDegree;
         }
     }
 
     @Override
     public void end(boolean interrupted)
-        {
-            drivebase.runMotor(0, 0);
-            System.out.println("ending");
-        }
+    {
+        drivebase.runMotor(0, 0);
+        System.out.println("ending, final degree: " + drivebase.getHeading());
+    }
 }
