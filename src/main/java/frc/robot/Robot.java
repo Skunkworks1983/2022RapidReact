@@ -8,12 +8,11 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.commands.TankDrive;
+import frc.robot.commands.*;
 import frc.robot.services.Oi;
 import frc.robot.subsystems.Drivebase;
-import frc.robot.subsystems.drivebases.Drivebase2Motor;
 import frc.robot.subsystems.drivebases.Drivebase4Motor;
-import frc.robot.subsystems.drivebases.Drivebase6Motor;
+import frc.robot.subsystems.shooter.Shooter;
 
 
 /**
@@ -31,7 +30,8 @@ public class Robot extends TimedRobot
     private Drivebase theDrivebase;
 
     private Oi theOi;
-    
+
+    private Shooter theShooter;
     
     /**
      * This method is run when the robot is first started up and should be used for any
@@ -44,7 +44,8 @@ public class Robot extends TimedRobot
         // autonomous chooser on the dashboard.
         robotContainer = new RobotContainer();
         theDrivebase = new Drivebase4Motor();
-        theOi = new Oi();
+        theShooter = new Shooter();
+        theOi = new Oi(theDrivebase, theShooter);
     }
     
     
@@ -102,13 +103,14 @@ public class Robot extends TimedRobot
         // continue until interrupted by another command, remove
         // this line or comment it out.
 
+        Command runBothLifts = new RunBothLiftsCommandGroup(theShooter, theOi.getRunBothLifts());
         Command tankDrive = new TankDrive(theDrivebase, theOi);
 
         if (autonomousCommand != null)
         {
             autonomousCommand.cancel();
         }
-        tankDrive.schedule();
+        //tankDrive.schedule();
     }
     
     
