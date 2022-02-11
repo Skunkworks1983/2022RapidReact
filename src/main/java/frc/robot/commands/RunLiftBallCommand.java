@@ -7,7 +7,8 @@ import frc.robot.subsystems.shooter.Shooter;
 
 public class RunLiftBallCommand extends CommandBase {
 
-    public RunLiftBallCommand(Shooter s) {
+    public RunLiftBallCommand(Shooter s)
+    {
         // each subsystem used by the command must be passed into the addRequirements() method (which takes a vararg of Subsystem)
         addRequirements();
         shooter = s;

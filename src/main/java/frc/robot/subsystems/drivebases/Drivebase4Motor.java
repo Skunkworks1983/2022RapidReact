@@ -8,10 +8,10 @@ import frc.robot.subsystems.Drivebase;
 
 public class Drivebase4Motor extends Drivebase
 {
-    TalonSRX leftMotor1 = new TalonSRX(Constants.MotorPorts.fourMotors.leftMotor1DeviceNumber);
-    TalonSRX leftMotor2 = new TalonSRX(Constants.MotorPorts.fourMotors.leftMotor2DeviceNumber);
-    TalonSRX rightMotor1 = new TalonSRX(Constants.MotorPorts.fourMotors.rightMotor1DeviceNumber);
-    TalonSRX rightMotor2 = new TalonSRX(Constants.MotorPorts.fourMotors.rightMotor2DeviceNumber);
+    TalonSRX leftMotor1 = new TalonSRX(Constants.MotorPorts.FourMotors.LEFT_MOTOR_1_DEVICE_NUMBER);
+    TalonSRX leftMotor2 = new TalonSRX(Constants.MotorPorts.FourMotors.LEFT_MOTOR_2_DEVICE_NUMBER);
+    TalonSRX rightMotor1 = new TalonSRX(Constants.MotorPorts.FourMotors.RIGHT_MOTOR_1_DEVICE_NUMBER);
+    TalonSRX rightMotor2 = new TalonSRX(Constants.MotorPorts.FourMotors.RIGHT_MOTOR_2_DEVICE_NUMBER);
 
     @Override
 

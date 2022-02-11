@@ -5,19 +5,22 @@ import edu.wpi.first.wpilibj2.command.button.Button;
 import frc.robot.subsystems.shooter.Shooter;
 
 
-public class RunFlyWheelCommand extends CommandBase {
-
-    public RunFlyWheelCommand(Shooter s, Double speed) {
+public class RunFlyWheelCommand extends CommandBase
+{
+    private Shooter shooter;
+    private double KP = .0001;
+    private double KF;
+    private double setpoint;
+    public RunFlyWheelCommand(Shooter s, Double speed)
+    {
         // each subsystem used by the command must be passed into the addRequirements() method (which takes a vararg of Subsystem)
         addRequirements();
         shooter = s;
         setpoint = speed;
         KF = speed * .000046;
-    }    
-    private Shooter shooter;
-    private double KP = .0001;
-    private double KF;
-    private double setpoint;
+    }
+
+
 
     /**
      * The initial subroutine of a command.  Called once when the command is initially scheduled.
