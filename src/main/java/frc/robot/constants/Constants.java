@@ -60,12 +60,12 @@ public final class Constants
 
     public class encoderPorts
     {
-        public class twoMotorTalonSRX
+        public class TwoMotorTalonSRX
         {
 
         }
 
-        public class fourMotorTalonSRX
+        public class FourMotorTalonSRX
         {
             public static final int LEFT_A_PORT = 2;
             public static final int LEFT_B_PORT = 3;
@@ -73,7 +73,7 @@ public final class Constants
             public static final int RIGHT_B_PORT = 1;
         }
 
-        public class sixMotorTalonSRX
+        public class SixMotorTalonSRX
         {
 
         }
