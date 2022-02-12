@@ -18,7 +18,7 @@ public class DropCollectorCommand extends CommandBase
         public void initialize()
         {
             super.initialize();
-            subSystem.dropCollector(open);
+            subSystem.drop(open);
         }
 
         @Override

@@ -31,7 +31,7 @@ public class Oi
     JoystickButton upButton;
     JoystickButton downButton;
 
-    public Oi(Collector subsystem, DropCollector dropSubsystem, UpAndDownCollector upAndDownSubsystems, Drivebase d, Shooter s)
+    public Oi(Collector subsystem, DropCollector dropSubsystem, UpAndDownCollector upAndDownSubsystems, Drivebase drivebase, Shooter shooter)
     {
         leftStick = new Joystick(Constants.LEFT_JOY_STICK_PORT);
         rightStick = new Joystick(Constants.RIGHT_JOY_STICK_PORT);
@@ -40,10 +40,10 @@ public class Oi
         liftBallButton = new JoystickButton(rightStick, Constants.LIFT_BALL_BUTTON);
         indexerButton = new JoystickButton(leftStick, Constants.INDEXER_BUTTON);
         runBothLifts = new JoystickButton(rightStick, Constants.RUN_BOTH_LIFTS);
-        highShooterButton.whenHeld(new RunFlyWheelCommand(s, 19000.0)); // shoot high
-        lowShooterButton.whenHeld(new RunFlyWheelCommand(s, 9500.0)); // shoot low
-        indexerButton.whenHeld(new RunIndexerCommand(s));
-        liftBallButton.whenHeld(new RunLiftBallCommand(s));
+        highShooterButton.whenHeld(new RunFlyWheelCommand(shooter, 19000.0)); // shoot high
+        lowShooterButton.whenHeld(new RunFlyWheelCommand(shooter, 9500.0)); // shoot low
+        indexerButton.whenHeld(new RunIndexerCommand(shooter));
+        liftBallButton.whenHeld(new RunLiftBallCommand(shooter));
         intakeButton = new JoystickButton(leftStick, Constants.INTAKE_BUTTON);
         reverseIntakeButton = new JoystickButton(rightStick, Constants.REVERSE_INTAKE_BUTTON);
         dropOnButton = new JoystickButton(leftStick, Constants.DROP_ON_BUTTON);

@@ -14,7 +14,6 @@ import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.DropCollector;
 import frc.robot.subsystems.UpAndDownCollector;
-import frc.robot.subsystems.drivebases.Drivebase2Motor;
 import frc.robot.subsystems.drivebases.Drivebase4Motor;
 import frc.robot.subsystems.shooter.Shooter;
 

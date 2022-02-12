@@ -6,7 +6,7 @@ import frc.robot.constants.Constants;
 public class DropCollector extends Collector
 {
     Servo collectorRelease = new Servo(Constants.MotorPorts.CollectorServo.COLLECTOR_SERVO_DEVICE_NUMBER);
-    public void dropCollector(boolean open) //todo change name
+    public void drop(boolean open) //todo change name
     {
         if (open)
         {

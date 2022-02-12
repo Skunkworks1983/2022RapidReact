@@ -8,17 +8,17 @@ public class UpAndDownCollectorCommand extends CommandBase
     private final UpAndDownCollector subSystem;
     private boolean raised;
 
-    public UpAndDownCollectorCommand (UpAndDownCollector subSystem, boolean raised)
+    public UpAndDownCollectorCommand(UpAndDownCollector subSystem, boolean raised)
     {
         this.subSystem = subSystem;
-        this.raised = raised; //fixed ez ez
+        this.raised = raised;
     }
 
     @Override
     public void initialize()
     {
         super.initialize();
-        subSystem.raiseCollector(raised);
+        subSystem.raise(raised);
     }
 
     @Override
