@@ -44,7 +44,6 @@ public class Oi
     }
     public double getLeftX(){return leftStick.getX();}
     public double getRight(){return rightStick.getX();}
-}
 
     public JoystickButton getHighShooterButton()
     {
