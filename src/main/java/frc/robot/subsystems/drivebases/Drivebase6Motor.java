@@ -1,6 +1,5 @@
 package frc.robot.subsystems.drivebases;
 
-import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel;
 import frc.robot.constants.Constants;

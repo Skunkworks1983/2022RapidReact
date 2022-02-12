@@ -17,11 +17,20 @@ public final class Constants
 {
     public static final int LEFT_JOY_STICK_PORT = 0;
     public static final int RIGHT_JOY_STICK_PORT = 1;
-    public static final int DEGREE_BUTTON = 1;
-
+    public static final int LIFT_BALL_BUTTON = 2;
+    public static final int FLY_WHEEL_BUTTONS = 1;
+    public static final int INDEXER_BUTTON = 2;
+    public static final int Run_Both_Lifts = 1;
 
     public class MotorPorts
     {
+        public class shooter
+        {
+            public static final int flyWheelDeviceNumber = 5;
+            public static final int liftBall1DeviceNumber = 6;
+            public static final int liftBall2DeviceNumber = 7;
+        }
+
         public class twoMotors
         {
             public static final int rightMotor1DeviceNumber = 1;
@@ -32,18 +41,18 @@ public final class Constants
         public class fourMotors
         {
             public static final int leftMotor1DeviceNumber = 4;
-            public static final int leftMotor2DeviceNumber = 3;
             public static final int rightMotor1DeviceNumber = 1;
+            public static final int leftMotor2DeviceNumber = 3;
             public static final int rightMotor2DeviceNumber = 2;
         }
 
         public class sixMotors
         {
             public static final int leftMotor1DeviceNumber = 1;
-            public static final int leftMotor2DeviceNumber = 2;
-            public static final int leftMotor3DeviceNumber = 3;
             public static final int rightMotor1DeviceNumber = 14;
+            public static final int leftMotor2DeviceNumber = 2;
             public static final int rightMotor2DeviceNumber = 13;
+            public static final int leftMotor3DeviceNumber = 3;
             public static final int rightMotor3DeviceNumber = 12;
         }
 
