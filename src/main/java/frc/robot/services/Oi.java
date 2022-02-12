@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.DropCollectorCommand;
 import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.UpAndDownCollectorCommand;
-import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.RunFlyWheelCommand;
 import frc.robot.commands.RunIndexerCommand;
 import frc.robot.commands.RunLiftBallCommand;
@@ -45,12 +44,12 @@ public class Oi
         lowShooterButton.whenHeld(new RunFlyWheelCommand(s, 9500.0)); // shoot low
         indexerButton.whenHeld(new RunIndexerCommand(s));
         liftBallButton.whenHeld(new RunLiftBallCommand(s));
-        intakeButton = new JoystickButton(leftStick, Constants.intakeButton);
-        reverseIntakeButton = new JoystickButton(rightStick, Constants.reverseIntakeButton);
-        dropOnButton = new JoystickButton(leftStick, Constants.dropOnButton);
-        dropOffButton = new JoystickButton(rightStick, Constants.dropOffButton);
-        upButton = new JoystickButton(leftStick, Constants.upButton);
-        downButton = new JoystickButton(rightStick, Constants.downButton);
+        intakeButton = new JoystickButton(leftStick, Constants.INTAKE_BUTTON);
+        reverseIntakeButton = new JoystickButton(rightStick, Constants.REVERSE_INTAKE_BUTTON);
+        dropOnButton = new JoystickButton(leftStick, Constants.DROP_ON_BUTTON);
+        dropOffButton = new JoystickButton(rightStick, Constants.DROP_OFF_BUTTON);
+        upButton = new JoystickButton(leftStick, Constants.UP_BUTTON);
+        downButton = new JoystickButton(rightStick, Constants.DOWN_BUTTON);
         intakeButton.whenHeld(new IntakeCommand(subsystem, .5));
         reverseIntakeButton.whenHeld(new IntakeCommand(subsystem, -.5));
         dropOnButton.whenPressed(new DropCollectorCommand(dropSubsystem, true));
@@ -89,7 +88,4 @@ public class Oi
     }
 
     public JoystickButton getRunBothLifts(){return runBothLifts;}
-}
-
-
 }

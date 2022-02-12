@@ -5,7 +5,7 @@ import frc.robot.constants.Constants;
 
 public class UpAndDownCollector extends Collector
 {
-    Relay relayUpAndDown = new Relay(Constants.MotorPorts.collectorRelay.collectorRelayDeviceNumber);
+    Relay relayUpAndDown = new Relay(Constants.MotorPorts.collectorRelay.COLLECTOR_RELAY_DEVICE_NUMBER);
     public void raiseCollector(boolean raise)
     {
         if (raise)

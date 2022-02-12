@@ -5,8 +5,6 @@
 
 package frc.robot.constants;
 
-import frc.robot.commands.RunBothLiftsCommandGroup;
-
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -19,12 +17,12 @@ public final class Constants
 {
     public static final int LEFT_JOY_STICK_PORT = 0;
     public static final int RIGHT_JOY_STICK_PORT = 1;
-    public static final int intakeButton = 3;
-    public static final int reverseIntakeButton = 3;
-    public static final int dropOnButton = 4;
-    public static final int dropOffButton = 4;
-    public static final int upButton = 5;
-    public static final int downButton = 5;
+    public static final int INTAKE_BUTTON = 3;
+    public static final int REVERSE_INTAKE_BUTTON = 3;
+    public static final int DROP_ON_BUTTON = 4;
+    public static final int DROP_OFF_BUTTON = 4;
+    public static final int UP_BUTTON = 5;
+    public static final int DOWN_BUTTON = 5;
     public static final int LIFT_BALL_BUTTON = 2;
     public static final int FLY_WHEEL_BUTTONS = 1;
     public static final int INDEXER_BUTTON = 2;
@@ -66,19 +64,19 @@ public final class Constants
 
         public class collector
         {
-            public static final int collectorMotorDeviceNumber = 5;
+            public static final int COLLECTOR_MOTOR_DEVICE_NUMBER = 5;
         } //todo change this idk
 
         public class collectorServo
         {
-            public static final int collectorServoDeviceNumber = 0;
-            public static final double collectorServoOpenedAngle = 0;
-            public static final double collectorServoClosedAngle = 0;
+            public static final int COLLECTOR_SERVO_DEVICE_NUMBER = 0;
+            public static final double COLLECTOR_SERVO_OPENED_ANGLE = 0;
+            public static final double COLLECTOR_SERVO_CLOSED_ANGLE = 0;
         } //todo change to real angles
 
         public class collectorRelay //probably
         {
-            public static final int collectorRelayDeviceNumber = 1;
+            public static final int COLLECTOR_RELAY_DEVICE_NUMBER = 1;
         }
     }
 
