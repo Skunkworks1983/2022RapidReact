@@ -67,10 +67,10 @@ public final class Constants
 
         public class fourMotorTalonSRX
         {
-            public static final int leftAPort = 2;
-            public static final int leftBPort = 3;
-            public static final int rightAPort = 0;
-            public static final int rightBPort = 1;
+            public static final int LEFT_A_PORT = 2;
+            public static final int LEFT_B_PORT = 3;
+            public static final int RIGHT_A_PORT = 0;
+            public static final int RIGHT_B_PORT = 1;
         }
 
         public class sixMotorTalonSRX

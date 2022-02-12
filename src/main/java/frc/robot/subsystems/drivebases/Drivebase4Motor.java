@@ -3,13 +3,8 @@ package frc.robot.subsystems.drivebases;
 import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.kauailabs.navx.frc.AHRS;
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.I2C;
-import edu.wpi.first.wpilibj.SPI;
-import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.interfaces.Gyro;
 import frc.robot.constants.Constants;
 import frc.robot.subsystems.Drivebase;
 
@@ -21,8 +16,8 @@ public class Drivebase4Motor extends Drivebase
     TalonSRX rightMotor1 = new TalonSRX(Constants.MotorPorts.FourMotors.RIGHT_MOTOR_1_DEVICE_NUMBER);
     TalonSRX rightMotor2 = new TalonSRX(Constants.MotorPorts.FourMotors.RIGHT_MOTOR_2_DEVICE_NUMBER);
 
-    Encoder leftEncoder = new Encoder(Constants.encoderPorts.fourMotorTalonSRX.leftAPort, Constants.encoderPorts.fourMotorTalonSRX.leftBPort);
-    Encoder rightEncoder = new Encoder(Constants.encoderPorts.fourMotorTalonSRX.rightAPort, Constants.encoderPorts.fourMotorTalonSRX.rightBPort);
+    Encoder leftEncoder = new Encoder(Constants.encoderPorts.fourMotorTalonSRX.LEFT_A_PORT, Constants.encoderPorts.fourMotorTalonSRX.LEFT_B_PORT);
+    Encoder rightEncoder = new Encoder(Constants.encoderPorts.fourMotorTalonSRX.RIGHT_A_PORT, Constants.encoderPorts.fourMotorTalonSRX.RIGHT_B_PORT);
 
     AHRS gyro = new AHRS(I2C.Port.kOnboard);
 
