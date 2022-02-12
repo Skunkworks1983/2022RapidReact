@@ -7,8 +7,6 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.subsystems.Drivebase;
-import frc.robot.subsystems.drivebases.RenameThisInRobotContainerBeforeThisWillWork;
 
 
 /**
@@ -20,8 +18,7 @@ import frc.robot.subsystems.drivebases.RenameThisInRobotContainerBeforeThisWillW
 public class RobotContainer
 {
     // The robot's subsystems and commands are defined here...
-    
-    private final Drivebase drivebase = new RenameThisInRobotContainerBeforeThisWillWork();
+
 
 
     /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -45,7 +42,7 @@ public class RobotContainer
     }
     
     
-    /**
+    /*
      * Use this to pass the autonomous command to the main {@link Robot} class.
      *
      * @return the command to run in autonomous

@@ -7,8 +7,8 @@ import frc.robot.subsystems.Drivebase;
 
 public class Drivebase2Motor extends Drivebase
 {
-    TalonSRX leftMotor = new TalonSRX(Constants.MotorPorts.twoMotors.leftMotor1DeviceNumber);
-    TalonSRX rightMotor = new TalonSRX(Constants.MotorPorts.twoMotors.rightMotor1DeviceNumber);
+    TalonSRX leftMotor = new TalonSRX(Constants.MotorPorts.TwoMotors.LEFT_MOTOR_1_DEVICE_NUMBER);
+    TalonSRX rightMotor = new TalonSRX(Constants.MotorPorts.TwoMotors.RIGHT_MOTOR_1_DEVICE_NUMBER);
 
     private final double distancePerMotorRotation = 0.006135923151543;
 

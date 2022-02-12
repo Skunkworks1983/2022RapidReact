@@ -27,7 +27,7 @@ public class Oi
         lowShooterButton = new JoystickButton(rightStick, Constants.FLY_WHEEL_BUTTONS);
         liftBallButton = new JoystickButton(rightStick, Constants.LIFT_BALL_BUTTON);
         indexerButton = new JoystickButton(leftStick, Constants.INDEXER_BUTTON);
-        runBothLifts = new JoystickButton(rightStick, Constants.Run_Both_Lifts);
+        runBothLifts = new JoystickButton(rightStick, Constants.RUN_BOTH_LIFTS);
         highShooterButton.whenHeld(new RunFlyWheelCommand(s, 19000.0)); // shoot high
         lowShooterButton.whenHeld(new RunFlyWheelCommand(s, 9500.0)); // shoot low
         indexerButton.whenHeld(new RunIndexerCommand(s));
