@@ -7,12 +7,12 @@ import frc.robot.subsystems.Drivebase;
 
 public class Drivebase6Motor extends Drivebase
 {
-    CANSparkMax leftMotor1 = new CANSparkMax(Constants.MotorPorts.sixMotors.leftMotor1DeviceNumber, CANSparkMaxLowLevel.MotorType.kBrushless);
-    CANSparkMax leftMotor2 = new CANSparkMax(Constants.MotorPorts.sixMotors.leftMotor2DeviceNumber, CANSparkMaxLowLevel.MotorType.kBrushless);
-    CANSparkMax leftMotor3 = new CANSparkMax(Constants.MotorPorts.sixMotors.leftMotor3DeviceNumber, CANSparkMaxLowLevel.MotorType.kBrushless);
-    CANSparkMax rightMotor1 = new CANSparkMax(Constants.MotorPorts.sixMotors.rightMotor1DeviceNumber, CANSparkMaxLowLevel.MotorType.kBrushless);
-    CANSparkMax rightMotor2 = new CANSparkMax(Constants.MotorPorts.sixMotors.rightMotor2DeviceNumber, CANSparkMaxLowLevel.MotorType.kBrushless);
-    CANSparkMax rightMotor3 = new CANSparkMax(Constants.MotorPorts.sixMotors.rightMotor3DeviceNumber, CANSparkMaxLowLevel.MotorType.kBrushless);
+    CANSparkMax leftMotor1 = new CANSparkMax(Constants.MotorPorts.SixMotors.LEFT_MOTOR_1_DEVICE_NUMBER, CANSparkMaxLowLevel.MotorType.kBrushless);
+    CANSparkMax leftMotor2 = new CANSparkMax(Constants.MotorPorts.SixMotors.LEFT_MOTOR_2_DEVICE_NUMBER, CANSparkMaxLowLevel.MotorType.kBrushless);
+    CANSparkMax leftMotor3 = new CANSparkMax(Constants.MotorPorts.SixMotors.LEFT_MOTOR_3_DEVICE_NUMBER, CANSparkMaxLowLevel.MotorType.kBrushless);
+    CANSparkMax rightMotor1 = new CANSparkMax(Constants.MotorPorts.SixMotors.RIGHT_MOTOR_1_DEVICE_NUMBER, CANSparkMaxLowLevel.MotorType.kBrushless);
+    CANSparkMax rightMotor2 = new CANSparkMax(Constants.MotorPorts.SixMotors.RIGHT_MOTOR_2_DEVICE_NUMBER, CANSparkMaxLowLevel.MotorType.kBrushless);
+    CANSparkMax rightMotor3 = new CANSparkMax(Constants.MotorPorts.SixMotors.RIGHT_MOTOR_3_DEVICE_NUMBER, CANSparkMaxLowLevel.MotorType.kBrushless);
 
     public void runMotor(double turnSpeedLeft, double turnSpeedRight)
     {

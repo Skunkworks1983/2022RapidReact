@@ -7,15 +7,18 @@ package frc.robot.subsystems.shooter;
 
 import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-import static frc.robot.constants.Constants.MotorPorts.shooter.*;
+import static frc.robot.constants.Constants.MotorPorts.Shooter.*;
 
 public class Shooter extends SubsystemBase
 {
-    private TalonSRX flyWheel = new TalonSRX(flyWheelDeviceNumber);
-    private TalonSRX liftBall = new TalonSRX(liftBall1DeviceNumber);
-    private TalonSRX indexer = new TalonSRX(liftBall2DeviceNumber);
+    private TalonSRX flyWheel = new TalonSRX(FLY_WHEEL_DEVICE_NUMBER);
+    private TalonSRX liftBall = new TalonSRX(LIFT_BALL_DEVICE_NUMBER);
+    private TalonSRX indexer = new TalonSRX(INDEXER_DEVICE_NUMBER);
+    private DigitalInput intakeSensor = new DigitalInput(0);
+    private DigitalInput beforeFlyWheel = new DigitalInput(1);
 
     public void setFlyWheel(double speed)
     {
@@ -47,8 +50,15 @@ public class Shooter extends SubsystemBase
         return -flyWheel.getSelectedSensorVelocity();
     }
 
-    /** Creates a new ExampleSubsystem. */
-    public Shooter() {}
+    public boolean isBallAtIntake(){return intakeSensor.get();}
+
+    public boolean isBallBeforeFlyWheel(){return beforeFlyWheel.get();}
+
+    /** Creates a new Shooter. */
+    public Shooter()
+    {
+
+    }
 
     @Override
     public void periodic()
