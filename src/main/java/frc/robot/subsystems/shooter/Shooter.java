@@ -50,9 +50,9 @@ public class Shooter extends SubsystemBase
         return -flyWheel.getSelectedSensorVelocity();
     }
 
-    public boolean isBallAtIntake(){return intakeSensor.get();}
+    public boolean isBallAtIntake(){return !intakeSensor.get();}
 
-    public boolean isBallBeforeFlyWheel(){return beforeFlyWheel.get();}
+    public boolean isBallBeforeFlyWheel(){return !beforeFlyWheel.get();}
 
     /** Creates a new Shooter. */
     public Shooter()

@@ -4,10 +4,10 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.shooter.Shooter;
 
 
-public class LoadFirstBallCommand extends CommandBase
+public class LoadBallCommand extends CommandBase
 {
 
-    public LoadFirstBallCommand(Shooter s)
+    public LoadBallCommand(Shooter s)
     {
         // each subsystem used by the command must be passed into the addRequirements() method (which takes a vararg of Subsystem)
         addRequirements();
@@ -18,8 +18,7 @@ public class LoadFirstBallCommand extends CommandBase
     @Override
     public void initialize()
     {
-        shooter.setIndexer(.5);
-        shooter.setLiftBall(.5);
+
     }
 
     @Override
@@ -31,14 +30,12 @@ public class LoadFirstBallCommand extends CommandBase
     @Override
     public boolean isFinished()
     {
-        System.out.println("Is Finished");
-        return shooter.isBallBeforeFlyWheel();
+        return false;
     }
 
     @Override
     public void end(boolean interrupted)
     {
-        shooter.setIndexer(0);
-        shooter.setLiftBall(0);
+
     }
 }

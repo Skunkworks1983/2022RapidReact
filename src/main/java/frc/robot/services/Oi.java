@@ -2,6 +2,8 @@ package frc.robot.services;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.LoadFirstBallCommand;
+import frc.robot.commands.LoadSecondBallCommand;
 import frc.robot.commands.RunFlyWheelCommand;
 import frc.robot.commands.RunIndexerCommand;
 import frc.robot.commands.RunLiftBallCommand;
@@ -18,6 +20,8 @@ public class Oi
     JoystickButton liftBallButton;
     JoystickButton indexerButton;
     JoystickButton runBothLifts;
+    JoystickButton loadFirstBallButton;
+    JoystickButton loadSecondBallButton;
 
     public Oi(Drivebase d, Shooter s)
     {
@@ -28,10 +32,14 @@ public class Oi
         liftBallButton = new JoystickButton(rightStick, Constants.LIFT_BALL_BUTTON);
         indexerButton = new JoystickButton(leftStick, Constants.INDEXER_BUTTON);
         runBothLifts = new JoystickButton(rightStick, Constants.RUN_BOTH_LIFTS);
+        loadFirstBallButton = new JoystickButton(rightStick, Constants.LOAD_FIRST_BALL_BUTTON);
+        loadSecondBallButton = new JoystickButton(rightStick, Constants.LOAD_SECOND_BALL_BUTTON);
         highShooterButton.whenHeld(new RunFlyWheelCommand(s, 19000.0)); // shoot high
         lowShooterButton.whenHeld(new RunFlyWheelCommand(s, 9500.0)); // shoot low
         indexerButton.whenHeld(new RunIndexerCommand(s));
         liftBallButton.whenHeld(new RunLiftBallCommand(s));
+        loadFirstBallButton.whenHeld(new LoadFirstBallCommand(s));
+        loadSecondBallButton.whenHeld(new LoadSecondBallCommand(s));
     }
 
     public double getLeftY()
