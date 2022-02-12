@@ -17,7 +17,12 @@ public final class Constants
 {
     public static final int LEFT_JOY_STICK_PORT = 0;
     public static final int RIGHT_JOY_STICK_PORT = 1;
-    public static final int intakeButton = 1;
+    public static final int intakeButton = 3;
+    public static final int reverseIntakeButton = 3;
+    public static final int dropOnButton = 4;
+    public static final int dropOffButton = 4;
+    public static final int upButton = 5;
+    public static final int downButton = 5;
 
     public class MotorPorts
     {
@@ -48,7 +53,7 @@ public final class Constants
 
         public class collector
         {
-            public static final int collectorMotorDeviceNumber = 1;
+            public static final int collectorMotorDeviceNumber = 5;
         } //todo change this idk
 
         public class collectorServo
@@ -58,7 +63,7 @@ public final class Constants
             public static final double collectorServoClosedAngle = 0;
         } //todo change to real angles
 
-        public class collectorRelay //probly
+        public class collectorRelay //probably
         {
             public static final int collectorRelayDeviceNumber = 1;
         }

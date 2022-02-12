@@ -10,7 +10,10 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.TankDrive;
 import frc.robot.services.Oi;
+import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Drivebase;
+import frc.robot.subsystems.DropCollector;
+import frc.robot.subsystems.UpAndDownCollector;
 import frc.robot.subsystems.drivebases.Drivebase2Motor;
 import frc.robot.subsystems.drivebases.Drivebase4Motor;
 import frc.robot.subsystems.drivebases.Drivebase6Motor;
@@ -31,6 +34,12 @@ public class Robot extends TimedRobot
     private Drivebase theDrivebase;
 
     private Oi theOi;
+
+    private Collector theCollector;
+
+    private DropCollector theDropCollector;
+
+    private UpAndDownCollector theUpAndDownCollector;
     
     
     /**
@@ -44,7 +53,10 @@ public class Robot extends TimedRobot
         // autonomous chooser on the dashboard.
         robotContainer = new RobotContainer();
         theDrivebase = new Drivebase4Motor();
-        theOi = new Oi();
+        theCollector = new Collector();
+        theDropCollector = new DropCollector();
+        theUpAndDownCollector = new UpAndDownCollector();
+        theOi = new Oi(theCollector, theDropCollector, theUpAndDownCollector);
     }
     
     
