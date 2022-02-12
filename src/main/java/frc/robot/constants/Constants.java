@@ -17,6 +17,12 @@ public final class Constants
 {
     public static final int LEFT_JOY_STICK_PORT = 0;
     public static final int RIGHT_JOY_STICK_PORT = 1;
+    public static final int INTAKE_BUTTON = 3;
+    public static final int REVERSE_INTAKE_BUTTON = 3;
+    public static final int DROP_ON_BUTTON = 4;
+    public static final int DROP_OFF_BUTTON = 4;
+    public static final int UP_BUTTON = 5;
+    public static final int DOWN_BUTTON = 5; //line 22-25 will all be changed this is just an example
     public static final int LIFT_BALL_BUTTON = 2;
     public static final int FLY_WHEEL_BUTTONS = 1;
     public static final int INDEXER_BUTTON = 2;
@@ -56,6 +62,22 @@ public final class Constants
             public static final int RIGHT_MOTOR_3_DEVICE_NUMBER = 12;
         }
 
+        public class Collector
+        {
+            public static final int COLLECTOR_MOTOR_DEVICE_NUMBER = 5;
+        }
+
+        public class CollectorServo
+        {
+            public static final int COLLECTOR_SERVO_DEVICE_NUMBER = 0;
+            public static final double COLLECTOR_SERVO_OPENED_ANGLE = 0;
+            public static final double COLLECTOR_SERVO_CLOSED_ANGLE = 0;
+        } //todo change to real angles
+
+        public class CollectorRelay
+        {
+            public static final int COLLECTOR_RELAY_DEVICE_NUMBER = 1;
+        }
     }
 
     public class EncoderPorts
