@@ -16,8 +16,8 @@ public class Drivebase4Motor extends Drivebase
     TalonSRX rightMotor1 = new TalonSRX(Constants.MotorPorts.FourMotors.RIGHT_MOTOR_1_DEVICE_NUMBER);
     TalonSRX rightMotor2 = new TalonSRX(Constants.MotorPorts.FourMotors.RIGHT_MOTOR_2_DEVICE_NUMBER);
 
-    Encoder leftEncoder = new Encoder(Constants.encoderPorts.FourMotorTalonSRX.LEFT_A_PORT, Constants.encoderPorts.FourMotorTalonSRX.LEFT_B_PORT);
-    Encoder rightEncoder = new Encoder(Constants.encoderPorts.FourMotorTalonSRX.RIGHT_A_PORT, Constants.encoderPorts.FourMotorTalonSRX.RIGHT_B_PORT);
+    Encoder leftEncoder = new Encoder(Constants.EncoderPorts.FourMotorTalonSRX.LEFT_A_PORT, Constants.EncoderPorts.FourMotorTalonSRX.LEFT_B_PORT);
+    Encoder rightEncoder = new Encoder(Constants.EncoderPorts.FourMotorTalonSRX.RIGHT_A_PORT, Constants.EncoderPorts.FourMotorTalonSRX.RIGHT_B_PORT);
 
     AHRS gyro = new AHRS(I2C.Port.kOnboard);
 

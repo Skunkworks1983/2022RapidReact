@@ -58,7 +58,7 @@ public final class Constants
 
     }
 
-    public class encoderPorts
+    public class EncoderPorts
     {
         public class TwoMotorTalonSRX
         {
