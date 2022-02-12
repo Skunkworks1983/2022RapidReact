@@ -38,9 +38,20 @@ public class Oi
     {
         return leftStick.getY();
     }
+
     public double getRightY()
     {
         return rightStick.getY();
+    }
+
+    public double getLeftX()
+    {
+        return leftStick.getX();
+    }
+
+    public double getRight()
+    {
+        return rightStick.getX();
     }
 
     public JoystickButton getHighShooterButton()
@@ -63,6 +74,9 @@ public class Oi
         return indexerButton;
     }
 
-    public JoystickButton getRunBothLifts(){return runBothLifts;}
+    public JoystickButton getRunBothLifts()
+    {
+        return runBothLifts;
+    }
 }
 

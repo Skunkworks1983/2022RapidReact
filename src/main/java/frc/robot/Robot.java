@@ -103,14 +103,14 @@ public class Robot extends TimedRobot
         // continue until interrupted by another command, remove
         // this line or comment it out.
 
+        Command drivebaseCommand = new TankDrive(theDrivebase, theOi);
         Command runBothLifts = new RunBothLiftsCommandGroup(theShooter, theOi.getRunBothLifts());
-        Command tankDrive = new TankDrive(theDrivebase, theOi);
 
         if (autonomousCommand != null)
         {
             autonomousCommand.cancel();
         }
-        //tankDrive.schedule();
+        drivebaseCommand.schedule();
     }
     
     

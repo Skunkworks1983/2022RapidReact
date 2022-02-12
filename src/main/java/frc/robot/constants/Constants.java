@@ -5,8 +5,6 @@
 
 package frc.robot.constants;
 
-import frc.robot.commands.RunBothLiftsCommandGroup;
-
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -60,5 +58,24 @@ public final class Constants
 
     }
 
+    public class EncoderPorts
+    {
+        public class TwoMotorTalonSRX
+        {
 
+        }
+
+        public class FourMotorTalonSRX
+        {
+            public static final int LEFT_A_PORT = 2;
+            public static final int LEFT_B_PORT = 3;
+            public static final int RIGHT_A_PORT = 0;
+            public static final int RIGHT_B_PORT = 1;
+        }
+
+        public class SixMotorTalonSRX
+        {
+
+        }
+    }
 }
