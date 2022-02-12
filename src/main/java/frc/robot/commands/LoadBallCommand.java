@@ -18,24 +18,45 @@ public class LoadBallCommand extends CommandBase
     @Override
     public void initialize()
     {
-
+        if ((!shooter.isBallBeforeFlyWheel()) && (!shooter.isBallAtIntake()))
+        {
+            shooter.setIndexer(.5);
+            shooter.setLiftBall(.5);
+        }
+        else if ((!shooter.isBallBeforeFlyWheel()) && shooter.isBallAtIntake())
+        {
+            shooter.setLiftBall(.5);
+        }
+        else if (shooter.isBallBeforeFlyWheel() && (!shooter.isBallAtIntake()))
+        {
+            shooter.setIndexer(.5);
+        }
     }
 
     @Override
     public void execute()
     {
-
+        if (shooter.isBallBeforeFlyWheel())
+        {
+            shooter.setLiftBall(0);
+        }
     }
 
     @Override
     public boolean isFinished()
     {
-        return false;
+        if (shooter.isBallBeforeFlyWheel() && shooter.isBallAtIntake())
+        {
+            shooter.setIndexer(0);
+            shooter.setLiftBall(0);
+        }
+        return shooter.isBallBeforeFlyWheel() && shooter.isBallAtIntake();
     }
 
     @Override
     public void end(boolean interrupted)
     {
-
+        shooter.setIndexer(0);
+        shooter.setLiftBall(0);
     }
 }
