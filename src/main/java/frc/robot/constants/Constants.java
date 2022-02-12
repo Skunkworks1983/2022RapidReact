@@ -5,6 +5,8 @@
 
 package frc.robot.constants;
 
+import frc.robot.commands.RunBothLiftsCommandGroup;
+
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -23,32 +25,43 @@ public final class Constants
     public static final int dropOffButton = 4;
     public static final int upButton = 5;
     public static final int downButton = 5;
+    public static final int LIFT_BALL_BUTTON = 2;
+    public static final int FLY_WHEEL_BUTTONS = 1;
+    public static final int INDEXER_BUTTON = 2;
+    public static final int RUN_BOTH_LIFTS = 1;
 
     public class MotorPorts
     {
-        public class twoMotors
+        public class Shooter
         {
-            public static final int rightMotor1DeviceNumber = 1;
-            public static final int leftMotor1DeviceNumber = 2;
+            public static final int FLY_WHEEL_DEVICE_NUMBER = 5;
+            public static final int LIFT_BALL_DEVICE_NUMBER = 6;
+            public static final int INDEXER_DEVICE_NUMBER = 7;
+        }
+
+        public class TwoMotors
+        {
+            public static final int RIGHT_MOTOR_1_DEVICE_NUMBER = 1;
+            public static final int LEFT_MOTOR_1_DEVICE_NUMBER = 2;
 
         }
 
-        public class fourMotors
+        public class FourMotors
         {
-            public static final int leftMotor1DeviceNumber = 4;
-            public static final int rightMotor1DeviceNumber = 1;
-            public static final int leftMotor2DeviceNumber = 3;
-            public static final int rightMotor2DeviceNumber = 2;
+            public static final int LEFT_MOTOR_1_DEVICE_NUMBER = 4;
+            public static final int RIGHT_MOTOR_1_DEVICE_NUMBER = 1;
+            public static final int LEFT_MOTOR_2_DEVICE_NUMBER = 3;
+            public static final int RIGHT_MOTOR_2_DEVICE_NUMBER = 2;
         }
 
-        public class sixMotors
+        public class SixMotors
         {
-            public static final int leftMotor1DeviceNumber = 1;
-            public static final int rightMotor1DeviceNumber = 14;
-            public static final int leftMotor2DeviceNumber = 2;
-            public static final int rightMotor2DeviceNumber = 13;
-            public static final int leftMotor3DeviceNumber = 3;
-            public static final int rightMotor3DeviceNumber = 12;
+            public static final int LEFT_MOTOR_1_DEVICE_NUMBER = 1;
+            public static final int RIGHT_MOTOR_1_DEVICE_NUMBER = 14;
+            public static final int LEFT_MOTOR_2_DEVICE_NUMBER = 2;
+            public static final int RIGHT_MOTOR_2_DEVICE_NUMBER = 13;
+            public static final int LEFT_MOTOR_3_DEVICE_NUMBER = 3;
+            public static final int RIGHT_MOTOR_3_DEVICE_NUMBER = 12;
         }
 
         public class collector

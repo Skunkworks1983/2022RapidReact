@@ -8,7 +8,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.commands.TankDrive;
+import frc.robot.commands.*;
 import frc.robot.services.Oi;
 import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Drivebase;
@@ -16,7 +16,7 @@ import frc.robot.subsystems.DropCollector;
 import frc.robot.subsystems.UpAndDownCollector;
 import frc.robot.subsystems.drivebases.Drivebase2Motor;
 import frc.robot.subsystems.drivebases.Drivebase4Motor;
-import frc.robot.subsystems.drivebases.Drivebase6Motor;
+import frc.robot.subsystems.shooter.Shooter;
 
 
 /**
@@ -40,8 +40,9 @@ public class Robot extends TimedRobot
     private DropCollector theDropCollector;
 
     private UpAndDownCollector theUpAndDownCollector;
-    
-    
+
+    private Shooter theShooter;
+
     /**
      * This method is run when the robot is first started up and should be used for any
      * initialization code.
@@ -57,6 +58,8 @@ public class Robot extends TimedRobot
         theDropCollector = new DropCollector();
         theUpAndDownCollector = new UpAndDownCollector();
         theOi = new Oi(theCollector, theDropCollector, theUpAndDownCollector);
+        theShooter = new Shooter();
+        theOi = new Oi(theDrivebase, theShooter);
     }
     
     
