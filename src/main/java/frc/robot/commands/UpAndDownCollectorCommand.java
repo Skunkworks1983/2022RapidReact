@@ -11,7 +11,7 @@ public class UpAndDownCollectorCommand extends CommandBase
     public UpAndDownCollectorCommand (UpAndDownCollector subSystem, boolean raised)
     {
         this.subSystem = subSystem;
-        this.raised = raised;
+        this.raised = raised; //fixed ez ez
     }
 
     @Override
