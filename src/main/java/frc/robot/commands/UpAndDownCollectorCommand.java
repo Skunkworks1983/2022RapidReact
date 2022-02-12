@@ -6,19 +6,19 @@ import frc.robot.subsystems.UpAndDownCollector;
 public class UpAndDownCollectorCommand extends CommandBase
 {
     private final UpAndDownCollector subSystem;
-    private boolean upOrDown;
+    private boolean raised;
 
-    public UpAndDownCollectorCommand (UpAndDownCollector subSystem, boolean upOrDown)
+    public UpAndDownCollectorCommand (UpAndDownCollector subSystem, boolean raised)
     {
         this.subSystem = subSystem;
-        this.upOrDown = upOrDown;
+        this.raised = raised;
     }
 
     @Override
     public void initialize()
     {
         super.initialize();
-        subSystem.raiseCollector(upOrDown);
+        subSystem.raiseCollector(raised);
     }
 
     @Override

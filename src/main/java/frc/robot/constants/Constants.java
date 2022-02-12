@@ -62,19 +62,19 @@ public final class Constants
             public static final int RIGHT_MOTOR_3_DEVICE_NUMBER = 12;
         }
 
-        public class collector
+        public class Collector
         {
             public static final int COLLECTOR_MOTOR_DEVICE_NUMBER = 5;
         } //todo change this idk
 
-        public class collectorServo
+        public class CollectorServo
         {
             public static final int COLLECTOR_SERVO_DEVICE_NUMBER = 0;
             public static final double COLLECTOR_SERVO_OPENED_ANGLE = 0;
             public static final double COLLECTOR_SERVO_CLOSED_ANGLE = 0;
         } //todo change to real angles
 
-        public class collectorRelay //probably
+        public class CollectorRelay //probably
         {
             public static final int COLLECTOR_RELAY_DEVICE_NUMBER = 1;
         }

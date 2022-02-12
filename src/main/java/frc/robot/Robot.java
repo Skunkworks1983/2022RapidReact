@@ -57,9 +57,8 @@ public class Robot extends TimedRobot
         theCollector = new Collector();
         theDropCollector = new DropCollector();
         theUpAndDownCollector = new UpAndDownCollector();
-        theOi = new Oi(theCollector, theDropCollector, theUpAndDownCollector);
+        theOi = new Oi(theCollector, theDropCollector, theUpAndDownCollector, theDrivebase, theShooter);
         theShooter = new Shooter();
-        theOi = new Oi(theDrivebase, theShooter);
     }
     
     
@@ -117,6 +116,7 @@ public class Robot extends TimedRobot
         // continue until interrupted by another command, remove
         // this line or comment it out.
 
+        Command runBothLifts = new RunBothLiftsCommandGroup(theShooter, theOi.getRunBothLifts());
         Command tankDrive = new TankDrive(theDrivebase, theOi);
 
         if (autonomousCommand != null)
