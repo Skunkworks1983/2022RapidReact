@@ -10,7 +10,10 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.*;
 import frc.robot.services.Oi;
+import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Drivebase;
+import frc.robot.subsystems.DropCollector;
+import frc.robot.subsystems.UpAndDownCollector;
 import frc.robot.subsystems.drivebases.Drivebase4Motor;
 import frc.robot.subsystems.shooter.Shooter;
 
@@ -31,8 +34,14 @@ public class Robot extends TimedRobot
 
     private Oi theOi;
 
+    private Collector theCollector;
+
+    private DropCollector theDropCollector;
+
+    private UpAndDownCollector theUpAndDownCollector;
+
     private Shooter theShooter;
-    
+
     /**
      * This method is run when the robot is first started up and should be used for any
      * initialization code.
@@ -44,8 +53,11 @@ public class Robot extends TimedRobot
         // autonomous chooser on the dashboard.
         robotContainer = new RobotContainer();
         theDrivebase = new Drivebase4Motor();
+        theCollector = new Collector();
+        theDropCollector = new DropCollector();
+        theUpAndDownCollector = new UpAndDownCollector();
         theShooter = new Shooter();
-        theOi = new Oi(theDrivebase, theShooter);
+        theOi = new Oi(theCollector, theDropCollector, theUpAndDownCollector, theDrivebase, theShooter);
     }
     
     
@@ -103,14 +115,13 @@ public class Robot extends TimedRobot
         // continue until interrupted by another command, remove
         // this line or comment it out.
 
+        Command drivebaseCommand = new TankDrive(theDrivebase, theOi);
         Command runBothLifts = new RunBothLiftsCommandGroup(theShooter, theOi.getRunBothLifts());
-        Command tankDrive = new TankDrive(theDrivebase, theOi);
-
         if (autonomousCommand != null)
         {
             autonomousCommand.cancel();
         }
-        //tankDrive.schedule();
+        drivebaseCommand.schedule();
     }
     
     
