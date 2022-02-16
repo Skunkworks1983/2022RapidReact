@@ -1,7 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.UpAndDownCollector;
+import frc.robot.subsystems.collector.UpAndDownCollector;
 
 public class UpAndDownCollectorCommand extends CommandBase
 {
@@ -18,7 +18,7 @@ public class UpAndDownCollectorCommand extends CommandBase
     public void initialize()
     {
         super.initialize();
-        subSystem.raise(raised);
+        subSystem.setCollectorAngled(raised);
     }
 
     @Override

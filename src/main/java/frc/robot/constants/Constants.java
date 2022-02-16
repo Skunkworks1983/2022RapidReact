@@ -91,8 +91,8 @@ public final class Constants
         {
             public static final int LEFT_A_PORT = 2;
             public static final int LEFT_B_PORT = 3;
-            public static final int RIGHT_A_PORT = 0;
-            public static final int RIGHT_B_PORT = 1;
+            public static final int RIGHT_A_PORT = 4;
+            public static final int RIGHT_B_PORT = 5;
         }
 
         public class SixMotorTalonSRX
