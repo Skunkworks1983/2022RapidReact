@@ -29,6 +29,7 @@ public class RunFlyWheelCommand extends CommandBase
     public void initialize()
     {
         System.out.printf("KP: %f\t KF: %f\n", KP, KF);
+        shooter.setFlyWheelControlConstants(KF, KP);
     }
 
     /**
@@ -38,9 +39,9 @@ public class RunFlyWheelCommand extends CommandBase
     @Override
     public void execute()
     {
-        double error = setpoint - shooter.getFlyWheelSpeed();
+        /*double error = setpoint - shooter.getFlyWheelSpeed();
         double throttle = KF + KP * error;
-        shooter.setFlyWheel(throttle);
+        shooter.setFlyWheel(throttle);*/
         System.out.printf("Speed %f\n", shooter.getFlyWheelSpeed());
     }
 

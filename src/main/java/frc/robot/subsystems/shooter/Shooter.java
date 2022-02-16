@@ -5,16 +5,19 @@
 
 package frc.robot.subsystems.shooter;
 
+import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
+import com.ctre.phoenix.motorcontrol.TalonFXFeedbackDevice;
 import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import com.ctre.phoenix.motorcontrol.can.TalonFX;
 
 import static frc.robot.constants.Constants.MotorPorts.Shooter.*;
 
 public class Shooter extends SubsystemBase
 {
-    private TalonSRX flyWheel = new TalonSRX(FLY_WHEEL_DEVICE_NUMBER);
+    private TalonFX flyWheel = new TalonFX(FLY_WHEEL_DEVICE_NUMBER);
     private TalonSRX liftBall = new TalonSRX(LIFT_BALL_DEVICE_NUMBER);
     private TalonSRX indexer = new TalonSRX(INDEXER_DEVICE_NUMBER);
     private DigitalInput intakeSensor = new DigitalInput(0);
@@ -22,7 +25,7 @@ public class Shooter extends SubsystemBase
 
     public void setFlyWheel(double speed)
     {
-        flyWheel.set(TalonSRXControlMode.PercentOutput, -speed);
+        flyWheel.set(TalonFXControlMode.Velocity, -speed);
     }
 
     public void setLiftBall(double speed)
@@ -53,6 +56,16 @@ public class Shooter extends SubsystemBase
     public boolean isBallAtIntake(){return !intakeSensor.get();}
 
     public boolean isBallBeforeFlyWheel(){return !beforeFlyWheel.get();}
+
+    public void setFlyWheelControlConstants(double f, double p)
+    {
+        flyWheel.config_kF(0, f);
+        flyWheel.config_kP(0, p);
+        flyWheel.selectProfileSlot(0, 0);
+        flyWheel.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor,0,0);
+        flyWheel.configClosedLoopPeakOutput(0,1,0);
+        flyWheel.setSensorPhase(false);
+    }
 
     /** Creates a new Shooter. */
     public Shooter()
