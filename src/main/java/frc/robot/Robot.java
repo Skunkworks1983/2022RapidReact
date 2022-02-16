@@ -12,8 +12,8 @@ import frc.robot.commands.*;
 import frc.robot.services.Oi;
 import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Drivebase;
-import frc.robot.subsystems.DropCollector;
-import frc.robot.subsystems.UpAndDownCollector;
+import frc.robot.subsystems.collector.DropCollector;
+import frc.robot.subsystems.collector.UpAndDownCollector;
 import frc.robot.subsystems.drivebases.Drivebase4Motor;
 import frc.robot.subsystems.shooter.Shooter;
 
@@ -53,11 +53,10 @@ public class Robot extends TimedRobot
         // autonomous chooser on the dashboard.
         robotContainer = new RobotContainer();
         theDrivebase = new Drivebase4Motor();
-        theCollector = new Collector();
         theDropCollector = new DropCollector();
         theUpAndDownCollector = new UpAndDownCollector();
         theShooter = new Shooter();
-        theOi = new Oi(theCollector, theDropCollector, theUpAndDownCollector, theDrivebase, theShooter);
+        theOi = new Oi(theDropCollector, theDropCollector, theUpAndDownCollector, theDrivebase, theShooter);
     }
     
     
