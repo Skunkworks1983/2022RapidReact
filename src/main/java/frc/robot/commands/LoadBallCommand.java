@@ -25,6 +25,7 @@ public class LoadBallCommand extends CommandBase
         }
         else if ((!shooter.isBallBeforeFlyWheel()) && shooter.isBallAtIntake())
         {
+            shooter.setIndexer(.5);
             shooter.setLiftBall(.5);
         }
         else if (shooter.isBallBeforeFlyWheel() && (!shooter.isBallAtIntake()))
@@ -40,16 +41,16 @@ public class LoadBallCommand extends CommandBase
         {
             shooter.setLiftBall(0);
         }
+        else if (shooter.isBallBeforeFlyWheel() && shooter.isBallAtIntake())
+        {
+            shooter.setIndexer(0);
+            shooter.setLiftBall(0);
+        }
     }
 
     @Override
     public boolean isFinished()
     {
-        if (shooter.isBallBeforeFlyWheel() && shooter.isBallAtIntake())
-        {
-            shooter.setIndexer(0);
-            shooter.setLiftBall(0);
-        }
         return shooter.isBallBeforeFlyWheel() && shooter.isBallAtIntake();
     }
 
