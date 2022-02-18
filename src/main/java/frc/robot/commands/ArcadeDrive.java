@@ -29,8 +29,8 @@ public class ArcadeDrive extends CommandBase
     {
         double turn = oi.getLeftX();
         double throttle = -oi.getRightY();
-        double outputLeft = Math.max(Math.min((turn+throttle), 1), -1);
-        double outputRight = Math.max(Math.min((-turn+throttle), 1), -1);
+        double outputLeft = Math.max(Math.min((turn + throttle), 1), -1);
+        double outputRight = Math.max(Math.min((-turn + throttle), 1), -1);
         if(outputLeft > 0)
         {
             outputLeft = Math.pow(outputLeft, 2);
@@ -45,7 +45,7 @@ public class ArcadeDrive extends CommandBase
         }
         else
         {
-            outputRight= -Math.abs(Math.pow(outputRight, 2));
+            outputRight = -Math.abs(Math.pow(outputRight, 2));
         }
         drivebase.runMotor(outputLeft, outputRight);
     }

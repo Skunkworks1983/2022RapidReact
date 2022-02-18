@@ -11,6 +11,12 @@ public class DriveDistanceCommand extends CommandBase
     private double distanceFT;
     private double startDistanceFT;
 
+    /**
+     *
+     * @param drivebase what drivebase to use
+     * @param distanceFT The direction and distance in which to go
+     * @param speed Should always be positive
+     */
     public DriveDistanceCommand(Drivebase drivebase, double distanceFT, double speed)
     {
         // each subsystem used by the command must be passed into the
@@ -29,7 +35,15 @@ public class DriveDistanceCommand extends CommandBase
     {
         startDistanceFT = drivebase.getPosLeft();
 
-        drivebase.runMotor(speed, speed);
+        if(distanceFT < 0)
+        {
+            drivebase.runMotor(speed, speed);
+        }
+        else
+        {
+            drivebase.runMotor(-speed, -speed);
+        }
+
     }
 
     /**

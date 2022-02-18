@@ -2,9 +2,8 @@ package frc.robot.services;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.commands.DropCollectorCommand;
+import frc.robot.commands.MoveCollectorCommand;
 import frc.robot.commands.IntakeCommand;
-import frc.robot.commands.UpAndDownCollectorCommand;
 import frc.robot.commands.RunFlyWheelCommand;
 import frc.robot.commands.RunIndexerCommand;
 import frc.robot.commands.RunLiftBallCommand;
@@ -12,8 +11,6 @@ import frc.robot.constants.Constants;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.shooter.Shooter;
 import frc.robot.subsystems.Collector;
-import frc.robot.subsystems.collector.DropCollector;
-import frc.robot.subsystems.collector.UpAndDownCollector;
 
 public class Oi
 {
@@ -26,10 +23,8 @@ public class Oi
     JoystickButton runBothLifts;
     JoystickButton intakeButton;
     JoystickButton reverseIntakeButton;
-    JoystickButton dropOnButton;
-    JoystickButton dropOffButton;
-    JoystickButton upButton;
-    JoystickButton downButton;
+    JoystickButton collectorUpwardButton;
+    JoystickButton collectorDownwardButton;
 
     public Oi(Collector subsystem, DropCollector dropSubsystem, UpAndDownCollector upAndDownSubsystems, Drivebase drivebase, Shooter shooter)
     {
@@ -49,10 +44,8 @@ public class Oi
 
         intakeButton = new JoystickButton(leftStick, Constants.INTAKE_BUTTON);
         reverseIntakeButton = new JoystickButton(rightStick, Constants.REVERSE_INTAKE_BUTTON);
-        dropOnButton = new JoystickButton(leftStick, Constants.DROP_ON_BUTTON);
-        dropOffButton = new JoystickButton(rightStick, Constants.DROP_OFF_BUTTON);
-        upButton = new JoystickButton(leftStick, Constants.UP_BUTTON);
-        downButton = new JoystickButton(rightStick, Constants.DOWN_BUTTON);
+        collectorUpwardButton = new JoystickButton(leftStick, Constants.UPWARD_COLLECTOR_BUTTON);
+        collectorDownwardButton = new JoystickButton(rightStick, Constants.DOWNWARD_COLLECTOR_BUTTON);
 
         intakeButton.whenHeld(new IntakeCommand(subsystem, .5));
         reverseIntakeButton.whenHeld(new IntakeCommand(subsystem, -.5));
