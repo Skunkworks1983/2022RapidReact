@@ -26,7 +26,7 @@ public class Oi
     JoystickButton collectorUpwardButton;
     JoystickButton collectorDownwardButton;
 
-    public Oi(Collector subsystem, DropCollector dropSubsystem, UpAndDownCollector upAndDownSubsystems, Drivebase drivebase, Shooter shooter)
+    public Oi(Collector collector, Drivebase drivebase, Shooter shooter)
     {
         leftStick = new Joystick(Constants.LEFT_JOY_STICK_PORT);
         rightStick = new Joystick(Constants.RIGHT_JOY_STICK_PORT);
@@ -47,13 +47,11 @@ public class Oi
         collectorUpwardButton = new JoystickButton(leftStick, Constants.UPWARD_COLLECTOR_BUTTON);
         collectorDownwardButton = new JoystickButton(rightStick, Constants.DOWNWARD_COLLECTOR_BUTTON);
 
-        intakeButton.whenHeld(new IntakeCommand(subsystem, .5));
-        reverseIntakeButton.whenHeld(new IntakeCommand(subsystem, -.5));
+        intakeButton.whenHeld(new IntakeCommand(collector, .5));
+        reverseIntakeButton.whenHeld(new IntakeCommand(collector, -.5));
 
-        dropOnButton.whenPressed(new DropCollectorCommand(dropSubsystem, true));
-        dropOffButton.whenPressed(new DropCollectorCommand(dropSubsystem, false));
-        upButton.whenPressed(new UpAndDownCollectorCommand(upAndDownSubsystems, true));
-        downButton.whenPressed(new UpAndDownCollectorCommand(upAndDownSubsystems, false));
+        collectorUpwardButton.whenPressed(new MoveCollectorCommand(collector, false));
+        collectorDownwardButton.whenPressed(new MoveCollectorCommand(collector, true));
     }
 
     public double getLeftY()

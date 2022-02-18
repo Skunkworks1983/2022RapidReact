@@ -37,10 +37,6 @@ public class Robot extends TimedRobot
 
     private Collector theCollector;
 
-    private DropCollector theDropCollector;
-
-    private UpAndDownCollector theUpAndDownCollector;
-
     private Shooter theShooter;
 
     /**
@@ -54,8 +50,6 @@ public class Robot extends TimedRobot
         // autonomous chooser on the dashboard.
         robotContainer = new RobotContainer();
         theDrivebase = new Drivebase4Motor();
-        theDropCollector = new DropCollector();
-        theUpAndDownCollector = new UpAndDownCollector();
         theShooter = new Shooter();
         autonomousCommand = new ExitTarmac(theDrivebase);
         theOi = new Oi(theCollector, theDrivebase, theShooter);

@@ -5,12 +5,12 @@ import frc.robot.subsystems.Collector;
 
 public class IntakeCommand extends CommandBase
 {
-    private final Collector subsystem;
+    private final Collector collector;
     private double speed;
 
-     public IntakeCommand(Collector subsystem, double speed)
+     public IntakeCommand(Collector collector, double speed)
      {
-         this.subsystem = subsystem;
+         this.collector = collector;
          this.speed = speed;
      }
 
@@ -25,7 +25,7 @@ public class IntakeCommand extends CommandBase
     public void execute()
     {
         super.execute();
-        subsystem.collectBalls(speed);
+        collector.collectBalls(speed);
         System.out.println("executed");
     } // wheel stuff yay
 
@@ -39,7 +39,7 @@ public class IntakeCommand extends CommandBase
     public void end(boolean interrupted)
     {
         super.end(interrupted);
-        subsystem.collectBalls(0);
+        collector.collectBalls(0);
         System.out.println("ended yay!");
     }
 }
