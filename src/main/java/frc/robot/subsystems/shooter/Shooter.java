@@ -12,6 +12,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
+import frc.robot.constants.Constants;
 
 import static frc.robot.constants.Constants.MotorPorts.Shooter.*;
 
@@ -35,7 +36,7 @@ public class Shooter extends SubsystemBase
 
     public void setIndexer(double speed)
     {
-        indexer.set(TalonSRXControlMode.PercentOutput, -speed);
+        indexer.set(TalonSRXControlMode.PercentOutput, speed);
     }
 
     public  double getLiftBallSpeed()
@@ -57,20 +58,19 @@ public class Shooter extends SubsystemBase
 
     public boolean isBallBeforeFlyWheel(){return !beforeFlyWheel.get();}
 
-    public void setFlyWheelControlConstants(double f, double p)
+    public void initializeFlywheel()
     {
-        flyWheel.config_kF(0, f);
-        flyWheel.config_kP(0, p);
+        flyWheel.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor,30,30);
+        flyWheel.config_kF(0, Constants.FLY_WHEEL_KF);
+        flyWheel.config_kP(0, Constants.FLY_WHEEL_KP);
         flyWheel.selectProfileSlot(0, 0);
-        flyWheel.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor,0,0);
-        flyWheel.configClosedLoopPeakOutput(0,1,0);
-        flyWheel.setSensorPhase(false);
+        flyWheel.configClosedloopRamp(0.5);
     }
 
     /** Creates a new Shooter. */
     public Shooter()
     {
-
+        initializeFlywheel();
     }
 
     @Override

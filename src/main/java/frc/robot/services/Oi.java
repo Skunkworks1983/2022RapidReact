@@ -21,6 +21,7 @@ public class Oi
 {
     Joystick leftStick;
     Joystick rightStick;
+    Joystick buttonStick;
     JoystickButton highShooterButton;
     JoystickButton lowShooterButton;
     JoystickButton liftBallButton;
@@ -39,24 +40,25 @@ public class Oi
     {
         leftStick = new Joystick(Constants.LEFT_JOY_STICK_PORT);
         rightStick = new Joystick(Constants.RIGHT_JOY_STICK_PORT);
+        buttonStick = new Joystick(Constants.BUTTON_STICK_PORT);
 
-        highShooterButton = new JoystickButton(leftStick, Constants.FLY_WHEEL_BUTTONS);
-        lowShooterButton = new JoystickButton(rightStick, Constants.FLY_WHEEL_BUTTONS);
-        liftBallButton = new JoystickButton(rightStick, Constants.LIFT_BALL_BUTTON);
-        loadFirstBallButton = new JoystickButton(rightStick, Constants.LOAD_FIRST_BALL_BUTTON);
-        loadSecondBallButton = new JoystickButton(rightStick, Constants.LOAD_SECOND_BALL_BUTTON);
-        indexerButton = new JoystickButton(leftStick, Constants.INDEXER_BUTTON);
-        runBothLifts = new JoystickButton(rightStick, Constants.RUN_BOTH_LIFTS);
+        highShooterButton = new JoystickButton(buttonStick, Constants.HIGH_SHOOTER_BUTTON);
+        lowShooterButton = new JoystickButton(buttonStick, Constants.LOW_SHOOTER_BUTTON);
+        liftBallButton = new JoystickButton(buttonStick, Constants.LIFT_BALL_BUTTON);
+        loadFirstBallButton = new JoystickButton(buttonStick, Constants.LOAD_FIRST_BALL_BUTTON);
+        loadSecondBallButton = new JoystickButton(buttonStick, Constants.LOAD_SECOND_BALL_BUTTON);
+        indexerButton = new JoystickButton(buttonStick, Constants.INDEXER_BUTTON);
+        //runBothLifts = new JoystickButton(rightStick, Constants.RUN_BOTH_LIFTS);
 
-        intakeButton = new JoystickButton(leftStick, Constants.INTAKE_BUTTON);
-        reverseIntakeButton = new JoystickButton(rightStick, Constants.REVERSE_INTAKE_BUTTON);
+        intakeButton = new JoystickButton(buttonStick, Constants.INTAKE_BUTTON);
+        reverseIntakeButton = new JoystickButton(buttonStick, Constants.REVERSE_INTAKE_BUTTON);
         dropOnButton = new JoystickButton(leftStick, Constants.DROP_ON_BUTTON);
         dropOffButton = new JoystickButton(rightStick, Constants.DROP_OFF_BUTTON);
         upButton = new JoystickButton(leftStick, Constants.UP_BUTTON);
         downButton = new JoystickButton(rightStick, Constants.DOWN_BUTTON);
 
-        highShooterButton.whenHeld(new RunFlyWheelCommand(shooter, 19000.0)); // shoot high
-        lowShooterButton.whenHeld(new RunFlyWheelCommand(shooter, 9500.0)); // shoot low
+        highShooterButton.whenHeld(new RunFlyWheelCommand(shooter, Constants.HIGH_GOAL_SPEED)); // shoot high
+        lowShooterButton.whenHeld(new RunFlyWheelCommand(shooter, Constants.LOW_GOAL_SPEED)); // shoot low
         liftBallButton.whenHeld(new RunLiftBallCommand(shooter));
         loadFirstBallButton.whenHeld(new LoadFirstBallCommand(shooter));
         loadSecondBallButton.whenHeld(new LoadSecondBallCommand(shooter));

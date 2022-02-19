@@ -2,14 +2,13 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.button.Button;
+import frc.robot.constants.Constants;
 import frc.robot.subsystems.shooter.Shooter;
 
 
 public class RunFlyWheelCommand extends CommandBase
 {
     private Shooter shooter;
-    private double KP = .0001;
-    private double KF;
     private double setpoint;
     public RunFlyWheelCommand(Shooter s, Double speed)
     {
@@ -17,10 +16,7 @@ public class RunFlyWheelCommand extends CommandBase
         addRequirements();
         shooter = s;
         setpoint = speed;
-        KF = speed * .000046;
     }
-
-
 
     /**
      * The initial subroutine of a command.  Called once when the command is initially scheduled.
@@ -28,8 +24,8 @@ public class RunFlyWheelCommand extends CommandBase
     @Override
     public void initialize()
     {
-        System.out.printf("KP: %f\t KF: %f\n", KP, KF);
-        shooter.setFlyWheelControlConstants(KF, KP);
+        System.out.printf("KP: %f\t KF: %f\n", Constants.FLY_WHEEL_KP, Constants.FLY_WHEEL_KF);
+        shooter.setFlyWheel(setpoint);
     }
 
     /**
@@ -39,9 +35,6 @@ public class RunFlyWheelCommand extends CommandBase
     @Override
     public void execute()
     {
-        /*double error = setpoint - shooter.getFlyWheelSpeed();
-        double throttle = KF + KP * error;
-        shooter.setFlyWheel(throttle);*/
         System.out.printf("Speed %f\n", shooter.getFlyWheelSpeed());
     }
 

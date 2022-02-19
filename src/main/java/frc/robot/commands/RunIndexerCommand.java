@@ -30,7 +30,7 @@ public class RunIndexerCommand extends CommandBase {
     @Override
     public void execute()
     {
-        shooter.setIndexer(0.5);
+        shooter.setIndexer(0.3);
         System.out.println(shooter.getIndexerSpeed());
     }
 
