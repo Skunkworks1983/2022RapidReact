@@ -35,6 +35,8 @@ public final class Constants
     public static final double FLY_WHEEL_KF = .0456;
     public static final double HIGH_GOAL_SPEED = 19000;
     public static final double LOW_GOAL_SPEED = 9500;
+    //public static final int SHOOT_ALL_BALLS_HIGH_BUTTON = 4;
+    //public static final int SHOOT_ALL_BALLS_LOW_BUTTON = 11;
 
     public class MotorPorts
     {

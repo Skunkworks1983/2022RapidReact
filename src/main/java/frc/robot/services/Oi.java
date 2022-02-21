@@ -35,6 +35,8 @@ public class Oi
     JoystickButton downButton;
     JoystickButton loadFirstBallButton;
     JoystickButton loadSecondBallButton;
+    JoystickButton shootAllBallsHigh;
+    JoystickButton shootAllBallsLow;
 
     public Oi(Collector subsystem, DropCollector dropSubsystem, UpAndDownCollector upAndDownSubsystems, Drivebase drivebase, Shooter shooter)
     {
