@@ -27,7 +27,7 @@ public final class Constants
     public static final int LIFT_BALL_BUTTON = 3;
     public static final int LOW_SHOOTER_BUTTON = 14;
     public static final int HIGH_SHOOTER_BUTTON = 15;
-    public static final int INDEXER_BUTTON = 4;
+    public static final int INDEXER_BUTTON = 2;
     public static final int RUN_BOTH_LIFTS = 1;
     public static final int LOAD_FIRST_BALL_BUTTON = 12;
     public static final int LOAD_SECOND_BALL_BUTTON = 13;
@@ -35,8 +35,8 @@ public final class Constants
     public static final double FLY_WHEEL_KF = .0456;
     public static final double HIGH_GOAL_SPEED = 19000;
     public static final double LOW_GOAL_SPEED = 9500;
-    //public static final int SHOOT_ALL_BALLS_HIGH_BUTTON = 4;
-    //public static final int SHOOT_ALL_BALLS_LOW_BUTTON = 11;
+    public static final int SHOOT_ALL_BALLS_HIGH_BUTTON = 4;
+    public static final int SHOOT_ALL_BALLS_LOW_BUTTON = 11;
 
     public class MotorPorts
     {

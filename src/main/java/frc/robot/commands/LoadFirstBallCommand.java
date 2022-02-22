@@ -18,8 +18,8 @@ public class LoadFirstBallCommand extends CommandBase
     @Override
     public void initialize()
     {
-        shooter.setIndexer(.5);
-        shooter.setLiftBall(.5);
+        shooter.setIndexer(.4);
+        shooter.setLiftBall(.4);
     }
 
     @Override

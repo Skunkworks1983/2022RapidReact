@@ -4,6 +4,8 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.DropCollectorCommand;
 import frc.robot.commands.IntakeCommand;
+import frc.robot.commands.ShootAllBallsHighCommand;
+import frc.robot.commands.ShootAllBallsLowCommand;
 import frc.robot.commands.UpAndDownCollectorCommand;
 import frc.robot.commands.LoadFirstBallCommand;
 import frc.robot.commands.LoadSecondBallCommand;
@@ -50,6 +52,8 @@ public class Oi
         loadFirstBallButton = new JoystickButton(buttonStick, Constants.LOAD_FIRST_BALL_BUTTON);
         loadSecondBallButton = new JoystickButton(buttonStick, Constants.LOAD_SECOND_BALL_BUTTON);
         indexerButton = new JoystickButton(buttonStick, Constants.INDEXER_BUTTON);
+        shootAllBallsHigh = new JoystickButton(buttonStick, Constants.SHOOT_ALL_BALLS_HIGH_BUTTON);
+        shootAllBallsLow = new JoystickButton(buttonStick, Constants.SHOOT_ALL_BALLS_LOW_BUTTON);
         //runBothLifts = new JoystickButton(rightStick, Constants.RUN_BOTH_LIFTS);
 
         intakeButton = new JoystickButton(buttonStick, Constants.INTAKE_BUTTON);
@@ -65,6 +69,8 @@ public class Oi
         loadFirstBallButton.whenHeld(new LoadFirstBallCommand(shooter));
         loadSecondBallButton.whenHeld(new LoadSecondBallCommand(shooter));
         indexerButton.whenHeld(new RunIndexerCommand(shooter));
+        shootAllBallsHigh.whenHeld(new ShootAllBallsHighCommand(shooter));
+        shootAllBallsLow.whenHeld(new ShootAllBallsLowCommand(shooter));
 
         intakeButton.whenHeld(new IntakeCommand(subsystem, .5));
         reverseIntakeButton.whenHeld(new IntakeCommand(subsystem, -.5));

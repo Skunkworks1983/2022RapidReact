@@ -5,6 +5,7 @@
 
 package frc.robot.subsystems.shooter;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
 import com.ctre.phoenix.motorcontrol.TalonFXFeedbackDevice;
 import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
@@ -51,7 +52,7 @@ public class Shooter extends SubsystemBase
 
     public double getFlyWheelSpeed()
     {
-        return -flyWheel.getSelectedSensorVelocity();
+        return flyWheel.getSelectedSensorVelocity();
     }
 
     public boolean isBallAtIntake(){return !intakeSensor.get();}
@@ -65,6 +66,7 @@ public class Shooter extends SubsystemBase
         flyWheel.config_kP(0, Constants.FLY_WHEEL_KP);
         flyWheel.selectProfileSlot(0, 0);
         flyWheel.configClosedloopRamp(0.5);
+        flyWheel.setNeutralMode(NeutralMode.Coast);
     }
 
     /** Creates a new Shooter. */
