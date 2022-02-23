@@ -17,6 +17,9 @@ public final class Constants
 {
     public static final int LEFT_JOY_STICK_PORT = 0;
     public static final int RIGHT_JOY_STICK_PORT = 1;
+    public static final int UPWARD_COLLECTOR_BUTTON = 4;
+    public static final int DOWNWARD_COLLECTOR_BUTTON = 4;//line 22-23 will all be changed this is just an example                                                                          your moms a hoe
+    public static final int FLY_WHEEL_BUTTONS = 1;
     public static final int BUTTON_STICK_PORT = 2;
     public static final int INTAKE_BUTTON = 9;
     public static final int REVERSE_INTAKE_BUTTON = 10;
@@ -90,8 +93,9 @@ public final class Constants
         }
     }
 
-    public class EncoderPorts
+    public static class EncoderPorts
     {
+
         public class TwoMotorTalonSRX
         {
 

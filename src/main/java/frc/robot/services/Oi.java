@@ -2,13 +2,12 @@ package frc.robot.services;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.commands.DropCollectorCommand;
+import frc.robot.commands.MoveCollectorCommand;
 import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.ShootAllBallsHighCommand;
 import frc.robot.commands.ShootAllBallsLowCommand;
 import frc.robot.commands.SpinUpAndShootAllBallsHighCommandGroup;
 import frc.robot.commands.SpinUpAndShootAllBallsLowCommandGroup;
-import frc.robot.commands.UpAndDownCollectorCommand;
 import frc.robot.commands.LoadFirstBallCommand;
 import frc.robot.commands.LoadSecondBallCommand;
 import frc.robot.commands.RunFlyWheelCommand;
@@ -18,8 +17,6 @@ import frc.robot.constants.Constants;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.shooter.Shooter;
 import frc.robot.subsystems.Collector;
-import frc.robot.subsystems.DropCollector;
-import frc.robot.subsystems.UpAndDownCollector;
 
 public class Oi
 {
@@ -33,6 +30,8 @@ public class Oi
     JoystickButton runBothLifts;
     JoystickButton intakeButton;
     JoystickButton reverseIntakeButton;
+    JoystickButton collectorUpwardButton;
+    JoystickButton collectorDownwardButton;
     JoystickButton dropOnButton;
     JoystickButton dropOffButton;
     JoystickButton upButton;
@@ -42,8 +41,9 @@ public class Oi
     JoystickButton shootAllBallsHigh;
     JoystickButton shootAllBallsLow;
 
-    public Oi(Collector subsystem, DropCollector dropSubsystem, UpAndDownCollector upAndDownSubsystems, Drivebase drivebase, Shooter shooter)
+    public Oi(Collector collector, Drivebase drivebase, Shooter shooter)
     {
+
         leftStick = new Joystick(Constants.LEFT_JOY_STICK_PORT);
         rightStick = new Joystick(Constants.RIGHT_JOY_STICK_PORT);
         buttonStick = new Joystick(Constants.BUTTON_STICK_PORT);
@@ -71,16 +71,21 @@ public class Oi
         loadFirstBallButton.whenHeld(new LoadFirstBallCommand(shooter));
         loadSecondBallButton.whenHeld(new LoadSecondBallCommand(shooter));
         indexerButton.whenHeld(new RunIndexerCommand(shooter));
+        liftBallButton.whenHeld(new RunLiftBallCommand(shooter));
+
+        intakeButton = new JoystickButton(leftStick, Constants.INTAKE_BUTTON);
+        reverseIntakeButton = new JoystickButton(rightStick, Constants.REVERSE_INTAKE_BUTTON);
+        collectorUpwardButton = new JoystickButton(leftStick, Constants.UPWARD_COLLECTOR_BUTTON);
+        collectorDownwardButton = new JoystickButton(rightStick, Constants.DOWNWARD_COLLECTOR_BUTTON);
         shootAllBallsHigh.whenHeld(new SpinUpAndShootAllBallsHighCommandGroup(shooter));
         shootAllBallsLow.whenHeld(new SpinUpAndShootAllBallsLowCommandGroup(shooter));
 
-        intakeButton.whenHeld(new IntakeCommand(subsystem, .5));
-        reverseIntakeButton.whenHeld(new IntakeCommand(subsystem, -.5));
+        intakeButton.whenHeld(new IntakeCommand(collector, .5));
+        reverseIntakeButton.whenHeld(new IntakeCommand(collector, -.5));
 
-        dropOnButton.whenPressed(new DropCollectorCommand(dropSubsystem, true));
-        dropOffButton.whenPressed(new DropCollectorCommand(dropSubsystem, false));
-        upButton.whenPressed(new UpAndDownCollectorCommand(upAndDownSubsystems, true));
-        downButton.whenPressed(new UpAndDownCollectorCommand(upAndDownSubsystems, false));
+        collectorUpwardButton.whenPressed(new MoveCollectorCommand(collector, false));
+        collectorDownwardButton.whenPressed(new MoveCollectorCommand(collector, true));
+
     }
 
     public double getLeftY()
