@@ -25,6 +25,8 @@ public final class Constants
     public static final int FLY_WHEEL_BUTTONS = 1;
     public static final int INDEXER_BUTTON = 2;
     public static final int RUN_BOTH_LIFTS = 1;
+    public static final double HIGH_GOAL_SPEED = 19000;
+    public static final double LOW_GOAL_SPEED = 9500;
 
     public class MotorPorts
     {
