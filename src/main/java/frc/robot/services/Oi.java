@@ -6,6 +6,8 @@ import frc.robot.commands.DropCollectorCommand;
 import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.ShootAllBallsHighCommand;
 import frc.robot.commands.ShootAllBallsLowCommand;
+import frc.robot.commands.SpinUpAndShootAllBallsHighCommandGroup;
+import frc.robot.commands.SpinUpAndShootAllBallsLowCommandGroup;
 import frc.robot.commands.UpAndDownCollectorCommand;
 import frc.robot.commands.LoadFirstBallCommand;
 import frc.robot.commands.LoadSecondBallCommand;
@@ -69,8 +71,8 @@ public class Oi
         loadFirstBallButton.whenHeld(new LoadFirstBallCommand(shooter));
         loadSecondBallButton.whenHeld(new LoadSecondBallCommand(shooter));
         indexerButton.whenHeld(new RunIndexerCommand(shooter));
-        shootAllBallsHigh.whenHeld(new ShootAllBallsHighCommand(shooter));
-        shootAllBallsLow.whenHeld(new ShootAllBallsLowCommand(shooter));
+        shootAllBallsHigh.whenHeld(new SpinUpAndShootAllBallsHighCommandGroup(shooter));
+        shootAllBallsLow.whenHeld(new SpinUpAndShootAllBallsLowCommandGroup(shooter));
 
         intakeButton.whenHeld(new IntakeCommand(subsystem, .5));
         reverseIntakeButton.whenHeld(new IntakeCommand(subsystem, -.5));

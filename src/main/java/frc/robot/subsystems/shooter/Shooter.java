@@ -19,15 +19,15 @@ import static frc.robot.constants.Constants.MotorPorts.Shooter.*;
 
 public class Shooter extends SubsystemBase
 {
-    private TalonFX flyWheel = new TalonFX(FLY_WHEEL_DEVICE_NUMBER);
+    private TalonFX flywheel = new TalonFX(FLYWHEEL_DEVICE_NUMBER);
     private TalonSRX liftBall = new TalonSRX(LIFT_BALL_DEVICE_NUMBER);
     private TalonSRX indexer = new TalonSRX(INDEXER_DEVICE_NUMBER);
     private DigitalInput intakeSensor = new DigitalInput(0);
     private DigitalInput beforeFlyWheel = new DigitalInput(1);
 
-    public void setFlyWheel(double speed)
+    public void setFlywheel(double speed)
     {
-        flyWheel.set(TalonFXControlMode.Velocity, -speed);
+        flywheel.set(TalonFXControlMode.Velocity, -speed);
     }
 
     public void setLiftBall(double speed)
@@ -52,7 +52,7 @@ public class Shooter extends SubsystemBase
 
     public double getFlyWheelSpeed()
     {
-        return flyWheel.getSelectedSensorVelocity();
+        return -flywheel.getSelectedSensorVelocity();
     }
 
     public boolean isBallAtIntake(){return !intakeSensor.get();}
@@ -61,12 +61,12 @@ public class Shooter extends SubsystemBase
 
     public void initializeFlywheel()
     {
-        flyWheel.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor,30,30);
-        flyWheel.config_kF(0, Constants.FLY_WHEEL_KF);
-        flyWheel.config_kP(0, Constants.FLY_WHEEL_KP);
-        flyWheel.selectProfileSlot(0, 0);
-        flyWheel.configClosedloopRamp(0.5);
-        flyWheel.setNeutralMode(NeutralMode.Coast);
+        flywheel.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor, 30, 30);
+        flywheel.config_kF(0, Constants.FLY_WHEEL_KF);
+        flywheel.config_kP(0, Constants.FLY_WHEEL_KP);
+        flywheel.selectProfileSlot(0, 0);
+        flywheel.configClosedloopRamp(0.5);
+        flywheel.setNeutralMode(NeutralMode.Coast);
     }
 
     /** Creates a new Shooter. */

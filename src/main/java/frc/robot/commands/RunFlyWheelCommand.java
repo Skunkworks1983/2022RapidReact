@@ -1,7 +1,6 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import edu.wpi.first.wpilibj2.command.button.Button;
 import frc.robot.constants.Constants;
 import frc.robot.subsystems.shooter.Shooter;
 
@@ -14,6 +13,7 @@ public class RunFlyWheelCommand extends CommandBase
     {
         // each subsystem used by the command must be passed into the addRequirements() method (which takes a vararg of Subsystem)
         addRequirements();
+        // no requirement because it needs to run at the same time as another command
         shooter = s;
         setpoint = speed;
     }
@@ -25,7 +25,7 @@ public class RunFlyWheelCommand extends CommandBase
     public void initialize()
     {
         System.out.printf("KP: %f\t KF: %f\n", Constants.FLY_WHEEL_KP, Constants.FLY_WHEEL_KF);
-        shooter.setFlyWheel(setpoint);
+        shooter.setFlywheel(setpoint);
     }
 
     /**
@@ -70,6 +70,6 @@ public class RunFlyWheelCommand extends CommandBase
     @Override
     public void end(boolean interrupted)
     {
-        shooter.setFlyWheel(0);
+        shooter.setFlywheel(0);
     }
 }

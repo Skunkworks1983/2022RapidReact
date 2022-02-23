@@ -11,10 +11,12 @@ public class LoadFirstBallCommand extends CommandBase
     {
         // each subsystem used by the command must be passed into the addRequirements() method (which takes a vararg of Subsystem)
         addRequirements();
+        // no requirement because it needs to run at the same time as another command
         shooter = s;
     }
     private Shooter shooter;
 
+    //Runs both Indexer and LiftBall to bring the first ball to the top sensor (right before flywheel)
     @Override
     public void initialize()
     {

@@ -12,14 +12,14 @@ public class ShootAllBallsLowCommand extends CommandBase
     {
         // each subsystem used by the command must be passed into the
         // addRequirements() method (which takes a vararg of Subsystem)
-        addRequirements();
+        addRequirements(shooter);
         shooter = s;
     }
     Shooter shooter;
     @Override
     public void initialize()
     {
-        shooter.setFlyWheel(Constants.LOW_GOAL_SPEED);
+        shooter.setFlywheel(Constants.LOW_GOAL_SPEED);
         shooter.setLiftBall(.3);
         shooter.setIndexer(.3);
     }
@@ -40,7 +40,7 @@ public class ShootAllBallsLowCommand extends CommandBase
     @Override
     public void end(boolean interrupted)
     {
-        shooter.setFlyWheel(0);
+        shooter.setFlywheel(0);
         shooter.setLiftBall(0);
         shooter.setIndexer(0);
     }
