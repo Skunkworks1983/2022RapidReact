@@ -112,7 +112,6 @@ public class Robot extends TimedRobot
         // this line or comment it out.
 
         Command drivebaseCommand = new TankDrive(theDrivebase, theOi);
-        Command runBothLifts = new RunBothLiftsCommandGroup(theShooter, theOi.getRunBothLifts());
         if (autonomousCommand != null)
         {
             autonomousCommand.cancel();
