@@ -4,10 +4,10 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.shooter.Shooter;
 
 
-public class LoadFirstBallCommand extends CommandBase
+public class LoadSecondBallCommand extends CommandBase
 {
 
-    public LoadFirstBallCommand(Shooter s)
+    public LoadSecondBallCommand(Shooter s)
     {
         // each subsystem used by the command must be passed into the addRequirements() method (which takes a vararg of Subsystem)
         addRequirements();
@@ -15,13 +15,11 @@ public class LoadFirstBallCommand extends CommandBase
         shooter = s;
     }
     private Shooter shooter;
-
-    //Runs both Indexer and LiftBall to bring the first ball to the top sensor (right before flywheel)
+    //Runs only Indexer to bring the ball to the second sensor
     @Override
     public void initialize()
     {
-        shooter.setIndexer(.4);
-        shooter.setLiftBall(.4);
+        shooter.setIndexer(.5);
     }
 
     @Override
@@ -34,13 +32,12 @@ public class LoadFirstBallCommand extends CommandBase
     public boolean isFinished()
     {
         System.out.println("Is Finished");
-        return shooter.isBallBeforeFlyWheel();
+        return shooter.isBallAtIntake();
     }
 
     @Override
     public void end(boolean interrupted)
     {
         shooter.setIndexer(0);
-        shooter.setLiftBall(0);
     }
 }
