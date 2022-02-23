@@ -58,8 +58,6 @@ public class Oi
         shootAllBallsLow = new JoystickButton(buttonStick, Constants.SHOOT_ALL_BALLS_LOW_BUTTON);
         //runBothLifts = new JoystickButton(rightStick, Constants.RUN_BOTH_LIFTS);
 
-        highShooterButton.whenHeld(new RunFlyWheelCommand(shooter, 19000.0)); // shoot high
-        lowShooterButton.whenHeld(new RunFlyWheelCommand(shooter, 9500.0)); // shoot low
         intakeButton = new JoystickButton(buttonStick, Constants.INTAKE_BUTTON);
         reverseIntakeButton = new JoystickButton(buttonStick, Constants.REVERSE_INTAKE_BUTTON);
         dropOnButton = new JoystickButton(leftStick, Constants.DROP_ON_BUTTON);

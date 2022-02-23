@@ -96,9 +96,6 @@ public final class Constants
     public static class EncoderPorts
     {
 
-        public static final int COLLECTOR_ENCODER_PORT_A = 0;
-        public static final int COLLECTOR_ENCODER_PORT_B = 0;
-        //todo change to the right ports
         public class TwoMotorTalonSRX
         {
 

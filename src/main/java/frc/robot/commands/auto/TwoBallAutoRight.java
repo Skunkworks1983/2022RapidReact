@@ -6,9 +6,9 @@ import frc.robot.commands.RotateCommand;
 import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Drivebase;
 
-public class AutoCodeB extends SequentialCommandGroup
+public class TwoBallAutoRight extends SequentialCommandGroup
 {
-    public AutoCodeB(Drivebase drivebase, Collector collector)
+    public TwoBallAutoRight(Drivebase drivebase, Collector collector)
     {
         addCommands
                 (

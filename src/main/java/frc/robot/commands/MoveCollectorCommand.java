@@ -19,7 +19,7 @@ public class MoveCollectorCommand extends CommandBase
         public void initialize()
         {
             super.initialize();
-            subSystem.setCollectorAngled(moveDownward);
+            subSystem.setCollectorAngle(moveDownward);
         }
 
         @Override

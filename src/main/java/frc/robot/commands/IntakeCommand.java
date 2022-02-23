@@ -13,7 +13,6 @@ public class IntakeCommand extends CommandBase
      {
          this.collector = collector;
          this.speed = speed;
-         this.time = time;
      }
 
     @Override
