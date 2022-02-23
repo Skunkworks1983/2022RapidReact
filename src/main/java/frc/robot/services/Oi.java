@@ -8,7 +8,6 @@ import frc.robot.commands.ShootAllBallsHighCommand;
 import frc.robot.commands.ShootAllBallsLowCommand;
 import frc.robot.commands.SpinUpAndShootAllBallsHighCommandGroup;
 import frc.robot.commands.SpinUpAndShootAllBallsLowCommandGroup;
-import frc.robot.commands.UpAndDownCollectorCommand;
 import frc.robot.commands.LoadFirstBallCommand;
 import frc.robot.commands.LoadSecondBallCommand;
 import frc.robot.commands.RunFlyWheelCommand;
