@@ -12,9 +12,9 @@ public class GrabBall extends SequentialCommandGroup
     {
         addCommands
                 (
-                        new MoveCollectorCommand(collector, true),
-                        new IntakeCommand(collector, .5),
-                        new MoveCollectorCommand(collector, false)
+                        //new MoveCollectorCommand(collector, true),
+                        new IntakeCommand(collector, .5)
+                        //new MoveCollectorCommand(collector, false) //todo fix collector command, and all of this
                 );
     }
 }

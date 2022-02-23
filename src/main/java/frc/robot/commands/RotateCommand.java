@@ -36,8 +36,8 @@ public class RotateCommand extends CommandBase
         }
         startDegree = drivebase.getHeading();
         finishDegree = startDegree + degree;
-        KP = 0.01;
-        KF = 0.1;
+        KP = 0.005;
+        KF = 0.15;
         System.out.println("turning to: " + (finishDegree));
         System.out.println("starting speed is: " + (KP * (finishDegree - drivebase.getHeading())) + ", starting degree is: " + startDegree);
     }
