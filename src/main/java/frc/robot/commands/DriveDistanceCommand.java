@@ -34,8 +34,9 @@ public class DriveDistanceCommand extends CommandBase
     public void initialize()
     {
         startDistanceFT = drivebase.getPosLeft();
-
-        if(distanceFT < 0)
+        finishDistanceFT = startDistanceFT+distanceFT;
+        KP = 0.1;
+        if(distanceFT > 0)
         {
             drivebase.runMotor(speed, speed);
         }
@@ -53,7 +54,9 @@ public class DriveDistanceCommand extends CommandBase
     @Override
     public void execute()
     {
-        System.out.println("Current distance Left: " + drivebase.getPosLeft() + " Feet, Current distance Right: " + drivebase.getPosRight() + " Feet");
+        double error = finishDistanceFT - drivebase.getPosLeft();
+        double speed = Math.max((KP * error), 0.2);
+        drivebase.runMotor(speed*direction, speed*direction);
     }
 
     /**
@@ -95,5 +98,6 @@ public class DriveDistanceCommand extends CommandBase
     public void end(boolean interrupted)
     {
         drivebase.runMotor(0, 0);
+        System.out.println("Ended at: "+drivebase.getPosLeft());
     }
 }

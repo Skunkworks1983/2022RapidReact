@@ -11,11 +11,11 @@ public class RunFlyWheelCommand extends CommandBase
     private double KP = .0001;
     private double KF;
     private double setpoint;
-    public RunFlyWheelCommand(Shooter s, Double speed)
+    public RunFlyWheelCommand(Shooter shooter, Double speed)
     {
         // each subsystem used by the command must be passed into the addRequirements() method (which takes a vararg of Subsystem)
         addRequirements();
-        shooter = s;
+        this.shooter = shooter;
         setpoint = speed;
         KF = speed * .000046;
     }

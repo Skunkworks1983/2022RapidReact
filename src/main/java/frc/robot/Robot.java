@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.*;
+import frc.robot.commands.auto.AutoCodeB;
 import frc.robot.commands.auto.ExitTarmac;
 import frc.robot.services.Oi;
 import frc.robot.subsystems.Collector;
@@ -51,7 +52,7 @@ public class Robot extends TimedRobot
         robotContainer = new RobotContainer();
         theDrivebase = new Drivebase4Motor();
         theShooter = new Shooter();
-        autonomousCommand = new ExitTarmac(theDrivebase);
+        autonomousCommand = new RotateCommand(theDrivebase, -159);
         theOi = new Oi(theCollector, theDrivebase, theShooter);
     }
     
