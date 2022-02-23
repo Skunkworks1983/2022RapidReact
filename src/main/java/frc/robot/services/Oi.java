@@ -4,6 +4,8 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.MoveCollectorCommand;
 import frc.robot.commands.IntakeCommand;
+import frc.robot.commands.LoadFirstBallCommand;
+import frc.robot.commands.LoadSecondBallCommand;
 import frc.robot.commands.RunFlyWheelCommand;
 import frc.robot.commands.RunIndexerCommand;
 import frc.robot.commands.RunLiftBallCommand;
@@ -25,6 +27,12 @@ public class Oi
     JoystickButton reverseIntakeButton;
     JoystickButton collectorUpwardButton;
     JoystickButton collectorDownwardButton;
+    JoystickButton dropOnButton;
+    JoystickButton dropOffButton;
+    JoystickButton upButton;
+    JoystickButton downButton;
+    JoystickButton loadFirstBallButton;
+    JoystickButton loadSecondBallButton;
 
     public Oi(Collector collector, Drivebase drivebase, Shooter shooter)
     {
@@ -35,6 +43,8 @@ public class Oi
         highShooterButton = new JoystickButton(leftStick, Constants.FLY_WHEEL_BUTTONS);
         lowShooterButton = new JoystickButton(rightStick, Constants.FLY_WHEEL_BUTTONS);
         liftBallButton = new JoystickButton(rightStick, Constants.LIFT_BALL_BUTTON);
+        loadFirstBallButton = new JoystickButton(rightStick, Constants.LOAD_FIRST_BALL_BUTTON);
+        loadSecondBallButton = new JoystickButton(rightStick, Constants.LOAD_SECOND_BALL_BUTTON);
         indexerButton = new JoystickButton(leftStick, Constants.INDEXER_BUTTON);
         runBothLifts = new JoystickButton(rightStick, Constants.RUN_BOTH_LIFTS);
 

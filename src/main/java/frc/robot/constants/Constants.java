@@ -25,6 +25,8 @@ public final class Constants
     public static final int FLY_WHEEL_BUTTONS = 1;
     public static final int INDEXER_BUTTON = 2;
     public static final int RUN_BOTH_LIFTS = 1;
+    public static final int LOAD_FIRST_BALL_BUTTON = 3;
+    public static final int LOAD_SECOND_BALL_BUTTON = 4;
     public static final double HIGH_GOAL_SPEED = 19000;
     public static final double LOW_GOAL_SPEED = 9500;
 
@@ -72,7 +74,7 @@ public final class Constants
             public static final int COLLECTOR_SERVO_DEVICE_NUMBER = 0;
             public static final double COLLECTOR_SERVO_OPENED_ANGLE = 0;
             public static final double COLLECTOR_SERVO_CLOSED_ANGLE = 0;
-        }
+        } //todo change to real angles
 
         public class CollectorRelay
         {
