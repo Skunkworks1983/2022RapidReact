@@ -13,7 +13,7 @@ public class AutoCodeB extends SequentialCommandGroup
         addCommands
                 (
                         new DriveDistanceCommand(drivebase, 2.92),
-                        new GrabBall(collector),
+                        //new GrabBall(collector),
                         new DriveDistanceCommand(drivebase, -2.92),
                         new RotateCommand(drivebase, 90)
                         );

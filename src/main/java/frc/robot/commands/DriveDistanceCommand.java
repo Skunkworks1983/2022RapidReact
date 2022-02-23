@@ -6,11 +6,12 @@ import frc.robot.subsystems.Drivebase;
 
 public class DriveDistanceCommand extends CommandBase
 {
-    private Drivebase drivebase;
-    private double distanceFT;
+    private final Drivebase drivebase;
+    private final double distanceFT;
     private double startDistanceFT;
     private double finishDistanceFT;
     private int direction;
+    private double startDegree;
     private double KP;
     private double KF;
 
@@ -33,7 +34,9 @@ public class DriveDistanceCommand extends CommandBase
     {
         startDistanceFT = drivebase.getPosLeft();
         finishDistanceFT = startDistanceFT+distanceFT;
+        startDegree = drivebase.getHeading();
         KP = 0.1;
+        KF = 0.2; //todo <-- too high, also 0.04 is too low
         if(distanceFT > 0)
         {
             direction = 1;
@@ -50,7 +53,9 @@ public class DriveDistanceCommand extends CommandBase
     {
         double error = finishDistanceFT - drivebase.getPosLeft();
         double speed = Math.max((KP * error), 0.2);
-        drivebase.runMotor(speed*direction, speed*direction);
+        double speedLeft = speed*direction + Math.max(Math.min(KF*(startDegree - drivebase.getHeading()), 0.25), -0.25);
+        double speedRight = speed*direction - Math.max(Math.min(KF*(startDegree - drivebase.getHeading()), 0.25), -0.25);
+        drivebase.runMotor(speedLeft, speedRight);
     }
 
     @Override
