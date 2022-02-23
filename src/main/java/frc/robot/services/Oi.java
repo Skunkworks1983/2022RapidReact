@@ -28,7 +28,7 @@ public class Oi
 
     public Oi(Collector collector, Drivebase drivebase, Shooter shooter)
     {
-        /**
+
         leftStick = new Joystick(Constants.LEFT_JOY_STICK_PORT);
         rightStick = new Joystick(Constants.RIGHT_JOY_STICK_PORT);
 
@@ -48,12 +48,12 @@ public class Oi
         collectorUpwardButton = new JoystickButton(leftStick, Constants.UPWARD_COLLECTOR_BUTTON);
         collectorDownwardButton = new JoystickButton(rightStick, Constants.DOWNWARD_COLLECTOR_BUTTON);
 
-        intakeButton.whenHeld(new IntakeCommand(collector, .5, 0));
-        reverseIntakeButton.whenHeld(new IntakeCommand(collector, -.5, 0));
+        intakeButton.whenHeld(new IntakeCommand(collector, .5));
+        reverseIntakeButton.whenHeld(new IntakeCommand(collector, -.5));
 
         collectorUpwardButton.whenPressed(new MoveCollectorCommand(collector, false));
         collectorDownwardButton.whenPressed(new MoveCollectorCommand(collector, true));
-         */
+
     }
 
     public double getLeftY()
