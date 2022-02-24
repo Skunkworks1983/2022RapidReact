@@ -10,7 +10,7 @@ public class SpinUpAndShootAllBallsHighCommandGroup extends SequentialCommandGro
     public SpinUpAndShootAllBallsHighCommandGroup(Shooter s)
     {
         // TODO: Add your sequential commands in the super() call, e.g.
-        //           super(new OpenClawCommand(), new MoveArmCommand());
+        //           super(new OpenClawCommand(), new MoveArmCommand())
         super(new SpinUpMotorCommand(s ,Constants.HIGH_GOAL_SPEED * 1.01), new ShootAllBallsHighCommand(s));
     }
 }

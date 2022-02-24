@@ -44,6 +44,6 @@ public class SpinUpMotorCommand extends CommandBase
     @Override
     public void end(boolean interrupted)
     {
-
+        shooter.setFlywheel(0);
     }
 }
