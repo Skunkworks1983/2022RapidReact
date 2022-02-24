@@ -5,24 +5,29 @@
 
 package frc.robot.subsystems.shooter;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
+import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
+import com.ctre.phoenix.motorcontrol.TalonFXFeedbackDevice;
 import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import com.ctre.phoenix.motorcontrol.can.TalonFX;
+import frc.robot.constants.Constants;
 
 import static frc.robot.constants.Constants.MotorPorts.Shooter.*;
 
 public class Shooter extends SubsystemBase
 {
-    private TalonSRX flyWheel = new TalonSRX(FLY_WHEEL_DEVICE_NUMBER);
+    private TalonFX flywheel = new TalonFX(FLYWHEEL_DEVICE_NUMBER);
     private TalonSRX liftBall = new TalonSRX(LIFT_BALL_DEVICE_NUMBER);
     private TalonSRX indexer = new TalonSRX(INDEXER_DEVICE_NUMBER);
     private DigitalInput intakeSensor = new DigitalInput(0);
     private DigitalInput beforeFlyWheel = new DigitalInput(1);
 
-    public void setFlyWheel(double speed)
+    public void setFlywheel(double speed)
     {
-        flyWheel.set(TalonSRXControlMode.PercentOutput, -speed);
+        flywheel.set(TalonFXControlMode.Velocity, -speed);
     }
 
     public void setLiftBall(double speed)
@@ -32,7 +37,7 @@ public class Shooter extends SubsystemBase
 
     public void setIndexer(double speed)
     {
-        indexer.set(TalonSRXControlMode.PercentOutput, -speed);
+        indexer.set(TalonSRXControlMode.PercentOutput, speed);
     }
 
     public  double getLiftBallSpeed()
@@ -47,17 +52,27 @@ public class Shooter extends SubsystemBase
 
     public double getFlyWheelSpeed()
     {
-        return -flyWheel.getSelectedSensorVelocity();
+        return -flywheel.getSelectedSensorVelocity();
     }
 
-    public boolean isBallAtIntake(){return intakeSensor.get();}
+    public boolean isBallAtIntake(){return !intakeSensor.get();}
 
-    public boolean isBallBeforeFlyWheel(){return beforeFlyWheel.get();}
+    public boolean isBallBeforeFlyWheel(){return !beforeFlyWheel.get();}
+
+    public void initializeFlywheel()
+    {
+        flywheel.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor, 30, 30);
+        flywheel.config_kF(0, Constants.FLY_WHEEL_KF);
+        flywheel.config_kP(0, Constants.FLY_WHEEL_KP);
+        flywheel.selectProfileSlot(0, 0);
+        flywheel.configClosedloopRamp(0.5);
+        flywheel.setNeutralMode(NeutralMode.Coast);
+    }
 
     /** Creates a new Shooter. */
     public Shooter()
     {
-
+        initializeFlywheel();
     }
 
     @Override

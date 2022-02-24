@@ -1,4 +1,5 @@
 package frc.robot.commands.auto;
 
-public class AutoCodeLeft {
+public class TwoBallAutoCenter
+{
 }

@@ -17,22 +17,35 @@ public final class Constants
 {
     public static final int LEFT_JOY_STICK_PORT = 0;
     public static final int RIGHT_JOY_STICK_PORT = 1;
-    public static final int INTAKE_BUTTON = 3;
-    public static final int REVERSE_INTAKE_BUTTON = 3;
     public static final int UPWARD_COLLECTOR_BUTTON = 4;
     public static final int DOWNWARD_COLLECTOR_BUTTON = 4;//line 22-23 will all be changed this is just an example                                                                          your moms a hoe
-    public static final int LIFT_BALL_BUTTON = 2;
     public static final int FLY_WHEEL_BUTTONS = 1;
+    public static final int BUTTON_STICK_PORT = 2;
+    public static final int INTAKE_BUTTON = 9;
+    public static final int REVERSE_INTAKE_BUTTON = 10;
+    public static final int DROP_ON_BUTTON = 4;
+    public static final int DROP_OFF_BUTTON = 4;
+    public static final int UP_BUTTON = 5;
+    public static final int DOWN_BUTTON = 5; //line 22-25 will all be changed this is just an example
+    public static final int LIFT_BALL_BUTTON = 3;
+    public static final int LOW_SHOOTER_BUTTON = 14;
+    public static final int HIGH_SHOOTER_BUTTON = 15;
     public static final int INDEXER_BUTTON = 2;
     public static final int RUN_BOTH_LIFTS = 1;
-    public static final double HIGH_GOAL_SPEED = 19000;
-    public static final double LOW_GOAL_SPEED = 9500;
+    public static final int LOAD_FIRST_BALL_BUTTON = 12;
+    public static final int LOAD_SECOND_BALL_BUTTON = 13;
+    public static final double FLY_WHEEL_KP = .08;
+    public static final double FLY_WHEEL_KF = .0456;
+    public static final double HIGH_GOAL_SPEED = 14300;
+    public static final double LOW_GOAL_SPEED = 9550;
+    public static final int SHOOT_ALL_BALLS_HIGH_BUTTON = 4;
+    public static final int SHOOT_ALL_BALLS_LOW_BUTTON = 11;
 
     public class MotorPorts
     {
         public class Shooter
         {
-            public static final int FLY_WHEEL_DEVICE_NUMBER = 5;
+            public static final int FLYWHEEL_DEVICE_NUMBER = 5;
             public static final int LIFT_BALL_DEVICE_NUMBER = 6;
             public static final int INDEXER_DEVICE_NUMBER = 7;
         }
@@ -72,7 +85,7 @@ public final class Constants
             public static final int COLLECTOR_SERVO_DEVICE_NUMBER = 0;
             public static final double COLLECTOR_SERVO_OPENED_ANGLE = 0;
             public static final double COLLECTOR_SERVO_CLOSED_ANGLE = 0;
-        }
+        } //todo change to real angles
 
         public class CollectorRelay
         {
@@ -83,9 +96,6 @@ public final class Constants
     public static class EncoderPorts
     {
 
-        public static final int COLLECTOR_ENCODER_PORT_A = 0;
-        public static final int COLLECTOR_ENCODER_PORT_B = 0;
-        //todo change to the right ports
         public class TwoMotorTalonSRX
         {
 

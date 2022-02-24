@@ -12,7 +12,8 @@ public class DriveDistanceCommand extends CommandBase
     private double finishDistanceFT;
     private int direction;
     private double startDegree;
-    private double KP;
+    private double KPDistance;
+    private double KPAngle;
     private double KF;
 
     /**
@@ -24,9 +25,9 @@ public class DriveDistanceCommand extends CommandBase
     {
         // each subsystem used by the command must be passed into the
         // addRequirements() method (which takes a vararg of Subsystem)
-        addRequirements();
         this.drivebase = drivebase;
         this.distanceFT = distanceFT;
+        addRequirements(drivebase);
     }
 
     @Override
@@ -35,8 +36,9 @@ public class DriveDistanceCommand extends CommandBase
         startDistanceFT = drivebase.getPosLeft();
         finishDistanceFT = startDistanceFT+distanceFT;
         startDegree = drivebase.getHeading();
-        KP = 0.1;
-        KF = 0.2; //todo <-- too high, also 0.04 is too low
+        KPDistance = 0.1;
+        KPAngle = 0.2; //todo <-- too high, also 0.04 is too low
+        KF = 0.2;
         if(distanceFT > 0)
         {
             direction = 1;
@@ -52,9 +54,9 @@ public class DriveDistanceCommand extends CommandBase
     public void execute()
     {
         double error = finishDistanceFT - drivebase.getPosLeft();
-        double speed = Math.max((KP * error), 0.2);
-        double speedLeft = speed*direction + Math.max(Math.min(KF*(startDegree - drivebase.getHeading()), 0.25), -0.25);
-        double speedRight = speed*direction - Math.max(Math.min(KF*(startDegree - drivebase.getHeading()), 0.25), -0.25);
+        double speed = KPDistance * error + KF;
+        double speedLeft = speed*direction + Math.max(Math.min(KPAngle*(startDegree - drivebase.getHeading()), 0.25), -0.25);
+        double speedRight = speed*direction - Math.max(Math.min(KPAngle*(startDegree - drivebase.getHeading()), 0.25), -0.25);
         drivebase.runMotor(speedLeft, speedRight);
     }
 
