@@ -2,7 +2,6 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Collector;
-import frc.robot.subsystems.collector.DropCollector;
 
 public class MoveCollectorCommand extends CommandBase
 {
@@ -19,7 +18,7 @@ public class MoveCollectorCommand extends CommandBase
         public void initialize()
         {
             super.initialize();
-            subSystem.setCollectorAngled(moveDownward);
+            subSystem.setCollectorAngle(moveDownward);
         }
 
         @Override

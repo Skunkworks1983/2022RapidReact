@@ -7,7 +7,7 @@ import frc.robot.subsystems.Collector;
 public class DropCollector extends Collector
 {
     Servo collectorRelease = new Servo(Constants.MotorPorts.CollectorServo.COLLECTOR_SERVO_DEVICE_NUMBER);
-    public void setCollectorAngled(boolean moveDownward)
+    public void setCollectorAngle(boolean moveDownward)
     {
         if (moveDownward)
         {

@@ -7,13 +7,11 @@ public class IntakeCommand extends CommandBase
 {
     private final Collector collector;
     private double speed;
-    private int time;
 
      public IntakeCommand(Collector collector, double speed)
      {
          this.collector = collector;
          this.speed = speed;
-         this.time = time;
      }
 
     @Override

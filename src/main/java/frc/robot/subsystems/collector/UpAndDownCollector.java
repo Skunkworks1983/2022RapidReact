@@ -7,7 +7,7 @@ import frc.robot.subsystems.Collector;
 public class UpAndDownCollector extends Collector
 {
     Relay relayUpAndDown = new Relay(Constants.MotorPorts.CollectorRelay.COLLECTOR_RELAY_DEVICE_NUMBER);
-    public void setCollectorAngled(boolean moveDownward)
+    public void setCollectorAngle(boolean moveDownward)
     {
         if (moveDownward)
         {

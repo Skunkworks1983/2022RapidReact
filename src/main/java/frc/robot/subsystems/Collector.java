@@ -17,7 +17,7 @@ public abstract class Collector extends SubsystemBase
         intakeMotor.set(TalonFXControlMode.PercentOutput, speed);
     }
 
-    public abstract void setCollectorAngled(boolean moveDownward);
+    public abstract void setCollectorAngle(boolean moveDownward);
 
     public double getEncoderValue()
     {

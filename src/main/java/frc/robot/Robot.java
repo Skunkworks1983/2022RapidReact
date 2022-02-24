@@ -9,13 +9,9 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.*;
-import frc.robot.commands.auto.AutoCodeB;
-import frc.robot.commands.auto.ExitTarmac;
 import frc.robot.services.Oi;
 import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Drivebase;
-import frc.robot.subsystems.collector.DropCollector;
-import frc.robot.subsystems.collector.UpAndDownCollector;
 import frc.robot.subsystems.drivebases.Drivebase4Motor;
 import frc.robot.subsystems.shooter.Shooter;
 
