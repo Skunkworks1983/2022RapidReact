@@ -1,24 +1,25 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.DropCollector;
+import frc.robot.subsystems.Collector;
+import frc.robot.subsystems.collector.DropCollector;
 
-public class DropCollectorCommand extends CommandBase
+public class MoveCollectorCommand extends CommandBase
 {
-        private final DropCollector subSystem;
-        private boolean open;
+        private final Collector subSystem;
+        private boolean moveDownward;
 
-        public DropCollectorCommand (DropCollector subSystem, boolean open)
+        public MoveCollectorCommand(Collector subSystem, boolean moveDownward)
         {
             this.subSystem = subSystem;
-            this.open = open;
+            this.moveDownward = moveDownward;
         }
 
         @Override
         public void initialize()
         {
             super.initialize();
-            subSystem.drop(open);
+            subSystem.setCollectorAngle(moveDownward);
         }
 
         @Override
