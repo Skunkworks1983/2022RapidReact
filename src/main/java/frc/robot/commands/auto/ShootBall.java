@@ -7,6 +7,8 @@ import frc.robot.subsystems.shooter.Shooter;
 
 public class ShootBall extends SequentialCommandGroup
 {
+    //NOTE:dont use this command(it should be deleted) use shoot
+    // SpinUpFlyWheelAndShootAllBallsHighCommandGroup or SpinUpFlyWheelAndShootAllBallsLowCommandGroup!
     public ShootBall(Shooter shooter)
     {
         addCommands
