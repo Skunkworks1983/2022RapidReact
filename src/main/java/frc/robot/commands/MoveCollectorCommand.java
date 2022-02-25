@@ -5,12 +5,13 @@ import frc.robot.subsystems.Collector;
 
 public class MoveCollectorCommand extends CommandBase
 {
-        private final Collector subSystem;
+        private final Collector collector;
         private boolean moveDownward;
+        private double speed;
 
-        public MoveCollectorCommand(Collector subSystem, boolean moveDownward)
+        public MoveCollectorCommand(Collector collector, boolean moveDownward, double speed)
         {
-            this.subSystem = subSystem;
+            this.collector = collector;
             this.moveDownward = moveDownward;
         }
 
@@ -18,7 +19,6 @@ public class MoveCollectorCommand extends CommandBase
         public void initialize()
         {
             super.initialize();
-            subSystem.setCollectorAngle(moveDownward);
         }
 
         @Override

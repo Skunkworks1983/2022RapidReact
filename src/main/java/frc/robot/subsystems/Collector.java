@@ -4,21 +4,27 @@ import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.constants.Constants;
-import edu.wpi.first.wpilibj.Encoder;
 
 public abstract class Collector extends SubsystemBase
 {
-    TalonFX intakeMotor = new TalonFX(Constants.MotorPorts.Collector.COLLECTOR_MOTOR_DEVICE_NUMBER);
+    TalonFX intakeMotor = new TalonFX(Constants.MotorPorts.Collector.COLLECTOR_INTAKE_MOTOR_DEVICE_NUMBER);
 
     public void collectBalls(double speed)
     {
         intakeMotor.set(TalonFXControlMode.PercentOutput, speed);
     }
 
-    public abstract void setCollectorAngle(boolean moveDownward);
+    TalonFX collectorMotor = new TalonFX(Constants.MotorPorts.Collector.COLLECTOR_MOTOR_DEVICE_NUMBER);
 
-    public double getEncoderValue()
+    private double encoderToAngleFactor = 1;
+
+    public void setCollectorAngleSpeed(double speed)
     {
-        return 0;
+        collectorMotor.set(TalonFXControlMode.PercentOutput, speed);
+    }
+
+    public double getCollectorAngle()
+    {
+        return collectorMotor.getSelectedSensorPosition() * encoderToAngleFactor;
     }
 }

@@ -2,16 +2,21 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Collector;
+import frc.robot.subsystems.shooter.Shooter;
 
 public class IntakeCommand extends CommandBase
 {
     private final Collector collector;
+    private final Shooter shooter;
     private double speed;
+    private boolean ball2;
 
-     public IntakeCommand(Collector collector, double speed)
+     public IntakeCommand(Collector collector, Shooter shooter, double speed, boolean ball2)
      {
          this.collector = collector;
+         this.shooter = shooter;
          this.speed = speed;
+         this.ball2 = ball2;
      }
 
     @Override
@@ -32,7 +37,14 @@ public class IntakeCommand extends CommandBase
     @Override
     public boolean isFinished()
     {
-        return false;
+        if (ball2)
+        {
+            return shooter.isBallAtIntake();
+        }
+        else
+        {
+            return shooter.isBallBeforeFlyWheel();
+        }
     }
 
     @Override

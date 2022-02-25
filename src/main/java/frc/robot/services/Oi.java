@@ -80,11 +80,11 @@ public class Oi
         shootAllBallsHigh.whenHeld(new SpinUpAndShootAllBallsHighCommandGroup(shooter));
         shootAllBallsLow.whenHeld(new SpinUpAndShootAllBallsLowCommandGroup(shooter));
 
-        intakeButton.whenHeld(new IntakeCommand(collector, .5));
-        reverseIntakeButton.whenHeld(new IntakeCommand(collector, -.5));
+        intakeButton.whenHeld(new IntakeCommand(collector, shooter, .5, false));
+        reverseIntakeButton.whenHeld(new IntakeCommand(collector, shooter, -.5, false));
 
-        collectorUpwardButton.whenPressed(new MoveCollectorCommand(collector, false));
-        collectorDownwardButton.whenPressed(new MoveCollectorCommand(collector, true));
+        collectorUpwardButton.whenPressed(new MoveCollectorCommand(collector, false, .5));//todo real speed
+        collectorDownwardButton.whenPressed(new MoveCollectorCommand(collector, true, .5));
 
     }
 
