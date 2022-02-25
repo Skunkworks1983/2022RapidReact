@@ -13,6 +13,7 @@ import frc.robot.services.Oi;
 import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.drivebases.Drivebase4Motor;
+import frc.robot.subsystems.drivebases.Drivebase4MotorPhoenix500;
 import frc.robot.subsystems.shooter.Shooter;
 
 
@@ -46,9 +47,9 @@ public class Robot extends TimedRobot
         // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
         // autonomous chooser on the dashboard.
         robotContainer = new RobotContainer();
-        theDrivebase = new Drivebase4Motor();
+        theDrivebase = new Drivebase4MotorPhoenix500();
         theShooter = new Shooter();
-        autonomousCommand = new RotateCommand(theDrivebase, -159);
+        autonomousCommand = new DriveDistanceCommand(theDrivebase, 3); //degree = -159
         theOi = new Oi(theCollector, theDrivebase, theShooter);
     }
     
@@ -84,9 +85,6 @@ public class Robot extends TimedRobot
     @Override
     public void autonomousInit()
     {
-        //autonomousCommand = robotContainer.getAutonomousCommand();
-        //todo build auto
-        //schedule the autonomous command (example)
         if (autonomousCommand != null)
         {
             autonomousCommand.schedule();
