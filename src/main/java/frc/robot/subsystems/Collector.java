@@ -16,7 +16,7 @@ public abstract class Collector extends SubsystemBase
 
     TalonFX collectorMotor = new TalonFX(Constants.MotorPorts.Collector.COLLECTOR_MOTOR_DEVICE_NUMBER);
 
-    private double encoderToAngleFactor = 1;
+    public double encoderToAngleFactor = 1;
 
     public void setCollectorAngleSpeed(double speed)
     {

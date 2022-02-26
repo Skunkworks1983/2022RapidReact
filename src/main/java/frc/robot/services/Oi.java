@@ -83,8 +83,8 @@ public class Oi
         intakeButton.whenHeld(new IntakeCommand(collector, shooter, .5, false));
         reverseIntakeButton.whenHeld(new IntakeCommand(collector, shooter, -.5, false));
 
-        collectorUpwardButton.whenPressed(new MoveCollectorCommand(collector, false, .5));//todo real speed
-        collectorDownwardButton.whenPressed(new MoveCollectorCommand(collector, true, .5));
+        collectorUpwardButton.whenPressed(new MoveCollectorCommand(collector, false, 1));//todo real speed
+        collectorDownwardButton.whenPressed(new MoveCollectorCommand(collector, true,1));
 
     }
 

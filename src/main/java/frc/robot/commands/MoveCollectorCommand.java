@@ -7,12 +7,14 @@ public class MoveCollectorCommand extends CommandBase
 {
         private final Collector collector;
         private boolean moveDownward;
+        private double endDegree;
         private double speed;
 
-        public MoveCollectorCommand(Collector collector, boolean moveDownward, double speed)
+        public MoveCollectorCommand(Collector collector, boolean moveDownward, double endDegree)
         {
             this.collector = collector;
             this.moveDownward = moveDownward;
+            this.endDegree = endDegree;
         }
 
         @Override
@@ -30,7 +32,14 @@ public class MoveCollectorCommand extends CommandBase
         @Override
         public boolean isFinished()
         {
-            return true;
+            if(collector.getCollectorAngle() <= endDegree)
+            {
+                 return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         @Override
