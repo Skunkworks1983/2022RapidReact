@@ -27,12 +27,20 @@ public class MoveCollectorCommand extends CommandBase
         public void execute()
         {
             super.execute();
+            if(moveDownward)
+            {
+                collector.setCollectorAngleSpeed(-speed);
+            }
+            else
+            {
+                collector.setCollectorAngleSpeed(speed);
+            }
         }
 
         @Override
         public boolean isFinished()
         {
-            if(collector.getCollectorAngle() <= endDegree)
+            if(collector.getCollectorAngle() >= endDegree)
             {
                  return true;
             }
