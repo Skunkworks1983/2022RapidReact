@@ -53,12 +53,10 @@ public class Drivebase4Motor extends Drivebase
         return gyro.isCalibrating();
     }
 
+    public double getTicksLeft(){return 0;}
+
     public Drivebase4Motor()
     {
-        /* leftMotor1.configSelectedFeedbackCoefficient(distancePerMotorRotation);
-        leftMotor2.configSelectedFeedbackCoefficient(distancePerMotorRotation);
-        rightMotor1.configSelectedFeedbackCoefficient(distancePerMotorRotation);
-        rightMotor2.configSelectedFeedbackCoefficient(distancePerMotorRotation); */
         leftEncoder.setDistancePerPulse(distancePerMotorRotation);
         rightEncoder.setDistancePerPulse(distancePerMotorRotation);
     }
