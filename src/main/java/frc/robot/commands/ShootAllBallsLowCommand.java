@@ -12,8 +12,8 @@ public class ShootAllBallsLowCommand extends CommandBase
     {
         // each subsystem used by the command must be passed into the
         // addRequirements() method (which takes a vararg of Subsystem)
-        addRequirements(shooter);
         shooter = s;
+        addRequirements(shooter);
     }
     Shooter shooter;
     @Override
