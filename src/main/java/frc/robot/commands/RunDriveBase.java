@@ -42,5 +42,6 @@ public class RunDriveBase extends CommandBase
     public void end(boolean interrupted)
     {
         drivebase.runMotor(0, 0);
+        System.out.println("Run Motors Ended");
     }
 }

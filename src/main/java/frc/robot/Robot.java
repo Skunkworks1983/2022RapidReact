@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.*;
+import frc.robot.commands.auto.TwoBallAutoLeft;
 import frc.robot.services.Oi;
 import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Drivebase;
@@ -48,7 +49,7 @@ public class Robot extends TimedRobot
         robotContainer = new RobotContainer();
         theDrivebase = new Drivebase4Motor();
         theShooter = new Shooter();
-        autonomousCommand = new RotateCommand(theDrivebase, -159);
+        //autonomousCommand = new RotateCommand(theDrivebase, -159);
         theOi = new Oi(theCollector, theDrivebase, theShooter);
     }
     
@@ -87,6 +88,7 @@ public class Robot extends TimedRobot
         //autonomousCommand = robotContainer.getAutonomousCommand();
         //todo build auto
         //schedule the autonomous command (example)
+        autonomousCommand = new TwoBallAutoLeft(theDrivebase, theCollector, theShooter);
         if (autonomousCommand != null)
         {
             autonomousCommand.schedule();

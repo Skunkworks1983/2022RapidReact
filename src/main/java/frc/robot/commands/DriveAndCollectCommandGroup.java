@@ -12,6 +12,7 @@ public class DriveAndCollectCommandGroup extends ParallelCommandGroup
     {
         // TODO: Add your sequential commands in the super() call, e.g.
         //           super(new OpenClawCommand(), new MoveArmCommand());
-        super(new DriveDistanceCommand(drivebase, distance), new GrabBall(collector));
+        super(new DriveDistanceCommand(drivebase, distance));
+                // ,new GrabBall(collector));
     }
 }

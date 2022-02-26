@@ -18,7 +18,7 @@ public class TwoBallAutoLeft extends SequentialCommandGroup
         addCommands(new DriveAndCollectCommandGroup(drivebase, collector,2.92),
                     new DriveDistanceCommand(drivebase, -6),
                     new RotateCommand(drivebase, 170),
-                    new TimedDriveForwardCommandGroup(1.0, 0.15, drivebase),
+                    new TimedDriveForwardCommandGroup(3.0, 0.15, drivebase),
                     new TimedSpinUpAndShootAllBallsHighCommandGroup(shooter)
                    );
     }
