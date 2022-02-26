@@ -9,6 +9,8 @@ public class MoveCollectorCommand extends CommandBase
         private boolean moveDownward;
         private double endAngle;
         private double speed;
+        private double threshold = 2;
+        private double error;
 
         public MoveCollectorCommand(Collector collector, boolean moveDownward, double endAngle)
         {
@@ -35,6 +37,9 @@ public class MoveCollectorCommand extends CommandBase
         public void execute()
         {
             super.execute();
+
+            speed = 1/90 * error;
+
             if(moveDownward)
             {
                 collector.setCollectorAngleSpeed(-speed);
@@ -48,14 +53,7 @@ public class MoveCollectorCommand extends CommandBase
         @Override
         public boolean isFinished()
         {
-            if(collector.getCollectorAngle() >= endAngle)
-            {
-                 return true;
-            }
-            else
-            {
-                return false;
-            }
+            return collector.getCollectorAngle() >= endAngle - threshold && collector.getCollectorAngle() < endAngle + threshold;
         }
 
         @Override
