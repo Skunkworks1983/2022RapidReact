@@ -39,6 +39,8 @@ public class Drivebase2Motor extends Drivebase
         return 0;
     }
 
+    public double getTicksLeft(){return 0;}
+
     public boolean isCalibrating()
     {
         return false;

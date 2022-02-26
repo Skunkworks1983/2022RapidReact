@@ -2,36 +2,52 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Collector;
-import frc.robot.subsystems.collector.DropCollector;
 
 public class MoveCollectorCommand extends CommandBase
 {
-        private final Collector subSystem;
+        private final Collector collector;
         private boolean moveDownward;
+        private double endDegree;
+        private double speed;
 
-        public MoveCollectorCommand(Collector subSystem, boolean moveDownward)
+        public MoveCollectorCommand(Collector collector, boolean moveDownward, double endDegree)
         {
-            this.subSystem = subSystem;
+            this.collector = collector;
             this.moveDownward = moveDownward;
+            this.endDegree = endDegree;
         }
 
         @Override
         public void initialize()
         {
             super.initialize();
-            subSystem.setCollectorAngle(moveDownward);
         }
 
         @Override
         public void execute()
         {
             super.execute();
+            if(moveDownward)
+            {
+                collector.setCollectorAngleSpeed(-speed);
+            }
+            else
+            {
+                collector.setCollectorAngleSpeed(speed);
+            }
         }
 
         @Override
         public boolean isFinished()
         {
-            return true;
+            if(collector.getCollectorAngle() >= endDegree)
+            {
+                 return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         @Override

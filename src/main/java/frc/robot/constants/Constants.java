@@ -78,7 +78,8 @@ public final class Constants
 
         public class Collector
         {
-            public static final int COLLECTOR_MOTOR_DEVICE_NUMBER = 5;
+            public static final int COLLECTOR_INTAKE_MOTOR_DEVICE_NUMBER = 5;
+            public static final int COLLECTOR_MOTOR_DEVICE_NUMBER = 0; //todo real device number
         }
 
         public class CollectorServo

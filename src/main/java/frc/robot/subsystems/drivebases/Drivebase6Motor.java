@@ -46,6 +46,8 @@ public class Drivebase6Motor extends Drivebase
         return false;
     }
 
+    public double getTicksLeft(){return 0;}
+
     public Drivebase6Motor()
     {
         leftMotor1.getEncoder().setPositionConversionFactor(distancePerMotorRotation);

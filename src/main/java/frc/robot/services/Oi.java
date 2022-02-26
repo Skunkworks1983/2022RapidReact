@@ -35,10 +35,9 @@ public class Oi
     JoystickButton upButton;
     JoystickButton downButton;
     JoystickButton loadFirstBallButton;
-    JoystickButton loadSecondBallButton;
+    JoystickButton loadBallsButton;
     JoystickButton shootAllBallsHigh;
     JoystickButton shootAllBallsLow;
-    JoystickButton loadBallsButton;
 
     public Oi(Collector collector, Drivebase drivebase, Shooter shooter)
     {
@@ -65,6 +64,7 @@ public class Oi
 
         //collecter left sticks
         dropOnButton = new JoystickButton(leftStick, Constants.DROP_ON_BUTTON);
+        dropOffButton = new JoystickButton(rightStick, Constants.DROP_OFF_BUTTON);
         upButton = new JoystickButton(leftStick, Constants.UP_BUTTON);
 
         //collecter right sticks
@@ -88,10 +88,10 @@ public class Oi
         reverseIntakeButton = new JoystickButton(rightStick, Constants.REVERSE_INTAKE_BUTTON);
         collectorUpwardButton = new JoystickButton(leftStick, Constants.UPWARD_COLLECTOR_BUTTON);
         collectorDownwardButton = new JoystickButton(rightStick, Constants.DOWNWARD_COLLECTOR_BUTTON);
-        intakeButton.whenHeld(new IntakeCommand(collector, .5));
-        reverseIntakeButton.whenHeld(new IntakeCommand(collector, -.5));
-        collectorUpwardButton.whenPressed(new MoveCollectorCommand(collector, false));
-        collectorDownwardButton.whenPressed(new MoveCollectorCommand(collector, true));
+        intakeButton.whenHeld(new IntakeCommand(collector, shooter, 0.5, false));
+        reverseIntakeButton.whenHeld(new IntakeCommand(collector, shooter,-.5, false));
+        collectorUpwardButton.whenPressed(new MoveCollectorCommand(collector, false, 1));
+        collectorDownwardButton.whenPressed(new MoveCollectorCommand(collector, true, 1));
 
     }
 
