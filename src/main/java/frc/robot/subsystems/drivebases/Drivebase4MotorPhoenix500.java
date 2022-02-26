@@ -23,7 +23,10 @@ public class Drivebase4MotorPhoenix500 extends Drivebase
 
     public void Drivebase4MotorPhoenix500()
     {
-
+        leftMotor1.configOpenloopRamp(0.2, 30);
+        leftMotor2.configOpenloopRamp(0.2, 30);
+        rightMotor1.configOpenloopRamp(0.2, 30);
+        rightMotor2.configOpenloopRamp(0.2, 30);
     }
 
     public void runMotor(double turnSpeedLeft, double turnSpeedRight)
