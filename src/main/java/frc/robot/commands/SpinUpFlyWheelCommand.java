@@ -44,6 +44,9 @@ public class SpinUpFlyWheelCommand extends CommandBase
     @Override
     public void end(boolean interrupted)
     {
+        if (interrupted)
+        {
         shooter.setFlywheel(0);
+        }
     }
 }
