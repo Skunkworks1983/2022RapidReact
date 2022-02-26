@@ -7,20 +7,28 @@ public class MoveCollectorCommand extends CommandBase
 {
         private final Collector collector;
         private boolean moveDownward;
-        private double endDegree;
+        private double endAngle;
         private double speed;
 
-        public MoveCollectorCommand(Collector collector, boolean moveDownward, double endDegree)
+        public MoveCollectorCommand(Collector collector, boolean moveDownward, double endAngle)
         {
             this.collector = collector;
             this.moveDownward = moveDownward;
-            this.endDegree = endDegree;
+            this.endAngle = endAngle;
         }
 
         @Override
         public void initialize()
         {
-            super.initialize();
+            super.initialize(); //start in upward position
+            if (moveDownward)
+            {
+                endAngle = -90;
+            }
+            else
+            {
+                endAngle = 0;
+            }
         }
 
         @Override
@@ -40,7 +48,7 @@ public class MoveCollectorCommand extends CommandBase
         @Override
         public boolean isFinished()
         {
-            if(collector.getCollectorAngle() >= endDegree)
+            if(collector.getCollectorAngle() >= endAngle)
             {
                  return true;
             }
