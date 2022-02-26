@@ -36,9 +36,9 @@ public class DriveDistanceCommand extends CommandBase
         startDistanceFT = drivebase.getPosLeft();
         finishDistanceFT = startDistanceFT+distanceFT;
         startDegree = drivebase.getHeading();
-        KPDistance = 0.1;
-        KPAngle = 0.2; //todo <-- too high, also 0.04 is too low
-        KF = 0.2;
+        KPDistance = 0.05;
+        KPAngle = 0.04; //todo <-- 0.2 is too high, also 0.04 is too low
+        KF = 0.1;
         if(distanceFT > 0)
         {
             direction = 1;
@@ -47,17 +47,18 @@ public class DriveDistanceCommand extends CommandBase
         {
             direction = -1;
         }
-        System.out.println("drivebase starting, starting distance: "+startDistanceFT);
+
     }
 
     @Override
     public void execute()
     {
-        double error = finishDistanceFT - drivebase.getPosLeft();
+        double error = direction*(finishDistanceFT - drivebase.getPosLeft());
         double speed = KPDistance * error + KF;
         double speedLeft = speed*direction + Math.max(Math.min(KPAngle*(startDegree - drivebase.getHeading()), 0.25), -0.25);
         double speedRight = speed*direction - Math.max(Math.min(KPAngle*(startDegree - drivebase.getHeading()), 0.25), -0.25);
         drivebase.runMotor(speedLeft, speedRight);
+        System.out.println("Left going at: "+speedLeft+", Right going at: "+speedRight+", distance: "+drivebase.getPosLeft());
     }
 
     @Override

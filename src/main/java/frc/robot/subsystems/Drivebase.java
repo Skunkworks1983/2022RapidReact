@@ -18,4 +18,6 @@ public abstract class Drivebase extends SubsystemBase
     public abstract double getHeading();
 
     public abstract boolean isCalibrating();
+
+    public abstract double getTicksLeft();
 }

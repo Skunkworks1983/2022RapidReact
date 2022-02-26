@@ -54,7 +54,7 @@ public class TankDrive extends CommandBase
             outputRight= -Math.abs(Math.pow(outputRight, 2));
         }
         drivebase.runMotor(-outputLeft, -outputRight);
-        //System.out.println("CDFt Left: "+subsystem.getPosLeft()+", CDFt Right: "+subsystem.getPosRight()+", Degree: "+subsystem.getHeading()+", Calibrating: "+subsystem.isCalibrating());
+        System.out.println("ticks: "+drivebase.getTicksLeft());
     }
 
 
