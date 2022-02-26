@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.*;
+import frc.robot.commands.auto.TwoBallAutoRight;
 import frc.robot.services.Oi;
 import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Drivebase;
@@ -47,9 +48,9 @@ public class Robot extends TimedRobot
         // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
         // autonomous chooser on the dashboard.
         robotContainer = new RobotContainer();
-        theDrivebase = new Drivebase4MotorPhoenix500();
+        theDrivebase = new Drivebase4Motor();
         theShooter = new Shooter();
-        autonomousCommand = new DriveDistanceCommand(theDrivebase, 3); //degree = -159
+        autonomousCommand = new TwoBallAutoRight(theDrivebase, theCollector, theShooter); //degree = -159
         theOi = new Oi(theCollector, theDrivebase, theShooter);
     }
     

@@ -12,6 +12,7 @@ public class RotateCommand extends CommandBase
     private double finishDegree;
     private double KP;
     private double KF;
+    private int direction;
 
     public RotateCommand(Drivebase drivebase, double degree)
     {
@@ -28,16 +29,18 @@ public class RotateCommand extends CommandBase
             if(degree > 0)
             {
                 degree = degree - 360;
+                direction = 1;
             }
             else
             {
                 degree = degree + 360;
+                direction = -1;
             }
         }
         startDegree = drivebase.getHeading();
         finishDegree = startDegree + degree;
         KP = 0.005;
-        KF = 0.15;
+        KF = 0.2;
         System.out.println("turning to: " + (finishDegree));
         System.out.println("starting speed is: " + (KP * (finishDegree - drivebase.getHeading())) + ", starting degree is: " + startDegree);
     }
@@ -48,6 +51,7 @@ public class RotateCommand extends CommandBase
         double error = finishDegree - drivebase.getHeading();
         double speed = (KP * error) + Math.copySign(KF, error);
         drivebase.runMotor(speed, -speed);
+        System.out.println(speed);
     }
 
     @Override

@@ -47,18 +47,18 @@ public class DriveDistanceCommand extends CommandBase
         {
             direction = -1;
         }
-        System.out.println("drivebase starting, starting distance: "+startDistanceFT);
+
     }
 
     @Override
     public void execute()
     {
-        double error = finishDistanceFT - drivebase.getPosLeft();
+        double error = direction*(finishDistanceFT - drivebase.getPosLeft());
         double speed = KPDistance * error + KF;
         double speedLeft = speed*direction + Math.max(Math.min(KPAngle*(startDegree - drivebase.getHeading()), 0.25), -0.25);
         double speedRight = speed*direction - Math.max(Math.min(KPAngle*(startDegree - drivebase.getHeading()), 0.25), -0.25);
         drivebase.runMotor(speedLeft, speedRight);
-        //System.out.println("Left going at: "+speedLeft+", Right going at: "+speedRight+", distance: "+drivebase.getPosLeft());
+        System.out.println("Left going at: "+speedLeft+", Right going at: "+speedRight+", distance: "+drivebase.getPosLeft());
     }
 
     @Override
