@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.constants.Constants;
 import frc.robot.subsystems.shooter.Shooter;
 
 
@@ -20,8 +21,8 @@ public class LoadFirstBallCommand extends CommandBase
     @Override
     public void initialize()
     {
-        shooter.setIndexer(.4);
-        shooter.setLiftBall(.4);
+        shooter.setIndexer(Constants.INDEXER_LOAD_SPEED);
+        shooter.setLiftBall(Constants.LIFT_BALL_LOAD_SPEED);
     }
 
     @Override

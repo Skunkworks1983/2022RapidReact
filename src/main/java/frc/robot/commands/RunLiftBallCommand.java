@@ -2,6 +2,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.button.Button;
+import frc.robot.constants.Constants;
 import frc.robot.subsystems.shooter.Shooter;
 
 
@@ -32,7 +33,7 @@ public class RunLiftBallCommand extends CommandBase {
     @Override
     public void execute()
     {
-        shooter.setLiftBall(.5);
+        shooter.setLiftBall(Constants.LIFT_BALL_LOAD_SPEED);
         System.out.println(shooter.getLiftBallSpeed());
     }
 
