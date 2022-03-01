@@ -57,7 +57,7 @@ public class RotateCommand extends CommandBase
     @Override
     public boolean isFinished()
     {
-        return Math.abs(drivebase.getHeading() - finishDegree)< 1;
+        return Math.abs(drivebase.getHeading() - finishDegree)< 0.5;
 //        if(degree > 0)
 //        {
 //            return drivebase.getHeading() > finishDegree;
