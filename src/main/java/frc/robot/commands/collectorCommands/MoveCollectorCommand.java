@@ -1,4 +1,4 @@
-package frc.robot.commands;
+package frc.robot.commands.collectorCommands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Collector;
@@ -40,14 +40,7 @@ public class MoveCollectorCommand extends CommandBase
         @Override
         public boolean isFinished()
         {
-            if(collector.getCollectorAngle() >= endDegree)
-            {
-                 return true;
-            }
-            else
-            {
-                return false;
-            }
+            return collector.getCollectorAngle() >= endDegree;
         }
 
         @Override

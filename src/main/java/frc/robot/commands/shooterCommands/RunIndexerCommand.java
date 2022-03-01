@@ -1,15 +1,13 @@
-package frc.robot.commands;
+package frc.robot.commands.shooterCommands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.button.Button;
-import frc.robot.constants.Constants;
 import frc.robot.subsystems.shooter.Shooter;
 
 
-public class RunLiftBallCommand extends CommandBase {
+public class RunIndexerCommand extends CommandBase {
 
-    public RunLiftBallCommand(Shooter s)
-    {
+    public RunIndexerCommand(Shooter s) {
         // each subsystem used by the command must be passed into the addRequirements() method (which takes a vararg of Subsystem)
         addRequirements();
         // no requirement because it needs to run at the same time as another command
@@ -33,8 +31,8 @@ public class RunLiftBallCommand extends CommandBase {
     @Override
     public void execute()
     {
-        shooter.setLiftBall(Constants.LIFT_BALL_LOAD_SPEED);
-        System.out.println(shooter.getLiftBallSpeed());
+        shooter.setIndexer(0.3);
+        System.out.println(shooter.getIndexerSpeed());
     }
 
     /**
@@ -69,6 +67,6 @@ public class RunLiftBallCommand extends CommandBase {
     @Override
     public void end(boolean interrupted)
     {
-        shooter.setLiftBall(0);
+        shooter.setIndexer(0);
     }
 }
