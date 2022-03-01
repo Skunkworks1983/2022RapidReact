@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.constants.Constants;
 import frc.robot.subsystems.shooter.Shooter;
 
 
@@ -19,7 +20,7 @@ public class LoadSecondBallCommand extends CommandBase
     @Override
     public void initialize()
     {
-        shooter.setIndexer(.5);
+        shooter.setIndexer(Constants.INDEXER_LOAD_SPEED);
     }
 
     @Override
