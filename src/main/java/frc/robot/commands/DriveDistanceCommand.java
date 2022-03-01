@@ -47,7 +47,7 @@ public class DriveDistanceCommand extends CommandBase
         {
             direction = -1;
         }
-
+        System.out.println("moving from " +startDistanceFT + " to " + finishDistanceFT);
     }
 
     @Override

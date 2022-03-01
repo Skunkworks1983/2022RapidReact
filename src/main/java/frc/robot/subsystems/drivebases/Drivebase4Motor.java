@@ -1,5 +1,6 @@
 package frc.robot.subsystems.drivebases;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.kauailabs.navx.frc.AHRS;
@@ -59,5 +60,9 @@ public class Drivebase4Motor extends Drivebase
     {
         leftEncoder.setDistancePerPulse(distancePerMotorRotation);
         rightEncoder.setDistancePerPulse(distancePerMotorRotation);
+        leftMotor1.setNeutralMode(NeutralMode.Brake);
+        leftMotor2.setNeutralMode(NeutralMode.Brake);
+        rightMotor1.setNeutralMode(NeutralMode.Brake);
+        rightMotor2.setNeutralMode(NeutralMode.Brake);
     }
 }
