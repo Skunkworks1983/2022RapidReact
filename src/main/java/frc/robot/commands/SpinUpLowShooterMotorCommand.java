@@ -20,8 +20,8 @@ public class SpinUpLowShooterMotorCommand extends CommandBase
     public void initialize()
     {
         shooter.setFlywheel(Constants.LOW_GOAL_SPEED);
-        shooter.setLiftBall(.3);
-        shooter.setIndexer(.3);
+        shooter.setLiftBall(Constants.LIFT_BALL_LOAD_SPEED);
+        shooter.setIndexer(Constants.INDEXER_LOAD_SPEED);
     }
 
     @Override
