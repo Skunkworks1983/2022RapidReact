@@ -51,20 +51,21 @@ public class RotateCommand extends CommandBase
         double error = finishDegree - drivebase.getHeading();
         double speed = (KP * error) + Math.copySign(KF, error);
         drivebase.runMotor(speed, -speed);
-        System.out.println(speed);
+        System.out.println("angle error: " + error);
     }
 
     @Override
     public boolean isFinished()
     {
-        if(degree > 0)
-        {
-            return drivebase.getHeading() > finishDegree;
-        }
-        else
-        {
-            return drivebase.getHeading() < finishDegree;
-        }
+        return Math.abs(drivebase.getHeading() - finishDegree)< 1;
+//        if(degree > 0)
+//        {
+//            return drivebase.getHeading() > finishDegree;
+//        }
+//        else
+//        {
+//            return drivebase.getHeading() < finishDegree;
+//        }
     }
 
     @Override

@@ -51,7 +51,7 @@ public class Robot extends TimedRobot
         robotContainer = new RobotContainer();
         theDrivebase = new Drivebase4Motor();
         theShooter = new Shooter();
-        autonomousCommand = new TwoBallAutoRight(theDrivebase, theCollector, theShooter); //degree = -159
+        autonomousCommand = new TwoBallAutoLeft(theDrivebase, theCollector, theShooter); //degree = -159
         theOi = new Oi(theCollector, theDrivebase, theShooter);
     }
     
