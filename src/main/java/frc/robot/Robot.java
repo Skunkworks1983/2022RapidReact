@@ -5,20 +5,16 @@
 
 package frc.robot;
 
-import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.commands.*;
 import frc.robot.commands.auto.TwoBallAutoLeft;
-import frc.robot.commands.auto.TwoBallAutoRight;
+import frc.robot.commands.drivebase.TankDrive;
 import frc.robot.services.Oi;
 import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.drivebases.Drivebase4Motor;
-import frc.robot.subsystems.drivebases.Drivebase4MotorPhoenix500;
 import frc.robot.subsystems.shooter.Shooter;
 
 

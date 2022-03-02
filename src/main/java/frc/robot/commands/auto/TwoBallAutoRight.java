@@ -1,10 +1,9 @@
 package frc.robot.commands.auto;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-import frc.robot.commands.DriveDistanceCommand;
-import frc.robot.commands.RotateCommand;
-import frc.robot.commands.SpinUpFlyWheelAndShootAllBallsHighCommandGroup;
-import frc.robot.commands.TimedDriveForwardCommandGroup;
+import frc.robot.commands.drivebase.DriveDistanceCommand;
+import frc.robot.commands.drivebase.RotateCommand;
+import frc.robot.commands.shooter.SpinUpFlyWheelAndShootAllBallsHighCommandGroup;
 import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.shooter.Shooter;

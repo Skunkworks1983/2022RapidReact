@@ -1,7 +1,9 @@
-package frc.robot.commands;
+package frc.robot.commands.auto;
 
 
 import edu.wpi.first.wpilibj2.command.ParallelDeadlineGroup;
+import frc.robot.commands.auto.TimerCommand;
+import frc.robot.commands.shooter.SpinUpFlyWheelAndShootAllBallsHighCommandGroup;
 import frc.robot.subsystems.shooter.Shooter;
 
 public class TimedSpinUpAndShootAllBallsHighCommandGroup extends ParallelDeadlineGroup
