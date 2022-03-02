@@ -30,9 +30,11 @@ public class LoadSecondBallCommand extends CommandBase
     }
 
     @Override
-    public boolean isFinished()
-    {
-        System.out.println("Is Finished");
+    public boolean isFinished() {
+        if (shooter.isBallAtIntake())
+        {
+            System.out.println("Secound ball Is Finished");
+        }
         return shooter.isBallAtIntake();
     }
 

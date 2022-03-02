@@ -1,4 +1,4 @@
-package frc.robot.commands;
+package frc.robot.commands.collector;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Collector;
@@ -11,12 +11,13 @@ public class MoveCollectorCommand extends CommandBase
         private double speed;
         private double threshold = 2;
         private double error;
+        private double kp = 1/90.;
+        private int onTarget;
 
-        public MoveCollectorCommand(Collector collector, boolean moveDownward, double endAngle)
+        public MoveCollectorCommand(Collector collector, boolean moveDownward)
         {
             this.collector = collector;
             this.moveDownward = moveDownward;
-            this.endAngle = endAngle;
         }
 
         @Override
@@ -38,22 +39,26 @@ public class MoveCollectorCommand extends CommandBase
         {
             super.execute();
 
-            speed = 1/90 * error;
+            error = endAngle - collector.getCollectorAngle();
 
-            if(moveDownward)
-            {
-                collector.setCollectorAngleSpeed(-speed);
-            }
-            else
-            {
+            speed = kp * error;
+
                 collector.setCollectorAngleSpeed(speed);
-            }
         }
 
         @Override
         public boolean isFinished()
         {
-            return collector.getCollectorAngle() >= endAngle - threshold && collector.getCollectorAngle() < endAngle + threshold;
+            if (collector.getCollectorAngle() >= endAngle - threshold && collector.getCollectorAngle() <= endAngle + threshold)
+            {
+                onTarget++;
+            }
+            else
+            {
+                onTarget = 0;
+            }
+
+            return onTarget == 2;
         }
 
         @Override
