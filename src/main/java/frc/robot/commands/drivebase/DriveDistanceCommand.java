@@ -1,5 +1,8 @@
 package frc.robot.commands.drivebase;
 
+import edu.wpi.first.util.sendable.Sendable;
+import edu.wpi.first.util.sendable.SendableBuilder;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Drivebase;
 
@@ -53,10 +56,10 @@ public class DriveDistanceCommand extends CommandBase
     @Override
     public void execute()
     {
-        double error = direction*(finishDistanceFT - drivebase.getPosLeft());
-        double speed = KPDistance * error + KF;
-        double speedLeft = speed*direction + Math.max(Math.min(KPAngle*(startDegree - drivebase.getHeading()), 0.25), -0.25);
-        double speedRight = speed*direction - Math.max(Math.min(KPAngle*(startDegree - drivebase.getHeading()), 0.25), -0.25);
+        double error = finishDistanceFT - drivebase.getPosLeft();
+        double speed = KPDistance * error + KF * direction;
+        double speedLeft = speed + Math.max(Math.min(KPAngle*(startDegree - drivebase.getHeading()), 0.25), -0.25);
+        double speedRight = speed - Math.max(Math.min(KPAngle*(startDegree - drivebase.getHeading()), 0.25), -0.25);
         drivebase.runMotor(speedLeft, speedRight);
         System.out.println("Left going at: "+speedLeft+", Right going at: "+speedRight+", distance: "+drivebase.getPosLeft());
     }
@@ -64,14 +67,7 @@ public class DriveDistanceCommand extends CommandBase
     @Override
     public boolean isFinished()
     {
-        if(distanceFT < 0)
-        {
-            return drivebase.getPosLeft() < distanceFT + startDistanceFT;
-        }
-        else
-        {
-            return drivebase.getPosLeft() > distanceFT + startDistanceFT;
-        }
+        return Math.abs(drivebase.getPosLeft() - finishDistanceFT)< 0.1;
     }
 
     @Override

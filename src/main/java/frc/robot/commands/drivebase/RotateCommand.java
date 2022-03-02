@@ -1,5 +1,6 @@
 package frc.robot.commands.drivebase;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Drivebase;
 
@@ -24,19 +25,6 @@ public class RotateCommand extends CommandBase
     @Override
     public void initialize()
     {
-        if(Math.abs(degree) > 180)
-        {
-            if(degree > 0)
-            {
-                degree = degree - 360;
-                direction = 1;
-            }
-            else
-            {
-                degree = degree + 360;
-                direction = -1;
-            }
-        }
         startDegree = drivebase.getHeading();
         finishDegree = startDegree + degree;
         KP = 0.005;
@@ -51,7 +39,7 @@ public class RotateCommand extends CommandBase
         double error = finishDegree - drivebase.getHeading();
         double speed = (KP * error) + Math.copySign(KF, error);
         drivebase.runMotor(speed, -speed);
-        System.out.println("angle error: " + error);
+        SmartDashboard.putNumber("angle", drivebase.getHeading());
     }
 
     @Override
