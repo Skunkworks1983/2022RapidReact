@@ -3,7 +3,8 @@ package frc.robot.commands.auto;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.commands.DriveDistanceCommand;
 import frc.robot.commands.RotateCommand;
-import frc.robot.commands.ShootAllBallsHighCommand;
+import frc.robot.commands.SpinUpFlyWheelAndShootAllBallsHighCommandGroup;
+import frc.robot.commands.TimedDriveForwardCommandGroup;
 import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.shooter.Shooter;
@@ -20,8 +21,8 @@ public class TwoBallAutoRight extends SequentialCommandGroup
                         new RotateCommand(drivebase, -90),
                         new DriveDistanceCommand(drivebase, -0.5),
                         new RotateCommand(drivebase, -69),
-                        new ShootAllBallsHighCommand(shooter)
+                        new TimedDriveForwardCommandGroup(3.0, 0.15, drivebase),
+                        new SpinUpFlyWheelAndShootAllBallsHighCommandGroup(shooter)
                         );
-        System.out.println("2autoRight over");
     }
 }
