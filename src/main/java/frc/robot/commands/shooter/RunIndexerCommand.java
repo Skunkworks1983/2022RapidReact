@@ -1,7 +1,6 @@
-package frc.robot.commands.shooterCommands;
+package frc.robot.commands.shooter;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import edu.wpi.first.wpilibj2.command.button.Button;
 import frc.robot.subsystems.shooter.Shooter;
 
 

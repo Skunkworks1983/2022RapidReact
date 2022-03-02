@@ -2,7 +2,7 @@ package frc.robot.commands.auto;
 
 
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
-import frc.robot.commands.drivebaseCommands.DriveDistanceCommand;
+import frc.robot.commands.drivebase.DriveDistanceCommand;
 import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Drivebase;
 

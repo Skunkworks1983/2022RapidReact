@@ -1,6 +1,6 @@
 package frc.robot.commands.auto;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-import frc.robot.commands.collectorCommands.IntakeCommand;
+import frc.robot.commands.collector.IntakeCommand;
 import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.shooter.Shooter;
 

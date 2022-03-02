@@ -1,7 +1,7 @@
 package frc.robot.commands.auto;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-import frc.robot.commands.shooterCommands.RunFlyWheelCommand;
+import frc.robot.commands.shooter.RunFlyWheelCommand;
 import frc.robot.constants.Constants;
 import frc.robot.subsystems.shooter.Shooter;
 
