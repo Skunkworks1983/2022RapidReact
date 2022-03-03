@@ -14,6 +14,7 @@ import frc.robot.commands.auto.ExitTarmac;
 import frc.robot.commands.auto.TwoBallAutoCenter;
 import frc.robot.commands.auto.TwoBallAutoLeft;
 import frc.robot.commands.auto.TwoBallAutoRight;
+import frc.robot.commands.drivebase.ArcadeDrive;
 import frc.robot.commands.drivebase.TankDrive;
 import frc.robot.services.Oi;
 import frc.robot.subsystems.Collector;
@@ -121,7 +122,7 @@ public class Robot extends TimedRobot
         // continue until interrupted by another command, remove
         // this line or comment it out.
 
-        Command drivebaseCommand = new TankDrive(theDrivebase, theOi);
+        Command drivebaseCommand = new ArcadeDrive(theDrivebase, theOi);
         if (autonomousCommand != null)
         {
             autonomousCommand.cancel();
