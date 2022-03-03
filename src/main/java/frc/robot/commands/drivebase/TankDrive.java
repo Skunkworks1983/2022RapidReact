@@ -35,7 +35,7 @@ public class TankDrive extends CommandBase
     @Override
     public void execute()
     {
-        double outputLeft = oi.getLeftY();
+        double outputLeft = oi.getLeftY(); //motors are running backwards and are on the wrong sides
         double outputRight = oi.getRightY();
         if(outputLeft > 0)
         {

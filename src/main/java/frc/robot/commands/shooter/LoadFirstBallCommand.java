@@ -34,7 +34,10 @@ public class LoadFirstBallCommand extends CommandBase
     @Override
     public boolean isFinished()
     {
-        System.out.println("Is Finished");
+        if (shooter.isBallBeforeFlyWheel())
+        {
+            System.out.println("First Ball Is Finished");
+        }
         return shooter.isBallBeforeFlyWheel();
     }
 

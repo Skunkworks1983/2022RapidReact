@@ -71,8 +71,8 @@ public class Oi
         collectorDownwardButton = new JoystickButton(rightStick, Constants.DOWNWARD_COLLECTOR_BUTTON);
         intakeButton.whenHeld(new IntakeCommand(collector, shooter, 0.5, false));
         reverseIntakeButton.whenHeld(new IntakeCommand(collector, shooter,-.5, false));
-        collectorUpwardButton.whenPressed(new MoveCollectorCommand(collector, false, 1));
-        collectorDownwardButton.whenPressed(new MoveCollectorCommand(collector, true, 1));
+        collectorUpwardButton.whenPressed(new MoveCollectorCommand(collector, false));
+        collectorDownwardButton.whenPressed(new MoveCollectorCommand(collector, true));
 
     }
 

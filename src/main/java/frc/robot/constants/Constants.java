@@ -29,7 +29,7 @@ public final class Constants
     public static final int LOAD_FIRST_BALL_BUTTON = 12;
     //public static final int LOAD_SECOND_BALL_BUTTON = 13;
     public static final double INDEXER_LOAD_SPEED = 0.4;
-    public static final double LIFT_BALL_LOAD_SPEED = 0.3;
+    public static final double LIFT_BALL_LOAD_SPEED = 0.5;
     public static final double FLY_WHEEL_KP = .08;
     public static final double FLY_WHEEL_KF = .0456;
     public static final double HIGH_GOAL_SPEED = 14300;
