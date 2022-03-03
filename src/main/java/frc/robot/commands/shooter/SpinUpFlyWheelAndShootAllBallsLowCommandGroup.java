@@ -11,6 +11,6 @@ public class SpinUpFlyWheelAndShootAllBallsLowCommandGroup extends SequentialCom
     {
         // TODO: Add your sequential commands in the super() call, e.g.
         //           super(new OpenClawCommand(), new MoveArmCommand());
-        super(new SpinUpFlyWheelCommand(s , Constants.LOW_GOAL_SPEED * 1.01), new SpinUpLowShooterMotorCommand(s));
+        super(new SpinUpFlyWheelCommand(s , Constants.LOW_GOAL_SPEED * 1.01), new LowShooterMotorCommand(s));
     }
 }

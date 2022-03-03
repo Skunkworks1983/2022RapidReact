@@ -101,7 +101,6 @@ public class Robot extends TimedRobot
 
         SendableChooser autoChooser = (SendableChooser) SmartDashboard.getData("autoChooser");
         autonomousCommand = (Command)autoChooser.getSelected();
-        System.out.println(SmartDashboard.getData("autoChooser"));
         if (autonomousCommand != null)
         {
             autonomousCommand.schedule();
