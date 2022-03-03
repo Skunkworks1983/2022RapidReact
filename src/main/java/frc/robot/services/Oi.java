@@ -30,10 +30,6 @@ public class Oi
     JoystickButton reverseIntakeButton;
     JoystickButton collectorUpwardButton;
     JoystickButton collectorDownwardButton;
-    JoystickButton dropOnButton;
-    JoystickButton dropOffButton;
-    JoystickButton upButton;
-    JoystickButton downButton;
     JoystickButton loadFirstBallButton;
     JoystickButton loadBallsButton;
     JoystickButton shootAllBallsHigh;
