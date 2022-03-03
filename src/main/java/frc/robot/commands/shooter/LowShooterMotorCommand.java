@@ -5,10 +5,10 @@ import frc.robot.constants.Constants;
 import frc.robot.subsystems.shooter.Shooter;
 
 
-public class SpinUpHighShooterMotorCommand extends CommandBase
+public class LowShooterMotorCommand extends CommandBase
 {
 
-    public SpinUpHighShooterMotorCommand(Shooter s)
+    public LowShooterMotorCommand(Shooter s)
     {
         // each subsystem used by the command must be passed into the
         // addRequirements() method (which takes a vararg of Subsystem)
@@ -19,7 +19,7 @@ public class SpinUpHighShooterMotorCommand extends CommandBase
     @Override
     public void initialize()
     {
-        shooter.setFlywheel(Constants.HIGH_GOAL_SPEED);
+        shooter.setFlywheel(Constants.LOW_GOAL_SPEED);
         shooter.setLiftBall(Constants.LIFT_BALL_LOAD_SPEED);
         shooter.setIndexer(Constants.INDEXER_LOAD_SPEED);
     }
