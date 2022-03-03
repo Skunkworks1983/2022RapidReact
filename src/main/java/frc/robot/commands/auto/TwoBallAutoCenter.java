@@ -1,5 +1,16 @@
 package frc.robot.commands.auto;
 
-public class TwoBallAutoCenter
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import frc.robot.commands.DriveDistanceCommand;
+import frc.robot.subsystems.Drivebase;
+
+public class TwoBallAutoCenter extends SequentialCommandGroup
 {
+    public TwoBallAutoCenter(Drivebase drivebase)
+    {
+        addCommands
+        (
+            new DriveDistanceCommand(drivebase, 2)
+        );
+    }
 }

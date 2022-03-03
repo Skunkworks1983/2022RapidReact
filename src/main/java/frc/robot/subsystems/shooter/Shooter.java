@@ -73,6 +73,7 @@ public class Shooter extends SubsystemBase
     public Shooter()
     {
         initializeFlywheel();
+        liftBall.setNeutralMode(NeutralMode.Brake);
     }
 
     @Override
