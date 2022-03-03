@@ -1,5 +1,6 @@
 package frc.robot.commands.drivebase;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.services.Oi;
 import frc.robot.subsystems.Drivebase;
@@ -28,7 +29,9 @@ public class ArcadeDrive extends CommandBase
     public void execute()
     {
         double turn = oi.getLeftX();
-        double throttle = -oi.getRightY();
+        double throttle = -oi.getLeftY();
+        SmartDashboard.putNumber("X", turn);
+        SmartDashboard.putNumber("Y", turn);
         double outputLeft = Math.max(Math.min((turn + throttle), 1), -1);
         double outputRight = Math.max(Math.min((-turn + throttle), 1), -1);
         if(outputLeft > 0)
