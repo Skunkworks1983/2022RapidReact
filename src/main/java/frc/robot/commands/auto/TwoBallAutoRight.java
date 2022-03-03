@@ -14,14 +14,12 @@ public class TwoBallAutoRight extends SequentialCommandGroup
     {
         addCommands
                 (
-                        new DriveDistanceCommand(drivebase, 2.92),
-                        new GrabBall(collector, shooter, true),
-                        new DriveDistanceCommand(drivebase, -2.92),
-                        new RotateCommand(drivebase, -90),
-                        new DriveDistanceCommand(drivebase, -0.5),
-                        new RotateCommand(drivebase, -69),
-                        new TimedDriveForwardCommandGroup(3.0, 0.15, drivebase),
-                        new SpinUpFlyWheelAndShootAllBallsHighCommandGroup(shooter)
+                        new DriveDistanceCommand(drivebase, 3),
+                        //new GrabBall(collector, shooter, true),
+                        new DriveDistanceCommand(drivebase, -3),
+                        new RotateCommand(drivebase, -159),
+                        new TimedDriveForwardCommandGroup(3.0, 0.2, drivebase)
+                        //new SpinUpFlyWheelAndShootAllBallsHighCommandGroup(shooter)
                         );
     }
 }
