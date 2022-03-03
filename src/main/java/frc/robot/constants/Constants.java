@@ -72,6 +72,14 @@ public final class Constants
             public static final int RIGHT_MOTOR_3_DEVICE_NUMBER = 12;
         }
 
+        public class FourMotorFalcon500
+        {
+            public static final int LEFT_MOTOR_1_DEVICE_NUMBER = 1;
+            public static final int RIGHT_MOTOR_1_DEVICE_NUMBER = 4;
+            public static final int LEFT_MOTOR_2_DEVICE_NUMBER = 2;
+            public static final int RIGHT_MOTOR_2_DEVICE_NUMBER = 3;
+        }
+
         public class Collector
         {
             public static final int COLLECTOR_INTAKE_MOTOR_DEVICE_NUMBER = 5;
