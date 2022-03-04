@@ -1,21 +1,19 @@
 package frc.robot.subsystems.drivebases;
 
 import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
-import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.I2C;
 import frc.robot.constants.Constants;
 import frc.robot.subsystems.Drivebase;
 
 
-public class Drivebase4MotorPhoenix500 extends Drivebase
+public class Drivebase4MotorFalcon500 extends Drivebase
 {
-    TalonFX leftMotor1 = new TalonFX(Constants.MotorPorts.FourMotors.LEFT_MOTOR_1_DEVICE_NUMBER);
-    TalonFX leftMotor2 = new TalonFX(Constants.MotorPorts.FourMotors.LEFT_MOTOR_2_DEVICE_NUMBER);
-    TalonFX rightMotor1 = new TalonFX(Constants.MotorPorts.FourMotors.RIGHT_MOTOR_1_DEVICE_NUMBER);
-    TalonFX rightMotor2 = new TalonFX(Constants.MotorPorts.FourMotors.RIGHT_MOTOR_2_DEVICE_NUMBER);
+    TalonFX leftMotor1 = new TalonFX(Constants.MotorPorts.FourMotorFalcon500.LEFT_MOTOR_1_DEVICE_NUMBER);
+    TalonFX leftMotor2 = new TalonFX(Constants.MotorPorts.FourMotorFalcon500.LEFT_MOTOR_2_DEVICE_NUMBER);
+    TalonFX rightMotor1 = new TalonFX(Constants.MotorPorts.FourMotorFalcon500.RIGHT_MOTOR_1_DEVICE_NUMBER);
+    TalonFX rightMotor2 = new TalonFX(Constants.MotorPorts.FourMotorFalcon500.RIGHT_MOTOR_2_DEVICE_NUMBER);
 
     private final double TicksPerFeet = 13718.66666666667;
 

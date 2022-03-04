@@ -1,5 +1,6 @@
 package frc.robot.commands.auto;
 
+import frc.robot.commands.drivebase.RotateCommand;
 import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.shooter.Shooter;
@@ -12,7 +13,7 @@ public class TwoBallAutoCenter extends SequentialCommandGroup
     {
         addCommands
         (
-            new DriveDistanceCommand(drivebase, 2)
+            new DriveDistanceCommand(drivebase, 3.16667)
         );
     }
 }

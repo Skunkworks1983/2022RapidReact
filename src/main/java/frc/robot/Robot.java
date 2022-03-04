@@ -15,11 +15,10 @@ import frc.robot.commands.auto.TwoBallAutoCenter;
 import frc.robot.commands.auto.TwoBallAutoLeft;
 import frc.robot.commands.auto.TwoBallAutoRight;
 import frc.robot.commands.drivebase.ArcadeDrive;
-import frc.robot.commands.drivebase.TankDrive;
 import frc.robot.services.Oi;
 import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Drivebase;
-import frc.robot.subsystems.drivebases.Drivebase4Motor;
+import frc.robot.subsystems.drivebases.Drivebase4MotorFalcon500;
 import frc.robot.subsystems.shooter.Shooter;
 
 
@@ -55,11 +54,11 @@ public class Robot extends TimedRobot
         // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
         // autonomous chooser on the dashboard.
         robotContainer = new RobotContainer();
-        theDrivebase = new Drivebase4Motor();
+        theDrivebase = new Drivebase4MotorFalcon500();
         theShooter = new Shooter();
         autoChooser = new SendableChooser();
         autoChooser.addOption("twoBallHighRight",new TwoBallAutoRight(theDrivebase, theCollector, theShooter));
-        //autoChooser.addOption("twoBallHighCenter",new TwoBallAutoCenter(theDrivebase, theCollector, theShooter));
+        autoChooser.addOption("twoBallHighCenter",new TwoBallAutoCenter(theDrivebase, theCollector, theShooter));
         autoChooser.addOption("ExitTarmac",new ExitTarmac(theDrivebase));
         autoChooser.addOption("twoBallHighLeft",new TwoBallAutoLeft(theDrivebase, theCollector, theShooter));
         SmartDashboard.putData("autoChooser", autoChooser);
