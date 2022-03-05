@@ -55,7 +55,7 @@ public class Robot extends TimedRobot
         // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
         // autonomous chooser on the dashboard.
         robotContainer = new RobotContainer();
-        theDrivebase = new Drivebase4Motor();
+        theDrivebase = new Drivebase4MotorFalcon500();
         theShooter = new Shooter();
         autoChooser = new SendableChooser();
         autoChooser.addOption("twoBallHighRight",new TwoBallAutoRight(theDrivebase, theCollector, theShooter));

@@ -1,5 +1,6 @@
 package frc.robot.subsystems.drivebases;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import com.kauailabs.navx.frc.AHRS;
@@ -28,6 +29,10 @@ public class Drivebase4MotorFalcon500 extends Drivebase
         leftMotor2.configOpenloopRamp(0.4, 30);
         rightMotor1.configOpenloopRamp(0.4, 30);
         rightMotor2.configOpenloopRamp(0.4, 30);
+        leftMotor1.setNeutralMode(NeutralMode.Brake);
+        leftMotor2.setNeutralMode(NeutralMode.Brake);
+        rightMotor1.setNeutralMode(NeutralMode.Brake);
+        rightMotor2.setNeutralMode(NeutralMode.Brake);
     }
 
     public void runMotor(double turnSpeedLeft, double turnSpeedRight)
