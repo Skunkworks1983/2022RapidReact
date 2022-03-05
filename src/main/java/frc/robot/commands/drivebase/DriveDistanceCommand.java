@@ -41,7 +41,7 @@ public class DriveDistanceCommand extends CommandBase
         startDegree = drivebase.getHeading();
         KPDistance = 0.05;
         KPAngle = 0.04; //todo <-- 0.2 is too high, also 0.04 is too low
-        KF = 0.1;
+        KF = 0.2;
         if(distanceFT > 0)
         {
             direction = 1;
@@ -67,7 +67,7 @@ public class DriveDistanceCommand extends CommandBase
     @Override
     public boolean isFinished()
     {
-        return Math.abs(drivebase.getPosLeft() - finishDistanceFT)< 0.1;
+        return Math.abs(drivebase.getPosLeft() - finishDistanceFT)< 0.05;
     }
 
     @Override

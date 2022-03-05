@@ -20,4 +20,7 @@ public abstract class Drivebase extends SubsystemBase
     public abstract boolean isCalibrating();
 
     public abstract double getTicksLeft();
+
+    public abstract void turnOffBrakes();
+
 }

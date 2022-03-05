@@ -57,4 +57,9 @@ public class Drivebase6Motor extends Drivebase
         rightMotor2.getEncoder().setPositionConversionFactor(distancePerMotorRotation);
         rightMotor3.getEncoder().setPositionConversionFactor(distancePerMotorRotation);
     }
+
+    public void turnOffBrakes()
+    {
+
+    }
 }
