@@ -45,4 +45,9 @@ public class Drivebase2Motor extends Drivebase
     {
         return false;
     }
+
+    public void turnOffBrakes()
+    {
+
+    }
 }

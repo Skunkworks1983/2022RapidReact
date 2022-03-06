@@ -65,4 +65,12 @@ public class Drivebase4Motor extends Drivebase
         rightMotor1.setNeutralMode(NeutralMode.Brake);
         rightMotor2.setNeutralMode(NeutralMode.Brake);
     }
+
+    public void turnOffBrakes()
+    {
+        leftMotor1.setNeutralMode(NeutralMode.Coast);
+        leftMotor2.setNeutralMode(NeutralMode.Coast);
+        rightMotor1.setNeutralMode(NeutralMode.Coast);
+        rightMotor2.setNeutralMode(NeutralMode.Coast);
+    }
 }

@@ -1,5 +1,6 @@
 package frc.robot.subsystems.drivebases;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import com.kauailabs.navx.frc.AHRS;
@@ -15,16 +16,23 @@ public class Drivebase4MotorFalcon500 extends Drivebase
     TalonFX rightMotor1 = new TalonFX(Constants.MotorPorts.FourMotorFalcon500.RIGHT_MOTOR_1_DEVICE_NUMBER);
     TalonFX rightMotor2 = new TalonFX(Constants.MotorPorts.FourMotorFalcon500.RIGHT_MOTOR_2_DEVICE_NUMBER);
 
-    private final double TicksPerFeet = 13718.66666666667;
+    private final double TicksPerRev = 2048;
+    private final double GearRatio = 10.71;
+    private final double WheelDiameter = 0.5;
+    private final double TicksPerFoot = TicksPerRev * GearRatio / (WheelDiameter * Math.PI);
 
     AHRS gyro = new AHRS(I2C.Port.kOnboard);
 
     public void Drivebase4MotorPhoenix500()
     {
-        leftMotor1.configOpenloopRamp(0.2, 30);
-        leftMotor2.configOpenloopRamp(0.2, 30);
-        rightMotor1.configOpenloopRamp(0.2, 30);
-        rightMotor2.configOpenloopRamp(0.2, 30);
+        leftMotor1.configOpenloopRamp(0.4, 30);
+        leftMotor2.configOpenloopRamp(0.4, 30);
+        rightMotor1.configOpenloopRamp(0.4, 30);
+        rightMotor2.configOpenloopRamp(0.4, 30);
+        leftMotor1.setNeutralMode(NeutralMode.Brake);
+        leftMotor2.setNeutralMode(NeutralMode.Brake);
+        rightMotor1.setNeutralMode(NeutralMode.Brake);
+        rightMotor2.setNeutralMode(NeutralMode.Brake);
     }
 
     public void runMotor(double turnSpeedLeft, double turnSpeedRight)
@@ -38,12 +46,12 @@ public class Drivebase4MotorFalcon500 extends Drivebase
 
     public double getPosLeft()
     {
-        return leftMotor1.getSelectedSensorPosition()/TicksPerFeet;
+        return leftMotor1.getSelectedSensorPosition()/TicksPerFoot;
     }
 
     public double getPosRight()
     {
-        return -(rightMotor1.getSelectedSensorPosition()/TicksPerFeet);
+        return -(rightMotor1.getSelectedSensorPosition()/TicksPerFoot);
     }
 
     public double getHeading()
@@ -57,4 +65,9 @@ public class Drivebase4MotorFalcon500 extends Drivebase
     }
 
     public double getTicksLeft(){return leftMotor1.getSelectedSensorPosition();}
+
+    public void turnOffBrakes()
+    {
+
+    }
 }
