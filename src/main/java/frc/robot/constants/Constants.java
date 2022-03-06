@@ -18,7 +18,7 @@ public final class Constants
     public static final int LEFT_JOY_STICK_PORT = 0;
     public static final int RIGHT_JOY_STICK_PORT = 1;
     public static final int UPWARD_COLLECTOR_BUTTON = 4;
-    public static final int DOWNWARD_COLLECTOR_BUTTON = 4;//line 22-23 will all be changed this is just an example                                                                          your moms a hoe
+    public static final int DOWNWARD_COLLECTOR_BUTTON = 4;
     public static final int FLY_WHEEL_BUTTONS = 1;
     public static final int BUTTON_STICK_PORT = 2;
     public static final int LIFT_BALL_BUTTON = 3;
@@ -70,6 +70,14 @@ public final class Constants
             public static final int RIGHT_MOTOR_2_DEVICE_NUMBER = 13;
             public static final int LEFT_MOTOR_3_DEVICE_NUMBER = 3;
             public static final int RIGHT_MOTOR_3_DEVICE_NUMBER = 12;
+        }
+
+        public class FourMotorFalcon500
+        {
+            public static final int LEFT_MOTOR_1_DEVICE_NUMBER = 1;
+            public static final int RIGHT_MOTOR_1_DEVICE_NUMBER = 4;
+            public static final int LEFT_MOTOR_2_DEVICE_NUMBER = 2;
+            public static final int RIGHT_MOTOR_2_DEVICE_NUMBER = 3;
         }
 
         public class Collector
