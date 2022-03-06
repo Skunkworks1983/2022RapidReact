@@ -51,6 +51,8 @@ public class Oi
         shootAllBallsHigh = new JoystickButton(buttonStick, Constants.SHOOT_ALL_BALLS_HIGH_BUTTON);
         shootAllBallsLow = new JoystickButton(buttonStick, Constants.SHOOT_ALL_BALLS_LOW_BUTTON);
         loadBallsButton = new JoystickButton(buttonStick, Constants.LOAD_BALLS_BUTTON);
+
+        //shooter when held
         highShooterButton.whenHeld(new RunFlyWheelCommand(shooter, Constants.HIGH_GOAL_SPEED)); // shoot high
         lowShooterButton.whenHeld(new RunFlyWheelCommand(shooter, Constants.LOW_GOAL_SPEED)); // shoot low
         liftBallButton.whenHeld(new RunLiftBallCommand(shooter));
@@ -62,7 +64,7 @@ public class Oi
         shootAllBallsLow.whenHeld(new SpinUpFlyWheelAndShootAllBallsLowCommandGroup(shooter));
         loadBallsButton.whenHeld(new LoadBothBallsCommandGroup(shooter));
 
-        //collecter when held
+        //collector when held
         collectorUpwardButton = new JoystickButton(leftStick, Constants.UPWARD_COLLECTOR_BUTTON);
         collectorDownwardButton = new JoystickButton(rightStick, Constants.DOWNWARD_COLLECTOR_BUTTON);
         collectorUpwardButton.whenPressed(new MoveCollectorCommand(collector, false));
