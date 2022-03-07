@@ -40,7 +40,7 @@ public class DriveDistanceCommand extends CommandBase
         finishDistanceFT = startDistanceFT+distanceFT;
         startDegree = drivebase.getHeading();
         KPDistance = 0.05;
-        KPAngle = 0.04; //todo <-- 0.2 is too high, also 0.04 is too low
+        KPAngle = 0.03; //todo <-- 0.2 is too high, also 0.04 is too low
         KF = 0.2;
         if(distanceFT > 0)
         {
