@@ -40,7 +40,7 @@ public class DriveDistanceCommand extends CommandBase
         finishDistanceFT = startDistanceFT+distanceFT;
         startDegree = drivebase.getHeading();
         KPDistance = 0.05;
-        KPAngle = 0.03; //todo <-- 0.2 is too high, also 0.04 is too low
+        KPAngle = 0.018; //todo <-- 0.2 is too high, also 0.04 is too low
         KF = 0.2;
         if(distanceFT > 0)
         {
@@ -57,6 +57,14 @@ public class DriveDistanceCommand extends CommandBase
     public void execute()
     {
         double error = finishDistanceFT - drivebase.getPosLeft();
+        if(error < 0)
+        {
+            direction = -1;
+        }
+        else
+        {
+            direction = 1;
+        }
         double speed = KPDistance * error + KF * direction;
         double speedLeft = speed + Math.max(Math.min(KPAngle*(startDegree - drivebase.getHeading()), 0.25), -0.25);
         double speedRight = speed - Math.max(Math.min(KPAngle*(startDegree - drivebase.getHeading()), 0.25), -0.25);
@@ -67,7 +75,7 @@ public class DriveDistanceCommand extends CommandBase
     @Override
     public boolean isFinished()
     {
-        return Math.abs(drivebase.getPosLeft() - finishDistanceFT)< 0.05;
+        return Math.abs(drivebase.getPosLeft() - finishDistanceFT) < 0.1;
     }
 
     @Override

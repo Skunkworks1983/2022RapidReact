@@ -1,5 +1,6 @@
 package frc.robot.commands.shooter;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.constants.Constants;
 import frc.robot.subsystems.shooter.Shooter;
@@ -22,12 +23,13 @@ public class HighShooterMotorCommand extends CommandBase
         shooter.setFlywheel(Constants.HIGH_GOAL_SPEED);
         shooter.setLiftBall(Constants.LIFT_BALL_LOAD_SPEED);
         shooter.setIndexer(Constants.INDEXER_LOAD_SPEED);
+        System.out.println("Shooting now at: " + shooter.getFlyWheelSpeed());
     }
 
     @Override
     public void execute()
     {
-
+        SmartDashboard.putNumber("Flywheel speed", shooter.getFlyWheelSpeed());
     }
 
     @Override

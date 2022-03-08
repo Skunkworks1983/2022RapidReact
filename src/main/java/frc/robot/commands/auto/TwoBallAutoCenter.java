@@ -15,11 +15,13 @@ public class TwoBallAutoCenter extends SequentialCommandGroup
         (
             new DriveDistanceCommand(drivebase, 2),
             new RotateCommand(drivebase, -10),
-            new DriveDistanceCommand(drivebase, 3),
+            new DriveAndCollectCommandGroup(drivebase, collector, 3.0, shooter),
+            //new DriveDistanceCommand(drivebase, 3), // change to drive and collect
             new RotateCommand(drivebase, -150),
             new DriveDistanceCommand(drivebase, 8),
-            new RotateCommand(drivebase, -60),
-            new TimedDriveForwardCommandGroup(3.0, 0.2, drivebase)
+            new RotateCommand(drivebase, -65),
+            new TimedDriveForwardCommandGroup(3.0, 0.2, drivebase),
+            new TimedSpinUpAndShootAllBallsHighCommandGroup(shooter)
         );
     }
 }

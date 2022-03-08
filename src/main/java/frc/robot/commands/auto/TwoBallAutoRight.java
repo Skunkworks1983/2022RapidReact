@@ -18,8 +18,8 @@ public class TwoBallAutoRight extends SequentialCommandGroup
                         //new GrabBall(collector, shooter, true),
                         new DriveDistanceCommand(drivebase, -3),
                         new RotateCommand(drivebase, -159),
-                        new TimedDriveForwardCommandGroup(3.0, 0.2, drivebase)
-                        //new SpinUpFlyWheelAndShootAllBallsHighCommandGroup(shooter)
+                        new TimedDriveForwardCommandGroup(3.0, 0.2, drivebase),
+                        new SpinUpFlyWheelAndShootAllBallsHighCommandGroup(shooter)
                         );
     }
 }
