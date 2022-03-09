@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.commands.drivebase.DriveDistanceCommand;
 import frc.robot.commands.drivebase.RotateCommand;
 import frc.robot.commands.shooter.SpinUpFlyWheelAndShootAllBallsHighCommandGroup;
+import frc.robot.constants.Constants;
 import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.shooter.Shooter;
@@ -14,12 +15,13 @@ public class TwoBallAutoRight extends SequentialCommandGroup
     {
         addCommands
                 (
-                        new DriveDistanceCommand(drivebase, 3),
-                        //new GrabBall(collector, shooter, true),
-                        new DriveDistanceCommand(drivebase, -3),
-                        new RotateCommand(drivebase, -159),
-                        new TimedDriveForwardCommandGroup(3.0, 0.2, drivebase),
-                        new SpinUpFlyWheelAndShootAllBallsHighCommandGroup(shooter)
-                        );
+                        new DriveAndCollectCommandGroup(drivebase, collector,
+                                                        Constants.AUTO_RIGHT_DRIVE_AND_COLLECT_DISTANCE, shooter),
+                        new DriveDistanceCommand(drivebase, Constants.AUTO_RIGHT_DRIVE_DISTANCE),
+                        new RotateCommand(drivebase, Constants.AUTO_RIGHT_ROTATE),
+                        new TimedDriveForwardCommandGroup(Constants.AUTO_RIGHT_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN,
+                                                          Constants.AUTO_RIGHT_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE, drivebase),
+                        new TimedSpinUpAndShootAllBallsHighCommandGroup(shooter)
+                );
     }
 }

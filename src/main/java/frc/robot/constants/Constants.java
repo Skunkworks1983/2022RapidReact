@@ -38,6 +38,33 @@ public final class Constants
     public static final int SHOOT_ALL_BALLS_LOW_BUTTON = 11;
     public static final int LOAD_BALLS_BUTTON = 13;
 
+    // Auto Left Constants
+    public static final double AUTO_LEFT_DRIVE_AND_COLLECT_DISTANCE = 3.5;
+    public static final double AUTO_LEFT_DRIVE_DISTANCE = -4.0;
+    public static final int AUTO_LEFT_ROTATE = 153;
+    public static final double AUTO_LEFT_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN = 1.1;
+    public static final double AUTO_LEFT_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE = 0.15;
+
+    // Auto Center Constants
+    public static final int AUTO_CENTER_DRIVE_DISTANCE_ONE = 2;
+    public static final int AUTO_CENTER_ROTATE_ONE = -10;
+    public static final double AUTO_CENTER_DRIVE_AND_COLLECT_DISTANCE = 3.0;
+    public static final int AUTO_CENTER_ROTATE_TWO = -150;
+    public static final int AUTO_CENTER_DRIVE_DISTANCE_TWO = 8;
+    public static final int AUTO_CENTER_ROTATE_THREE = -65;
+    public static final double AUTO_CENTER_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN = 3.0;
+    public static final double AUTO_CENTER_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE = 0.2;
+
+    // Auto Right Constants
+    public static final double AUTO_RIGHT_DRIVE_AND_COLLECT_DISTANCE = 3.0;
+    public static final double AUTO_RIGHT_DRIVE_DISTANCE = -3;
+    public static final int AUTO_RIGHT_ROTATE = -150;
+    public static final double AUTO_RIGHT_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN = 2.0;
+    public static final double AUTO_RIGHT_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE = 0.2;
+
+    // Exit Tarmac Constants
+    public static final int EXIT_TARMAC_DRIVE_DISTANCE = 10;
+
     public class MotorPorts
     {
         public class Shooter
@@ -51,7 +78,6 @@ public final class Constants
         {
             public static final int RIGHT_MOTOR_1_DEVICE_NUMBER = 1;
             public static final int LEFT_MOTOR_1_DEVICE_NUMBER = 2;
-
         }
 
         public class FourMotors
