@@ -36,7 +36,8 @@ public final class Constants
     public static final double LOW_GOAL_SPEED = 9550;
     public static final int SHOOT_ALL_BALLS_HIGH_BUTTON = 4;
     public static final int SHOOT_ALL_BALLS_LOW_BUTTON = 11;
-    public static final int LOAD_BALLS_BUTTON = 13;
+    public static final int LOAD_BALLS_BUTTON = 5;
+    public static final int INDEXER_OUTPUT_BUTTON = 6;
 
     // Auto Left Constants
     public static final double AUTO_LEFT_DRIVE_AND_COLLECT_DISTANCE = 3.5;

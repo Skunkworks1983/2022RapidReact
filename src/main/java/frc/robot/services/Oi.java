@@ -34,6 +34,7 @@ public class Oi
     JoystickButton loadBallsButton;
     JoystickButton shootAllBallsHigh;
     JoystickButton shootAllBallsLow;
+    JoystickButton indexerOutputButton;
 
     public Oi(Collector collector, Drivebase drivebase, Shooter shooter)
     {
@@ -51,6 +52,7 @@ public class Oi
         shootAllBallsHigh = new JoystickButton(buttonStick, Constants.SHOOT_ALL_BALLS_HIGH_BUTTON);
         shootAllBallsLow = new JoystickButton(buttonStick, Constants.SHOOT_ALL_BALLS_LOW_BUTTON);
         loadBallsButton = new JoystickButton(buttonStick, Constants.LOAD_BALLS_BUTTON);
+        indexerOutputButton = new JoystickButton(buttonStick, Constants.INDEXER_OUTPUT_BUTTON);
 
         //shooter when held
         highShooterButton.whenHeld(new RunFlyWheelCommand(shooter, Constants.HIGH_GOAL_SPEED)); // shoot high
