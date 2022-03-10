@@ -16,7 +16,8 @@ public class TwoBallAutoRight extends SequentialCommandGroup
         addCommands
                 (
                         new DriveAndCollectCommandGroup(drivebase, collector,
-                                                        Constants.AUTO_RIGHT_DRIVE_AND_COLLECT_DISTANCE, shooter),
+                                                        Constants.AUTO_RIGHT_DRIVE_AND_COLLECT_DISTANCE,
+                                shooter, true),
                         new DriveDistanceCommand(drivebase, Constants.AUTO_RIGHT_DRIVE_DISTANCE),
                         new RotateCommand(drivebase, Constants.AUTO_RIGHT_ROTATE),
                         new TimedDriveForwardCommandGroup(Constants.AUTO_RIGHT_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN,
