@@ -14,6 +14,8 @@ public class RotateCommand extends CommandBase
     private double KP;
     private double KF;
     private int direction;
+    private int onTargetCount;
+    private int onTargetThreshold = 3;
 
     public RotateCommand(Drivebase drivebase, double degree)
     {
@@ -27,8 +29,8 @@ public class RotateCommand extends CommandBase
     {
         startDegree = drivebase.getHeading();
         finishDegree = startDegree + degree;
-        KP = 0.005;
-        KF = 0.2;
+        KP = 0.0074;
+        KF = 0.07;
         System.out.println("turning to: " + (finishDegree));
         System.out.println("starting speed is: " + (KP * (finishDegree - drivebase.getHeading())) + ", starting degree is: " + startDegree);
     }
@@ -45,7 +47,15 @@ public class RotateCommand extends CommandBase
     @Override
     public boolean isFinished()
     {
-        return Math.abs(drivebase.getHeading() - finishDegree)< 0.5;
+        if(Math.abs(drivebase.getHeading() - finishDegree)< 0.8)
+        {
+            onTargetCount++;
+        }
+        else
+        {
+            onTargetCount = 0;
+        }
+        return onTargetCount == onTargetThreshold;
 //        if(degree > 0)
 //        {
 //            return drivebase.getHeading() > finishDegree;

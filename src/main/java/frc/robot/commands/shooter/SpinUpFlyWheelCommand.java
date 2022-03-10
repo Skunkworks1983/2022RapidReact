@@ -1,5 +1,6 @@
 package frc.robot.commands.shooter;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.shooter.Shooter;
 
@@ -7,6 +8,8 @@ import frc.robot.subsystems.shooter.Shooter;
 public class SpinUpFlyWheelCommand extends CommandBase
 {
     private double setpoint;
+    private int onTargetCount;
+    private int onTargetThreshold = 3;
     public SpinUpFlyWheelCommand(Shooter s, Double speed)
     {
         // each subsystem used by the command must be passed into the
@@ -26,19 +29,21 @@ public class SpinUpFlyWheelCommand extends CommandBase
     @Override
     public void execute()
     {
-        System.out.println(shooter.getFlyWheelSpeed());
+        SmartDashboard.putNumber("Flywheel speed", shooter.getFlyWheelSpeed());
     }
 
     @Override
     public boolean isFinished()
     {
-        if(shooter.getFlyWheelSpeed() > setpoint * 0.99)
+        if(shooter.getFlyWheelSpeed() > setpoint)
         {
-            System.out.println( "spinupmotorcommandfinished " + shooter.getFlyWheelSpeed());
-            return true;
+            onTargetCount++;
         }
-        // TODO: Make this return true when this Command no longer needs to run execute()
-        return false;
+        else
+        {
+            onTargetCount = 0;
+        }
+        return onTargetCount == onTargetThreshold;
     }
 
     @Override
