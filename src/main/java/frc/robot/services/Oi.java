@@ -68,8 +68,8 @@ public class Oi
         shootAllBallsHigh.whenHeld(new SpinUpFlyWheelAndShootAllBallsHighCommandGroup(shooter));
         shootAllBallsLow.whenHeld(new SpinUpFlyWheelAndShootAllBallsLowCommandGroup(shooter));
         loadBallsButton.whenHeld(new LoadBothBallsCommandGroup(shooter));
-        manualMoveCollectorDown.whenHeld(new ManualMoveCollectorCommand(0.1, collector));
-        manualMoveCollectorUp.whenHeld(new ManualMoveCollectorCommand(-0.1, collector));
+        manualMoveCollectorDown.whenHeld(new ManualMoveCollectorCommand(0.25, collector));
+        manualMoveCollectorUp.whenHeld(new ManualMoveCollectorCommand(-0.25, collector));
 
         //collector when held
         collectorUpwardButton = new JoystickButton(leftStick, Constants.UPWARD_COLLECTOR_BUTTON);

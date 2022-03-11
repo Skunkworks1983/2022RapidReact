@@ -56,6 +56,7 @@ public class Robot extends TimedRobot
         robotContainer = new RobotContainer();
         theDrivebase = new Drivebase4MotorFalcon500();
         theShooter = new Shooter();
+        theCollector = new Collector();
         autoChooser = new SendableChooser();
         autoChooser.addOption("twoBallHighRight",new TwoBallAutoRight(theDrivebase, theCollector, theShooter));
         autoChooser.addOption("twoBallHighCenter",new TwoBallAutoCenter(theDrivebase, theCollector, theShooter));
