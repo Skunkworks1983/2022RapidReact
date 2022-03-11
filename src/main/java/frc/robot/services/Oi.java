@@ -2,7 +2,7 @@ package frc.robot.services;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.commands.IndexerManualShootCommand;
+import frc.robot.commands.shooter.IndexerManualShootCommand;
 import frc.robot.commands.shooter.SpinUpFlyWheelLowCommand;
 import frc.robot.commands.collector.MoveCollectorCommand;
 import frc.robot.commands.shooter.*;

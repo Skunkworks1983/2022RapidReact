@@ -3,10 +3,6 @@ package frc.robot.commands.auto;
 
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.ParallelDeadlineGroup;
-import frc.robot.commands.DriveDistanceAndMoveCollectorCommandGroup;
-import frc.robot.commands.LoadBothBallsAndCollectCommandGroup;
-import frc.robot.commands.drivebase.DriveDistanceCommand;
-import frc.robot.commands.shooter.LoadBothBallsCommandGroup;
 import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.shooter.Shooter;

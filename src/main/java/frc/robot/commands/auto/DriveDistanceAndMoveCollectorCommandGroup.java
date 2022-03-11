@@ -1,4 +1,4 @@
-package frc.robot.commands;
+package frc.robot.commands.auto;
 
 
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
@@ -11,6 +11,7 @@ public class DriveDistanceAndMoveCollectorCommandGroup extends ParallelCommandGr
     public DriveDistanceAndMoveCollectorCommandGroup(Drivebase drivebase, Collector collector, Double distance, Boolean moveDownward) {
         // TODO: Add your sequential commands in the super() call, e.g.
         //           super(new FooCommand(), new BarCommand());
-        super(new DriveDistanceCommand(drivebase, distance), new MoveCollectorCommand(collector, moveDownward));
+        super(new DriveDistanceCommand(drivebase, distance),
+                new MoveCollectorCommand(collector, moveDownward));
     }
 }

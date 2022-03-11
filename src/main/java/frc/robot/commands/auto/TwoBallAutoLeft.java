@@ -1,8 +1,6 @@
 package frc.robot.commands.auto;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-import frc.robot.commands.DriveDistanceAndMoveCollectorCommandGroup;
-import frc.robot.commands.drivebase.DriveDistanceCommand;
 import frc.robot.commands.drivebase.RotateCommand;
 import frc.robot.constants.Constants;
 import frc.robot.subsystems.Collector;
@@ -16,7 +14,7 @@ public class TwoBallAutoLeft extends SequentialCommandGroup
         addCommands(new DriveAndCollectCommandGroup(drivebase, collector,
                         Constants.AUTO_LEFT_DRIVE_AND_COLLECT_DISTANCE, shooter, true),
                     new DriveDistanceAndMoveCollectorCommandGroup(drivebase, collector,
-                            Constants.AUTO_LEFT_DRIVE_DISTANCE, false),
+                            Constants.AUTO_LEFT_DRIVE_DISTANCE,false),
                     new RotateCommand(drivebase, Constants.AUTO_LEFT_ROTATE),
                     new TimedDriveForwardCommandGroup(Constants.AUTO_LEFT_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN,
                             Constants.AUTO_LEFT_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE, drivebase),

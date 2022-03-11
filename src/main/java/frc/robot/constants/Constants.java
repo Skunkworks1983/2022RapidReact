@@ -50,11 +50,11 @@ public final class Constants
     public static final double AUTO_LEFT_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE = 0.15;
 
     // Auto Center Constants
-    public static final int AUTO_CENTER_DRIVE_DISTANCE_ONE = 2;
+    public static final double AUTO_CENTER_DRIVE_DISTANCE_ONE = 2.0;
     public static final int AUTO_CENTER_ROTATE_ONE = -10;
     public static final double AUTO_CENTER_DRIVE_AND_COLLECT_DISTANCE = 3.0;
     public static final int AUTO_CENTER_ROTATE_TWO = -150;
-    public static final int AUTO_CENTER_DRIVE_DISTANCE_TWO = 8;
+    public static final double AUTO_CENTER_DRIVE_DISTANCE_TWO = 8.0;
     public static final int AUTO_CENTER_ROTATE_THREE = -65;
     public static final double AUTO_CENTER_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN = 3.0;
     public static final double AUTO_CENTER_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE = 0.2;
