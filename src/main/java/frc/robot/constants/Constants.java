@@ -19,6 +19,8 @@ public final class Constants
     public static final int RIGHT_JOY_STICK_PORT = 1;
     public static final int UPWARD_COLLECTOR_BUTTON = 4;
     public static final int DOWNWARD_COLLECTOR_BUTTON = 4;
+    public static final int MANUAL_UPWARD_COLLECTOR_BUTTON = 10;
+    public static final int MANUAL_DOWNWARD_COLLECTOR_BUTTON = 11;
     public static final int FLY_WHEEL_BUTTONS = 1;
     public static final int BUTTON_STICK_PORT = 2;
     public static final int LIFT_BALL_BUTTON = 3;
@@ -83,7 +85,8 @@ public final class Constants
         public class Collector
         {
             public static final int COLLECTOR_INTAKE_MOTOR_DEVICE_NUMBER = 5;
-            public static final int COLLECTOR_MOTOR_DEVICE_NUMBER = 0; //todo real device number
+            public static final int COLLECTOR_MOTOR_DEVICE_NUMBER1 = 10; //todo real device number
+            public static final int COLLECTOR_MOTOR_DEVICE_NUMBER2 = 11;
         }
 
         public class CollectorRelay

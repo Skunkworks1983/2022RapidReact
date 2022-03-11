@@ -2,6 +2,7 @@ package frc.robot.services;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.collector.ManualMoveCollectorCommand;
 import frc.robot.commands.collector.MoveCollectorCommand;
 import frc.robot.commands.collector.IntakeCommand;
 import frc.robot.commands.shooter.LoadBothBallsCommandGroup;
@@ -34,6 +35,8 @@ public class Oi
     JoystickButton loadBallsButton;
     JoystickButton shootAllBallsHigh;
     JoystickButton shootAllBallsLow;
+    JoystickButton manualMoveCollectorUp;
+    JoystickButton manualMoveCollectorDown;
 
     public Oi(Collector collector, Drivebase drivebase, Shooter shooter)
     {
@@ -51,6 +54,8 @@ public class Oi
         shootAllBallsHigh = new JoystickButton(buttonStick, Constants.SHOOT_ALL_BALLS_HIGH_BUTTON);
         shootAllBallsLow = new JoystickButton(buttonStick, Constants.SHOOT_ALL_BALLS_LOW_BUTTON);
         loadBallsButton = new JoystickButton(buttonStick, Constants.LOAD_BALLS_BUTTON);
+        manualMoveCollectorUp = new JoystickButton(buttonStick, Constants.MANUAL_UPWARD_COLLECTOR_BUTTON);
+        manualMoveCollectorDown = new JoystickButton(buttonStick, Constants.MANUAL_DOWNWARD_COLLECTOR_BUTTON);
 
         //shooter when held
         highShooterButton.whenHeld(new RunFlyWheelCommand(shooter, Constants.HIGH_GOAL_SPEED)); // shoot high
@@ -63,6 +68,8 @@ public class Oi
         shootAllBallsHigh.whenHeld(new SpinUpFlyWheelAndShootAllBallsHighCommandGroup(shooter));
         shootAllBallsLow.whenHeld(new SpinUpFlyWheelAndShootAllBallsLowCommandGroup(shooter));
         loadBallsButton.whenHeld(new LoadBothBallsCommandGroup(shooter));
+        manualMoveCollectorDown.whenHeld(new ManualMoveCollectorCommand(0.1, collector));
+        manualMoveCollectorUp.whenHeld(new ManualMoveCollectorCommand(-0.1, collector));
 
         //collector when held
         collectorUpwardButton = new JoystickButton(leftStick, Constants.UPWARD_COLLECTOR_BUTTON);
