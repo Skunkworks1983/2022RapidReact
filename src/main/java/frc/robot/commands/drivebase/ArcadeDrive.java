@@ -28,7 +28,7 @@ public class ArcadeDrive extends CommandBase
     @Override
     public void execute()
     {
-        double turn = oi.getLeftX();
+        double turn = oi.getRightX();
         double throttle = -oi.getLeftY();
         SmartDashboard.putNumber("X", turn);
         SmartDashboard.putNumber("Y", turn);

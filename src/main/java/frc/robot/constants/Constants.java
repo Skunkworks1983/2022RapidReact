@@ -86,13 +86,6 @@ public final class Constants
             public static final int COLLECTOR_MOTOR_DEVICE_NUMBER = 0; //todo real device number
         }
 
-        public class CollectorServo
-        {
-            public static final int COLLECTOR_SERVO_DEVICE_NUMBER = 0;
-            public static final double COLLECTOR_SERVO_OPENED_ANGLE = 0;
-            public static final double COLLECTOR_SERVO_CLOSED_ANGLE = 0;
-        } //todo change to real angles
-
         public class CollectorRelay
         {
             public static final int COLLECTOR_RELAY_DEVICE_NUMBER = 1;
