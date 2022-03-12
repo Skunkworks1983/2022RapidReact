@@ -2,6 +2,7 @@ package frc.robot.services;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.collector.CollectorEncoderResetCommand;
 import frc.robot.commands.shooter.IndexerManualShootCommand;
 import frc.robot.commands.shooter.SpinUpFlyWheelLowCommand;
 import frc.robot.commands.collector.MoveCollectorCommand;
@@ -33,6 +34,7 @@ public class Oi
     JoystickButton spinUpFlyWheelLowButton;
     JoystickButton spinUpFlyWheelHighButton;
     JoystickButton indexerManualShootButton;
+    JoystickButton collectorEncoderReset;
 
     public Oi(Collector collector, Drivebase drivebase, Shooter shooter)
     {
@@ -76,6 +78,8 @@ public class Oi
         collectorDownwardButton = new JoystickButton(buttonStick, Constants.DOWNWARD_COLLECTOR_BUTTON);
         collectorUpwardButton.whenPressed(new MoveCollectorCommand(collector, false));
         collectorDownwardButton.whenPressed(new MoveCollectorCommand(collector, true));
+        collectorEncoderReset = new JoystickButton(buttonStick, Constants.COLLECTOR_ENCODER_RESET_BUTTON);
+        collectorEncoderReset.whenPressed(new CollectorEncoderResetCommand(collector));
 
     }
 

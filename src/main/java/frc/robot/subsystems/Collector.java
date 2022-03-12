@@ -8,15 +8,19 @@ import frc.robot.constants.Constants;
 public abstract class Collector extends SubsystemBase
 {
     TalonFX intakeMotor = new TalonFX(Constants.MotorPorts.Collector.COLLECTOR_INTAKE_MOTOR_DEVICE_NUMBER);
+    TalonFX collectorMotor = new TalonFX(Constants.MotorPorts.Collector.COLLECTOR_MOTOR_DEVICE_NUMBER);
+    public double encoderToAngleFactor = 1;
 
     public void collectBalls(double speed)
     {
         intakeMotor.set(TalonFXControlMode.PercentOutput, speed);
     }
 
-    TalonFX collectorMotor = new TalonFX(Constants.MotorPorts.Collector.COLLECTOR_MOTOR_DEVICE_NUMBER);
+    public void collectorEncoderReset()
+    {
+        collectorMotor.setSelectedSensorPosition(0);
+    }
 
-    public double encoderToAngleFactor = 1;
 
     public void setCollectorAngleSpeed(double speed)
     {

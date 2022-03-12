@@ -41,6 +41,8 @@ public final class Constants
     public static final int SPIN_UP_FLYWHEEL_LOW = 8;
     public static final int SPIN_UP_FLYWHEEL_HIGH = 9;
     public static final int INDEXER_MANUAL_SHOOT = 13;
+    public static final int COLLECTOR_ENCODER_RESET_BUTTON = 12;
+
 
     // Auto Left Constants
     public static final double AUTO_LEFT_DRIVE_AND_COLLECT_DISTANCE = 3.5;
