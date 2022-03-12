@@ -14,7 +14,7 @@ public class GrabBall extends SequentialCommandGroup
                 (
                         //new MoveCollectorCommand(collector, true),
                         new IntakeCommand(collector, shooter, .5, ball2)
-                        //new MoveCollectorCommand(collector, false) //todo fix collector command, and all of this
+                        //new MoveCollectorCommand(collector, false)
                 );
     }
 }
