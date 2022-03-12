@@ -23,4 +23,7 @@ public abstract class Drivebase extends SubsystemBase
 
     public abstract void turnOffBrakes();
 
+    public abstract double getSpeedLeft();
+
+    public abstract double getSpeedRight();
 }

@@ -70,4 +70,14 @@ public class Drivebase4MotorFalcon500 extends Drivebase
     {
 
     }
+
+    public double getSpeedLeft()
+    {
+        return leftMotor1.getSelectedSensorVelocity();
+    }
+
+    public double getSpeedRight()
+    {
+        return (-rightMotor1.getSelectedSensorVelocity());
+    }
 }
