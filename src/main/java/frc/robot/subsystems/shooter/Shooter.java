@@ -25,6 +25,8 @@ public class Shooter extends SubsystemBase
     private DigitalInput intakeSensor = new DigitalInput(0);
     private DigitalInput beforeFlyWheel = new DigitalInput(1);
 
+    private double target;
+
     public void setFlywheel(double speed)
     {
         flywheel.set(TalonFXControlMode.Velocity, -speed);
@@ -58,6 +60,15 @@ public class Shooter extends SubsystemBase
     public boolean isBallAtIntake(){return !intakeSensor.get();}
 
     public boolean isBallBeforeFlyWheel(){return !beforeFlyWheel.get();}
+
+    public void setTarget(double target)
+    {
+        this.target = target;
+    }
+    public double getTarget()
+    {
+     return target;
+    }
 
     public void initializeFlywheel()
     {
