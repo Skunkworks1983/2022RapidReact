@@ -2,6 +2,9 @@ package frc.robot.services;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.collector.IntakeCommand;
+import frc.robot.commands.collector.ManualIntakeCommand;
+import frc.robot.commands.collector.ManualMoveCollectorCommand;
 import frc.robot.commands.shooter.IndexerManualShootCommand;
 import frc.robot.commands.shooter.SpinUpFlyWheelLowCommand;
 import frc.robot.commands.collector.MoveCollectorCommand;
@@ -16,23 +19,19 @@ public class Oi
     Joystick leftStick;
     Joystick rightStick;
     Joystick buttonStick;
-    JoystickButton highShooterButton;
-    JoystickButton lowShooterButton;
-    JoystickButton liftBallButton;
-    JoystickButton indexerButton;
-    JoystickButton runBothLifts;
-    JoystickButton intakeButton;
-    JoystickButton reverseIntakeButton;
     JoystickButton collectorUpwardButton;
     JoystickButton collectorDownwardButton;
-    JoystickButton loadFirstBallButton;
     JoystickButton loadBallsButton;
-    JoystickButton shootAllBallsHigh;
-    JoystickButton shootAllBallsLow;
+    JoystickButton manualMoveCollectorUp;
+    JoystickButton manualMoveCollectorDown;
     JoystickButton indexerOutputButton;
     JoystickButton spinUpFlyWheelLowButton;
     JoystickButton spinUpFlyWheelHighButton;
     JoystickButton indexerManualShootButton;
+    JoystickButton collectorIn;
+    JoystickButton collectorOut;
+    JoystickButton indexerShootWhenReady;
+    JoystickButton enableManualControls;
 
     public Oi(Collector collector, Drivebase drivebase, Shooter shooter)
     {
@@ -42,38 +41,32 @@ public class Oi
         buttonStick = new Joystick(Constants.BUTTON_STICK_PORT);
 
         //shooter button sticks
-        //highShooterButton = new JoystickButton(buttonStick, Constants.HIGH_SHOOTER_BUTTON);
-        //lowShooterButton = new JoystickButton(buttonStick, Constants.LOW_SHOOTER_BUTTON);
-        //liftBallButton = new JoystickButton(buttonStick, Constants.LIFT_BALL_BUTTON);
-        //loadFirstBallButton = new JoystickButton(buttonStick, Constants.LOAD_FIRST_BALL_BUTTON);
-        //indexerButton = new JoystickButton(buttonStick, Constants.INDEXER_BUTTON);
-        shootAllBallsHigh = new JoystickButton(buttonStick, Constants.SHOOT_ALL_BALLS_HIGH_BUTTON);
-        shootAllBallsLow = new JoystickButton(buttonStick, Constants.SHOOT_ALL_BALLS_LOW_BUTTON);
-        loadBallsButton = new JoystickButton(buttonStick, Constants.LOAD_BALLS_BUTTON);
-        indexerOutputButton = new JoystickButton(buttonStick, Constants.INDEXER_OUTPUT_BUTTON);
-        spinUpFlyWheelLowButton = new JoystickButton(buttonStick, Constants.SPIN_UP_FLYWHEEL_LOW);
-        spinUpFlyWheelHighButton = new JoystickButton(buttonStick, Constants.SPIN_UP_FLYWHEEL_HIGH);
-        indexerManualShootButton = new JoystickButton(buttonStick, Constants.INDEXER_MANUAL_SHOOT);
+        loadBallsButton = new JoystickButton(buttonStick, Constants.OIButtons.LOAD_BALLS_BUTTON);
+        manualMoveCollectorUp = new JoystickButton(buttonStick, Constants.OIButtons.MANUAL_UPWARD_COLLECTOR_BUTTON);
+        manualMoveCollectorDown = new JoystickButton(buttonStick, Constants.OIButtons.MANUAL_DOWNWARD_COLLECTOR_BUTTON);
+        indexerOutputButton = new JoystickButton(buttonStick, Constants.OIButtons.INDEXER_OUTPUT_BUTTON);
+        spinUpFlyWheelLowButton = new JoystickButton(buttonStick, Constants.OIButtons.SPIN_UP_FLYWHEEL_LOW);
+        spinUpFlyWheelHighButton = new JoystickButton(buttonStick, Constants.OIButtons.SPIN_UP_FLYWHEEL_HIGH);
+        indexerManualShootButton = new JoystickButton(buttonStick, Constants.OIButtons.INDEXER_MANUAL_SHOOT);
+        collectorUpwardButton = new JoystickButton(buttonStick, Constants.OIButtons.UPWARD_COLLECTOR_BUTTON);
+        collectorDownwardButton = new JoystickButton(buttonStick, Constants.OIButtons.DOWNWARD_COLLECTOR_BUTTON);
+        collectorIn = new JoystickButton(buttonStick, Constants.OIButtons.COLLECTOR_IN);
+        collectorOut = new JoystickButton(buttonStick, Constants.OIButtons.COLLECTOR_OUT);
+        indexerShootWhenReady = new JoystickButton(buttonStick, Constants.OIButtons.INDEXER_SHOOT_WHEN_READY);
+        enableManualControls = new JoystickButton(buttonStick, Constants.OIButtons.ENABLE_MANUAL_CONTROLS);
 
-        //shooter when held
-        highShooterButton.whenHeld(new RunFlyWheelCommand(shooter, Constants.HIGH_GOAL_SPEED)); // shoot high
-        lowShooterButton.whenHeld(new RunFlyWheelCommand(shooter, Constants.LOW_GOAL_SPEED)); // shoot low
-        liftBallButton.whenHeld(new RunLiftBallCommand(shooter));
-        loadFirstBallButton.whenHeld(new LoadFirstBallCommand(shooter));
-        //loadSecondBallButton.whenHeld(new LoadSecondBallCommand(shooter));
-        indexerButton.whenHeld(new RunIndexerCommand(shooter));
-        liftBallButton.whenHeld(new RunLiftBallCommand(shooter));
-        shootAllBallsHigh.whenHeld(new SpinUpFlyWheelAndShootAllBallsHighCommandGroup(shooter));
-        shootAllBallsLow.whenHeld(new SpinUpFlyWheelAndShootAllBallsLowCommandGroup(shooter));
+        //when held
         loadBallsButton.whenHeld(new LoadBothBallsCommandGroup(shooter));
+        manualMoveCollectorDown.whenHeld(new ManualMoveCollectorCommand(0.25, collector));
+        manualMoveCollectorUp.whenHeld(new ManualMoveCollectorCommand(-0.25, collector));
         indexerOutputButton.whenHeld(new IndexerOutputCommand(shooter));
         spinUpFlyWheelLowButton.whenHeld(new SpinUpFlyWheelLowCommand(shooter));
         spinUpFlyWheelHighButton.whenHeld(new SpinUpFlyWheelHighCommand(shooter));
         indexerManualShootButton.whenHeld(new IndexerManualShootCommand(shooter));
+        collectorIn.whenHeld(new ManualIntakeCommand(collector, 0.4));
+        collectorOut.whenHeld(new ManualIntakeCommand(collector, -0.4));
 
-        //collector when held
-        collectorUpwardButton = new JoystickButton(buttonStick, Constants.UPWARD_COLLECTOR_BUTTON);
-        collectorDownwardButton = new JoystickButton(buttonStick, Constants.DOWNWARD_COLLECTOR_BUTTON);
+        //collector when pressed
         collectorUpwardButton.whenPressed(new MoveCollectorCommand(collector, false));
         collectorDownwardButton.whenPressed(new MoveCollectorCommand(collector, true));
 

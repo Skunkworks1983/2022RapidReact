@@ -26,7 +26,7 @@ public class MoveCollectorCommand extends CommandBase
             super.initialize(); //start in upward position
             if (moveDownward)
             {
-                endAngle = -90;
+                endAngle = 90;
             }
             else
             {
@@ -64,6 +64,7 @@ public class MoveCollectorCommand extends CommandBase
         @Override
         public void end(boolean interrupted)
         {
+            collector.setCollectorAngleSpeed(0);
             super.end(interrupted);
         }
 }
