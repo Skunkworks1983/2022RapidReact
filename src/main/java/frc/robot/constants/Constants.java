@@ -17,16 +17,16 @@ public final class Constants
 {
     public static final int LEFT_JOY_STICK_PORT = 0;
     public static final int RIGHT_JOY_STICK_PORT = 1;
-    public static final int UPWARD_COLLECTOR_BUTTON = 4;
-    public static final int DOWNWARD_COLLECTOR_BUTTON = 4;
-    public static final int FLY_WHEEL_BUTTONS = 1;
+    public static final int UPWARD_COLLECTOR_BUTTON = 1;
+    public static final int DOWNWARD_COLLECTOR_BUTTON = 2;
+    //public static final int FLY_WHEEL_BUTTONS = 1;
     public static final int BUTTON_STICK_PORT = 2;
-    public static final int LIFT_BALL_BUTTON = 3;
-    public static final int LOW_SHOOTER_BUTTON = 14;
-    public static final int HIGH_SHOOTER_BUTTON = 15;
-    public static final int INDEXER_BUTTON = 2;
-    public static final int RUN_BOTH_LIFTS = 1;
-    public static final int LOAD_FIRST_BALL_BUTTON = 12;
+    //public static final int LIFT_BALL_BUTTON = 3;
+    //public static final int LOW_SHOOTER_BUTTON = 14;
+    //public static final int HIGH_SHOOTER_BUTTON = 15;
+    //public static final int INDEXER_BUTTON = 2;
+    //public static final int RUN_BOTH_LIFTS = 1;
+    //public static final int LOAD_FIRST_BALL_BUTTON = 12;
     //public static final int LOAD_SECOND_BALL_BUTTON = 13;
     public static final double INDEXER_LOAD_SPEED = 0.4;
     public static final double LIFT_BALL_LOAD_SPEED = 0.5;
@@ -34,10 +34,13 @@ public final class Constants
     public static final double FLY_WHEEL_KF = .0456;
     public static final double HIGH_GOAL_SPEED = 14300;
     public static final double LOW_GOAL_SPEED = 9550;
-    public static final int SHOOT_ALL_BALLS_HIGH_BUTTON = 4;
-    public static final int SHOOT_ALL_BALLS_LOW_BUTTON = 11;
+    public static final int SHOOT_ALL_BALLS_HIGH_BUTTON = 4; //maybe keep
+    public static final int SHOOT_ALL_BALLS_LOW_BUTTON = 11; //maybe keep
     public static final int LOAD_BALLS_BUTTON = 5;
     public static final int INDEXER_OUTPUT_BUTTON = 6;
+    public static final int SPIN_UP_FLYWHEEL_LOW = 8;
+    public static final int SPIN_UP_FLYWHEEL_HIGH = 9;
+    public static final int INDEXER_MANUAL_SHOOT = 13;
 
     // Auto Left Constants
     public static final double AUTO_LEFT_DRIVE_AND_COLLECT_DISTANCE = 3.5;
@@ -47,11 +50,11 @@ public final class Constants
     public static final double AUTO_LEFT_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE = 0.15;
 
     // Auto Center Constants
-    public static final int AUTO_CENTER_DRIVE_DISTANCE_ONE = 2;
+    public static final double AUTO_CENTER_DRIVE_DISTANCE_ONE = 2.0;
     public static final int AUTO_CENTER_ROTATE_ONE = -10;
     public static final double AUTO_CENTER_DRIVE_AND_COLLECT_DISTANCE = 3.0;
     public static final int AUTO_CENTER_ROTATE_TWO = -150;
-    public static final int AUTO_CENTER_DRIVE_DISTANCE_TWO = 8;
+    public static final double AUTO_CENTER_DRIVE_DISTANCE_TWO = 8.0;
     public static final int AUTO_CENTER_ROTATE_THREE = -65;
     public static final double AUTO_CENTER_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN = 3.0;
     public static final double AUTO_CENTER_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE = 0.2;
