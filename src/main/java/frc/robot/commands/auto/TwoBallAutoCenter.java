@@ -1,6 +1,7 @@
 package frc.robot.commands.auto;
 
 import frc.robot.commands.drivebase.RotateCommand;
+import frc.robot.constants.Constants;
 import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.shooter.Shooter;
@@ -13,13 +14,20 @@ public class TwoBallAutoCenter extends SequentialCommandGroup
     {
         addCommands
         (
-            new DriveDistanceCommand(drivebase, 2),
-            new RotateCommand(drivebase, -10),
-            new DriveDistanceCommand(drivebase, 3),
-            new RotateCommand(drivebase, -150),
-            new DriveDistanceCommand(drivebase, 8),
-            new RotateCommand(drivebase, -60),
-            new TimedDriveForwardCommandGroup(3.0, 0.2, drivebase)
+            new DriveDistanceCommand(drivebase, Constants.AUTO_CENTER_DRIVE_DISTANCE_ONE),
+                //new DriveDistanceAndMoveCollectorCommandGroup(drivebase, collector,
+                    //Constants.AUTO_CENTER_DRIVE_DISTANCE_ONE, true),
+            new RotateCommand(drivebase, Constants.AUTO_CENTER_ROTATE_ONE),
+            new DriveAndCollectCommandGroup(drivebase, collector,
+                                            Constants.AUTO_CENTER_DRIVE_AND_COLLECT_DISTANCE,
+                    shooter, true),
+            new RotateCommand(drivebase, Constants.AUTO_CENTER_ROTATE_TWO),
+            new DriveDistanceAndMoveCollectorCommandGroup(drivebase, collector,
+                    Constants.AUTO_CENTER_DRIVE_DISTANCE_TWO, false),
+            new RotateCommand(drivebase, Constants.AUTO_CENTER_ROTATE_THREE),
+            new TimedDriveForwardCommandGroup(Constants.AUTO_CENTER_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN,
+                    Constants.AUTO_CENTER_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE, drivebase),
+            new TimedSpinUpAndShootAllBallsHighCommandGroup(shooter)
         );
     }
 }

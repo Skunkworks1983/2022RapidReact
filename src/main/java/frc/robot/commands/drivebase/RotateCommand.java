@@ -14,6 +14,8 @@ public class RotateCommand extends CommandBase
     private double KP;
     private double KF;
     private int direction;
+    private int onTargetCount;
+    private int onTargetThreshold = 3;
 
     public RotateCommand(Drivebase drivebase, double degree)
     {
@@ -45,7 +47,23 @@ public class RotateCommand extends CommandBase
     @Override
     public boolean isFinished()
     {
-        return Math.abs(drivebase.getHeading() - finishDegree)< 0.5;
+        if(Math.abs(drivebase.getHeading() - finishDegree)< 0.8)
+        {
+            onTargetCount++;
+        }
+        else
+        {
+            onTargetCount = 0;
+        }
+        return onTargetCount == onTargetThreshold;
+//        if(degree > 0)
+//        {
+//            return drivebase.getHeading() > finishDegree;
+//        }
+//        else
+//        {
+//            return drivebase.getHeading() < finishDegree;
+//        }
     }
 
     @Override
