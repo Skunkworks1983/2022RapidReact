@@ -14,9 +14,9 @@ public class TwoBallAutoCenter extends SequentialCommandGroup
     {
         addCommands
         (
-            new DriveDistanceCommand(drivebase, Constants.AUTO_CENTER_DRIVE_DISTANCE_ONE),
-                //new DriveDistanceAndMoveCollectorCommandGroup(drivebase, collector,
-                    //Constants.AUTO_CENTER_DRIVE_DISTANCE_ONE, true),
+            //new DriveDistanceCommand(drivebase, Constants.AUTO_CENTER_DRIVE_DISTANCE_ONE),
+                new DriveDistanceAndMoveCollectorCommandGroup(drivebase, collector,
+                    Constants.AUTO_CENTER_DRIVE_DISTANCE_ONE, true),
             new RotateCommand(drivebase, Constants.AUTO_CENTER_ROTATE_ONE),
             new DriveAndCollectCommandGroup(drivebase, collector,
                                             Constants.AUTO_CENTER_DRIVE_AND_COLLECT_DISTANCE,
