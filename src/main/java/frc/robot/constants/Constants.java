@@ -15,37 +15,31 @@ package frc.robot.constants;
  */
 public final class Constants
 {
+    public class OIButtons
+    {
+        public static final int MANUAL_UPWARD_COLLECTOR_BUTTON = 6;
+        public static final int MANUAL_DOWNWARD_COLLECTOR_BUTTON = 7;
+        public static final int UPWARD_COLLECTOR_BUTTON = 4;
+        public static final int DOWNWARD_COLLECTOR_BUTTON = 2;
+        public static final int LOAD_BALLS_BUTTON = 12;
+        public static final int INDEXER_OUTPUT_BUTTON = 15;
+        public static final int SPIN_UP_FLYWHEEL_LOW = 10;
+        public static final int SPIN_UP_FLYWHEEL_HIGH = 9;
+        public static final int INDEXER_MANUAL_SHOOT = 3;
+        public static final int INDEXER_SHOOT_WHEN_READY = 13;
+        public static final int COLLECTOR_IN = 11;
+        public static final int COLLECTOR_OUT = 14;
+        public static final int ENABLE_MANUAL_CONTROLS = 5;
+    }
     public static final int LEFT_JOY_STICK_PORT = 0;
     public static final int RIGHT_JOY_STICK_PORT = 1;
-    public static final int UPWARD_COLLECTOR_BUTTON = 4;
-    public static final int DOWNWARD_COLLECTOR_BUTTON = 4;
-    public static final int MANUAL_UPWARD_COLLECTOR_BUTTON = 10;
-    public static final int MANUAL_DOWNWARD_COLLECTOR_BUTTON = 11;
-    public static final int FLY_WHEEL_BUTTONS = 1;
-    public static final int UPWARD_COLLECTOR_BUTTON = 1;
-    public static final int DOWNWARD_COLLECTOR_BUTTON = 2;
-    //public static final int FLY_WHEEL_BUTTONS = 1;
     public static final int BUTTON_STICK_PORT = 2;
-    //public static final int LIFT_BALL_BUTTON = 3;
-    //public static final int LOW_SHOOTER_BUTTON = 14;
-    //public static final int HIGH_SHOOTER_BUTTON = 15;
-    //public static final int INDEXER_BUTTON = 2;
-    //public static final int RUN_BOTH_LIFTS = 1;
-    //public static final int LOAD_FIRST_BALL_BUTTON = 12;
-    //public static final int LOAD_SECOND_BALL_BUTTON = 13;
     public static final double INDEXER_LOAD_SPEED = 0.4;
     public static final double LIFT_BALL_LOAD_SPEED = 0.5;
     public static final double FLY_WHEEL_KP = .08;
     public static final double FLY_WHEEL_KF = .0456;
     public static final double HIGH_GOAL_SPEED = 14300;
     public static final double LOW_GOAL_SPEED = 9550;
-    public static final int SHOOT_ALL_BALLS_HIGH_BUTTON = 4; //maybe keep
-    public static final int SHOOT_ALL_BALLS_LOW_BUTTON = 11; //maybe keep
-    public static final int LOAD_BALLS_BUTTON = 5;
-    public static final int INDEXER_OUTPUT_BUTTON = 6;
-    public static final int SPIN_UP_FLYWHEEL_LOW = 8;
-    public static final int SPIN_UP_FLYWHEEL_HIGH = 9;
-    public static final int INDEXER_MANUAL_SHOOT = 13;
 
     // Auto Left Constants
     public static final double AUTO_LEFT_DRIVE_AND_COLLECT_DISTANCE = 3.5;
@@ -117,14 +111,9 @@ public final class Constants
 
         public class Collector
         {
-            public static final int COLLECTOR_INTAKE_MOTOR_DEVICE_NUMBER = 5;
-            public static final int COLLECTOR_MOTOR_DEVICE_NUMBER1 = 10; //todo real device number
+            public static final int COLLECTOR_INTAKE_MOTOR_DEVICE_NUMBER = 12;
+            public static final int COLLECTOR_MOTOR_DEVICE_NUMBER1 = 10;
             public static final int COLLECTOR_MOTOR_DEVICE_NUMBER2 = 11;
-        }
-
-        public class CollectorRelay
-        {
-            public static final int COLLECTOR_RELAY_DEVICE_NUMBER = 1;
         }
     }
 
