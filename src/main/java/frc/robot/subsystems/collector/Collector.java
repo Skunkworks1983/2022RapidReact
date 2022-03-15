@@ -11,9 +11,7 @@ public class Collector extends SubsystemBase
     TalonFX collectorMotor2 = new TalonFX(Constants.MotorPorts.Collector.COLLECTOR_MOTOR_DEVICE_NUMBER2);
     TalonFX intakeMotor = new TalonFX(Constants.MotorPorts.Collector.COLLECTOR_INTAKE_MOTOR_DEVICE_NUMBER);
 
-    private double ticksPerRev = Constants.Falcon500.TICKS_PER_REV;
-    private double gearRatio = Constants.Collector.GEAR_RATIO;
-    public double encoderToAngleFactor = ((1/ticksPerRev)/gearRatio)*360;
+    public double encoderToAngleFactor = ((1/Constants.Falcon500.TICKS_PER_REV)/Constants.Collector.GEAR_RATIO)*360;
 
     public Collector()
     {

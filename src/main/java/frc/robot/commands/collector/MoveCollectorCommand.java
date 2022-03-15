@@ -10,9 +10,7 @@ public class MoveCollectorCommand extends CommandBase
         private boolean moveDownward;
         private double endAngle;
         private double speed;
-        private double threshold = Constants.Collector.THRESHOLD;
         private double error;
-        private double kp = Constants.Collector.KP_VALUE;
         private int onTarget;
 
         public MoveCollectorCommand(Collector collector, boolean moveDownward)
@@ -42,7 +40,7 @@ public class MoveCollectorCommand extends CommandBase
 
             error = endAngle - collector.getCollectorAngle();
 
-            speed = kp * error;
+            speed = Constants.Collector.KP_VALUE * error;
 
                 collector.setCollectorAngleSpeed(speed);
         }
@@ -50,7 +48,7 @@ public class MoveCollectorCommand extends CommandBase
         @Override
         public boolean isFinished()
         {
-            if (collector.getCollectorAngle() >= endAngle - threshold && collector.getCollectorAngle() <= endAngle + threshold)
+            if (collector.getCollectorAngle() >= endAngle - Constants.Collector.THRESHOLD && collector.getCollectorAngle() <= endAngle + Constants.Collector.THRESHOLD)
             {
                 onTarget++;
             }

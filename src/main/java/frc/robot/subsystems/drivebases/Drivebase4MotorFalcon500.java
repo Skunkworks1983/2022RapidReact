@@ -16,10 +16,7 @@ public class Drivebase4MotorFalcon500 extends Drivebase
     TalonFX rightMotor1 = new TalonFX(Constants.MotorPorts.FourMotorFalcon500.RIGHT_MOTOR_1_DEVICE_NUMBER);
     TalonFX rightMotor2 = new TalonFX(Constants.MotorPorts.FourMotorFalcon500.RIGHT_MOTOR_2_DEVICE_NUMBER);
 
-    private final double TicksPerRev = Constants.Falcon500.TICKS_PER_REV;
-    private final double GearRatio = Constants.Drivebase.GEAR_RATIO;
-    private final double WheelDiameter = Constants.Drivebase.GEAR_RATIO;
-    private final double TicksPerFoot = TicksPerRev * GearRatio / (WheelDiameter * Math.PI);
+    private final double TicksPerFoot = Constants.Falcon500.TICKS_PER_REV * Constants.Drivebase.GEAR_RATIO / (Constants.Drivebase.GEAR_RATIO * Math.PI);
 
     AHRS gyro = new AHRS(I2C.Port.kOnboard);
 
