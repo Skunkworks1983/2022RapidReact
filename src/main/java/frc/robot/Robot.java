@@ -16,7 +16,7 @@ import frc.robot.commands.auto.TwoBallAutoLeft;
 import frc.robot.commands.auto.TwoBallAutoRight;
 import frc.robot.commands.drivebase.ArcadeDrive;
 import frc.robot.services.Oi;
-import frc.robot.subsystems.Collector;
+import frc.robot.subsystems.collector.Collector;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.drivebases.Drivebase4MotorFalcon500;
 import frc.robot.subsystems.shooter.Shooter;

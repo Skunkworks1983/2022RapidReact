@@ -4,6 +4,7 @@ import edu.wpi.first.util.sendable.Sendable;
 import edu.wpi.first.util.sendable.SendableBuilder;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.constants.Constants;
 import frc.robot.subsystems.Drivebase;
 
 
@@ -39,9 +40,9 @@ public class DriveDistanceCommand extends CommandBase
         startDistanceFT = drivebase.getPosLeft();
         finishDistanceFT = startDistanceFT+distanceFT;
         startDegree = drivebase.getHeading();
-        KPDistance = 0.05;
-        KPAngle = 0.018; //todo <-- 0.2 is too high, also 0.04 is too low
-        KF = 0.2;
+        KPDistance = Constants.Drivebase.DISTANCE_KP;
+        KPAngle = Constants.Drivebase.ANGLE_KP; //todo <-- 0.2 is too high, also 0.04 is too low
+        KF = Constants.Drivebase.DRIVEBASE_KF;
         if(distanceFT > 0)
         {
             direction = 1;

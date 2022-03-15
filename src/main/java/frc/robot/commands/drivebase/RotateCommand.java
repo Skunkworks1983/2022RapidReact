@@ -2,7 +2,10 @@ package frc.robot.commands.drivebase;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.constants.Constants;
 import frc.robot.subsystems.Drivebase;
+
+import java.lang.invoke.ConstantBootstraps;
 
 
 public class RotateCommand extends CommandBase
@@ -15,7 +18,7 @@ public class RotateCommand extends CommandBase
     private double KF;
     private int direction;
     private int onTargetCount;
-    private int onTargetThreshold = 3;
+    private int onTargetThreshold = Constants.Drivebase.THRESHOLD_ROTATE;
 
     public RotateCommand(Drivebase drivebase, double degree)
     {
@@ -29,8 +32,8 @@ public class RotateCommand extends CommandBase
     {
         startDegree = drivebase.getHeading();
         finishDegree = startDegree + degree;
-        KP = 0.005;
-        KF = 0.2;
+        KP = Constants.Drivebase.ANGLE_KP;
+        KF = Constants.Drivebase.DRIVEBASE_KF;
         System.out.println("turning to: " + (finishDegree));
         System.out.println("starting speed is: " + (KP * (finishDegree - drivebase.getHeading())) + ", starting degree is: " + startDegree);
     }

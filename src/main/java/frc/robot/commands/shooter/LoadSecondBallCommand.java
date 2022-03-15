@@ -20,7 +20,7 @@ public class LoadSecondBallCommand extends CommandBase
     @Override
     public void initialize()
     {
-        shooter.setIndexer(Constants.INDEXER_LOAD_SPEED);
+        shooter.setIndexer(Constants.Shooter.INDEXER_LOAD_SPEED);
     }
 
     @Override

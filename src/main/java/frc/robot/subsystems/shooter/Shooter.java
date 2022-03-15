@@ -62,8 +62,8 @@ public class Shooter extends SubsystemBase
     public void initializeFlywheel()
     {
         flywheel.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor, 30, 30);
-        flywheel.config_kF(0, Constants.FLY_WHEEL_KF);
-        flywheel.config_kP(0, Constants.FLY_WHEEL_KP);
+        flywheel.config_kF(0, Constants.Shooter.FLY_WHEEL_KF);
+        flywheel.config_kP(0, Constants.Shooter.FLY_WHEEL_KP);
         flywheel.selectProfileSlot(0, 0);
         flywheel.configClosedloopRamp(0.5);
         flywheel.setNeutralMode(NeutralMode.Coast);

@@ -12,7 +12,7 @@ import frc.robot.commands.shooter.*;
 import frc.robot.constants.Constants;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.shooter.Shooter;
-import frc.robot.subsystems.Collector;
+import frc.robot.subsystems.collector.Collector;
 
 public class Oi
 {
@@ -36,9 +36,9 @@ public class Oi
     public Oi(Collector collector, Drivebase drivebase, Shooter shooter)
     {
 
-        leftStick = new Joystick(Constants.LEFT_JOY_STICK_PORT);
-        rightStick = new Joystick(Constants.RIGHT_JOY_STICK_PORT);
-        buttonStick = new Joystick(Constants.BUTTON_STICK_PORT);
+        leftStick = new Joystick(Constants.JoystickPorts.LEFT_JOY_STICK_PORT);
+        rightStick = new Joystick(Constants.JoystickPorts.RIGHT_JOY_STICK_PORT);
+        buttonStick = new Joystick(Constants.JoystickPorts.BUTTON_STICK_PORT);
 
         //shooter button sticks
         loadBallsButton = new JoystickButton(buttonStick, Constants.OIButtons.LOAD_BALLS_BUTTON);

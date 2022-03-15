@@ -1,7 +1,8 @@
 package frc.robot.commands.collector;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Collector;
+import frc.robot.constants.Constants;
+import frc.robot.subsystems.collector.Collector;
 
 public class MoveCollectorCommand extends CommandBase
 {
@@ -9,9 +10,9 @@ public class MoveCollectorCommand extends CommandBase
         private boolean moveDownward;
         private double endAngle;
         private double speed;
-        private double threshold = 2;
+        private double threshold = Constants.Collector.THRESHOLD;
         private double error;
-        private double kp = 1/90.;
+        private double kp = Constants.Collector.KP_VALUE;
         private int onTarget;
 
         public MoveCollectorCommand(Collector collector, boolean moveDownward)
