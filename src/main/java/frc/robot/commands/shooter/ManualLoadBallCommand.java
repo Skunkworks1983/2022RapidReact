@@ -22,17 +22,17 @@ public class ManualLoadBallCommand extends CommandBase
     {
         if ((!shooter.isBallBeforeFlyWheel()) && (!shooter.isBallAtIntake()))
         {
-            shooter.setIndexer(Constants.INDEXER_LOAD_SPEED);
-            shooter.setLiftBall(Constants.LIFT_BALL_LOAD_SPEED);
+            shooter.setIndexer(Constants.Shooter.INDEXER_LOAD_SPEED);
+            shooter.setLiftBall(Constants.Shooter.LIFT_BALL_LOAD_SPEED);
         }
         else if ((!shooter.isBallBeforeFlyWheel()) && shooter.isBallAtIntake())
         {
-            shooter.setIndexer(Constants.INDEXER_LOAD_SPEED);
-            shooter.setLiftBall(Constants.LIFT_BALL_LOAD_SPEED);
+            shooter.setIndexer(Constants.Shooter.INDEXER_LOAD_SPEED);
+            shooter.setLiftBall(Constants.Shooter.LIFT_BALL_LOAD_SPEED);
         }
         else if (shooter.isBallBeforeFlyWheel() && (!shooter.isBallAtIntake()))
         {
-            shooter.setIndexer(Constants.INDEXER_LOAD_SPEED);
+            shooter.setIndexer(Constants.Shooter.INDEXER_LOAD_SPEED);
         }
     }
 

@@ -20,9 +20,9 @@ public class HighShooterMotorCommand extends CommandBase
     @Override
     public void initialize()
     {
-        shooter.setFlywheel(Constants.HIGH_GOAL_SPEED);
-        shooter.setLiftBall(Constants.LIFT_BALL_LOAD_SPEED);
-        shooter.setIndexer(Constants.INDEXER_LOAD_SPEED);
+        shooter.setFlywheel(Constants.Shooter.HIGH_GOAL_SPEED);
+        shooter.setLiftBall(Constants.Shooter.LIFT_BALL_LOAD_SPEED);
+        shooter.setIndexer(Constants.Shooter.INDEXER_LOAD_SPEED);
         System.out.println("Shooting now at: " + shooter.getFlyWheelSpeed());
     }
 

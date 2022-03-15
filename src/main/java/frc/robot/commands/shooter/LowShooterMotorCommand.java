@@ -19,9 +19,9 @@ public class LowShooterMotorCommand extends CommandBase
     @Override
     public void initialize()
     {
-        shooter.setFlywheel(Constants.LOW_GOAL_SPEED);
-        shooter.setLiftBall(Constants.LIFT_BALL_LOAD_SPEED);
-        shooter.setIndexer(Constants.INDEXER_LOAD_SPEED);
+        shooter.setFlywheel(Constants.Shooter.LOW_GOAL_SPEED);
+        shooter.setLiftBall(Constants.Shooter.LIFT_BALL_LOAD_SPEED);
+        shooter.setIndexer(Constants.Shooter.INDEXER_LOAD_SPEED);
     }
 
     @Override
