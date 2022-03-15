@@ -1,6 +1,7 @@
 package frc.robot.commands.collector;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.constants.Constants;
 import frc.robot.subsystems.Collector;
 
 public class MoveCollectorCommand extends CommandBase
@@ -24,14 +25,11 @@ public class MoveCollectorCommand extends CommandBase
         public void initialize()
         {
             super.initialize(); //start in upward position
-            if (moveDownward)
-            {
-                endAngle = -90;
-            }
-            else
-            {
-                endAngle = 0;
-            }
+                if (moveDownward) {
+                    endAngle = -90;
+                } else {
+                    endAngle = 0;
+                }
         }
 
         @Override
@@ -49,16 +47,7 @@ public class MoveCollectorCommand extends CommandBase
         @Override
         public boolean isFinished()
         {
-            if (collector.getCollectorAngle() >= endAngle - threshold && collector.getCollectorAngle() <= endAngle + threshold)
-            {
-                onTarget++;
-            }
-            else
-            {
-                onTarget = 0;
-            }
-
-            return onTarget == 2;
+            return Math.abs(collector.getCollectorAngle() - endAngle) < 0.5;
         }
 
         @Override

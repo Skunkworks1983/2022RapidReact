@@ -1,5 +1,6 @@
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.FollowerType;
 import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -8,13 +9,19 @@ import frc.robot.constants.Constants;
 public abstract class Collector extends SubsystemBase
 {
     TalonFX intakeMotor = new TalonFX(Constants.MotorPorts.Collector.COLLECTOR_INTAKE_MOTOR_DEVICE_NUMBER);
+    TalonFX collectorMotor = new TalonFX(Constants.MotorPorts.Collector.COLLECTOR_MOTOR_DEVICE_NUMBER);
+    TalonFX secondCollectorMotor = new TalonFX(Constants.MotorPorts.Collector.SECOND_COLLECTOR_MOTOR_DEVICE_NUMBER);
+
+    public Collector()
+    {
+        secondCollectorMotor.setInverted(true);
+        secondCollectorMotor.follow(collectorMotor);
+    }
 
     public void collectBalls(double speed)
     {
         intakeMotor.set(TalonFXControlMode.PercentOutput, speed);
     }
-
-    TalonFX collectorMotor = new TalonFX(Constants.MotorPorts.Collector.COLLECTOR_MOTOR_DEVICE_NUMBER);
 
     public double encoderToAngleFactor = 1;
 
@@ -26,5 +33,10 @@ public abstract class Collector extends SubsystemBase
     public double getCollectorAngle()
     {
         return collectorMotor.getSelectedSensorPosition() * encoderToAngleFactor;
+    }
+
+    public void resetCollectorEncoder()
+    {
+        collectorMotor.setSelectedSensorPosition(0);
     }
 }

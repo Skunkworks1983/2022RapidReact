@@ -17,8 +17,11 @@ public final class Constants
 {
     public static final int LEFT_JOY_STICK_PORT = 0;
     public static final int RIGHT_JOY_STICK_PORT = 1;
-    public static final int UPWARD_COLLECTOR_BUTTON = 4;
-    public static final int DOWNWARD_COLLECTOR_BUTTON = 4;
+    public static final int UPWARD_COLLECTOR_BUTTON = 1;
+    public static final int DOWNWARD_COLLECTOR_BUTTON = 2;
+    public static final int UPWARD_MANUELE_COLLECTOR_BUTTON = 10;
+    public static final int DOWNWARD_MANUELE_COLLECTOR_BUTTON = 11;
+    public static final int RESET_COLLECTOR_ENCODER_BUTTON = 12;
     public static final int FLY_WHEEL_BUTTONS = 1;
     public static final int BUTTON_STICK_PORT = 2;
     public static final int LIFT_BALL_BUTTON = 3;
@@ -26,7 +29,7 @@ public final class Constants
     public static final int HIGH_SHOOTER_BUTTON = 15;
     public static final int INDEXER_BUTTON = 2;
     public static final int RUN_BOTH_LIFTS = 1;
-    public static final int LOAD_FIRST_BALL_BUTTON = 12;
+    public static final int LOAD_FIRST_BALL_BUTTON = 1;
     //public static final int LOAD_SECOND_BALL_BUTTON = 13;
     public static final double INDEXER_LOAD_SPEED = 0.4;
     public static final double LIFT_BALL_LOAD_SPEED = 0.5;
@@ -35,7 +38,7 @@ public final class Constants
     public static final double HIGH_GOAL_SPEED = 14300;
     public static final double LOW_GOAL_SPEED = 9550;
     public static final int SHOOT_ALL_BALLS_HIGH_BUTTON = 4;
-    public static final int SHOOT_ALL_BALLS_LOW_BUTTON = 11;
+    public static final int SHOOT_ALL_BALLS_LOW_BUTTON = 1;
     public static final int LOAD_BALLS_BUTTON = 13;
 
     public class MotorPorts
@@ -83,7 +86,8 @@ public final class Constants
         public class Collector
         {
             public static final int COLLECTOR_INTAKE_MOTOR_DEVICE_NUMBER = 5;
-            public static final int COLLECTOR_MOTOR_DEVICE_NUMBER = 0; //todo real device number
+            public static final int COLLECTOR_MOTOR_DEVICE_NUMBER = 10; //todo real device number
+            public static final int SECOND_COLLECTOR_MOTOR_DEVICE_NUMBER = 0;
         }
 
         public class CollectorServo

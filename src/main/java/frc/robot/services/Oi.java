@@ -2,8 +2,9 @@ package frc.robot.services;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.collector.ManualCollectorCommand;
 import frc.robot.commands.collector.MoveCollectorCommand;
-import frc.robot.commands.collector.IntakeCommand;
+import frc.robot.commands.collector.ResetCollectorEncoderCommand;
 import frc.robot.commands.shooter.LoadBothBallsCommandGroup;
 import frc.robot.commands.shooter.SpinUpFlyWheelAndShootAllBallsHighCommandGroup;
 import frc.robot.commands.shooter.SpinUpFlyWheelAndShootAllBallsLowCommandGroup;
@@ -28,8 +29,11 @@ public class Oi
     JoystickButton runBothLifts;
     JoystickButton intakeButton;
     JoystickButton reverseIntakeButton;
+    JoystickButton resetCollectorEncoderButton;
     JoystickButton collectorUpwardButton;
     JoystickButton collectorDownwardButton;
+    JoystickButton collectorManueleUpwardButton;
+    JoystickButton collectorManueleDownwardButton;
     JoystickButton loadFirstBallButton;
     JoystickButton loadBallsButton;
     JoystickButton shootAllBallsHigh;
@@ -65,10 +69,16 @@ public class Oi
         loadBallsButton.whenHeld(new LoadBothBallsCommandGroup(shooter));
 
         //collector when held
-        collectorUpwardButton = new JoystickButton(leftStick, Constants.UPWARD_COLLECTOR_BUTTON);
-        collectorDownwardButton = new JoystickButton(rightStick, Constants.DOWNWARD_COLLECTOR_BUTTON);
+        collectorUpwardButton = new JoystickButton(buttonStick, Constants.UPWARD_COLLECTOR_BUTTON);
+        collectorDownwardButton = new JoystickButton(buttonStick, Constants.DOWNWARD_COLLECTOR_BUTTON);
         collectorUpwardButton.whenPressed(new MoveCollectorCommand(collector, false));
         collectorDownwardButton.whenPressed(new MoveCollectorCommand(collector, true));
+        collectorManueleUpwardButton = new JoystickButton(buttonStick, Constants.UPWARD_MANUELE_COLLECTOR_BUTTON);
+        collectorManueleDownwardButton = new JoystickButton(buttonStick, Constants.DOWNWARD_MANUELE_COLLECTOR_BUTTON);
+        collectorManueleUpwardButton.whenPressed(new ManualCollectorCommand(collector, false));
+        collectorManueleDownwardButton.whenPressed(new ManualCollectorCommand(collector, true));
+        resetCollectorEncoderButton = new JoystickButton(buttonStick, Constants.RESET_COLLECTOR_ENCODER_BUTTON);
+        resetCollectorEncoderButton.whenHeld(new ResetCollectorEncoderCommand(collector));
 
     }
 
