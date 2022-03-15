@@ -1,5 +1,6 @@
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -17,8 +18,16 @@ public class Collector extends SubsystemBase
 
     public Collector()
     {
+        // makes second collector motor follow motor one but in reverse
         collectorMotor2.setInverted(true);
         collectorMotor2.follow(collectorMotor1);
+
+        // make collector motor one work with position based control
+        collectorMotor1.config_kP(0,0.18/8192);
+        collectorMotor1.selectProfileSlot(0, 0);
+        collectorMotor1.setNeutralMode(NeutralMode.Brake);
+        collectorMotor1.configClosedloopRamp(0.1);
+        collectorMotor1.configClosedLoopPeakOutput(0, 0.3);
     }
 
 
@@ -30,11 +39,20 @@ public class Collector extends SubsystemBase
     public void setCollectorAngleSpeed(double speed)
     {
         collectorMotor1.set(TalonFXControlMode.PercentOutput, speed);
+    }
 
+    public void setCollectorAnglePosition(double encoderPosition)
+    {
+        collectorMotor1.set(TalonFXControlMode.Position, encoderPosition);
     }
 
     public double getCollectorAngle()
     {
         return collectorMotor1.getSelectedSensorPosition() * encoderToAngleFactor;
+    }
+
+    public void stopCollectorPositionControl()
+    {
+        collectorMotor1.set(TalonFXControlMode.PercentOutput, 0);
     }
 }

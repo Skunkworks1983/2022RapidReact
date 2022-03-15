@@ -20,7 +20,7 @@ public final class Constants
         public static final int MANUAL_UPWARD_COLLECTOR_BUTTON = 6;
         public static final int MANUAL_DOWNWARD_COLLECTOR_BUTTON = 7;
         public static final int UPWARD_COLLECTOR_BUTTON = 4;
-        public static final int DOWNWARD_COLLECTOR_BUTTON = 2;
+        public static final int DOWNWARD_COLLECTOR_BUTTON = 2; //2
         public static final int LOAD_BALLS_BUTTON = 12;
         public static final int INDEXER_OUTPUT_BUTTON = 15;
         public static final int SPIN_UP_FLYWHEEL_LOW = 10;
