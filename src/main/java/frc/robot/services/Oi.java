@@ -66,8 +66,8 @@ public class Oi
         spinUpFlyWheelLowButton.whenHeld(new SpinUpFlyWheelLowCommand(shooter));
         spinUpFlyWheelHighButton.whenHeld(new SpinUpFlyWheelHighCommand(shooter));
         indexerManualShootButton.whenHeld(new IndexerManualShootCommand(shooter, this));
-        collectorIn.whenHeld(new ManualIntakeCommand(collector, 0.4, this));
-        collectorOut.whenHeld(new ManualIntakeCommand(collector, -0.4, this));
+        collectorIn.whenHeld(new ManualIntakeCommand(collector, 0.4));
+        collectorOut.whenHeld(new ManualIntakeCommand(collector, -0.4));
 
         //collector when pressed
         collectorUpwardButton.whenPressed(new MoveCollectorCommand(collector, false));

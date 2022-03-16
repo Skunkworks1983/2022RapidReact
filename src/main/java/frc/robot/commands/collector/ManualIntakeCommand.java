@@ -9,15 +9,13 @@ public class ManualIntakeCommand extends CommandBase
 {
     private Collector collector;
     private double speed;
-    private Oi oi;
-    public ManualIntakeCommand(Collector collector, double speed, Oi oi)
+    public ManualIntakeCommand(Collector collector, double speed)
     {
         // each subsystem used by the command must be passed into the
         // addRequirements() method (which takes a vararg of Subsystem)
         addRequirements();
         this.collector = collector;
         this.speed = speed;
-        this.oi = oi;
     }
     @Override
     public void initialize()
@@ -34,7 +32,7 @@ public class ManualIntakeCommand extends CommandBase
     @Override
     public boolean isFinished()
     {
-        return !oi.isEnableManualControlsPressed();
+        return false;
     }
 
     @Override
