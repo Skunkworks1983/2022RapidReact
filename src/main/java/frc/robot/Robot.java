@@ -16,7 +16,7 @@ import frc.robot.commands.auto.TwoBallAutoLeft;
 import frc.robot.commands.auto.TwoBallAutoRight;
 import frc.robot.commands.drivebase.ArcadeDrive;
 import frc.robot.services.Oi;
-import frc.robot.subsystems.Collector;
+import frc.robot.subsystems.collector.Collector;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.drivebases.Drivebase4MotorFalcon500;
 import frc.robot.subsystems.shooter.Shooter;
@@ -56,6 +56,7 @@ public class Robot extends TimedRobot
         robotContainer = new RobotContainer();
         theDrivebase = new Drivebase4MotorFalcon500();
         theShooter = new Shooter();
+        theCollector = new Collector();
         autoChooser = new SendableChooser();
         autoChooser.addOption("twoBallHighRight",new TwoBallAutoRight(theDrivebase, theCollector, theShooter));
         autoChooser.addOption("twoBallHighCenter",new TwoBallAutoCenter(theDrivebase, theCollector, theShooter));

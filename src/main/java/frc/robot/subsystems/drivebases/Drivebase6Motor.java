@@ -62,4 +62,14 @@ public class Drivebase6Motor extends Drivebase
     {
 
     }
+
+    public double getSpeedLeft()
+    {
+        return 0; //not implemented
+    }
+
+    public double getSpeedRight()
+    {
+        return 0; //not implemented
+    }
 }

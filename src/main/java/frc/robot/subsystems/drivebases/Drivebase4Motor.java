@@ -73,4 +73,14 @@ public class Drivebase4Motor extends Drivebase
         rightMotor1.setNeutralMode(NeutralMode.Coast);
         rightMotor2.setNeutralMode(NeutralMode.Coast);
     }
+
+    public double getSpeedLeft()
+    {
+        return leftMotor1.getSelectedSensorVelocity();
+    }
+
+    public double getSpeedRight()
+    {
+        return (-rightMotor1.getSelectedSensorVelocity());
+    }
 }

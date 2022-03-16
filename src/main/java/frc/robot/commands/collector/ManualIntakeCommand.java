@@ -1,32 +1,31 @@
-package frc.robot.commands.shooter;
+package frc.robot.commands.collector;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.constants.Constants;
-import frc.robot.subsystems.shooter.Shooter;
+import frc.robot.subsystems.collector.Collector;
 
-
-public class IndexerOutputCommand extends CommandBase
+public class ManualIntakeCommand extends CommandBase
 {
-    public IndexerOutputCommand(Shooter s)
+    private Collector collector;
+    private double speed;
+    public ManualIntakeCommand(Collector collector, double speed)
     {
         // each subsystem used by the command must be passed into the
         // addRequirements() method (which takes a vararg of Subsystem)
         addRequirements();
-        shooter = s;
+        this.collector = collector;
+        this.speed = speed;
     }
-    private Shooter shooter;
-
     @Override
     public void initialize()
     {
-
+        collector.collectBalls(speed);
     }
 
     @Override
     public void execute()
     {
-        shooter.setIndexer(-Constants.Shooter.INDEXER_LOAD_SPEED);
-        shooter.setLiftBall(-Constants.Shooter.LIFT_BALL_LOAD_SPEED);
+
     }
 
     @Override
@@ -39,7 +38,6 @@ public class IndexerOutputCommand extends CommandBase
     @Override
     public void end(boolean interrupted)
     {
-        shooter.setIndexer(0);
-        shooter.setLiftBall(0);
+        collector.collectBalls(0);
     }
 }

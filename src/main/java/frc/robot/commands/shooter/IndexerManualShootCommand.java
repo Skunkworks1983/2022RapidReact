@@ -29,8 +29,8 @@ public class IndexerManualShootCommand extends CommandBase {
     @Override
     public void execute()
     {
-        shooter.setIndexer(Constants.INDEXER_LOAD_SPEED);
-        shooter.setLiftBall(Constants.LIFT_BALL_LOAD_SPEED);
+        shooter.setIndexer(Constants.Shooter.INDEXER_LOAD_SPEED);
+        shooter.setLiftBall(Constants.Shooter.LIFT_BALL_LOAD_SPEED);
     }
 
     /**

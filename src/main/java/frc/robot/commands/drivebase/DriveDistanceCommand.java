@@ -4,6 +4,7 @@ import edu.wpi.first.util.sendable.Sendable;
 import edu.wpi.first.util.sendable.SendableBuilder;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.constants.Constants;
 import frc.robot.subsystems.Drivebase;
 
 
@@ -15,9 +16,6 @@ public class DriveDistanceCommand extends CommandBase
     private double finishDistanceFT;
     private int direction;
     private double startDegree;
-    private double KPDistance;
-    private double KPAngle;
-    private double KF;
 
     /**
      *
@@ -39,9 +37,6 @@ public class DriveDistanceCommand extends CommandBase
         startDistanceFT = drivebase.getPosLeft();
         finishDistanceFT = startDistanceFT+distanceFT;
         startDegree = drivebase.getHeading();
-        KPDistance = 0.05;
-        KPAngle = 0.018; //todo <-- 0.2 is too high, also 0.04 is too low
-        KF = 0.2;
         if(distanceFT > 0)
         {
             direction = 1;
@@ -65,9 +60,9 @@ public class DriveDistanceCommand extends CommandBase
         {
             direction = 1;
         }
-        double speed = KPDistance * error + KF * direction;
-        double speedLeft = speed + Math.max(Math.min(KPAngle*(startDegree - drivebase.getHeading()), 0.25), -0.25);
-        double speedRight = speed - Math.max(Math.min(KPAngle*(startDegree - drivebase.getHeading()), 0.25), -0.25);
+        double speed = Constants.Drivebase.DISTANCE_KP * error + Constants.Drivebase.DRIVEBASE_KF * direction;
+        double speedLeft = speed + Math.max(Math.min(Constants.Drivebase.ANGLE_KP*(startDegree - drivebase.getHeading()), 0.25), -0.25);
+        double speedRight = speed - Math.max(Math.min(Constants.Drivebase.ANGLE_KP*(startDegree - drivebase.getHeading()), 0.25), -0.25);
         drivebase.runMotor(speedLeft, speedRight);
         SmartDashboard.putNumber("FT moved", drivebase.getPosLeft()-startDistanceFT);
     }

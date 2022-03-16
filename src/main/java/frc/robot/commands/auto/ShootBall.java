@@ -13,7 +13,7 @@ public class ShootBall extends SequentialCommandGroup
     {
         addCommands
                 (
-                        new RunFlyWheelCommand(shooter, Constants.HIGH_GOAL_SPEED)
+                        new RunFlyWheelCommand(shooter, Constants.Shooter.HIGH_GOAL_SPEED)
                 );
     }
 }
