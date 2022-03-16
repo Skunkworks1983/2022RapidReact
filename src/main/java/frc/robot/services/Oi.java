@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.collector.IntakeCommand;
 import frc.robot.commands.collector.ManualIntakeCommand;
 import frc.robot.commands.collector.ManualMoveCollectorCommand;
+import frc.robot.commands.collector.MoveCollectorMotorControllerCommand;
 import frc.robot.commands.shooter.IndexerManualShootCommand;
 import frc.robot.commands.shooter.SpinUpFlyWheelLowCommand;
 import frc.robot.commands.collector.MoveCollectorCommand;
@@ -67,9 +68,8 @@ public class Oi
         collectorOut.whenHeld(new ManualIntakeCommand(collector, -0.4));
 
         //collector when pressed
-        collectorUpwardButton.whenPressed(new MoveCollectorCommand(collector, false));
-        collectorDownwardButton.whenPressed(new MoveCollectorCommand(collector, true));
-
+        collectorUpwardButton.whenPressed(new MoveCollectorMotorControllerCommand(collector, false));
+        collectorDownwardButton.whenPressed(new MoveCollectorMotorControllerCommand(collector, true));
     }
 
     public double getLeftY()
