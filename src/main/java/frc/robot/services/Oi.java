@@ -42,7 +42,7 @@ public class Oi
         rightStick = new Joystick(Constants.JoystickPorts.RIGHT_JOY_STICK_PORT);
         buttonStick = new Joystick(Constants.JoystickPorts.BUTTON_STICK_PORT);
 
-        //shooter button sticks
+        //button sticks
         loadBallsButton = new JoystickButton(buttonStick, Constants.OIButtons.LOAD_BALLS_BUTTON);
         manualMoveCollectorUp = new JoystickButton(buttonStick, Constants.OIButtons.MANUAL_UPWARD_COLLECTOR_BUTTON);
         manualMoveCollectorDown = new JoystickButton(buttonStick, Constants.OIButtons.MANUAL_DOWNWARD_COLLECTOR_BUTTON);
@@ -56,6 +56,7 @@ public class Oi
         collectorOut = new JoystickButton(buttonStick, Constants.OIButtons.COLLECTOR_OUT);
         indexerShootWhenReady = new JoystickButton(buttonStick, Constants.OIButtons.INDEXER_SHOOT_WHEN_READY);
         enableManualControls = new JoystickButton(buttonStick, Constants.OIButtons.ENABLE_MANUAL_CONTROLS);
+        collectorEncoderReset = new JoystickButton(buttonStick, Constants.OIButtons.COLLECTOR_ENCODER_RESET_BUTTON);
 
         //when held
         loadBallsButton.whenHeld(new LoadBothBallsCommandGroup(shooter));
@@ -73,7 +74,6 @@ public class Oi
         collectorDownwardButton.whenPressed(new MoveCollectorCommand(collector, true));
         collectorEncoderReset = new JoystickButton(buttonStick, Constants.OIButtons.COLLECTOR_ENCODER_RESET_BUTTON);
         collectorEncoderReset.whenPressed(new CollectorEncoderResetCommand(collector));
-
     }
 
     public double getLeftY()
