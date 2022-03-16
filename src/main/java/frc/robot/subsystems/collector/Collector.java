@@ -21,7 +21,7 @@ public class Collector extends SubsystemBase
         collectorMotor2.follow(collectorMotor1);
 
         // make collector motor one work with position based control
-        collectorMotor1.config_kP(0,0.18/8192);
+        collectorMotor1.config_kP(0, Constants.Collector.COLLECTOR_MOTOR_1_KP);
         collectorMotor1.selectProfileSlot(0, 0);
         collectorMotor1.setNeutralMode(NeutralMode.Brake);
         collectorMotor1.configClosedloopRamp(0.1);
@@ -41,7 +41,7 @@ public class Collector extends SubsystemBase
 
     public void setCollectorAnglePosition(double encoderPosition)
     {
-        collectorMotor1.set(TalonFXControlMode.Position, encoderPosition);
+        collectorMotor1.set(TalonFXControlMode.Position, encoderPosition/encoderToAngleFactor);
     }
 
     public double getCollectorAngle()

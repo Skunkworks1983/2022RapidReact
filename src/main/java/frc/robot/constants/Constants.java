@@ -42,9 +42,10 @@ public final class Constants
 
     public class Collector
     {
-        public static final int GEAR_RATIO = 64;
+        public static final int GEAR_RATIO = 16;
         public static final int THRESHOLD = 2;
         public static final double KP_VALUE = 1/90.;
+        public static final double COLLECTOR_MOTOR_1_KP = 0.18/(GEAR_RATIO * Falcon500.TICKS_PER_REV * 90/360);
     }
 
     public class Shooter
