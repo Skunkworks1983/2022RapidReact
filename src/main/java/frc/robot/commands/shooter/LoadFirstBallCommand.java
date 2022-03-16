@@ -5,7 +5,7 @@ import frc.robot.constants.Constants;
 import frc.robot.subsystems.shooter.Shooter;
 
 
-public class LoadFirstBallCommand extends CommandBase
+public class  LoadFirstBallCommand extends CommandBase
 {
 
     public LoadFirstBallCommand(Shooter s)
@@ -21,8 +21,8 @@ public class LoadFirstBallCommand extends CommandBase
     @Override
     public void initialize()
     {
-        shooter.setIndexer(Constants.INDEXER_LOAD_SPEED);
-        shooter.setLiftBall(Constants.LIFT_BALL_LOAD_SPEED);
+        shooter.setIndexer(Constants.Shooter.INDEXER_LOAD_SPEED);
+        shooter.setLiftBall(Constants.Shooter.LIFT_BALL_LOAD_SPEED);
     }
 
     @Override

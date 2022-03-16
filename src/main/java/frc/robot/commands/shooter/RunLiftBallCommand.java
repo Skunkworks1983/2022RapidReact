@@ -25,7 +25,7 @@ public class RunLiftBallCommand extends CommandBase {
     @Override
     public void execute()
     {
-        shooter.setLiftBall(Constants.LIFT_BALL_LOAD_SPEED);
+        shooter.setLiftBall(Constants.Shooter.LIFT_BALL_LOAD_SPEED);
         System.out.println(shooter.getLiftBallSpeed());
     }
 

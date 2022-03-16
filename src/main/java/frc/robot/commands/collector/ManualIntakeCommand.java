@@ -2,7 +2,7 @@ package frc.robot.commands.collector;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.constants.Constants;
-import frc.robot.subsystems.Collector;
+import frc.robot.subsystems.collector.Collector;
 
 public class ManualIntakeCommand extends CommandBase
 {
