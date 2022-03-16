@@ -22,6 +22,7 @@ public final class Constants
         public static final int INDEXER_SHOOT_WHEN_READY = 13;
         public static final int COLLECTOR_OUT = 14;
         public static final int INDEXER_OUTPUT_BUTTON = 15;
+        public static final int COLLECTOR_ENCODER_RESET_BUTTON = 8;
     }
 
     public class JoystickPorts

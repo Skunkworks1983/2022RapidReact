@@ -35,4 +35,9 @@ public class Collector extends SubsystemBase
     {
         return collectorMotor1.getSelectedSensorPosition() * encoderToAngleFactor;
     }
+
+    public void collectorEncoderReset()
+    {
+        collectorMotor1.setSelectedSensorPosition(0);
+    }
 }
