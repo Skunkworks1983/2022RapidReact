@@ -71,7 +71,7 @@ public class Oi
         //collector when pressed
         collectorUpwardButton.whenPressed(new MoveCollectorCommand(collector, false));
         collectorDownwardButton.whenPressed(new MoveCollectorCommand(collector, true));
-        collectorEncoderReset = new JoystickButton(buttonStick, Constants.COLLECTOR_ENCODER_RESET_BUTTON);
+        collectorEncoderReset = new JoystickButton(buttonStick, Constants.OIButtons.COLLECTOR_ENCODER_RESET_BUTTON);
         collectorEncoderReset.whenPressed(new CollectorEncoderResetCommand(collector));
 
     }
