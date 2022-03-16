@@ -72,7 +72,7 @@ public class Oi
         //collector when pressed
         collectorUpwardButton.whenPressed(new MoveCollectorCommand(collector, false));
         collectorDownwardButton.whenPressed(new MoveCollectorCommand(collector, true));
-        collectorEncoderReset.whenPressed(new CollectorEncoderResetCommand(collector));
+        collectorEncoderReset.whenPressed(new CollectorEncoderResetCommand(collector, this));
     }
 
     public double getLeftY()
