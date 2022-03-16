@@ -5,24 +5,16 @@
 
 package frc.robot.constants;
 
-/**
- * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
- * constants. This class should not be used for any other purpose. All constants should be declared
- * globally (i.e. public static). Do not put anything functional in this class.
- *
- * <p>It is advised to statically import this class (or one of its inner classes) wherever the
- * constants are needed, to reduce verbosity.
- */
 public final class Constants
 {
     public class OIButtons
     {
         public static final int DOWNWARD_COLLECTOR_BUTTON = 2;
-        public static final int INDEXER_MANUAL_SHOOT = 3;
+        public static final int INDEXER_MANUAL_SHOOT = 3; //here
         public static final int UPWARD_COLLECTOR_BUTTON = 4;
-        public static final int ENABLE_MANUAL_CONTROLS = 5;
-        public static final int MANUAL_UPWARD_COLLECTOR_BUTTON = 6;
-        public static final int MANUAL_DOWNWARD_COLLECTOR_BUTTON = 7;
+        public static final int ENABLE_MANUAL_CONTROLS = 5; //here
+        public static final int MANUAL_UPWARD_COLLECTOR_BUTTON = 6; //here
+        public static final int MANUAL_DOWNWARD_COLLECTOR_BUTTON = 7; //here
         public static final int SPIN_UP_FLYWHEEL_HIGH = 9;
         public static final int SPIN_UP_FLYWHEEL_LOW = 10;
         public static final int COLLECTOR_IN = 11;
