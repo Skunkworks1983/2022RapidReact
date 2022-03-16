@@ -38,15 +38,18 @@ public class Collector extends SubsystemBase
     {
         collectorMotor1.set(TalonFXControlMode.PercentOutput, speed);
     }
-
     public void setCollectorAnglePosition(double encoderPosition)
     {
         collectorMotor1.set(TalonFXControlMode.Position, encoderPosition/encoderToAngleFactor);
-    }
 
     public double getCollectorAngle()
     {
         return collectorMotor1.getSelectedSensorPosition() * encoderToAngleFactor;
+    }
+
+    public void collectorEncoderReset()
+    {
+        collectorMotor1.setSelectedSensorPosition(0);
     }
 
     public void stopCollectorPositionControl()

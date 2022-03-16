@@ -2,6 +2,7 @@ package frc.robot.services;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.collector.CollectorEncoderResetCommand;
 import frc.robot.commands.collector.IntakeCommand;
 import frc.robot.commands.collector.ManualIntakeCommand;
 import frc.robot.commands.collector.ManualMoveCollectorCommand;
@@ -35,6 +36,7 @@ public class Oi
     JoystickButton collectorOut;
     JoystickButton indexerShootWhenReady;
     JoystickButton enableManualControls;
+    JoystickButton collectorEncoderReset;
 
     public Oi(Collector collector, Drivebase drivebase, Shooter shooter)
     {
@@ -43,7 +45,7 @@ public class Oi
         rightStick = new Joystick(Constants.JoystickPorts.RIGHT_JOY_STICK_PORT);
         buttonStick = new Joystick(Constants.JoystickPorts.BUTTON_STICK_PORT);
 
-        //shooter button sticks
+        //button sticks
         loadBallsButton = new JoystickButton(buttonStick, Constants.OIButtons.LOAD_BALLS_BUTTON);
         manualMoveCollectorUp = new JoystickButton(buttonStick, Constants.OIButtons.MANUAL_UPWARD_COLLECTOR_BUTTON);
         manualMoveCollectorDown = new JoystickButton(buttonStick, Constants.OIButtons.MANUAL_DOWNWARD_COLLECTOR_BUTTON);
@@ -57,6 +59,7 @@ public class Oi
         collectorOut = new JoystickButton(buttonStick, Constants.OIButtons.COLLECTOR_OUT);
         indexerShootWhenReady = new JoystickButton(buttonStick, Constants.OIButtons.INDEXER_SHOOT_WHEN_READY);
         enableManualControls = new JoystickButton(buttonStick, Constants.OIButtons.ENABLE_MANUAL_CONTROLS);
+        collectorEncoderReset = new JoystickButton(buttonStick, Constants.OIButtons.COLLECTOR_ENCODER_RESET_BUTTON);
 
         //when held
         loadBallsButton.whenHeld(new LoadBothBallsCommandGroup(shooter));
@@ -70,6 +73,7 @@ public class Oi
         collectorOut.whenHeld(new ManualIntakeCommand(collector, -0.4));
 
         //collector when pressed
+        collectorEncoderReset.whenPressed(new CollectorEncoderResetCommand(collector));
         collectorUpwardButton.whenPressed(new MoveCollectorMotorControllerCommand(collector, false));
         collectorDownwardButton.whenPressed(new MoveCollectorMotorControllerCommand(collector, true));
     }
