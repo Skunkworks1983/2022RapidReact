@@ -8,7 +8,7 @@ import frc.robot.subsystems.Drivebase;
 
 public class ArcadeDrive extends CommandBase
 {
-    private double maximumEncoderSpeed = 17000;
+    private double maximumEncoderSpeed = 20000;
     private double KP = 0;
     private double KF = 1/maximumEncoderSpeed;
     private final Drivebase drivebase;

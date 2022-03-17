@@ -13,7 +13,7 @@ public class MoveCollectorMotorControllerCommand extends CommandBase
     {
         // each subsystem used by the command must be passed into the
         // addRequirements() method (which takes a vararg of Subsystem)
-        addRequirements();
+        addRequirements(collector);
         this.collector = collector;
         this.moveDownward = moveDownward;
     }
@@ -23,7 +23,7 @@ public class MoveCollectorMotorControllerCommand extends CommandBase
     {
         if (moveDownward)
         {
-            collector.setCollectorAnglePosition(90 * collector.encoderToAngleFactor);
+            collector.setCollectorAnglePosition(80);
         }
         else
         {
@@ -34,15 +34,17 @@ public class MoveCollectorMotorControllerCommand extends CommandBase
     @Override
     public void execute()
     {
-
+        //System.out.println("angle error:\t" + collector.getCollectorAngleError());
     }
 
     @Override
     public boolean isFinished()
     {
+ //       System.out.println("angle: " + collector.getCollectorAngle() + " moveDownward " + moveDownward);
         // TODO: Make this return true when this Command no longer needs to run execute()
-        if (moveDownward && Math.abs(collector.getCollectorAngle() - 90) < 3)
+        if (moveDownward && Math.abs(collector.getCollectorAngle() - 80) < 3)
         {
+            System.out.println("Ended");
             return true;
         }
         else if (!moveDownward && Math.abs(collector.getCollectorAngle()) < 3)

@@ -3,7 +3,6 @@ package frc.robot.services;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.collector.CollectorEncoderResetCommand;
-import frc.robot.commands.collector.IntakeCommand;
 import frc.robot.commands.collector.ManualIntakeCommand;
 import frc.robot.commands.collector.ManualMoveCollectorCommand;
 import frc.robot.commands.collector.MoveCollectorMotorControllerCommand;
@@ -12,7 +11,6 @@ import frc.robot.commands.shooter.IndexerOutputCommand;
 import frc.robot.commands.shooter.LoadBothBallsCommandGroup;
 import frc.robot.commands.shooter.SpinUpFlyWheelHighCommand;
 import frc.robot.commands.shooter.SpinUpFlyWheelLowCommand;
-import frc.robot.commands.collector.MoveCollectorCommand;
 import frc.robot.constants.Constants;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.shooter.Shooter;
@@ -63,18 +61,19 @@ public class Oi
 
         //when held
         loadBallsButton.whenHeld(new LoadBothBallsCommandGroup(shooter));
-        manualMoveCollectorDown.whenHeld(new ManualMoveCollectorCommand(0.25, collector, this));
-        manualMoveCollectorUp.whenHeld(new ManualMoveCollectorCommand(-0.25, collector, this));
+        manualMoveCollectorDown.whenHeld(new ManualMoveCollectorCommand(0.15, collector, this));
+        manualMoveCollectorUp.whenHeld(new ManualMoveCollectorCommand(-0.15, collector, this));
         indexerOutputButton.whenHeld(new IndexerOutputCommand(shooter));
         spinUpFlyWheelLowButton.whenHeld(new SpinUpFlyWheelLowCommand(shooter));
         spinUpFlyWheelHighButton.whenHeld(new SpinUpFlyWheelHighCommand(shooter));
         indexerManualShootButton.whenHeld(new IndexerManualShootCommand(shooter, this));
-        collectorIn.whenHeld(new ManualIntakeCommand(collector, 0.4));
-        collectorOut.whenHeld(new ManualIntakeCommand(collector, -0.4));
+        indexerShootWhenReady.whenHeld(new )
+        collectorIn.whenHeld(new ManualIntakeCommand(collector, 0.35));
+        collectorOut.whenHeld(new ManualIntakeCommand(collector, -0.35));
 
         //collector when pressed
-        collectorUpwardButton.whenPressed(new MoveCollectorCommand(collector, false));
-        collectorDownwardButton.whenPressed(new MoveCollectorCommand(collector, true));
+        collectorUpwardButton.whenPressed(new MoveCollectorMotorControllerCommand(collector, false));
+        collectorDownwardButton.whenPressed(new MoveCollectorMotorControllerCommand(collector, true));
         collectorEncoderReset.whenPressed(new CollectorEncoderResetCommand(collector, this));
     }
 
