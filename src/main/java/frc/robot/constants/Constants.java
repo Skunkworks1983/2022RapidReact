@@ -46,6 +46,7 @@ public final class Constants
         public static final int GEAR_RATIO = 16;
         public static final int THRESHOLD = 2;
         public static final double KP_VALUE = 1/90.;
+        //Might need to multiple number by 1024 because of the motor controller
         public static final double COLLECTOR_MOTOR_1_KP = 0.18/(GEAR_RATIO * Falcon500.TICKS_PER_REV * 90/360);
     }
 
