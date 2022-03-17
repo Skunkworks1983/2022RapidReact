@@ -63,19 +63,19 @@ public class Oi
 
         //when held
         loadBallsButton.whenHeld(new LoadBothBallsCommandGroup(shooter));
-        manualMoveCollectorDown.whenHeld(new ManualMoveCollectorCommand(0.25, collector));
-        manualMoveCollectorUp.whenHeld(new ManualMoveCollectorCommand(-0.25, collector));
+        manualMoveCollectorDown.whenHeld(new ManualMoveCollectorCommand(0.25, collector, this));
+        manualMoveCollectorUp.whenHeld(new ManualMoveCollectorCommand(-0.25, collector, this));
         indexerOutputButton.whenHeld(new IndexerOutputCommand(shooter));
         spinUpFlyWheelLowButton.whenHeld(new SpinUpFlyWheelLowCommand(shooter));
         spinUpFlyWheelHighButton.whenHeld(new SpinUpFlyWheelHighCommand(shooter));
-        indexerManualShootButton.whenHeld(new IndexerManualShootCommand(shooter));
+        indexerManualShootButton.whenHeld(new IndexerManualShootCommand(shooter, this));
         collectorIn.whenHeld(new ManualIntakeCommand(collector, 0.4));
         collectorOut.whenHeld(new ManualIntakeCommand(collector, -0.4));
 
         //collector when pressed
-        collectorEncoderReset.whenPressed(new CollectorEncoderResetCommand(collector));
-        collectorUpwardButton.whenPressed(new MoveCollectorMotorControllerCommand(collector, false));
-        collectorDownwardButton.whenPressed(new MoveCollectorMotorControllerCommand(collector, true));
+        collectorUpwardButton.whenPressed(new MoveCollectorCommand(collector, false));
+        collectorDownwardButton.whenPressed(new MoveCollectorCommand(collector, true));
+        collectorEncoderReset.whenPressed(new CollectorEncoderResetCommand(collector, this));
     }
 
     public double getLeftY()
@@ -96,6 +96,11 @@ public class Oi
     public double getRightX()
     {
         return rightStick.getX();
+    }
+
+    public boolean isEnableManualControlsPressed()
+    {
+        return enableManualControls.get();
     }
 }
 
