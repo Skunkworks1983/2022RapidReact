@@ -14,6 +14,8 @@ import frc.robot.commands.auto.ExitTarmac;
 import frc.robot.commands.auto.TwoBallAutoCenter;
 import frc.robot.commands.auto.TwoBallAutoLeft;
 import frc.robot.commands.auto.TwoBallAutoRight;
+import frc.robot.commands.auto.OneBallAutosHighCommandGroup;
+import frc.robot.commands.auto.OneBallAutosLowCommandGroup;
 import frc.robot.commands.drivebase.ArcadeDrive;
 import frc.robot.services.Oi;
 import frc.robot.subsystems.collector.Collector;
@@ -58,10 +60,12 @@ public class Robot extends TimedRobot
         theShooter = new Shooter();
         theCollector = new Collector();
         autoChooser = new SendableChooser();
-        autoChooser.addOption("twoBallHighRight",new TwoBallAutoRight(theDrivebase, theCollector, theShooter));
-        autoChooser.addOption("twoBallHighCenter",new TwoBallAutoCenter(theDrivebase, theCollector, theShooter));
-        autoChooser.addOption("ExitTarmac",new ExitTarmac(theDrivebase));
-        autoChooser.addOption("twoBallHighLeft",new TwoBallAutoLeft(theDrivebase, theCollector, theShooter));
+        autoChooser.addOption("twoBallHighRight", new TwoBallAutoRight(theDrivebase, theCollector, theShooter));
+        autoChooser.addOption("twoBallHighCenter", new TwoBallAutoCenter(theDrivebase, theCollector, theShooter));
+        autoChooser.addOption("ExitTarmac", new ExitTarmac(theDrivebase));
+        autoChooser.addOption("twoBallHighLeft", new TwoBallAutoLeft(theDrivebase, theCollector, theShooter));
+        autoChooser.addOption("oneBallAutosHigh", new OneBallAutosHighCommandGroup(theShooter, theDrivebase));
+        autoChooser.addOption("oneBallAutosLow", new OneBallAutosLowCommandGroup(theShooter, theDrivebase));
         SmartDashboard.putData("autoChooser", autoChooser);
         theOi = new Oi(theCollector, theDrivebase, theShooter);
     }
@@ -98,7 +102,6 @@ public class Robot extends TimedRobot
     @Override
     public void autonomousInit()
     {
-
         SendableChooser autoChooser = (SendableChooser) SmartDashboard.getData("autoChooser");
         autonomousCommand = (Command)autoChooser.getSelected();
         if (autonomousCommand != null)
