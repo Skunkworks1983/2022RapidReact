@@ -28,7 +28,7 @@ public class SpinUpFlyWheelHighCommand extends CommandBase {
     @Override
     public void execute()
     {
-        shooter.setFlywheel(Constants.HIGH_GOAL_SPEED);
+        shooter.setFlywheel(Constants.Shooter.HIGH_GOAL_SPEED);
     }
 
     /**

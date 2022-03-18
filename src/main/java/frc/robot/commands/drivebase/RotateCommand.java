@@ -2,8 +2,8 @@ package frc.robot.commands.drivebase;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.constants.Constants;
 import frc.robot.subsystems.Drivebase;
-
 
 public class RotateCommand extends CommandBase
 {
@@ -11,11 +11,7 @@ public class RotateCommand extends CommandBase
     private double degree;
     private double startDegree;
     private double finishDegree;
-    private double KP;
-    private double KF;
-    private int direction;
     private int onTargetCount;
-    private int onTargetThreshold = 3;
 
     public RotateCommand(Drivebase drivebase, double degree)
     {
@@ -29,17 +25,15 @@ public class RotateCommand extends CommandBase
     {
         startDegree = drivebase.getHeading();
         finishDegree = startDegree + degree;
-        KP = 0.005;
-        KF = 0.2;
         System.out.println("turning to: " + (finishDegree));
-        System.out.println("starting speed is: " + (KP * (finishDegree - drivebase.getHeading())) + ", starting degree is: " + startDegree);
+        System.out.println("starting speed is: " + (Constants.Drivebase.ANGLE_KP * (finishDegree - drivebase.getHeading())) + ", starting degree is: " + startDegree);
     }
 
     @Override
     public void execute()
     {
         double error = finishDegree - drivebase.getHeading();
-        double speed = (KP * error) + Math.copySign(KF, error);
+        double speed = (Constants.Drivebase.ANGLE_KP * error) + Math.copySign(Constants.Drivebase.DRIVEBASE_KF, error);
         drivebase.runMotor(speed, -speed);
         SmartDashboard.putNumber("angle", drivebase.getHeading());
     }
@@ -55,7 +49,7 @@ public class RotateCommand extends CommandBase
         {
             onTargetCount = 0;
         }
-        return onTargetCount == onTargetThreshold;
+        return onTargetCount == Constants.Drivebase.THRESHOLD_ROTATE;
 //        if(degree > 0)
 //        {
 //            return drivebase.getHeading() > finishDegree;

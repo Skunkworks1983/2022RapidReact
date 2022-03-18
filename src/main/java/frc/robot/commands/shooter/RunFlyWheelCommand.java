@@ -21,7 +21,7 @@ public class RunFlyWheelCommand extends CommandBase
     @Override
     public void initialize()
     {
-        System.out.printf("KP: %f\t KF: %f\n", Constants.FLY_WHEEL_KP, Constants.FLY_WHEEL_KF);
+        System.out.printf("KP: %f\t KF: %f\n", Constants.Shooter.FLY_WHEEL_KP, Constants.Shooter.FLY_WHEEL_KF);
         shooter.setFlywheel(setpoint);
     }
 

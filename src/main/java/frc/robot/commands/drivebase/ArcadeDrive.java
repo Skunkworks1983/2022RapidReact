@@ -8,7 +8,9 @@ import frc.robot.subsystems.Drivebase;
 
 public class ArcadeDrive extends CommandBase
 {
-
+    private double maximumEncoderSpeed = 20000;
+    private double KP = 0;
+    private double KF = 1/maximumEncoderSpeed;
     private final Drivebase drivebase;
     private final Oi oi;
 
@@ -28,28 +30,18 @@ public class ArcadeDrive extends CommandBase
     @Override
     public void execute()
     {
-        double turn = oi.getRightX();
-        double throttle = -oi.getLeftY();
+        double turn = Math.copySign(Math.pow(Math.abs(oi.getRightX()), 1.5), oi.getRightX());
+        double throttle = Math.copySign(Math.pow(Math.abs(-oi.getLeftY()), 1.5), -oi.getLeftY());
         SmartDashboard.putNumber("X", turn);
-        SmartDashboard.putNumber("Y", turn);
+        SmartDashboard.putNumber("Y", throttle);
         double outputLeft = Math.max(Math.min((turn + throttle), 1), -1);
         double outputRight = Math.max(Math.min((-turn + throttle), 1), -1);
-        if(outputLeft > 0)
-        {
-            outputLeft = Math.pow(outputLeft, 2);
-        }
-        else
-        {
-            outputLeft = -Math.abs(Math.pow(outputLeft, 2));
-        }
-        if(outputRight > 0)
-        {
-            outputRight = Math.pow(outputRight, 2);
-        }
-        else
-        {
-            outputRight = -Math.abs(Math.pow(outputRight, 2));
-        }
+        double targetLeft = maximumEncoderSpeed * outputLeft;
+        double targetRight = maximumEncoderSpeed * outputRight;
+        double errorLeft = targetLeft - drivebase.getSpeedLeft();
+        double errorRight = targetRight - drivebase.getSpeedRight();
+        outputLeft = KP * errorLeft + KF * targetLeft;
+        outputRight = KP * errorRight + KF * targetRight;
         drivebase.runMotor(outputLeft, outputRight);
     }
 

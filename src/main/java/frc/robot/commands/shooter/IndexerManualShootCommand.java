@@ -3,16 +3,21 @@ package frc.robot.commands.shooter;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.constants.Constants;
 import frc.robot.subsystems.shooter.Shooter;
+import frc.robot.services.Oi;
 
+public class IndexerManualShootCommand extends CommandBase
+{
+    private Shooter shooter;
+    private Oi oi;
 
-public class IndexerManualShootCommand extends CommandBase {
-
-    public IndexerManualShootCommand(Shooter s) {
+    public IndexerManualShootCommand(Shooter s, Oi oi)
+    {
         // each subsystem used by the command must be passed into the addRequirements() method (which takes a vararg of Subsystem)
         addRequirements();
         shooter = s;
+        this.oi = oi;
     }
-    private Shooter shooter;
+
     /**
      * The initial subroutine of a command.  Called once when the command is initially scheduled.
      */
@@ -29,8 +34,8 @@ public class IndexerManualShootCommand extends CommandBase {
     @Override
     public void execute()
     {
-        shooter.setIndexer(Constants.INDEXER_LOAD_SPEED);
-        shooter.setLiftBall(Constants.LIFT_BALL_LOAD_SPEED);
+        shooter.setIndexer(Constants.Shooter.INDEXER_LOAD_SPEED);
+        shooter.setLiftBall(Constants.Shooter.LIFT_BALL_LOAD_SPEED);
     }
 
     /**
@@ -50,8 +55,7 @@ public class IndexerManualShootCommand extends CommandBase {
     @Override
     public boolean isFinished()
     {
-        // TODO: Make this return true when this Command no longer needs to run execute()
-        return false;
+        return !oi.isEnableManualControlsPressed();
     }
 
     /**

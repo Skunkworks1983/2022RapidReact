@@ -50,4 +50,14 @@ public class Drivebase2Motor extends Drivebase
     {
 
     }
+
+    public double getSpeedLeft()
+    {
+        return leftMotor.getSelectedSensorVelocity();
+    }
+
+    public double getSpeedRight()
+    {
+        return (-rightMotor.getSelectedSensorVelocity());
+    }
 }

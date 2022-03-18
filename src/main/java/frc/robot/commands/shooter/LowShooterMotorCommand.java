@@ -1,37 +1,33 @@
 package frc.robot.commands.shooter;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.constants.Constants;
 import frc.robot.subsystems.shooter.Shooter;
 
 
-public class ShootCommand extends CommandBase {
+public class LowShooterMotorCommand extends CommandBase
+{
 
-    private double speed;
-    public ShootCommand(Shooter s, double speed)
+    public LowShooterMotorCommand(Shooter s)
     {
         // each subsystem used by the command must be passed into the
         // addRequirements() method (which takes a vararg of Subsystem)
         shooter = s;
         addRequirements(shooter);
-        this.speed = speed;
     }
     Shooter shooter;
     @Override
     public void initialize()
     {
-        shooter.setFlywheel(speed);
+        shooter.setFlywheel(Constants.Shooter.LOW_GOAL_SPEED);
         shooter.setLiftBall(Constants.Shooter.LIFT_BALL_LOAD_SPEED);
         shooter.setIndexer(Constants.Shooter.INDEXER_LOAD_SPEED);
-        System.out.println("Shooting now at: " + shooter.getFlyWheelSpeed());
-        shooter.setTarget(speed);
     }
 
     @Override
     public void execute()
     {
-        SmartDashboard.putNumber("Flywheel speed", shooter.getFlyWheelSpeed());
+
     }
 
     @Override

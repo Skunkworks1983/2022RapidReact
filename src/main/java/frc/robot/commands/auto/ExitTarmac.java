@@ -9,6 +9,6 @@ public class ExitTarmac extends SequentialCommandGroup
 {
     public ExitTarmac(Drivebase drivebase)
     {
-        addCommands(new DriveDistanceCommand(drivebase, Constants.EXIT_TARMAC_DRIVE_DISTANCE));
+        addCommands(new DriveDistanceCommand(drivebase, Constants.Drivebase.EXIT_TARMAC_DRIVE_DISTANCE));
     }
 }
