@@ -6,9 +6,20 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-
+import frc.robot.commands.auto.ExitTarmac;
+import frc.robot.commands.auto.TwoBallAutoCenter;
+import frc.robot.commands.auto.TwoBallAutoLeft;
+import frc.robot.commands.auto.TwoBallAutoRight;
+import frc.robot.commands.drivebase.ArcadeDrive;
+import frc.robot.services.Oi;
+import frc.robot.subsystems.collector.Collector;
+import frc.robot.subsystems.Drivebase;
+import frc.robot.subsystems.drivebases.Drivebase4MotorFalcon500;
+import frc.robot.subsystems.shooter.Shooter;
 
 
 /**
@@ -22,8 +33,17 @@ public class Robot extends TimedRobot
     private Command autonomousCommand;
     
     private RobotContainer robotContainer;
-    
-    
+
+    private Drivebase theDrivebase;
+
+    private Oi theOi;
+
+    private Collector theCollector;
+
+    private Shooter theShooter;
+
+    private SendableChooser autoChooser;
+
     /**
      * This method is run when the robot is first started up and should be used for any
      * initialization code.
@@ -34,6 +54,16 @@ public class Robot extends TimedRobot
         // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
         // autonomous chooser on the dashboard.
         robotContainer = new RobotContainer();
+        theDrivebase = new Drivebase4MotorFalcon500();
+        theShooter = new Shooter();
+        theCollector = new Collector();
+        autoChooser = new SendableChooser();
+        autoChooser.addOption("twoBallHighRight",new TwoBallAutoRight(theDrivebase, theCollector, theShooter));
+        autoChooser.addOption("twoBallHighCenter",new TwoBallAutoCenter(theDrivebase, theCollector, theShooter));
+        autoChooser.addOption("ExitTarmac",new ExitTarmac(theDrivebase));
+        autoChooser.addOption("twoBallHighLeft",new TwoBallAutoLeft(theDrivebase, theCollector, theShooter));
+        SmartDashboard.putData("autoChooser", autoChooser);
+        theOi = new Oi(theCollector, theDrivebase, theShooter);
     }
     
     
@@ -68,9 +98,9 @@ public class Robot extends TimedRobot
     @Override
     public void autonomousInit()
     {
-        autonomousCommand = robotContainer.getAutonomousCommand();
-        
-        // schedule the autonomous command (example)
+
+        SendableChooser autoChooser = (SendableChooser) SmartDashboard.getData("autoChooser");
+        autonomousCommand = (Command)autoChooser.getSelected();
         if (autonomousCommand != null)
         {
             autonomousCommand.schedule();
@@ -90,10 +120,13 @@ public class Robot extends TimedRobot
         // teleop starts running. If you want the autonomous to
         // continue until interrupted by another command, remove
         // this line or comment it out.
+
+        Command drivebaseCommand = new ArcadeDrive(theDrivebase, theOi);
         if (autonomousCommand != null)
         {
             autonomousCommand.cancel();
         }
+        drivebaseCommand.schedule();
     }
     
     
@@ -107,6 +140,7 @@ public class Robot extends TimedRobot
     {
         // Cancels all running commands at the start of test mode.
         CommandScheduler.getInstance().cancelAll();
+        theDrivebase.turnOffBrakes();
     }
     
     
