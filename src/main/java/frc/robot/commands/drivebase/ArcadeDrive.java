@@ -9,8 +9,8 @@ import frc.robot.subsystems.Drivebase;
 public class ArcadeDrive extends CommandBase
 {
     private double maximumEncoderSpeed = 20000;
-    private double KP = 0;
-    private double KF = 1/maximumEncoderSpeed;
+    private double KP = 0.05/maximumEncoderSpeed;
+    private double KF = 1./maximumEncoderSpeed;
     private final Drivebase drivebase;
     private final Oi oi;
 
@@ -40,6 +40,8 @@ public class ArcadeDrive extends CommandBase
         double targetRight = maximumEncoderSpeed * outputRight;
         double errorLeft = targetLeft - drivebase.getSpeedLeft();
         double errorRight = targetRight - drivebase.getSpeedRight();
+        SmartDashboard.putNumber("errorLeft", errorLeft);
+        SmartDashboard.putNumber("errorRight", errorRight);
         outputLeft = KP * errorLeft + KF * targetLeft;
         outputRight = KP * errorRight + KF * targetRight;
         drivebase.runMotor(outputLeft, outputRight);

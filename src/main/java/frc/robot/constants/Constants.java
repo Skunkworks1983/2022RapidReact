@@ -47,7 +47,7 @@ public final class Constants
         public static final double INDEXER_LOAD_SPEED = 0.4;
         public static final double LIFT_BALL_LOAD_SPEED = 0.5;
         public static final double FLY_WHEEL_KP = .09;
-        public static final double FLY_WHEEL_KF = .05;
+        public static final double FLY_WHEEL_KF = .055;
         public static final double HIGH_GOAL_SPEED = 14300;
         public static final double LOW_GOAL_SPEED = 9550;
     }
