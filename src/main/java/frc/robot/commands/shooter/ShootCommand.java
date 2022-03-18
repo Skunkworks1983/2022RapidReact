@@ -15,12 +15,13 @@ public class ShootCommand extends CommandBase {
         // addRequirements() method (which takes a vararg of Subsystem)
         shooter = s;
         addRequirements(shooter);
-        this.speed = speed;
     }
     Shooter shooter;
     @Override
     public void initialize()
     {
+        speed = shooter.getTarget();
+        System.out.println(speed);
         shooter.setFlywheel(speed);
         shooter.setLiftBall(Constants.Shooter.LIFT_BALL_LOAD_SPEED);
         shooter.setIndexer(Constants.Shooter.INDEXER_LOAD_SPEED);

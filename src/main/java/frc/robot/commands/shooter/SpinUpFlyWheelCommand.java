@@ -17,12 +17,12 @@ public class SpinUpFlyWheelCommand extends CommandBase
         addRequirements();
         // no requirement because it needs to run at the same time as another command
         shooter = s;
-        setpoint = speed;
     }
     Shooter shooter;
     @Override
     public void initialize()
     {
+        setpoint = shooter.getTarget();
         shooter.setFlywheel(setpoint);
     }
 
@@ -43,7 +43,7 @@ public class SpinUpFlyWheelCommand extends CommandBase
         {
             onTargetCount = 0;
         }
-        return onTargetCount == onTargetThreshold;
+        return onTargetCount >= onTargetThreshold;
     }
 
     @Override

@@ -30,7 +30,7 @@ public class Shooter extends SubsystemBase
     public void setFlywheel(double speed)
     {
         flywheel.set(TalonFXControlMode.Velocity, -speed);
-        setTarget(-speed);
+        setTarget(speed);
     }
 
     public void setLiftBall(double speed)
