@@ -43,7 +43,7 @@ public class SpinUpFlyWheelCommand extends CommandBase
         {
             onTargetCount = 0;
         }
-        return onTargetCount == onTargetThreshold;
+        return onTargetCount >= onTargetThreshold;
     }
 
     @Override
