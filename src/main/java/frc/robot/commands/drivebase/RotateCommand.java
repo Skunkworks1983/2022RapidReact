@@ -49,7 +49,7 @@ public class RotateCommand extends CommandBase
         {
             onTargetCount = 0;
         }
-        return onTargetCount == Constants.Drivebase.THRESHOLD_ROTATE;
+        return onTargetCount >= Constants.Drivebase.THRESHOLD_ROTATE;
 //        if(degree > 0)
 //        {
 //            return drivebase.getHeading() > finishDegree;
