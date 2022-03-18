@@ -25,7 +25,6 @@ public class ShootCommand extends CommandBase {
         shooter.setLiftBall(Constants.Shooter.LIFT_BALL_LOAD_SPEED);
         shooter.setIndexer(Constants.Shooter.INDEXER_LOAD_SPEED);
         System.out.println("Shooting now at: " + shooter.getFlyWheelSpeed());
-        shooter.setTarget(speed);
     }
 
     @Override

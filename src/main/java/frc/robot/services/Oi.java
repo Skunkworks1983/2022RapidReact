@@ -9,12 +9,13 @@ import frc.robot.commands.collector.MoveCollectorMotorControllerCommand;
 import frc.robot.commands.shooter.IndexerManualShootCommand;
 import frc.robot.commands.shooter.IndexerOutputCommand;
 import frc.robot.commands.shooter.LoadBothBallsCommandGroup;
+import frc.robot.commands.shooter.ShootWhenReadyCommandGroup;
 import frc.robot.commands.shooter.SpinUpFlyWheelHighCommand;
 import frc.robot.commands.shooter.SpinUpFlyWheelLowCommand;
 import frc.robot.constants.Constants;
 import frc.robot.subsystems.Drivebase;
-import frc.robot.subsystems.shooter.Shooter;
 import frc.robot.subsystems.collector.Collector;
+import frc.robot.subsystems.shooter.Shooter;
 
 public class Oi
 {
@@ -67,7 +68,7 @@ public class Oi
         spinUpFlyWheelLowButton.whenHeld(new SpinUpFlyWheelLowCommand(shooter));
         spinUpFlyWheelHighButton.whenHeld(new SpinUpFlyWheelHighCommand(shooter));
         indexerManualShootButton.whenHeld(new IndexerManualShootCommand(shooter, this));
-        indexerShootWhenReady.whenHeld(new )
+        indexerShootWhenReady.whenHeld(new ShootWhenReadyCommandGroup(shooter));
         collectorIn.whenHeld(new ManualIntakeCommand(collector, 0.35));
         collectorOut.whenHeld(new ManualIntakeCommand(collector, -0.35));
 
