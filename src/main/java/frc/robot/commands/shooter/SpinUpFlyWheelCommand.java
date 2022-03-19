@@ -7,22 +7,35 @@ import frc.robot.subsystems.shooter.Shooter;
 
 public class SpinUpFlyWheelCommand extends CommandBase
 {
-    private double setpoint;
+    private Double setpoint;
     private int onTargetCount;
     private int onTargetThreshold = 3;
+    boolean isAuto = false;
     public SpinUpFlyWheelCommand(Shooter s, Double speed)
     {
-        // each subsystem used by the command must be passed into the
-        // addRequirements() method (which takes a vararg of Subsystem)
         addRequirements();
-        // no requirement because it needs to run at the same time as another command
+        shooter = s;
+        setpoint = speed;
+        isAuto = true;
+    }
+
+    public SpinUpFlyWheelCommand(Shooter s)
+    {
+        addRequirements();
         shooter = s;
     }
+
     Shooter shooter;
     @Override
     public void initialize()
     {
-        setpoint = shooter.getTarget();
+        //todo check this for teleop
+        if(!isAuto || setpoint == null)
+        {
+            setpoint = shooter.getTarget();
+            System.out.println("resetting shootwhenready setpoint to " + setpoint);
+        }
+
         shooter.setFlywheel(setpoint);
     }
 
@@ -51,7 +64,7 @@ public class SpinUpFlyWheelCommand extends CommandBase
     {
         if (interrupted)
         {
-        shooter.setFlywheel(0);
+            shooter.setFlywheel(0);
         }
     }
 }

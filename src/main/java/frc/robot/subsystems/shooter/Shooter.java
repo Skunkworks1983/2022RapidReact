@@ -30,7 +30,10 @@ public class Shooter extends SubsystemBase
     public void setFlywheel(double speed)
     {
         flywheel.set(TalonFXControlMode.Velocity, -speed);
-        setTarget(speed);
+        if(speed > 0)
+        {
+            setTarget(speed);
+        }
     }
 
     public void setLiftBall(double speed)
@@ -64,6 +67,7 @@ public class Shooter extends SubsystemBase
 
     public void setTarget(double target)
     {
+        System.out.println("shooter updating target to " + target);
         this.target = target;
     }
     public double getTarget()
@@ -93,8 +97,8 @@ public class Shooter extends SubsystemBase
     {
         // This method will be called once per scheduler run
     }
-    
-    
+
+
     @Override
     public void simulationPeriodic()
     {

@@ -10,12 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.commands.auto.ExitTarmac;
-import frc.robot.commands.auto.TwoBallAutoCenter;
-import frc.robot.commands.auto.TwoBallAutoLeft;
-import frc.robot.commands.auto.TwoBallAutoRight;
-import frc.robot.commands.auto.OneBallAutosHighCommandGroup;
-import frc.robot.commands.auto.OneBallAutosLowCommandGroup;
+import frc.robot.commands.auto.*;
 import frc.robot.commands.drivebase.ArcadeDrive;
 import frc.robot.services.Oi;
 import frc.robot.subsystems.collector.Collector;
@@ -66,6 +61,7 @@ public class Robot extends TimedRobot
         autoChooser.addOption("twoBallHighLeft", new TwoBallAutoLeft(theDrivebase, theCollector, theShooter));
         autoChooser.addOption("oneBallAutosHigh", new OneBallAutosHighCommandGroup(theShooter, theDrivebase));
         autoChooser.addOption("oneBallAutosLow", new OneBallAutosLowCommandGroup(theShooter, theDrivebase));
+        autoChooser.addOption("drive and collect", new DriveAndCollectCommandGroup(theDrivebase, theCollector, 8.0, theShooter, true));
         SmartDashboard.putData("autoChooser", autoChooser);
         theOi = new Oi(theCollector, theDrivebase, theShooter);
     }

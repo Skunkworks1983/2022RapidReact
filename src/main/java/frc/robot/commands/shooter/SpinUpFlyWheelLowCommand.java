@@ -1,5 +1,6 @@
 package frc.robot.commands.shooter;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.constants.Constants;
 import frc.robot.subsystems.shooter.Shooter;
@@ -25,6 +26,7 @@ public class SpinUpFlyWheelLowCommand extends CommandBase
     public void execute()
     {
         shooter.setFlywheel(Constants.Shooter.LOW_GOAL_SPEED);
+        SmartDashboard.putNumber("FlyWheelSpeed", shooter.getFlyWheelSpeed());
     }
 
     @Override

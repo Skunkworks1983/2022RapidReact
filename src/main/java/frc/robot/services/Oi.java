@@ -69,8 +69,8 @@ public class Oi
         spinUpFlyWheelHighButton.whenHeld(new SpinUpFlyWheelHighCommand(shooter));
         indexerManualShootButton.whenHeld(new IndexerManualShootCommand(shooter, this));
         indexerShootWhenReady.whenHeld(new ShootWhenReadyCommandGroup(shooter));
-        collectorIn.whenHeld(new ManualIntakeCommand(collector, 0.30));
-        collectorOut.whenHeld(new ManualIntakeCommand(collector, -0.30));
+        collectorIn.whenHeld(new ManualIntakeCommand(collector, 0.4));
+        collectorOut.whenHeld(new ManualIntakeCommand(collector, -0.35));//todo check buttons/intake, because it may be backwards
 
         //collector when pressed
         collectorUpwardButton.whenPressed(new MoveCollectorMotorControllerCommand(collector, false));

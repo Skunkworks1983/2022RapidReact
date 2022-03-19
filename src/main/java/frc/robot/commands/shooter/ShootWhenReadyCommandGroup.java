@@ -9,7 +9,7 @@ public class ShootWhenReadyCommandGroup extends SequentialCommandGroup {
     public ShootWhenReadyCommandGroup(Shooter shooter) {
         // TODO: Add your sequential commands in the super() call, e.g.
         //           super(new OpenClawCommand(), new MoveArmCommand());
-        super(new SpinUpFlyWheelCommand(shooter, shooter.getTarget()),
+        super(new SpinUpFlyWheelCommand(shooter),
               new ShootCommand(shooter, shooter.getTarget()));
     }
 }
