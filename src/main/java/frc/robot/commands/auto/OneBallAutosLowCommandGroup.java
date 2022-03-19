@@ -12,7 +12,8 @@ public class OneBallAutosLowCommandGroup extends SequentialCommandGroup
     {
         // TODO: Add your sequential commands in the super() call, e.g.
         //           super(new OpenClawCommand(), new MoveArmCommand());
-        super(new TimedSpinUpAndShootAllBallsLowCommandGroup(shooter),
+        super(new SmartDashboardDelayCommand("Shoot delay"),
+              new TimedSpinUpAndShootAllBallsLowCommandGroup(shooter),
               new DriveDistanceCommand(drivebase, -8));
     }
 }

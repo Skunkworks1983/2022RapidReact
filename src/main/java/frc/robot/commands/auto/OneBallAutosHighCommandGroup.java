@@ -1,6 +1,7 @@
 package frc.robot.commands.auto;
 
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.commands.drivebase.DriveDistanceCommand;
 import frc.robot.commands.shooter.LoadFirstBallCommand;
@@ -14,7 +15,7 @@ public class OneBallAutosHighCommandGroup extends SequentialCommandGroup
     {
         // TODO: Add your sequential commands in the super() call, e.g.
         //           super(new OpenClawCommand(), new MoveArmCommand());
-        super(new TimedSpinUpAndShootAllBallsHighCommandGroup(shooter),
+        super(new SmartDashboardDelayCommand("Shoot delay"), new TimedSpinUpAndShootAllBallsHighCommandGroup(shooter),
               new DriveDistanceCommand(drivebase, -8)
               );
     }

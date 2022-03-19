@@ -83,7 +83,7 @@ public final class Constants
         public static final double AUTO_RIGHT_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN = 2.0;
         public static final double AUTO_RIGHT_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE = 0.2;
         // Exit Tarmac Constants
-        public static final int EXIT_TARMAC_DRIVE_DISTANCE = 10;
+        public static final int EXIT_TARMAC_DRIVE_DISTANCE = 8;
 
     }
 
