@@ -61,6 +61,14 @@ public class DriveDistanceCommand extends CommandBase
             direction = 1;
         }
         double speed = Constants.Drivebase.DISTANCE_KP * error + Constants.Drivebase.DRIVEBASE_KF * direction;
+        if (speed > 0.3)
+        {
+            speed = 0.3;
+        }
+        else if (speed < -0.3)
+        {
+            speed = -0.3;
+        }
         double speedLeft = speed + Math.max(Math.min(Constants.Drivebase.ANGLE_KP*(startDegree - drivebase.getHeading()), 0.25), -0.25);
         double speedRight = speed - Math.max(Math.min(Constants.Drivebase.ANGLE_KP*(startDegree - drivebase.getHeading()), 0.25), -0.25);
         drivebase.runMotor(speedLeft, speedRight);
