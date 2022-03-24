@@ -11,7 +11,7 @@ import frc.robot.subsystems.shooter.Shooter;
 
 public class LoadBothBallsAndCollectCommandGroup extends ParallelCommandGroup
 {
-    public LoadBothBallsAndCollectCommandGroup(Shooter shooter, Collector collector)
+    public LoadBothBallsAndCollectCommandGroup(Shooter shooter, Collector collector, Double speed, Boolean ball2)
     {
         super(new LoadFirstBallCommand(shooter), new LoadSecondBallCommand(shooter),
                 new IntakeCommand(collector, shooter, -0.3, true));

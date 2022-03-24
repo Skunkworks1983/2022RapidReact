@@ -55,13 +55,13 @@ public class Robot extends TimedRobot
         theShooter = new Shooter();
         theCollector = new Collector();
         autoChooser = new SendableChooser();
-        //autoChooser.addOption("twoBallHighRight", new TwoBallAutoRight(theDrivebase, theCollector, theShooter));
-        //autoChooser.addOption("twoBallHighCenter", new TwoBallAutoCenter(theDrivebase, theCollector, theShooter));
+        autoChooser.addOption("twoBallHighRight", new TwoBallAutoRight(theDrivebase, theCollector, theShooter));
+        autoChooser.addOption("twoBallHighCenter", new TwoBallAutoCenter(theDrivebase, theCollector, theShooter));
+        autoChooser.addOption("twoBallHighLeft", new TwoBallAutoLeft(theDrivebase, theCollector, theShooter));
         autoChooser.addOption("ExitTarmac", new ExitTarmac(theDrivebase));
-        //autoChooser.addOption("twoBallHighLeft", new TwoBallAutoLeft(theDrivebase, theCollector, theShooter));
         autoChooser.addOption("oneBallAutosHigh", new OneBallAutosHighCommandGroup(theShooter, theDrivebase));
         autoChooser.addOption("oneBallAutosLow", new OneBallAutosLowCommandGroup(theShooter, theDrivebase));
-        autoChooser.addOption("drive and collect", new DriveAndCollectCommandGroup(theDrivebase, theCollector, 8.0, theShooter, true));
+        autoChooser.addOption("drive and collect", new DriveAndCollectAndMoveCollectorCommandGroup(theDrivebase, theCollector, 8.0, theShooter, true));
         SmartDashboard.putData("autoChooser", autoChooser);
         SmartDashboard.putNumber("Shoot delay",0);
         theOi = new Oi(theCollector, theDrivebase, theShooter);
