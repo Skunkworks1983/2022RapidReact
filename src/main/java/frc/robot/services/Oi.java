@@ -2,6 +2,7 @@ package frc.robot.services;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.climber.ToggleClimberCommand;
 import frc.robot.commands.collector.CollectorEncoderResetCommand;
 import frc.robot.commands.collector.ManualIntakeCommand;
 import frc.robot.commands.collector.ManualMoveCollectorCommand;
@@ -16,6 +17,7 @@ import frc.robot.constants.Constants;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.collector.Collector;
 import frc.robot.subsystems.shooter.Shooter;
+import frc.robot.subsystems.climber.Climber;
 
 public class Oi
 {
@@ -36,8 +38,9 @@ public class Oi
     JoystickButton indexerShootWhenReady;
     JoystickButton enableManualControls;
     JoystickButton collectorEncoderReset;
+    JoystickButton toggleClimber;
 
-    public Oi(Collector collector, Drivebase drivebase, Shooter shooter)
+    public Oi(Collector collector, Drivebase drivebase, Shooter shooter, Climber climber)
     {
 
         leftStick = new Joystick(Constants.JoystickPorts.LEFT_JOY_STICK_PORT);
@@ -72,10 +75,11 @@ public class Oi
         collectorIn.whenHeld(new ManualIntakeCommand(collector, 0.4));
         collectorOut.whenHeld(new ManualIntakeCommand(collector, -0.35));//todo check buttons/intake, because it may be backwards
 
-        //collector when pressed
+        // when pressed
         collectorUpwardButton.whenPressed(new MoveCollectorMotorControllerCommand(collector, false));
         collectorDownwardButton.whenPressed(new MoveCollectorMotorControllerCommand(collector, true));
         collectorEncoderReset.whenPressed(new CollectorEncoderResetCommand(collector, this));
+        toggleClimber.whenPressed(new ToggleClimberCommand(climber));
     }
 
     public double getLeftY()

@@ -15,6 +15,7 @@ import frc.robot.commands.drivebase.ArcadeDrive;
 import frc.robot.services.Oi;
 import frc.robot.subsystems.collector.Collector;
 import frc.robot.subsystems.Drivebase;
+import frc.robot.subsystems.climber.Climber;
 import frc.robot.subsystems.drivebases.Drivebase4MotorFalcon500;
 import frc.robot.subsystems.shooter.Shooter;
 
@@ -41,6 +42,8 @@ public class Robot extends TimedRobot
 
     private SendableChooser autoChooser;
 
+    private Climber theClimber;
+
     /**
      * This method is run when the robot is first started up and should be used for any
      * initialization code.
@@ -55,6 +58,7 @@ public class Robot extends TimedRobot
         theShooter = new Shooter();
         theCollector = new Collector();
         autoChooser = new SendableChooser();
+        theClimber = new Climber();
         //autoChooser.addOption("twoBallHighRight", new TwoBallAutoRight(theDrivebase, theCollector, theShooter));
         //autoChooser.addOption("twoBallHighCenter", new TwoBallAutoCenter(theDrivebase, theCollector, theShooter));
         autoChooser.addOption("ExitTarmac", new ExitTarmac(theDrivebase));
@@ -64,7 +68,7 @@ public class Robot extends TimedRobot
         autoChooser.addOption("drive and collect", new DriveAndCollectCommandGroup(theDrivebase, theCollector, 8.0, theShooter, true));
         SmartDashboard.putData("autoChooser", autoChooser);
         SmartDashboard.putNumber("Shoot delay",0);
-        theOi = new Oi(theCollector, theDrivebase, theShooter);
+        theOi = new Oi(theCollector, theDrivebase, theShooter, theClimber);
     }
     
     

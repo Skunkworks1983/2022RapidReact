@@ -87,6 +87,14 @@ public final class Constants
 
     }
 
+    public class Climber
+    {
+        public static final int RIGHT_SOLENOID_UP_PORT = 0;
+        public static final int RIGHT_SOLENOID_DOWN_PORT = 1;
+        public static final int LEFT_SOLENOID_UP_PORT = 2;
+        public static final int LEFT_SOLENOID_DOWN_PORT = 3;
+    }
+
     public class Falcon500
     {
         public static final int TICKS_PER_REV = 2046;
@@ -143,6 +151,12 @@ public final class Constants
 
     public static class EncoderPorts
     {
+
+        public class Shooter
+        {
+            public static final int INTAKE_SENSOR_PORT = 0;
+            public static final int BEFORE_FLYWHEEL_SENSOR_PORT = 1;
+        }
 
         public class TwoMotorTalonSRX
         {
