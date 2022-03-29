@@ -9,14 +9,12 @@ public class IntakeCommand extends CommandBase
     private final Collector collector;
     private final Shooter shooter;
     private double speed;
-    private boolean ball2;
 
-     public IntakeCommand(Collector collector, Shooter shooter, double speed, boolean ball2)
+     public IntakeCommand(Collector collector, Shooter shooter, double speed)
      {
          this.collector = collector;
          this.shooter = shooter;
          this.speed = speed;
-         this.ball2 = ball2;
      }
 
     @Override
@@ -37,13 +35,13 @@ public class IntakeCommand extends CommandBase
     @Override
     public boolean isFinished()
     {
-        if (ball2)
+        if (shooter.isBallBeforeFlyWheel())
         {
-            return shooter.isBallAtIntake();
+            return shooter.isBallBeforeFlyWheel();
         }
         else
         {
-            return shooter.isBallBeforeFlyWheel();
+            return shooter.isBallAtIntake();
         }
     }
 
