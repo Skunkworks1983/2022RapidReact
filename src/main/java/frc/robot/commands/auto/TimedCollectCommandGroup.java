@@ -12,7 +12,7 @@ import frc.robot.subsystems.shooter.Shooter;
 
 public class TimedCollectCommandGroup extends ParallelDeadlineGroup
 {
-    public TimedCollectCommandGroup(Double howLongToWait, Collector collector, Boolean ball2,
+    public TimedCollectCommandGroup(Double howLongToWait, Collector collector,
             Double speed, Shooter shooter)
     {
         // TODO: Add your deadline and sequential commands in the super() call, e.g.
@@ -20,7 +20,7 @@ public class TimedCollectCommandGroup extends ParallelDeadlineGroup
         //       Add the deadline command first. i.e. the command that upon
         //       ending will interrupt all other commands that are still running
         super(new TimerCommand(howLongToWait),
-              new IntakeCommand(collector, shooter, speed, ball2),
+              new IntakeCommand(collector, shooter, speed),
               new LoadBothBallsCommandGroup(shooter)
              );
     }

@@ -11,11 +11,11 @@ import frc.robot.subsystems.shooter.Shooter;
 public class DriveAndCollectCommandGroup extends ParallelCommandGroup
 {
     public DriveAndCollectCommandGroup(Drivebase drivebase, Shooter shooter, Collector collector,
-                                       Double distance, Double speed, Boolean ball2)
+                                       Double distance, Double speed)
     {
         // TODO: Add your sequential commands in the super() call, e.g.
         //           super(new OpenClawCommand(), new MoveArmCommand());
         super(new DriveDistanceCommand(drivebase, distance),
-              new LoadBothBallsAndCollectCommandGroup(shooter, collector, speed, ball2));
+              new LoadBothBallsAndCollectCommandGroup(shooter, collector, speed));
     }
 }
