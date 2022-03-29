@@ -7,6 +7,7 @@ import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.I2C;
 import frc.robot.constants.Constants;
 import frc.robot.subsystems.Drivebase;
+import frc.robot.services.Oi;
 
 
 public class Drivebase4MotorFalcon500 extends Drivebase
@@ -16,11 +17,13 @@ public class Drivebase4MotorFalcon500 extends Drivebase
     TalonFX rightMotor1 = new TalonFX(Constants.MotorPorts.FourMotorFalcon500.RIGHT_MOTOR_1_DEVICE_NUMBER);
     TalonFX rightMotor2 = new TalonFX(Constants.MotorPorts.FourMotorFalcon500.RIGHT_MOTOR_2_DEVICE_NUMBER);
 
+    Oi oi;
+
     private final double TicksPerFoot = Constants.Falcon500.TICKS_PER_REV * Constants.Drivebase.GEAR_RATIO / (Constants.Drivebase.WHEEL_DIAMETER * Math.PI);
 
     AHRS gyro = new AHRS(I2C.Port.kOnboard);
 
-    public void Drivebase4MotorPhoenix500()
+    public void Drivebase4MotorPhoenix500(Oi oi)
     {
         leftMotor1.configOpenloopRamp(0.4, 30);
         leftMotor2.configOpenloopRamp(0.4, 30);
@@ -30,14 +33,26 @@ public class Drivebase4MotorFalcon500 extends Drivebase
         leftMotor2.setNeutralMode(NeutralMode.Brake);
         rightMotor1.setNeutralMode(NeutralMode.Brake);
         rightMotor2.setNeutralMode(NeutralMode.Brake);
+        this.oi = oi;
     }
 
     public void runMotor(double turnSpeedLeft, double turnSpeedRight)
     {
-        leftMotor1.set(TalonFXControlMode.PercentOutput, turnSpeedLeft);
-        leftMotor2.set(TalonFXControlMode.PercentOutput, turnSpeedLeft);
-        rightMotor1.set(TalonFXControlMode.PercentOutput, -turnSpeedRight);
-        rightMotor2.set(TalonFXControlMode.PercentOutput, -turnSpeedRight);
+        if(oi.isToggleClimberPressed())
+        {
+            leftMotor1.set(TalonFXControlMode.PercentOutput, turnSpeedLeft/2);
+            leftMotor2.set(TalonFXControlMode.PercentOutput, turnSpeedLeft/2);
+            rightMotor1.set(TalonFXControlMode.PercentOutput, -turnSpeedRight/2);
+            rightMotor2.set(TalonFXControlMode.PercentOutput, -turnSpeedRight/2);
+        }
+        else
+        {
+            leftMotor1.set(TalonFXControlMode.PercentOutput, turnSpeedLeft);
+            leftMotor2.set(TalonFXControlMode.PercentOutput, turnSpeedLeft);
+            rightMotor1.set(TalonFXControlMode.PercentOutput, -turnSpeedRight);
+            rightMotor2.set(TalonFXControlMode.PercentOutput, -turnSpeedRight);
+        }
+
     }
 
 
