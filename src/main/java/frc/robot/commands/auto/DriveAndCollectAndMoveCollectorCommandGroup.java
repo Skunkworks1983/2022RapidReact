@@ -17,7 +17,7 @@ public class DriveAndCollectAndMoveCollectorCommandGroup extends ParallelCommand
         super(new ParallelDeadlineGroup(new DriveDistanceAndMoveCollectorCommandGroup(drivebase, collector,
                 distance, moveDownward),
                 //new DriveDistanceCommand(drivebase, distance),
-                new LoadBothBallsAndCollectCommandGroup(shooter, collector, -0.3, true)
+                new LoadBothBallsAndCollectCommandGroup(shooter, collector, -0.3)
                 ));
     }
 }

@@ -40,6 +40,7 @@ public final class Constants
         public static final double KP_VALUE = 1/90.;
         //Might need to multiple number by 1024 because of the motor controller
         public static final double COLLECTOR_MOTOR_1_KP = 0.025;
+        public static final double COLLECTOR_INTAKE_SPEED = -0.5;
     }
 
     public class Shooter
