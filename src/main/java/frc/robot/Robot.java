@@ -61,7 +61,6 @@ public class Robot extends TimedRobot
         autoChooser.addOption("ExitTarmac", new ExitTarmac(theDrivebase));
         autoChooser.addOption("oneBallAutosHigh", new OneBallAutosHighCommandGroup(theShooter, theDrivebase));
         autoChooser.addOption("oneBallAutosLow", new OneBallAutosLowCommandGroup(theShooter, theDrivebase));
-        autoChooser.addOption("drive and collect", new DriveAndCollectAndMoveCollectorCommandGroup(theDrivebase, theCollector, 8.0, theShooter, true));
         SmartDashboard.putData("autoChooser", autoChooser);
         SmartDashboard.putNumber("Shoot delay",0);
         theOi = new Oi(theCollector, theDrivebase, theShooter);
