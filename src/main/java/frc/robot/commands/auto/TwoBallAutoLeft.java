@@ -13,19 +13,22 @@ public class TwoBallAutoLeft extends SequentialCommandGroup
     public TwoBallAutoLeft(Drivebase drivebase, Collector collector, Shooter shooter)
     {
         addCommands(new MoveCollectorMotorControllerCommand(collector, true),
+                    //Moves collector down
                     new DriveAndCollectCommandGroup(drivebase, shooter, collector,
                                                     Constants.Drivebase.AUTO_LEFT_DRIVE_AND_COLLECT_DISTANCE,
                                                     -0.5, true),
-                    //new DriveAndCollectAndMoveCollectorCommandGroup(drivebase, collector,
-                                                                    //Constants.Drivebase.AUTO_LEFT_DRIVE_AND_COLLECT_DISTANCE, shooter,
-                                                                    //true),
+                    //Drives forward and starts collecting motors
                     new TimedCollectCommandGroup(2.5, collector, true, -0.5, shooter),
                     //TimedCollectCommandGroup collects for a certain amount of time in one spot without leaving
                     new MoveCollectorMotorControllerCommand(collector, false),
+                    //Moves collector up
                     new RotateCommand(drivebase, Constants.Drivebase.AUTO_LEFT_ROTATE),
+                    //Up
                     new TimedDriveForwardCommandGroup(Constants.Drivebase.AUTO_LEFT_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN,
                             Constants.Drivebase.AUTO_LEFT_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE, drivebase),
+                    //Drives forward for a certain amount of time
                     new TimedSpinUpAndShootAllBallsHighCommandGroup(shooter)
+                    //Shoot balls in high hub for a certain amount of time
                    );
     }
 }
