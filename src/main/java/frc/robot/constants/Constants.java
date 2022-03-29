@@ -15,6 +15,7 @@ public final class Constants
         public static final int ENABLE_MANUAL_CONTROLS = 5;
         public static final int MANUAL_UPWARD_COLLECTOR_BUTTON = 6;
         public static final int MANUAL_DOWNWARD_COLLECTOR_BUTTON = 7;
+        public static final int COLLECTOR_ENCODER_RESET_BUTTON = 8;
         public static final int SPIN_UP_FLYWHEEL_HIGH = 9;
         public static final int SPIN_UP_FLYWHEEL_LOW = 10;
         public static final int COLLECTOR_IN = 11;
@@ -22,7 +23,8 @@ public final class Constants
         public static final int INDEXER_SHOOT_WHEN_READY = 13;
         public static final int COLLECTOR_OUT = 14;
         public static final int INDEXER_OUTPUT_BUTTON = 15;
-        public static final int COLLECTOR_ENCODER_RESET_BUTTON = 8;
+        public static final int CLIMBER_ENABLE_SWITCH = 0; //todo figure out the button id
+        public static final int CLIMBER_TOGGLE_BUTTON = 0;
     }
 
     public class JoystickPorts

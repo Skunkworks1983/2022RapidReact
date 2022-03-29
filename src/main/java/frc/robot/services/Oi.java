@@ -39,6 +39,7 @@ public class Oi
     JoystickButton enableManualControls;
     JoystickButton collectorEncoderReset;
     JoystickButton toggleClimber;
+    JoystickButton enableClimber;
 
     public Oi(Collector collector, Drivebase drivebase, Shooter shooter, Climber climber)
     {
@@ -62,6 +63,9 @@ public class Oi
         indexerShootWhenReady = new JoystickButton(buttonStick, Constants.OIButtons.INDEXER_SHOOT_WHEN_READY);
         enableManualControls = new JoystickButton(buttonStick, Constants.OIButtons.ENABLE_MANUAL_CONTROLS);
         collectorEncoderReset = new JoystickButton(buttonStick, Constants.OIButtons.COLLECTOR_ENCODER_RESET_BUTTON);
+        toggleClimber = new JoystickButton(buttonStick, Constants.OIButtons.CLIMBER_TOGGLE_BUTTON);
+        enableClimber = new JoystickButton(buttonStick, Constants.OIButtons.CLIMBER_ENABLE_SWITCH);
+
 
         //when held
         loadBallsButton.whenHeld(new LoadBothBallsCommandGroup(shooter));
@@ -79,7 +83,7 @@ public class Oi
         collectorUpwardButton.whenPressed(new MoveCollectorMotorControllerCommand(collector, false));
         collectorDownwardButton.whenPressed(new MoveCollectorMotorControllerCommand(collector, true));
         collectorEncoderReset.whenPressed(new CollectorEncoderResetCommand(collector, this));
-        toggleClimber.whenPressed(new ToggleClimberCommand(climber));
+        toggleClimber.whenPressed(new ToggleClimberCommand(climber, this));
     }
 
     public double getLeftY()
@@ -105,6 +109,11 @@ public class Oi
     public boolean isEnableManualControlsPressed()
     {
         return enableManualControls.get();
+    }
+
+    public boolean isEnableClimberPressed()
+    {
+        return enableClimber.get();
     }
 }
 

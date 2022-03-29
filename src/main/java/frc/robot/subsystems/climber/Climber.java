@@ -20,9 +20,6 @@ public class Climber
     {
             rightSolenoid.toggle();
             leftSolenoid.toggle();
-
-
-
     }
 
 }
