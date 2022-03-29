@@ -114,5 +114,10 @@ public class Oi
     {
         return toggleClimber.get();
     }
+
+    public boolean isLeftStickTriggerPressed()
+    {
+        return leftStick.getTriggerPressed();
+    }
 }
 
