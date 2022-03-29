@@ -18,8 +18,8 @@ public class Climber
 
     public void ToggleArm()
     {
-            rightSolenoid.toggle();
-            leftSolenoid.toggle();
+        rightSolenoid.toggle();
+        leftSolenoid.toggle();
     }
 
 }

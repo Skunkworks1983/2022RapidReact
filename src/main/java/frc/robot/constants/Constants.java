@@ -23,8 +23,7 @@ public final class Constants
         public static final int INDEXER_SHOOT_WHEN_READY = 13;
         public static final int COLLECTOR_OUT = 14;
         public static final int INDEXER_OUTPUT_BUTTON = 15;
-        public static final int CLIMBER_ENABLE_SWITCH = 0; //todo figure out the button id
-        public static final int CLIMBER_TOGGLE_BUTTON = 0;
+        public static final int CLIMBER_TOGGLE_BUTTON = 0; //todo figure out the button id
     }
 
     public class JoystickPorts

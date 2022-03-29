@@ -64,7 +64,6 @@ public class Oi
         enableManualControls = new JoystickButton(buttonStick, Constants.OIButtons.ENABLE_MANUAL_CONTROLS);
         collectorEncoderReset = new JoystickButton(buttonStick, Constants.OIButtons.COLLECTOR_ENCODER_RESET_BUTTON);
         toggleClimber = new JoystickButton(buttonStick, Constants.OIButtons.CLIMBER_TOGGLE_BUTTON);
-        enableClimber = new JoystickButton(buttonStick, Constants.OIButtons.CLIMBER_ENABLE_SWITCH);
 
 
         //when held
@@ -111,9 +110,9 @@ public class Oi
         return enableManualControls.get();
     }
 
-    public boolean isEnableClimberPressed()
+    public boolean isToggleClimberPressed()
     {
-        return enableClimber.get();
+        return toggleClimber.get();
     }
 }
 

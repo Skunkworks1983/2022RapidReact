@@ -20,10 +20,7 @@ public class ToggleClimberCommand extends CommandBase
     @Override
     public void initialize()
     {
-        if(oi.isEnableClimberPressed())
-        {
-            climber.ToggleArm();
-        }
+        climber.ToggleArm();
     }
 
     @Override
@@ -35,12 +32,12 @@ public class ToggleClimberCommand extends CommandBase
     @Override
     public boolean isFinished()
     {
-        return true;
+        return !oi.isToggleClimberPressed();
     }
 
     @Override
     public void end(boolean interrupted)
     {
-
+        climber.ToggleArm();
     }
 }
