@@ -22,6 +22,7 @@ public class TwoBallAutoRight extends SequentialCommandGroup
                                                                         //shooter, true),
                         new TimedCollectCommandGroup(2.5, collector, true, -0.5,
                                                      shooter),
+                        //TimedCollectCommandGroup collects for a certain amount of time in one spot without leaving
                         new MoveCollectorMotorControllerCommand(collector, false),
                         //new DriveDistanceAndMoveCollectorCommandGroup(drivebase, collector,
                                 //Constants.Drivebase.AUTO_RIGHT_DRIVE_DISTANCE, false),

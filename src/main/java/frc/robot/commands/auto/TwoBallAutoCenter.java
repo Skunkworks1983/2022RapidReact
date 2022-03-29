@@ -27,6 +27,7 @@ public class TwoBallAutoCenter extends SequentialCommandGroup
                                                                 //Constants.Drivebase.AUTO_CENTER_DRIVE_AND_COLLECT_DISTANCE,
                                                                 //shooter, true),
                 new TimedCollectCommandGroup(2.5, collector, true, -0.5, shooter),
+                //TimedCollectCommandGroup collects for a certain amount of time in one spot without leaving
                 new MoveCollectorMotorControllerCommand(collector, false),
                 new RotateCommand(drivebase, Constants.Drivebase.AUTO_CENTER_ROTATE_TWO),
                 new DriveDistanceCommand(drivebase, Constants.Drivebase.AUTO_CENTER_DRIVE_DISTANCE_TWO),

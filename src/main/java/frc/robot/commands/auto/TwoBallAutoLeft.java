@@ -20,6 +20,7 @@ public class TwoBallAutoLeft extends SequentialCommandGroup
                                                                     //Constants.Drivebase.AUTO_LEFT_DRIVE_AND_COLLECT_DISTANCE, shooter,
                                                                     //true),
                     new TimedCollectCommandGroup(2.5, collector, true, -0.5, shooter),
+                    //TimedCollectCommandGroup collects for a certain amount of time in one spot without leaving
                     new MoveCollectorMotorControllerCommand(collector, false),
                     new RotateCommand(drivebase, Constants.Drivebase.AUTO_LEFT_ROTATE),
                     new TimedDriveForwardCommandGroup(Constants.Drivebase.AUTO_LEFT_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN,
