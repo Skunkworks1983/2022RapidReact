@@ -11,6 +11,7 @@ import com.ctre.phoenix.motorcontrol.TalonFXFeedbackDevice;
 import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import frc.robot.constants.Constants;
@@ -30,6 +31,7 @@ public class Shooter extends SubsystemBase
     public void setFlywheel(double speed)
     {
         flywheel.set(TalonFXControlMode.Velocity, -speed);
+        SmartDashboard.putNumber("FlyWheel Target", speed);
         if(speed > 0)
         {
             setTarget(speed);
