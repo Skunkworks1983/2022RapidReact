@@ -80,8 +80,7 @@ public class Shooter extends SubsystemBase
     public void initializeFlywheel()
     {
         flywheel.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor, 30, 30);
-        flywheel.config_kF(0, Constants.Shooter.FLY_WHEEL_KF);
-        flywheel.config_kP(0, Constants.Shooter.FLY_WHEEL_KP);
+        smartDashboardReader();
         flywheel.selectProfileSlot(0, 0);
         flywheel.configClosedloopRamp(0.5);
         flywheel.setNeutralMode(NeutralMode.Coast);
@@ -105,5 +104,11 @@ public class Shooter extends SubsystemBase
     public void simulationPeriodic()
     {
         // This method will be called once per scheduler run during simulation
+    }
+
+    public void smartDashboardReader()
+    {
+        flywheel.config_kF(0, SmartDashboard.getNumber(Constants.Shooter.SMART_DASHBOARD_FLY_WHEEL_KF, Constants.Shooter.FLY_WHEEL_KF));
+        flywheel.config_kP(0, SmartDashboard.getNumber(Constants.Shooter.SMART_DASHBOARD_FLY_WHEEL_KP, Constants.Shooter.FLY_WHEEL_KP));
     }
 }

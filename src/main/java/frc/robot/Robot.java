@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.auto.*;
 import frc.robot.commands.drivebase.ArcadeDrive;
+import frc.robot.constants.Constants;
 import frc.robot.services.Oi;
 import frc.robot.subsystems.collector.Collector;
 import frc.robot.subsystems.Drivebase;
@@ -63,6 +64,8 @@ public class Robot extends TimedRobot
         autoChooser.addOption("oneBallAutosLow", new OneBallAutosLowCommandGroup(theShooter, theDrivebase));
         SmartDashboard.putData("autoChooser", autoChooser);
         SmartDashboard.putNumber("Shoot delay",0);
+        SmartDashboard.putNumber(Constants.Shooter.SMART_DASHBOARD_FLY_WHEEL_KP, Constants.Shooter.FLY_WHEEL_KP);
+        SmartDashboard.putNumber(Constants.Shooter.SMART_DASHBOARD_FLY_WHEEL_KF, Constants.Shooter.FLY_WHEEL_KF);
         theOi = new Oi(theCollector, theDrivebase, theShooter);
     }
     
