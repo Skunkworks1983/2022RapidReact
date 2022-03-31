@@ -50,7 +50,7 @@ public final class Constants
         public static final double LIFT_BALL_LOAD_SPEED = 0.50;
         public static final double FLY_WHEEL_KP = .16;
         public static final double FLY_WHEEL_KF = .05505;
-        public static final double HIGH_GOAL_SPEED = 12800;
+        public static final double HIGH_GOAL_SPEED = 13200;
         public static final double LOW_GOAL_SPEED = 9550;
         public static final String SMART_DASHBOARD_FLY_WHEEL_KP = "flyWheelKp";
         public static final String SMART_DASHBOARD_FLY_WHEEL_KF = "flyWheelKf";
