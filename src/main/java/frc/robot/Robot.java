@@ -5,6 +5,8 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -45,6 +47,8 @@ public class Robot extends TimedRobot
 
     private Climber theClimber;
 
+    private Compressor theCompressor;
+
     /**
      * This method is run when the robot is first started up and should be used for any
      * initialization code.
@@ -60,6 +64,7 @@ public class Robot extends TimedRobot
         theCollector = new Collector();
         autoChooser = new SendableChooser();
         theClimber = new Climber();
+        theCompressor = new Compressor(29, PneumaticsModuleType.CTREPCM);
         autoChooser.addOption("twoBallHighRight", new TwoBallAutoRight(theDrivebase, theCollector, theShooter));
         autoChooser.addOption("twoBallHighCenter", new TwoBallAutoCenter(theDrivebase, theCollector, theShooter));
         autoChooser.addOption("twoBallHighLeft", new TwoBallAutoLeft(theDrivebase, theCollector, theShooter));
