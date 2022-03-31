@@ -36,6 +36,10 @@ public class Shooter extends SubsystemBase
         {
             setTarget(speed);
         }
+        else if(speed == 0)
+        {
+            flywheel.set(TalonFXControlMode.Disabled, 0);
+        }
     }
 
     public void setLiftBall(double speed)
@@ -80,9 +84,11 @@ public class Shooter extends SubsystemBase
     public void initializeFlywheel()
     {
         flywheel.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor, 30, 30);
-        smartDashboardReader();
+        flywheel.config_kF(0, Constants.Shooter.FLY_WHEEL_KF);
+        flywheel.config_kP(0, Constants.Shooter.FLY_WHEEL_KP);
+
         flywheel.selectProfileSlot(0, 0);
-        flywheel.configClosedloopRamp(0.5);
+        flywheel.configClosedloopRamp(0.1);
         flywheel.setNeutralMode(NeutralMode.Coast);
     }
 

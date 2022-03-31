@@ -64,7 +64,7 @@ public class Robot extends TimedRobot
         theCollector = new Collector();
         autoChooser = new SendableChooser();
         theClimber = new Climber();
-        theCompressor = new Compressor(29, PneumaticsModuleType.CTREPCM);
+        //theCompressor = new Compressor(29, PneumaticsModuleType.CTREPCM);
         autoChooser.addOption("twoBallHighRight", new TwoBallAutoRight(theDrivebase, theCollector, theShooter));
         autoChooser.addOption("twoBallHighCenter", new TwoBallAutoCenter(theDrivebase, theCollector, theShooter));
         autoChooser.addOption("twoBallHighLeft", new TwoBallAutoLeft(theDrivebase, theCollector, theShooter));

@@ -48,7 +48,7 @@ public class SpinUpFlyWheelCommand extends CommandBase
     @Override
     public boolean isFinished()
     {
-        if(shooter.getFlyWheelSpeed() > setpoint)
+        if(Math.abs(shooter.getFlyWheelSpeed()-setpoint) < 85)
         {
             onTargetCount++;
         }
