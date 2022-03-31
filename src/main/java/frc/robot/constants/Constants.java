@@ -15,6 +15,7 @@ public final class Constants
         public static final int ENABLE_MANUAL_CONTROLS = 5;
         public static final int MANUAL_UPWARD_COLLECTOR_BUTTON = 6;
         public static final int MANUAL_DOWNWARD_COLLECTOR_BUTTON = 7;
+        public static final int COLLECTOR_ENCODER_RESET_BUTTON = 8;
         public static final int SPIN_UP_FLYWHEEL_HIGH = 9;
         public static final int SPIN_UP_FLYWHEEL_LOW = 10;
         public static final int COLLECTOR_IN = 11;
@@ -22,7 +23,7 @@ public final class Constants
         public static final int INDEXER_SHOOT_WHEN_READY = 13;
         public static final int COLLECTOR_OUT = 14;
         public static final int INDEXER_OUTPUT_BUTTON = 15;
-        public static final int COLLECTOR_ENCODER_RESET_BUTTON = 8;
+        public static final int CLIMBER_TOGGLE_BUTTON = 0; //todo figure out the button id
     }
 
     public class JoystickPorts
@@ -90,6 +91,14 @@ public final class Constants
 
     }
 
+    public class Climber
+    {
+        public static final int RIGHT_SOLENOID_UP_PORT = 0;
+        public static final int RIGHT_SOLENOID_DOWN_PORT = 1;
+        public static final int LEFT_SOLENOID_UP_PORT = 2;
+        public static final int LEFT_SOLENOID_DOWN_PORT = 3;
+    }
+
     public class Falcon500
     {
         public static final int TICKS_PER_REV = 2046;
@@ -146,6 +155,12 @@ public final class Constants
 
     public static class EncoderPorts
     {
+
+        public class Shooter
+        {
+            public static final int INTAKE_SENSOR_PORT = 0;
+            public static final int BEFORE_FLYWHEEL_SENSOR_PORT = 1;
+        }
 
         public class TwoMotorTalonSRX
         {

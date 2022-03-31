@@ -44,7 +44,14 @@ public class ArcadeDrive extends CommandBase
         SmartDashboard.putNumber("errorRight", errorRight);
         outputLeft = KP * errorLeft + KF * targetLeft;
         outputRight = KP * errorRight + KF * targetRight;
-        drivebase.runMotor(outputLeft, outputRight);
+        if(oi.isToggleClimberPressed() || oi.isLeftStickTriggerPressed())
+        {
+            drivebase.runMotor(outputLeft/2, outputRight/2);
+        }
+        else
+        {
+            drivebase.runMotor(outputLeft, outputRight);
+        }
     }
 
     @Override

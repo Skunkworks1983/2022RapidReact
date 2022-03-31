@@ -23,8 +23,8 @@ public class Shooter extends SubsystemBase
     private TalonFX flywheel = new TalonFX(FLYWHEEL_DEVICE_NUMBER);
     private TalonSRX liftBall = new TalonSRX(LIFT_BALL_DEVICE_NUMBER);
     private TalonSRX indexer = new TalonSRX(INDEXER_DEVICE_NUMBER);
-    private DigitalInput intakeSensor = new DigitalInput(0);
-    private DigitalInput beforeFlyWheel = new DigitalInput(1);
+    private DigitalInput intakeSensor = new DigitalInput(Constants.EncoderPorts.Shooter.INTAKE_SENSOR_PORT);
+    private DigitalInput beforeFlyWheel = new DigitalInput(Constants.EncoderPorts.Shooter.BEFORE_FLYWHEEL_SENSOR_PORT);
 
     private double target;
 
