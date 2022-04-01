@@ -20,7 +20,8 @@ public class ToggleClimberCommand extends CommandBase
     @Override
     public void initialize()
     {
-        climber.ToggleArm();
+        System.out.println("raising climber arm");
+        climber.setArm(true);
     }
 
     @Override
@@ -38,6 +39,7 @@ public class ToggleClimberCommand extends CommandBase
     @Override
     public void end(boolean interrupted)
     {
-        climber.ToggleArm();
+        System.out.println("lowering climber arm");
+        climber.setArm(false);
     }
 }

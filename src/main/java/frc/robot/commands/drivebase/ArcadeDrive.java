@@ -46,6 +46,7 @@ public class ArcadeDrive extends CommandBase
         outputRight = KP * errorRight + KF * targetRight;
         if(oi.isToggleClimberPressed() || oi.isLeftStickTriggerPressed())
         {
+            System.out.println("driving slow");
             drivebase.runMotor(outputLeft/2, outputRight/2);
         }
         else
