@@ -23,7 +23,7 @@ public final class Constants
         public static final int INDEXER_SHOOT_WHEN_READY = 13;
         public static final int COLLECTOR_OUT = 14;
         public static final int INDEXER_OUTPUT_BUTTON = 15;
-        public static final int CLIMBER_TOGGLE_BUTTON = 16; //todo figure out the button id
+        public static final int CLIMBER_TOGGLE_BUTTON = 1; //todo figure out the button id
     }
 
     public class JoystickPorts
@@ -52,11 +52,13 @@ public final class Constants
     public class Shooter
     {
         public static final double INDEXER_LOAD_SPEED = 0.275;
-        public static final double LIFT_BALL_LOAD_SPEED = 0.50;
-        public static final double FLY_WHEEL_KP = 0.25;
+        public static final double LIFT_BALL_LOAD_SPEED = 5250;
+        public static final double FLY_WHEEL_KP = 0.31;
         public static final double FLY_WHEEL_KF = .04885;
-        public static final double HIGH_GOAL_SPEED = 13600;
+        public static final double HIGH_GOAL_SPEED = 13700;
         public static final double LOW_GOAL_SPEED = 9550;
+        public static final double LIFT_BALL_KP = 0.065;
+        public static final double LIFT_BALL_KF = 0.05644;
         public static final String SMART_DASHBOARD_FLY_WHEEL_KP = "flyWheelKp";
         public static final String SMART_DASHBOARD_FLY_WHEEL_KF = "flyWheelKf";
     }

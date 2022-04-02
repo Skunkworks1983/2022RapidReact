@@ -44,7 +44,7 @@ public class Shooter extends SubsystemBase
 
     public void setLiftBall(double speed)
     {
-        liftBall.set(TalonSRXControlMode.PercentOutput, speed);
+        liftBall.set(TalonSRXControlMode.Velocity, speed);
     }
 
     public void setIndexer(double speed)
@@ -95,7 +95,11 @@ public class Shooter extends SubsystemBase
     /** Creates a new Shooter. */
     public Shooter()
     {
+
         initializeFlywheel();
+        liftBall.config_kP(0, Constants.Shooter.LIFT_BALL_KP);
+        liftBall.config_kF(0, Constants.Shooter.LIFT_BALL_KF);
+        liftBall.selectProfileSlot(0, 0);
         liftBall.setNeutralMode(NeutralMode.Brake);
     }
 
@@ -103,6 +107,7 @@ public class Shooter extends SubsystemBase
     public void periodic()
     {
         // This method will be called once per scheduler run
+        //SmartDashboard.putNumber("Lift ball speed", getLiftBallSpeed());
     }
 
 

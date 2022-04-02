@@ -1,5 +1,6 @@
 package frc.robot.subsystems.collector;
 
+import com.ctre.phoenix.motorcontrol.InvertType;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
@@ -28,6 +29,8 @@ public class Collector extends SubsystemBase
         collectorMotor1.configClosedloopRamp(0.1);
         collectorMotor1.configClosedLoopPeakOutput(0, 0.1);
         collectorMotor1.configNeutralDeadband(0.0);
+        collectorMotor1.setInverted(InvertType.None);
+        collectorMotor2.setInverted(InvertType.OpposeMaster);
 
         intakeMotor.setInverted(true);
     }
