@@ -48,12 +48,12 @@ public final class Constants
     {
         public static final double INDEXER_LOAD_SPEED = 0.275;
         public static final double LIFT_BALL_LOAD_SPEED = 5250;
-        public static final double FLY_WHEEL_KP = 0.25;
+        public static final double FLY_WHEEL_KP = 0.31;
         public static final double FLY_WHEEL_KF = .04885;
-        public static final double HIGH_GOAL_SPEED = 13600;
+        public static final double HIGH_GOAL_SPEED = 13700;
         public static final double LOW_GOAL_SPEED = 9550;
-        public static final double LIFT_BALL_KP = 0.25;
-        public static final double LIFT_BALL_KF = 0.00013;
+        public static final double LIFT_BALL_KP = 0.065;
+        public static final double LIFT_BALL_KF = 0.05644;
         public static final String SMART_DASHBOARD_FLY_WHEEL_KP = "flyWheelKp";
         public static final String SMART_DASHBOARD_FLY_WHEEL_KF = "flyWheelKf";
     }

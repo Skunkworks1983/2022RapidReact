@@ -32,7 +32,7 @@ public class ShootCommand extends CommandBase {
     public void execute()
     {
         SmartDashboard.putNumber("Flywheel speed", shooter.getFlyWheelSpeed());
-        SmartDashboard.putNumber("Liftball spe ed", shooter.getLiftBallSpeed());
+        //SmartDashboard.putNumber("Liftball speed", shooter.getLiftBallSpeed());
     }
 
     @Override

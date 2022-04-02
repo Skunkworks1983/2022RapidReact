@@ -5,6 +5,8 @@
 
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -76,6 +78,9 @@ public class Robot extends TimedRobot
         SmartDashboard.putNumber(Constants.Shooter.SMART_DASHBOARD_FLY_WHEEL_KP, Constants.Shooter.FLY_WHEEL_KP);
         SmartDashboard.putNumber(Constants.Shooter.SMART_DASHBOARD_FLY_WHEEL_KF, Constants.Shooter.FLY_WHEEL_KF);
         theOi = new Oi(theCollector, theDrivebase, theShooter, theClimber);
+        UsbCamera camera = CameraServer.startAutomaticCapture();
+        camera.setFPS(15);
+        camera.setResolution(160, 120);
     }
     
     
