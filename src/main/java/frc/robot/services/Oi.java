@@ -24,6 +24,7 @@ public class Oi
     Joystick leftStick;
     Joystick rightStick;
     Joystick buttonStick;
+    JoystickButton leftStickTrigger;
     JoystickButton collectorUpwardButton;
     JoystickButton collectorDownwardButton;
     JoystickButton loadBallsButton;
@@ -39,7 +40,6 @@ public class Oi
     JoystickButton enableManualControls;
     JoystickButton collectorEncoderReset;
     JoystickButton toggleClimber;
-    JoystickButton enableClimber;
 
     public Oi(Collector collector, Drivebase drivebase, Shooter shooter, Climber climber)
     {
@@ -49,6 +49,7 @@ public class Oi
         buttonStick = new Joystick(Constants.JoystickPorts.BUTTON_STICK_PORT);
 
         //button sticks
+        leftStickTrigger = new JoystickButton(leftStick, Constants.LeftJoystickButtons.Trigger);
         loadBallsButton = new JoystickButton(buttonStick, Constants.OIButtons.LOAD_BALLS_BUTTON);
         manualMoveCollectorUp = new JoystickButton(buttonStick, Constants.OIButtons.MANUAL_UPWARD_COLLECTOR_BUTTON);
         manualMoveCollectorDown = new JoystickButton(buttonStick, Constants.OIButtons.MANUAL_DOWNWARD_COLLECTOR_BUTTON);
@@ -117,7 +118,7 @@ public class Oi
 
     public boolean isLeftStickTriggerPressed()
     {
-        return leftStick.getTriggerPressed();
+        return leftStickTrigger.get();
     }
 }
 

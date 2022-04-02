@@ -34,6 +34,11 @@ public final class Constants
         public static final int BUTTON_STICK_PORT = 2;
     }
 
+    public class LeftJoystickButtons
+    {
+        public static final int Trigger = 1;
+    }
+
     public class Collector
     {
         public static final int GEAR_RATIO = 16;
