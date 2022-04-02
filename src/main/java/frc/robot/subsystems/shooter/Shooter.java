@@ -31,7 +31,7 @@ public class Shooter extends SubsystemBase
     public void setFlywheel(double speed)
     {
         flywheel.set(TalonFXControlMode.Velocity, -speed);
-        SmartDashboard.putNumber("FlyWheel Target", speed);
+        //SmartDashboard.putNumber("FlyWheel Target", speed);
         if(speed > 0)
         {
             setTarget(speed);

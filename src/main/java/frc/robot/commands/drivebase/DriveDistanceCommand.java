@@ -72,7 +72,7 @@ public class DriveDistanceCommand extends CommandBase
         double speedLeft = speed + Math.max(Math.min(Constants.Drivebase.ANGLE_KP*(startDegree - drivebase.getHeading()), 0.25), -0.25);
         double speedRight = speed - Math.max(Math.min(Constants.Drivebase.ANGLE_KP*(startDegree - drivebase.getHeading()), 0.25), -0.25);
         drivebase.runMotor(speedLeft, speedRight);
-        SmartDashboard.putNumber("FT moved", drivebase.getPosLeft()-startDistanceFT);
+        //SmartDashboard.putNumber("FT moved", drivebase.getPosLeft()-startDistanceFT);
     }
 
     @Override

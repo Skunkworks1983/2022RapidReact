@@ -32,16 +32,16 @@ public class ArcadeDrive extends CommandBase
     {
         double turn = Math.copySign(Math.pow(Math.abs(oi.getRightX()), 1.5), oi.getRightX());
         double throttle = Math.copySign(Math.pow(Math.abs(-oi.getLeftY()), 1.5), -oi.getLeftY());
-        SmartDashboard.putNumber("X", turn);
-        SmartDashboard.putNumber("Y", throttle);
+//        SmartDashboard.putNumber("X", turn);
+//        SmartDashboard.putNumber("Y", throttle);
         double outputLeft = Math.max(Math.min((turn + throttle), 1), -1);
         double outputRight = Math.max(Math.min((-turn + throttle), 1), -1);
         double targetLeft = maximumEncoderSpeed * outputLeft;
         double targetRight = maximumEncoderSpeed * outputRight;
         double errorLeft = targetLeft - drivebase.getSpeedLeft();
         double errorRight = targetRight - drivebase.getSpeedRight();
-        SmartDashboard.putNumber("errorLeft", errorLeft);
-        SmartDashboard.putNumber("errorRight", errorRight);
+//        SmartDashboard.putNumber("errorLeft", errorLeft);
+//        SmartDashboard.putNumber("errorRight", errorRight);
         outputLeft = KP * errorLeft + KF * targetLeft;
         outputRight = KP * errorRight + KF * targetRight;
         if(oi.isToggleClimberPressed() || oi.isLeftStickTriggerPressed())
