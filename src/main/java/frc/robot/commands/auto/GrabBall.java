@@ -8,12 +8,12 @@ import frc.robot.subsystems.shooter.Shooter;
 public class GrabBall extends SequentialCommandGroup
 {
     //todo change name to *GrabsBalls*
-    public GrabBall(Collector collector, Shooter shooter, boolean ball2)
+    public GrabBall(Collector collector, Shooter shooter)
     {
         addCommands
                 (
                         //new MoveCollectorCommand(collector, true),
-                        new IntakeCommand(collector, shooter, .5, ball2)
+                        new IntakeCommand(collector, shooter, .5)
                         //new MoveCollectorCommand(collector, false)
                 );
     }

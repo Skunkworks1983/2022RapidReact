@@ -7,35 +7,52 @@ import frc.robot.subsystems.shooter.Shooter;
 
 public class SpinUpFlyWheelCommand extends CommandBase
 {
-    private double setpoint;
+    private Double setpoint;
     private int onTargetCount;
-    private int onTargetThreshold = 3;
+    private int onTargetThreshold = 10;
+    boolean isAuto = false;
+    private double currentSpeed;
     public SpinUpFlyWheelCommand(Shooter s, Double speed)
     {
-        // each subsystem used by the command must be passed into the
-        // addRequirements() method (which takes a vararg of Subsystem)
         addRequirements();
-        // no requirement because it needs to run at the same time as another command
         shooter = s;
         setpoint = speed;
+        isAuto = true;
+        currentSpeed = 0;
     }
+
+    public SpinUpFlyWheelCommand(Shooter s)
+    {
+        addRequirements();
+        shooter = s;
+        currentSpeed = 0;
+    }
+
     Shooter shooter;
     @Override
     public void initialize()
     {
+        //todo check this for teleop
+        if(!isAuto || setpoint == null)
+        {
+            setpoint = shooter.getTarget();
+            System.out.println("resetting shootwhenready setpoint to " + setpoint);
+        }
+
         shooter.setFlywheel(setpoint);
     }
 
     @Override
     public void execute()
     {
-        SmartDashboard.putNumber("Flywheel speed", shooter.getFlyWheelSpeed());
+        SmartDashboard.putNumber("Flywheel speed", currentSpeed);
     }
 
     @Override
     public boolean isFinished()
     {
-        if(shooter.getFlyWheelSpeed() > setpoint)
+        currentSpeed = shooter.getFlyWheelSpeed();
+        if(Math.abs(currentSpeed-setpoint) < 120)
         {
             onTargetCount++;
         }
@@ -43,7 +60,7 @@ public class SpinUpFlyWheelCommand extends CommandBase
         {
             onTargetCount = 0;
         }
-        return onTargetCount == onTargetThreshold;
+        return onTargetCount >= onTargetThreshold;
     }
 
     @Override
@@ -51,7 +68,7 @@ public class SpinUpFlyWheelCommand extends CommandBase
     {
         if (interrupted)
         {
-        shooter.setFlywheel(0);
+            shooter.setFlywheel(0);
         }
     }
 }

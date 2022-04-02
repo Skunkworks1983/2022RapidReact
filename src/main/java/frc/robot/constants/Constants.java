@@ -15,6 +15,7 @@ public final class Constants
         public static final int ENABLE_MANUAL_CONTROLS = 5;
         public static final int MANUAL_UPWARD_COLLECTOR_BUTTON = 6;
         public static final int MANUAL_DOWNWARD_COLLECTOR_BUTTON = 7;
+        public static final int COLLECTOR_ENCODER_RESET_BUTTON = 8;
         public static final int SPIN_UP_FLYWHEEL_HIGH = 9;
         public static final int SPIN_UP_FLYWHEEL_LOW = 10;
         public static final int COLLECTOR_IN = 11;
@@ -22,7 +23,7 @@ public final class Constants
         public static final int INDEXER_SHOOT_WHEN_READY = 13;
         public static final int COLLECTOR_OUT = 14;
         public static final int INDEXER_OUTPUT_BUTTON = 15;
-        public static final int COLLECTOR_ENCODER_RESET_BUTTON = 8;
+        public static final int CLIMBER_TOGGLE_BUTTON = 1; //todo figure out the button id
     }
 
     public class JoystickPorts
@@ -40,16 +41,21 @@ public final class Constants
         public static final double KP_VALUE = 1/90.;
         //Might need to multiple number by 1024 because of the motor controller
         public static final double COLLECTOR_MOTOR_1_KP = 0.025;
+        public static final double COLLECTOR_INTAKE_SPEED = -0.5;
     }
 
     public class Shooter
     {
-        public static final double INDEXER_LOAD_SPEED = 0.4;
-        public static final double LIFT_BALL_LOAD_SPEED = 0.5;
-        public static final double FLY_WHEEL_KP = .08;
-        public static final double FLY_WHEEL_KF = .0456;
-        public static final double HIGH_GOAL_SPEED = 14300;
+        public static final double INDEXER_LOAD_SPEED = 0.275;
+        public static final double LIFT_BALL_LOAD_SPEED = 5250;
+        public static final double FLY_WHEEL_KP = 0.31;
+        public static final double FLY_WHEEL_KF = .04885;
+        public static final double HIGH_GOAL_SPEED = 13700;
         public static final double LOW_GOAL_SPEED = 9550;
+        public static final double LIFT_BALL_KP = 0.065;
+        public static final double LIFT_BALL_KF = 0.05644;
+        public static final String SMART_DASHBOARD_FLY_WHEEL_KP = "flyWheelKp";
+        public static final String SMART_DASHBOARD_FLY_WHEEL_KF = "flyWheelKf";
     }
 
     public class Drivebase
@@ -83,8 +89,16 @@ public final class Constants
         public static final double AUTO_RIGHT_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN = 2.0;
         public static final double AUTO_RIGHT_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE = 0.2;
         // Exit Tarmac Constants
-        public static final int EXIT_TARMAC_DRIVE_DISTANCE = 10;
+        public static final int EXIT_TARMAC_DRIVE_DISTANCE = 8;
 
+    }
+
+    public class Climber
+    {
+        public static final int RIGHT_SOLENOID_UP_PORT = 0;
+        public static final int RIGHT_SOLENOID_DOWN_PORT = 1;
+        public static final int LEFT_SOLENOID_UP_PORT = 2;
+        public static final int LEFT_SOLENOID_DOWN_PORT = 3;
     }
 
     public class Falcon500
@@ -143,6 +157,12 @@ public final class Constants
 
     public static class EncoderPorts
     {
+
+        public class Shooter
+        {
+            public static final int INTAKE_SENSOR_PORT = 0;
+            public static final int BEFORE_FLYWHEEL_SENSOR_PORT = 1;
+        }
 
         public class TwoMotorTalonSRX
         {
