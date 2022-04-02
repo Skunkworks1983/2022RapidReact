@@ -23,8 +23,8 @@ public class Shooter extends SubsystemBase
     private TalonFX flywheel = new TalonFX(FLYWHEEL_DEVICE_NUMBER);
     private TalonSRX liftBall = new TalonSRX(LIFT_BALL_DEVICE_NUMBER);
     private TalonSRX indexer = new TalonSRX(INDEXER_DEVICE_NUMBER);
-    private DigitalInput intakeSensor = new DigitalInput(0);
-    private DigitalInput beforeFlyWheel = new DigitalInput(1);
+    private DigitalInput intakeSensor = new DigitalInput(Constants.EncoderPorts.Shooter.INTAKE_SENSOR_PORT);
+    private DigitalInput beforeFlyWheel = new DigitalInput(Constants.EncoderPorts.Shooter.BEFORE_FLYWHEEL_SENSOR_PORT);
 
     private double target;
 
@@ -36,11 +36,15 @@ public class Shooter extends SubsystemBase
         {
             setTarget(speed);
         }
+        else if(speed == 0)
+        {
+            flywheel.set(TalonFXControlMode.Disabled, 0);
+        }
     }
 
     public void setLiftBall(double speed)
     {
-        liftBall.set(TalonSRXControlMode.PercentOutput, speed);
+        liftBall.set(TalonSRXControlMode.Velocity, speed);
     }
 
     public void setIndexer(double speed)
@@ -82,15 +86,20 @@ public class Shooter extends SubsystemBase
         flywheel.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor, 30, 30);
         flywheel.config_kF(0, Constants.Shooter.FLY_WHEEL_KF);
         flywheel.config_kP(0, Constants.Shooter.FLY_WHEEL_KP);
+
         flywheel.selectProfileSlot(0, 0);
-        flywheel.configClosedloopRamp(0.5);
+        flywheel.configClosedloopRamp(0.1);
         flywheel.setNeutralMode(NeutralMode.Coast);
     }
 
     /** Creates a new Shooter. */
     public Shooter()
     {
+
         initializeFlywheel();
+        liftBall.config_kP(0, Constants.Shooter.LIFT_BALL_KP);
+        liftBall.config_kF(0, Constants.Shooter.LIFT_BALL_KF);
+        liftBall.selectProfileSlot(0, 0);
         liftBall.setNeutralMode(NeutralMode.Brake);
     }
 
@@ -98,6 +107,7 @@ public class Shooter extends SubsystemBase
     public void periodic()
     {
         // This method will be called once per scheduler run
+        //SmartDashboard.putNumber("Lift ball speed", getLiftBallSpeed());
     }
 
 
@@ -105,5 +115,11 @@ public class Shooter extends SubsystemBase
     public void simulationPeriodic()
     {
         // This method will be called once per scheduler run during simulation
+    }
+
+    public void smartDashboardReader()
+    {
+        flywheel.config_kF(0, SmartDashboard.getNumber(Constants.Shooter.SMART_DASHBOARD_FLY_WHEEL_KF, Constants.Shooter.FLY_WHEEL_KF));
+        flywheel.config_kP(0, SmartDashboard.getNumber(Constants.Shooter.SMART_DASHBOARD_FLY_WHEEL_KP, Constants.Shooter.FLY_WHEEL_KP));
     }
 }

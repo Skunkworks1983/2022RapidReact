@@ -9,20 +9,23 @@ public class SpinUpFlyWheelCommand extends CommandBase
 {
     private Double setpoint;
     private int onTargetCount;
-    private int onTargetThreshold = 3;
+    private int onTargetThreshold = 10;
     boolean isAuto = false;
+    private double currentSpeed;
     public SpinUpFlyWheelCommand(Shooter s, Double speed)
     {
         addRequirements();
         shooter = s;
         setpoint = speed;
         isAuto = true;
+        currentSpeed = 0;
     }
 
     public SpinUpFlyWheelCommand(Shooter s)
     {
         addRequirements();
         shooter = s;
+        currentSpeed = 0;
     }
 
     Shooter shooter;
@@ -42,13 +45,14 @@ public class SpinUpFlyWheelCommand extends CommandBase
     @Override
     public void execute()
     {
-        SmartDashboard.putNumber("Flywheel speed", shooter.getFlyWheelSpeed());
+        SmartDashboard.putNumber("Flywheel speed", currentSpeed);
     }
 
     @Override
     public boolean isFinished()
     {
-        if(shooter.getFlyWheelSpeed() > setpoint)
+        currentSpeed = shooter.getFlyWheelSpeed();
+        if(Math.abs(currentSpeed-setpoint) < 120)
         {
             onTargetCount++;
         }

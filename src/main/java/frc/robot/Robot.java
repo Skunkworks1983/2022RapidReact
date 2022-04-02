@@ -5,6 +5,10 @@
 
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -12,9 +16,11 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.auto.*;
 import frc.robot.commands.drivebase.ArcadeDrive;
+import frc.robot.constants.Constants;
 import frc.robot.services.Oi;
 import frc.robot.subsystems.collector.Collector;
 import frc.robot.subsystems.Drivebase;
+import frc.robot.subsystems.climber.Climber;
 import frc.robot.subsystems.drivebases.Drivebase4MotorFalcon500;
 import frc.robot.subsystems.shooter.Shooter;
 
@@ -41,6 +47,10 @@ public class Robot extends TimedRobot
 
     private SendableChooser autoChooser;
 
+    private Climber theClimber;
+
+    private Compressor theCompressor;
+
     /**
      * This method is run when the robot is first started up and should be used for any
      * initialization code.
@@ -55,6 +65,8 @@ public class Robot extends TimedRobot
         theShooter = new Shooter();
         theCollector = new Collector();
         autoChooser = new SendableChooser();
+        theClimber = new Climber();
+        theCompressor = new Compressor(0, PneumaticsModuleType.CTREPCM);
         autoChooser.addOption("twoBallHighRight", new TwoBallAutoRight(theDrivebase, theCollector, theShooter));
         autoChooser.addOption("twoBallHighCenter", new TwoBallAutoCenter(theDrivebase, theCollector, theShooter));
         autoChooser.addOption("twoBallHighLeft", new TwoBallAutoLeft(theDrivebase, theCollector, theShooter));
@@ -63,7 +75,12 @@ public class Robot extends TimedRobot
         autoChooser.addOption("oneBallAutosLow", new OneBallAutosLowCommandGroup(theShooter, theDrivebase));
         SmartDashboard.putData("autoChooser", autoChooser);
         SmartDashboard.putNumber("Shoot delay",0);
-        theOi = new Oi(theCollector, theDrivebase, theShooter);
+        SmartDashboard.putNumber(Constants.Shooter.SMART_DASHBOARD_FLY_WHEEL_KP, Constants.Shooter.FLY_WHEEL_KP);
+        SmartDashboard.putNumber(Constants.Shooter.SMART_DASHBOARD_FLY_WHEEL_KF, Constants.Shooter.FLY_WHEEL_KF);
+        theOi = new Oi(theCollector, theDrivebase, theShooter, theClimber);
+        UsbCamera camera = CameraServer.startAutomaticCapture();
+        camera.setFPS(15);
+        camera.setResolution(160, 120);
     }
     
     
