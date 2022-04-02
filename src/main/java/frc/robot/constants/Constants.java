@@ -34,6 +34,11 @@ public final class Constants
         public static final int BUTTON_STICK_PORT = 2;
     }
 
+    public class LeftJoystickButtons
+    {
+        public static final int Trigger = 2;
+    }
+
     public class Collector
     {
         public static final int GEAR_RATIO = 16;
@@ -50,7 +55,7 @@ public final class Constants
         public static final double LIFT_BALL_LOAD_SPEED = 5250;
         public static final double FLY_WHEEL_KP = 0.31;
         public static final double FLY_WHEEL_KF = .04885;
-        public static final double HIGH_GOAL_SPEED = 13800;
+        public static final double HIGH_GOAL_SPEED = 13900;
         public static final double LOW_GOAL_SPEED = 9550;
         public static final double LIFT_BALL_KP = 0.065;
         public static final double LIFT_BALL_KF = 0.05644;

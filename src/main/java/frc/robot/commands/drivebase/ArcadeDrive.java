@@ -44,10 +44,11 @@ public class ArcadeDrive extends CommandBase
 //        SmartDashboard.putNumber("errorRight", errorRight);
         outputLeft = KP * errorLeft + KF * targetLeft;
         outputRight = KP * errorRight + KF * targetRight;
+
         if(oi.isToggleClimberPressed() || oi.isLeftStickTriggerPressed())
         {
             System.out.println("driving slow");
-            drivebase.runMotor(outputLeft/2, outputRight/2);
+            drivebase.runMotor(outputLeft*0.35, outputRight*0.35);
         }
         else
         {
