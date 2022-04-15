@@ -35,14 +35,7 @@ public class IntakeCommand extends CommandBase
     @Override
     public boolean isFinished()
     {
-        if (shooter.isBallBeforeFlyWheel())
-        {
-            return shooter.isBallBeforeFlyWheel();
-        }
-        else
-        {
-            return shooter.isBallAtIntake();
-        }
+        return shooter.isBallBeforeFlyWheel() && shooter.isBallAtIntake();
     }
 
     @Override

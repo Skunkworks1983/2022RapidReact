@@ -34,6 +34,14 @@ public class RotateCommand extends CommandBase
     {
         double error = finishDegree - drivebase.getHeading();
         double speed = (Constants.Drivebase.ANGLE_KP * error) + Math.copySign(Constants.Drivebase.DRIVEBASE_KF, error);
+        if (speed > 0.5)
+        {
+            speed = 0.5;
+        }
+        if(speed < -0.5)
+        {
+            speed = -0.5;
+        }
         drivebase.runMotor(speed, -speed);
         //SmartDashboard.putNumber("angle", drivebase.getHeading());
     }

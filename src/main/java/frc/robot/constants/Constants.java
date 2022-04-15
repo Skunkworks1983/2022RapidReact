@@ -68,9 +68,9 @@ public final class Constants
         public static final double GEAR_RATIO = 10.71;
         public static final double WHEEL_DIAMETER = 0.5;
         public static final double DISTANCE_KP = 0.05;
-        public static final double ROTATE_KP = 0.005;
+        public static final double ROTATE_KP = 0.001;
         public static final double ANGLE_KP = 0.018;
-        public static final double DRIVEBASE_KF = 0.2;
+        public static final double DRIVEBASE_KF = 0.08;
         public static final int THRESHOLD_ROTATE = 3;
         // Auto Left Constants
         public static final double AUTO_LEFT_DRIVE_AND_COLLECT_DISTANCE = 3.5;
@@ -94,7 +94,7 @@ public final class Constants
         public static final double AUTO_RIGHT_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN = 2.0;
         public static final double AUTO_RIGHT_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE = 0.2;
         // Exit Tarmac Constants
-        public static final int EXIT_TARMAC_DRIVE_DISTANCE = -hyv 45 bt5     8;
+        public static final int EXIT_TARMAC_DRIVE_DISTANCE = -8;
 
     }
 

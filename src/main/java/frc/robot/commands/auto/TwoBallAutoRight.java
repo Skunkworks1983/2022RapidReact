@@ -2,6 +2,7 @@ package frc.robot.commands.auto;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.commands.collector.MoveCollectorMotorControllerCommand;
+import frc.robot.commands.drivebase.DriveDistanceCommand;
 import frc.robot.commands.drivebase.RotateCommand;
 import frc.robot.constants.Constants;
 import frc.robot.subsystems.collector.Collector;
@@ -23,8 +24,14 @@ public class TwoBallAutoRight extends SequentialCommandGroup
                         //TimedCollectCommandGroup collects for a certain amount of time in one spot without leaving
                         new MoveCollectorMotorControllerCommand(collector, false),
                         //Moves collector up
+                        new DriveDistanceCommand(drivebase, Constants.Drivebase.AUTO_RIGHT_DRIVE_DISTANCE),
+
                         new RotateCommand(drivebase, Constants.Drivebase.AUTO_RIGHT_ROTATE),
                         //Rotates
+                        new MoveCollectorMotorControllerCommand(collector, false),
+                        //moves collector up after turn
+
+
                         new TimedDriveForwardCommandGroup(Constants.Drivebase.AUTO_RIGHT_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN,
                                                           Constants.Drivebase.AUTO_RIGHT_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE,
                                                           drivebase),
