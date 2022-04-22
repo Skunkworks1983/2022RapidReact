@@ -13,7 +13,8 @@ public class LoadBothBallsAndCollectCommandGroup extends ParallelCommandGroup
 {
     public LoadBothBallsAndCollectCommandGroup(Shooter shooter, Collector collector, Double speed)
     {
-        super(new LoadFirstBallCommand(shooter), new LoadSecondBallCommand(shooter),
+        super(//new LoadFirstBallCommand(shooter),
+               new LoadSecondBallCommand(shooter),
                 new IntakeCommand(collector, shooter, -0.3));
     }
 }

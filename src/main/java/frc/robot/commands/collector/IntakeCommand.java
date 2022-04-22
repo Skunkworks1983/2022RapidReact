@@ -29,7 +29,6 @@ public class IntakeCommand extends CommandBase
     {
         super.execute();
         collector.collectBalls(speed);
-        System.out.println("executed");
     } // wheel stuff yay
 
     @Override
@@ -43,6 +42,5 @@ public class IntakeCommand extends CommandBase
     {
         super.end(interrupted);
         collector.collectBalls(0);
-        System.out.println("ended yay!");
     }
 }

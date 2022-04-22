@@ -20,22 +20,25 @@ public class LoadSecondBallCommand extends CommandBase
     @Override
     public void initialize()
     {
-
+        shooter.setIndexer(Constants.Shooter.INDEXER_LOAD_SPEED);
+        System.out.println("started indexer");
     }
 
     @Override
     public void execute()
     {
-        shooter.setIndexer(Constants.Shooter.INDEXER_LOAD_SPEED);
+
     }
 
     @Override
-    public boolean isFinished() {
-        if (shooter.isBallAtIntake())
+    public boolean isFinished()
+    {
+        if (shooter.isBallAtIntake() && shooter.isBallBeforeFlyWheel())
         {
             System.out.println("Second ball Is Finished");
+            return true;
         }
-        return shooter.isBallAtIntake();
+        return false;
     }
 
     @Override
