@@ -69,6 +69,7 @@ public final class Constants
         public static final double WHEEL_DIAMETER = 0.5;
         public static final double DISTANCE_KP = 0.05;
         public static final double ROTATE_KP = 0.001;
+        public static final double ROTATE_KF = 0.04;
         public static final double ANGLE_KP = 0.018;
         public static final double DRIVEBASE_KF = 0.08;
         public static final int THRESHOLD_ROTATE = 3;
@@ -89,8 +90,8 @@ public final class Constants
         public static final double AUTO_CENTER_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE = 0.2;
         // Auto Right Constants
         public static final double AUTO_RIGHT_DRIVE_AND_COLLECT_DISTANCE = 3.0;
-        public static final double AUTO_RIGHT_DRIVE_DISTANCE = -3;
-        public static final int AUTO_RIGHT_ROTATE = -150;
+        public static final double AUTO_RIGHT_DRIVE_DISTANCE = -3.1;
+        public static final int AUTO_RIGHT_ROTATE = -160;
         public static final double AUTO_RIGHT_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN = 2.0;
         public static final double AUTO_RIGHT_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE = 0.2;
         // Exit Tarmac Constants

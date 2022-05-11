@@ -33,7 +33,7 @@ public class RotateCommand extends CommandBase
     public void execute()
     {
         double error = finishDegree - drivebase.getHeading();
-        double speed = (Constants.Drivebase.ANGLE_KP * error) + Math.copySign(Constants.Drivebase.DRIVEBASE_KF, error);
+        double speed = (Constants.Drivebase.ANGLE_KP * error) + Math.copySign(Constants.Drivebase.ROTATE_KF, error);
         if (speed > 0.5)
         {
             speed = 0.5;
