@@ -90,7 +90,7 @@ public final class Constants
         public static final double AUTO_CENTER_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE = 0.2;
         // Auto Right Constants
         public static final double AUTO_RIGHT_DRIVE_AND_COLLECT_DISTANCE = 3.0;
-        public static final double AUTO_RIGHT_DRIVE_DISTANCE = -3.1;
+        public static final double AUTO_RIGHT_DRIVE_DISTANCE = -3.6;
         public static final int AUTO_RIGHT_ROTATE = -160;
         public static final double AUTO_RIGHT_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN = 2.0;
         public static final double AUTO_RIGHT_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE = 0.2;
