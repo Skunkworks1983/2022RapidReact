@@ -45,7 +45,7 @@ public final class Constants
         public static final int THRESHOLD = 2;
         public static final double KP_VALUE = 1/90.;
         //Might need to multiple number by 1024 because of the motor controller
-        public static final double COLLECTOR_MOTOR_1_KP = 0.025;
+        public static final double COLLECTOR_MOTOR_1_KP = 0.028;
         public static final double COLLECTOR_INTAKE_SPEED = -0.5;
     }
 
@@ -76,7 +76,7 @@ public final class Constants
         // Auto Left Constants
         public static final double AUTO_LEFT_DRIVE_AND_COLLECT_DISTANCE = 3.5;
         public static final double AUTO_LEFT_DRIVE_DISTANCE = -4.0;
-        public static final int AUTO_LEFT_ROTATE = 153;
+        public static final int AUTO_LEFT_ROTATE = 165;
         public static final double AUTO_LEFT_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN = 1.1;
         public static final double AUTO_LEFT_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE = 0.15;
         // Auto Center Constants
@@ -84,15 +84,15 @@ public final class Constants
         public static final int AUTO_CENTER_ROTATE_ONE = -10;
         public static final double AUTO_CENTER_DRIVE_AND_COLLECT_DISTANCE = 3.0;
         public static final int AUTO_CENTER_ROTATE_TWO = -150;
-        public static final double AUTO_CENTER_DRIVE_DISTANCE_TWO = 8.0;
+        public static final double AUTO_CENTER_DRIVE_DISTANCE_TWO = 7.0;
         public static final int AUTO_CENTER_ROTATE_THREE = -65;
-        public static final double AUTO_CENTER_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN = 3.0;
+        public static final double AUTO_CENTER_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN = 2.0;
         public static final double AUTO_CENTER_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE = 0.2;
         // Auto Right Constants
         public static final double AUTO_RIGHT_DRIVE_AND_COLLECT_DISTANCE = 3.0;
         public static final double AUTO_RIGHT_DRIVE_DISTANCE = -3.6;
         public static final int AUTO_RIGHT_ROTATE = -160;
-        public static final double AUTO_RIGHT_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN = 2.0;
+        public static final double AUTO_RIGHT_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN = 1.5;
         public static final double AUTO_RIGHT_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE = 0.2;
         // Exit Tarmac Constants
         public static final int EXIT_TARMAC_DRIVE_DISTANCE = -8;

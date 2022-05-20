@@ -23,6 +23,8 @@ public class TwoBallAutoLeft extends SequentialCommandGroup
                     new MoveCollectorMotorControllerCommand(collector, false),
                     //Moves collector up
                     new RotateCommand(drivebase, Constants.Drivebase.AUTO_LEFT_ROTATE),
+                    //move collector up after spin
+                    new MoveCollectorMotorControllerCommand(collector, false),
                     //Up
                     new TimedDriveForwardCommandGroup(Constants.Drivebase.AUTO_LEFT_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN,
                             Constants.Drivebase.AUTO_LEFT_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE, drivebase),

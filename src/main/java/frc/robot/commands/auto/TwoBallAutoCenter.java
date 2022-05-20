@@ -31,6 +31,8 @@ public class TwoBallAutoCenter extends SequentialCommandGroup
                 new MoveCollectorMotorControllerCommand(collector, false),
                 //Moves collector up
                 new RotateCommand(drivebase, Constants.Drivebase.AUTO_CENTER_ROTATE_TWO),
+                //moves collector up after spin
+                new MoveCollectorMotorControllerCommand(collector, false),
                 //Rotates
                 new DriveDistanceCommand(drivebase, Constants.Drivebase.AUTO_CENTER_DRIVE_DISTANCE_TWO),
                 //Drives forward
