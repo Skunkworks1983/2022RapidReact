@@ -75,9 +75,10 @@ public final class Constants
         public static final int THRESHOLD_ROTATE = 3;
         // Auto Left Constants
         public static final double AUTO_LEFT_DRIVE_AND_COLLECT_DISTANCE = 3.5;
-        public static final double AUTO_LEFT_DRIVE_DISTANCE = -4.0;
         public static final int AUTO_LEFT_ROTATE = 165;
         public static final double AUTO_LEFT_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN = 1.1;
+        public static final double AUTO_LEFT_RETURN_HUB_DISTANCE = 5.9;
+        public static final double AUTO_LEFT_RETURN_HUB_TIMEOUT = 3;
         public static final double AUTO_LEFT_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE = 0.15;
         // Auto Center Constants
         public static final double AUTO_CENTER_DRIVE_DISTANCE_ONE = 2.0;

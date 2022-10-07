@@ -115,6 +115,7 @@ public class Robot extends TimedRobot
     @Override
     public void autonomousInit()
     {
+        CommandScheduler.getInstance().cancelAll();
         SendableChooser autoChooser = (SendableChooser) SmartDashboard.getData("autoChooser");
         autonomousCommand = (Command)autoChooser.getSelected();
         if (autonomousCommand != null)

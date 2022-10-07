@@ -2,6 +2,7 @@ package frc.robot.commands.auto;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.commands.collector.MoveCollectorMotorControllerCommand;
+import frc.robot.commands.drivebase.DriveDistanceCommand;
 import frc.robot.commands.drivebase.RotateCommand;
 import frc.robot.constants.Constants;
 import frc.robot.subsystems.collector.Collector;
@@ -26,8 +27,9 @@ public class TwoBallAutoLeft extends SequentialCommandGroup
                     //move collector up after spin
                     new MoveCollectorMotorControllerCommand(collector, false),
                     //Up
-                    new TimedDriveForwardCommandGroup(Constants.Drivebase.AUTO_LEFT_TIMED_DRIVE_FORWARD_HOW_LONG_TO_RUN,
-                            Constants.Drivebase.AUTO_LEFT_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE, drivebase),
+                    new DriveDistanceWithTimeOutCommandGroup(drivebase,Constants.Drivebase.AUTO_LEFT_RETURN_HUB_DISTANCE, Constants.Drivebase.AUTO_LEFT_RETURN_HUB_TIMEOUT),
+                    //new TimedDriveForwardCommandGroup(Constants.Drivebase.AUTO_LEFT_RETURN_HUB_DISTANCE,
+                    //        Constants.Drivebase.AUTO_LEFT_TIMED_DRIVE_FORWARD_HOW_FAST_TO_DRIVE, drivebase),
                     //Drives forward for a certain amount of time
                     new TimedSpinUpAndShootAllBallsHighCommandGroup(shooter)
                     //Shoot balls in high hub for a certain amount of time
