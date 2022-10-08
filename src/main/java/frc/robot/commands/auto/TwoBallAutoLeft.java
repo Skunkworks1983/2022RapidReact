@@ -1,8 +1,6 @@
 package frc.robot.commands.auto;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-import frc.robot.commands.collector.MoveCollectorMotorControllerCommand;
-import frc.robot.commands.drivebase.DriveDistanceCommand;
 import frc.robot.commands.drivebase.RotateCommand;
 import frc.robot.constants.Constants;
 import frc.robot.subsystems.collector.Collector;
@@ -13,7 +11,7 @@ public class TwoBallAutoLeft extends SequentialCommandGroup
 {
     public TwoBallAutoLeft(Drivebase drivebase, Collector collector, Shooter shooter)
     {
-        addCommands(new MoveCollectorMotorControllerCommand(collector, true),
+        addCommands(new MoveCollectorMotorWithTimeOutCommand(collector, true,.5),
                     //Moves collector down
                     new DriveAndCollectCommandGroup(drivebase, shooter, collector,
                                                     Constants.Drivebase.AUTO_LEFT_DRIVE_AND_COLLECT_DISTANCE,
@@ -21,11 +19,11 @@ public class TwoBallAutoLeft extends SequentialCommandGroup
                     //Drives forward and starts collecting motors
                     new TimedCollectCommandGroup(2.5, collector, Constants.Collector.COLLECTOR_INTAKE_SPEED, shooter),
                     //TimedCollectCommandGroup collects for a certain amount of time in one spot without leaving
-                    new MoveCollectorMotorWIthTimeOutCommand(collector, false,.5),
+                    new MoveCollectorMotorWithTimeOutCommand(collector, false,.5),
                     //Moves collector up
                     new RotateCommand(drivebase, Constants.Drivebase.AUTO_LEFT_ROTATE),
                     //move collector up after spin
-                    new MoveCollectorMotorWIthTimeOutCommand(collector, false, 1),
+                    new MoveCollectorMotorWithTimeOutCommand(collector, false, 1),
                     //Up
                     new DriveDistanceWithTimeOutCommandGroup(drivebase,Constants.Drivebase.AUTO_LEFT_RETURN_HUB_DISTANCE, Constants.Drivebase.AUTO_LEFT_RETURN_HUB_TIMEOUT),
                     //new TimedDriveForwardCommandGroup(Constants.Drivebase.AUTO_LEFT_RETURN_HUB_DISTANCE,
