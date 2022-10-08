@@ -15,7 +15,7 @@ public class TwoBallAutoCenter extends SequentialCommandGroup
     {
         addCommands
         (
-                new MoveCollectorMotorControllerCommand(collector, true),
+                new MoveCollectorMotorWithTimeOutCommand(collector, true,.5),
                 //Moves collector down
                 new DriveDistanceCommand(drivebase, Constants.Drivebase.AUTO_CENTER_DRIVE_DISTANCE_ONE),
                 //Drives forward
@@ -28,11 +28,11 @@ public class TwoBallAutoCenter extends SequentialCommandGroup
                 new TimedCollectCommandGroup(2.5, collector, Constants.Collector.COLLECTOR_INTAKE_SPEED,
                                              shooter),
                 //TimedCollectCommandGroup collects for a certain amount of time in one spot without leaving
-                new MoveCollectorMotorControllerCommand(collector, false),
+                new MoveCollectorMotorWithTimeOutCommand(collector, false,.5),
                 //Moves collector up
                 new RotateCommand(drivebase, Constants.Drivebase.AUTO_CENTER_ROTATE_TWO),
                 //moves collector up after spin
-                new MoveCollectorMotorControllerCommand(collector, false),
+                new MoveCollectorMotorWithTimeOutCommand(collector, false,.5),
                 //Rotates
                 new DriveDistanceCommand(drivebase, Constants.Drivebase.AUTO_CENTER_DRIVE_DISTANCE_TWO),
                 //Drives forward

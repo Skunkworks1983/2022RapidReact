@@ -15,14 +15,14 @@ public class TwoBallAutoRight extends SequentialCommandGroup
     {
         addCommands
                 (
-                        new MoveCollectorMotorControllerCommand(collector, true),
+                        new MoveCollectorMotorWithTimeOutCommand(collector, true,.5),
                         //Moves collector down
                         new DriveAndCollectCommandGroup(drivebase, shooter, collector,
                                                         Constants.Drivebase.AUTO_RIGHT_DRIVE_AND_COLLECT_DISTANCE, -0.5),
                         //Drives forward and starts collecting motors
                         new TimedCollectCommandGroup(2.5, collector, Constants.Collector.COLLECTOR_INTAKE_SPEED, shooter),
                         //TimedCollectCommandGroup collects for a certain amount of time in one spot without leaving
-                        new MoveCollectorMotorControllerCommand(collector, false),
+                        new MoveCollectorMotorWithTimeOutCommand(collector, false,.5),
                         //Moves collector up
                         new DriveDistanceCommand(drivebase, 0.5),
 
@@ -30,7 +30,7 @@ public class TwoBallAutoRight extends SequentialCommandGroup
 
                         new RotateCommand(drivebase, Constants.Drivebase.AUTO_RIGHT_ROTATE),
                         //Rotates
-                        new MoveCollectorMotorControllerCommand(collector, false),
+                        new MoveCollectorMotorWithTimeOutCommand(collector, false,.5),
                         //moves collector up after turn
 
 
